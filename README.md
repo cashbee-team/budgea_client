@@ -314,7 +314,51 @@ When the user confirms the share of his accounts with you, he is redirected to t
 |state                |The same string passed when redirecting to the webview                                           | 
 |error                |In case of error, the value will be **access_denied**, meaning the user has canceled the process |  
 
-Eventually, to get the **access_token** from the temporarily code which has been transmitted to you, you must call the API: ```python   try:       if client.handleCallback(received_params):           # Keep the token associated with the user           # you can't get it twice           user.session['access_token'] = client.access_token   except client.StateInvalid:       # error if 'state' param provided to handleCallback doesn't match   except client.AuthFailed:       # There may be an error in the query (look for the message),       # Or return code is 'access_denied', the user has stopped the process  ```  You can now associate this **access_token** to your user, and use it in your next calls to the API with the **Authorization** header.   **IMPORTANT**  It is important that your users are able to go back on the web, authenticated on their Budgea API account, to add or remove accounts shared with you, and mostly to update their credentials if needed.  To do this, when your user is given an access_token, you have to provide him a link to access the webview, similar to the first one, with an additional parameter: a temporarily token (30 minutes life-time).  It can be made with the library, by generating the URL with the following manner: `  print '<a href=\"%s\">Edit your accounts</a>' % client.get_settings_url()` After the modification, the user will go back on the callback URL. It will not be necessary to do anything (the access_token won't be changed).  #### Protocol This section describes the protocol used to set bank and provider accounts of a user, in case you don't want to use the webview.  The idea is to call the following services client-side (with AJAX in case of a web application), to ensure the bank and providers credentials will not be sent to your servers.  1. /auth/init ```http POST /auth/init ``` ```json {    \"auth_token\" : \"fBqjMZbYddebUGlkR445JKPA6pCoRaGb\",    \"type\" : \"temporary\",    \"expires_in\" : 1800 } ``` This service creates a temporarily token, to use in the \"Authorization\" header in next calls to the API  The returned token has a life-time of 30 minutes, and should be transfered to the API then (cf Permanent Token), so that your server can get a permanent access_token.  It is possible to generate a permanent token immediately, by calling the service with the manage_token, or by supply parameters client_id and client_secret.  2. /banks or /providers ```http GET /banks?expand=fields Authorization: Bearer <token> ``` ```json {    \"banks\" : [       {          \"hidden\" : false,          \"charged\" : true,          \"name\" : \"American Express\",          \"id\" : 30,          \"fields\" : [             {                \"values\" : [                   {                      \"label\" : \"Particuliers/Professionnels\",                      \"value\" : \"pp\"                   },                   {                      \"value\" : \"ent\",                      \"label\" : \"Entreprises\"                   }                ],                \"label\" : \"Type de compte\",                \"regex\" : null,                \"name\" : \"website\",                \"type\" : \"list\"             },             {                \"type\" : \"password\",                \"label\" : \"Code secret\",                \"name\" : \"password\",                \"regex\" : \"^[0-9]{6}$\"             }          ],       },       ...    ],    \"total\" : 44, } ``` You get list of connectors, and all associated fields needed to build the form You can use that list to show your user all available banks.  3. /users/me/connections You have to supply the id_bank (ID of the chosen bank) or id_provider (ID of provider), and all requested fields as key/value parameters. You can get the following return codes:  
+Eventually, to get the **access_token** from the temporarily code which has been transmitted to you, you must call the API: 
+
+```python
+   try:
+          if client.handleCallback(received_params):
+          # Keep the token associated with the user           
+          # you can't get it twice           
+          user.session['access_token'] = client.access_token   
+   except client.StateInvalid:       
+   # error if 'state' param provided to handleCallback doesn't match   
+   except client.AuthFailed:       
+   # There may be an error in the query (look for the message),       
+   # Or return code is 'access_denied', the user has stopped the process  
+```
+  
+You can now associate this **access_token** to your user, and use it in your next calls to the API with
+the **Authorization** header.   **IMPORTANT**  It is important that your users are able to go back on the web,
+authenticated on their Budgea API account, to add or remove accounts shared with you, and mostly to update their
+credentials if needed.  To do this, when your user is given an access_token, you have to provide him a link to access
+the webview, similar to the first one, with an additional parameter: a temporarily token (30 minutes life-time).
+  
+It can be made with the library, by generating the URL with the following manner: 
+`  print '<a href=\"%s\">Edit your accounts</a>' % client.get_settings_url()` 
+
+After the modification, the user will go back on the callback URL. It will not be necessary to do anything (the access_token won't be changed).
+  
+#### Protocol 
+
+This section describes the protocol used to set bank and provider accounts of a user, in case you don't want to use 
+the webview.  The idea is to call the following services client-side (with AJAX in case of a web application), 
+to ensure the bank and providers credentials will not be sent to your servers.  1. /auth/init 
+```http 
+POST /auth/init ``` ```json {    \"auth_token\" : \"fBqjMZbYddebUGlkR445JKPA6pCoRaGb\",    \"type\" : \"temporary\",    \"expires_in\" : 1800 } 
+``` 
+This service creates a temporarily token, to use in the \"Authorization\" header in next calls to the API  
+The returned token has a life-time of 30 minutes, and should be transfered to the API then (cf Permanent Token), 
+so that your server can get a permanent access_token.  It is possible to generate a permanent token immediately, by 
+calling the service with the manage_token, or by supply parameters client_id and client_secret.  2. /banks or /providers 
+```http GET /banks?expand=fields Authorization: Bearer <token> ``` 
+```json {    \"banks\" : [       {          \"hidden\" : false,          \"charged\" : true,          \"name\" : \"American Express\",          \"id\" : 30,          \"fields\" : [             {                \"values\" : [                   {                      \"label\" : \"Particuliers/Professionnels\",                      \"value\" : \"pp\"                   },                   {                      \"value\" : \"ent\",                      \"label\" : \"Entreprises\"                   }                ],                \"label\" : \"Type de compte\",                \"regex\" : null,                \"name\" : \"website\",                \"type\" : \"list\"             },             {                \"type\" : \"password\",                \"label\" : \"Code secret\",                \"name\" : \"password\",                \"regex\" : \"^[0-9]{6}$\"             }          ],       },       ...    ],    \"total\" : 44, } 
+```
+
+You get list of connectors, and all associated fields needed to build the form You can use that list to show your user 
+all available banks.  3. /users/me/connections You have to supply the id_bank (ID of the chosen bank) or 
+id_provider (ID of provider), and all requested fields as key/value parameters. You can get the following return codes:  
 
 |Code           |Description                                                  | 
 |---------------|------------------------------------------------------------ | 
