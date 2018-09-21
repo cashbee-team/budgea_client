@@ -63,6 +63,7 @@ Additional headers: Authorization: User's token (private)
 Data format: **application/json** ([http://www.json.org](http://www.json.org/)) Charset: **UTF-8**
 ### Resources
 Each call on an endpoint will return resources. The main resources are:
+
 | Resource            | Description                                                                                                           | 
 |---------------------|:------------------------------------------------------------------------------------------------------------------    | 
 |Users                | Represent a user                                                                                                      |
@@ -77,6 +78,7 @@ The chain of resources is as follow: **Users ∈ Connections ∈ Accounts ∈ Tr
 This API is RESTful, which means it is stateless and each resource is accessed with an uniq URI.  
 
 Several HTTP methods are available:
+
 | Method                  | Description                    | 
 | ------------------------|:-------------------------------| 
 | GET /resources          | List resources                 | 
@@ -125,6 +127,7 @@ There are two user levels:
 ### Default filters
 
 During a call to an URI which lists resources, some filters can be passed as query parameters:
+
 | Parameter   | Type      | Description                                               | 
 | ----------- |:---------:|-----------------------------------------------------------| 
 | offset      | Integer   |Offset of the first returned resource                      | 
@@ -212,6 +215,7 @@ Date: Fri, 14 Mar 2014 08:24:02 GMT
 | unknown       |Inconnu                            |  
 
 #### List of transaction types  
+
 | Type         |Description                        | 
 | -----------  |-----------------------------------| 
 |transfer      |Transfers                          | 
@@ -227,6 +231,7 @@ Date: Fri, 14 Mar 2014 08:24:02 GMT
 |card_summary  |Mensual debit of a deferred card   |  
 
 #### List of synchronization errors  
+
 | Error                      |Description                                                                            | 
 | -----------------------    |-------------------------------------------------------------------------------------  | 
 |wrongpass                   |The authentication on website has failed                                               | 
@@ -241,9 +246,7 @@ Now you know the basics of Budgea API
 - Expand resources 
 - Authenticated calls  
 
-We're good for the basics! 
-
-Now let's see how to integrate Budgea in your app and create your first user.  
+We're good for the basics! Now let's see how to integrate Budgea in your app and create your first user.  
 
 ## Integrate Budgea 
 
@@ -279,7 +282,9 @@ It is responsive, which means it displays correctly on a desktop or a mobile dev
 The API meets the standard [OAuth 2](http://tools.ietf.org/html/rfc6749) and any client library that implements it will 
 be able to facilitate the integration to the Budgea API. We provide PHP, Python and Ruby modules to facilitate the 
 integration.  
-|Language         | Library                                                                                  | |-----------------|----------------------------------------------------------------------------------------  | 
+
+|Language         | Library                                                                                  | 
+|-----------------|----------------------------------------------------------------------------------------  | 
 |PHP              |[BudgeaAPI.php](https://github.com/budgetinsight/budgea-clients/blob/master/BudgeaAPI.php)| 
 |PYTHON           |[budgea_api.py](https://github.com/budgetinsight/budgea-clients/blob/master/budgea_api.py)| 
 |RUBY             |[budgea.rb](https://github.com/budgetinsight/budgea-clients/blob/master/budgea.rb)        |  
@@ -289,6 +294,7 @@ provide a button which redirects on the following page: `https://demo.biapi.pro/
 
 You must first configure your client application. A client, in the OAuth 2 of the term, represents an application 
 accessing to the Budgea API. The parameters to supply to the URL are the following:  
+
 |Parameter            |Description                                                  | 
 |---------------------|------------------------------------------------------------ | 
 |client_id            |The client id of your application                            | 
@@ -301,6 +307,7 @@ You can use our libraries to generate this URL. It is also possible to get the H
 the libraries, the render is as below: ![Share your accounts button](https://demo.biapi.pro/2.0/auth/share/button_icon.png)  
 
 When the user confirms the share of his accounts with you, he is redirected to the callback URL you have defined. This one receives the following parameters:  
+
 |Parameter            |Description                                                                                      | 
 |---------------------|-------------------------------------------------------------------------------------------------| 
 |code                 |A temporary token allowing you to get the **access_token**                                       | 
@@ -308,6 +315,7 @@ When the user confirms the share of his accounts with you, he is redirected to t
 |error                |In case of error, the value will be **access_denied**, meaning the user has canceled the process |  
 
 Eventually, to get the **access_token** from the temporarily code which has been transmitted to you, you must call the API: ```python   try:       if client.handleCallback(received_params):           # Keep the token associated with the user           # you can't get it twice           user.session['access_token'] = client.access_token   except client.StateInvalid:       # error if 'state' param provided to handleCallback doesn't match   except client.AuthFailed:       # There may be an error in the query (look for the message),       # Or return code is 'access_denied', the user has stopped the process  ```  You can now associate this **access_token** to your user, and use it in your next calls to the API with the **Authorization** header.   **IMPORTANT**  It is important that your users are able to go back on the web, authenticated on their Budgea API account, to add or remove accounts shared with you, and mostly to update their credentials if needed.  To do this, when your user is given an access_token, you have to provide him a link to access the webview, similar to the first one, with an additional parameter: a temporarily token (30 minutes life-time).  It can be made with the library, by generating the URL with the following manner: `  print '<a href=\"%s\">Edit your accounts</a>' % client.get_settings_url()` After the modification, the user will go back on the callback URL. It will not be necessary to do anything (the access_token won't be changed).  #### Protocol This section describes the protocol used to set bank and provider accounts of a user, in case you don't want to use the webview.  The idea is to call the following services client-side (with AJAX in case of a web application), to ensure the bank and providers credentials will not be sent to your servers.  1. /auth/init ```http POST /auth/init ``` ```json {    \"auth_token\" : \"fBqjMZbYddebUGlkR445JKPA6pCoRaGb\",    \"type\" : \"temporary\",    \"expires_in\" : 1800 } ``` This service creates a temporarily token, to use in the \"Authorization\" header in next calls to the API  The returned token has a life-time of 30 minutes, and should be transfered to the API then (cf Permanent Token), so that your server can get a permanent access_token.  It is possible to generate a permanent token immediately, by calling the service with the manage_token, or by supply parameters client_id and client_secret.  2. /banks or /providers ```http GET /banks?expand=fields Authorization: Bearer <token> ``` ```json {    \"banks\" : [       {          \"hidden\" : false,          \"charged\" : true,          \"name\" : \"American Express\",          \"id\" : 30,          \"fields\" : [             {                \"values\" : [                   {                      \"label\" : \"Particuliers/Professionnels\",                      \"value\" : \"pp\"                   },                   {                      \"value\" : \"ent\",                      \"label\" : \"Entreprises\"                   }                ],                \"label\" : \"Type de compte\",                \"regex\" : null,                \"name\" : \"website\",                \"type\" : \"list\"             },             {                \"type\" : \"password\",                \"label\" : \"Code secret\",                \"name\" : \"password\",                \"regex\" : \"^[0-9]{6}$\"             }          ],       },       ...    ],    \"total\" : 44, } ``` You get list of connectors, and all associated fields needed to build the form You can use that list to show your user all available banks.  3. /users/me/connections You have to supply the id_bank (ID of the chosen bank) or id_provider (ID of provider), and all requested fields as key/value parameters. You can get the following return codes:  
+
 |Code           |Description                                                  | 
 |---------------|------------------------------------------------------------ | 
 |200            |The connection has succeed and has been created              | 
@@ -318,11 +326,13 @@ Eventually, to get the **access_token** from the temporarily code which has been
 4. Permanent token If the user validates the share of accounts with you, it is necessary to transform the temporarily 
 code to a permanent access_token.  To do that, you have to supply it to your server, which should do a POST 
 request on `/auth/token/access` with the following parameters: 
+
 |Parameter            |Description                                                     | 
 |---------------------|----------------------------------------------------------------| 
 |code                 |The temporarily token which will let you get the access_token   | 
 |client_id            |The ID of your client application                               | 
 |client_secret        |The secret of your client application                           |  
+
 ```json POST /auth/token/access  {    \"client_id\" : 17473055,    \"client_secret\" : \"54tHJHjvodbANVzaRtcLzlHGXQiOgw80\",    \"code\" : \"fBqjMZbYddebUGlkR445JKPA6pCoRaGb\" } ``` 
 ```http HTTP/1.1 200 OK  {    \"access_token\" : \"7wBPuFfb1Hod82f1+KNa0AmrkIuQ3h1G\",    \"token_type\":\"Bearer\" } ```  
 
@@ -331,7 +341,9 @@ request on `/auth/token/access` with the following parameters:
 Another important call is when a user wants to add/remove connections to banks or providers, or to change the password
 on one of them, it is advised to give him a temporarily code from the permanent access_token, with the following call 
 (using the access_token as bearer): 
+
 ```http POST /auth/token/code Authorization: Bearer <token> ``` 
+
 ```json
 {    \"code\" : \"/JiDppWgbmc+5ztHIUJtHl0ynYfw682Z\",    \"type\" : \"temporary\",    \"expires_in\" : 1800, } 
 ``` 
@@ -363,6 +375,7 @@ Using webhooks allows you to get the most up-to-date data of your users, after e
 The automatic synchronization makes it possible to recover new bank entries, or new invoices, at a given frequency. 
 You have the possibility to add webhooks on several events, and choose to receive each one on a distinct URL. 
 To see the list of available webhooks you can call the endpoint hereunder: 
+
 ``` 
 curl -X GET \
    https://demo.biapi.pro/2.0/webhooks_events \
@@ -370,6 +383,7 @@ curl -X GET \
 ```
 
 The background synchronizations for each user are independent, and their plannings are spread over the day so that they do not overload any website.  Once the synchronization of a user is over, a POST request is sent on the callback URL you have defined, including all webhook data. A typical json sent to your server is as below: 
+
 ```http
 POST /callback HTTP/1.1 Host: example.org 
 Content-Length: 959 Accept-Encoding: gzip, deflate, compress 
@@ -378,6 +392,7 @@ Content-Type: application/json; charset=utf-8
 Authorization: Bearer sl/wuqgD2eOo+4Zf9FjvAz3YJgU+JKsJ  
 {    \"connections\" : [       {          \"accounts\" : [             {                \"balance\" : 7481.01,                \"currency\" : {                   \"symbol\" : \"€\",                   \"id\" : \"EUR\",                   \"prefix\" : false                },                \"deleted\" : null,                \"display\" : true,                \"formatted_balance\" : \"7 481,01 €\",                \"iban\" : \"FR76131048379405300290000016\",                \"id\" : 17,                \"id_connection\" : 7,                \"investments\" : [                   {                      \"code\" : \"FR0010330902\",                      \"description\" : \"\",                      \"diff\" : -67.86,                      \"id\" : 55,                      \"id_account\" : 19,                      \"id_type\" : 1,                      \"label\" : \"Agressor PEA\",                      \"portfolio_share\" : 0.48,                      \"prev_diff\" : 2019.57,                      \"quantity\" : 7.338,                      \"type\" : {                         \"color\" : \"AABBCC\",                         \"id\" : 1,                         \"name\" : \"Fonds action\"                      },                      \"unitprice\" : 488.98,                      \"unitvalue\" : 479.73,                      \"valuation\" : 3520.28                   }                ],                \"last_update\" : \"2015-07-04 15:17:30\",                \"name\" : \"Compte chèque\",                \"number\" : \"3002900000\",                \"transactions\" : [                   {                      \"active\" : true,                      \"application_date\" : \"2015-06-17\",                      \"coming\" : false,                      \"comment\" : null,                      \"commission\" : null,                      \"country\" : null,                      \"date\" : \"2015-06-18\",                      \"date_scraped\" : \"2015-07-04 15:17:30\",                      \"deleted\" : null,                      \"documents_count\" : 0,                      \"formatted_value\" : \"-16,22 €\",                      \"id\" : 309,                      \"id_account\" : 17,                      \"id_category\" : 9998,                      \"id_cluster\" : null,                      \"last_update\" : \"2015-07-04 15:17:30\",                      \"new\" : true,                      \"original_currency\" : null,                      \"original_value\" : null,                      \"original_wording\" : \"FACTURE CB HALL'S BEER\",                      \"rdate\" : \"2015-06-17\",                      \"simplified_wording\" : \"HALL'S BEER\",                      \"state\" : \"parsed\",                      \"stemmed_wording\" : \"HALL'S BEER\",                      \"type\" : \"card\",                      \"value\" : -16.22,                      \"wording\" : \"HALL'S BEER\"                   }                ],                \"type\" : \"checking\"             }          ],          \"bank\" : {             \"id_weboob\" : \"ing\",             \"charged\" : true,             \"name\" : \"ING Direct\",             \"id\" : 7,             \"hidden\" : false          },          \"error\" : null,          \"expire\" : null,          \"id\" : 7,          \"id_user\" : 7,          \"id_bank\" : 41,          \"last_update\" : \"2015-07-04 15:17:31\"       }    ],    \"total\" : 1,    \"user\" : {       \"signin\" : \"2015-07-04 15:17:29\",       \"id\" : 7,       \"platform\" : \"sharedAccess\"    } } 
 ```
+
 The authentication on the callback is made with the access_token of the user (which is a shared secret between your server and the Budgea API).  When you are in production, it is needed to define a HTTPS URL using a valid certificate, delivered by a recognized authority. If this is not the case, you can contact us to add your CA (Certificate Authority) to our PKI (Public Key Infrastructure).  Important: it is necessary to send back a HTTP 200 code, without what we consider that data is not correctly taken into account on your system, and it will be sent again at the next user synchronization.  ## Guidelines for production Now you should have integrated the API inside your application. Make sure your Webhooks URLs are in HTTPS, if so you can enable the production state of the API.  To make things great, here are some good practices, please check you have respected them: - You have provided to your users a way to configure their accounts - You have provided to your users a way to change their account passwords - You consider the **error** field of Connections, to alert the user in case the state is **wrongpass** - You map IDs of Accounts, Subscriptions, Transactions and Documents in your application, to be sure to correctly match them - When the deleted field is set on a bank transaction, you delete it in your database - You don't loop on all users to launch synchronizations, this might saturate the service  If you have questions about above points, please contact us. Otherwise, you can put into production! 
 
 This SDK is automatically generated by the [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) project:
