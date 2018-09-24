@@ -44,38 +44,38 @@ module BudgeaClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-          :'id' => :'id',
-          :'name' => :'name',
-          :'id_weboob' => :'id_weboob',
-          :'hidden' => :'hidden',
-          :'charged' => :'charged',
-          :'code' => :'code',
-          :'beta' => :'beta',
-          :'color' => :'color',
-          :'slug' => :'slug',
-          :'sync_frequency' => :'sync_frequency',
+          :'id'              => :'id',
+          :'name'            => :'name',
+          :'id_weboob'       => :'id_weboob',
+          :'hidden'          => :'hidden',
+          :'charged'         => :'charged',
+          :'code'            => :'code',
+          :'beta'            => :'beta',
+          :'color'           => :'color',
+          :'slug'            => :'slug',
+          :'sync_frequency'  => :'sync_frequency',
           :'months_to_fetch' => :'months_to_fetch',
-          :'account_types' => :'account_types',
-          :'fields' => :'fields'
+          :'account_types'   => :'account_types',
+          :'fields'          => :'fields'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-          :'id' => :'Integer',
-          :'name' => :'String',
-          :'id_weboob' => :'String',
-          :'hidden' => :'BOOLEAN',
-          :'charged' => :'BOOLEAN',
-          :'code' => :'String',
-          :'beta' => :'BOOLEAN',
-          :'color' => :'String',
-          :'slug' => :'String',
-          :'sync_frequency' => :'Float',
+          :'id'              => :'Integer',
+          :'name'            => :'String',
+          :'id_weboob'       => :'String',
+          :'hidden'          => :'BOOLEAN',
+          :'charged'         => :'BOOLEAN',
+          :'code'            => :'String',
+          :'beta'            => :'BOOLEAN',
+          :'color'           => :'String',
+          :'slug'            => :'String',
+          :'sync_frequency'  => :'Float',
           :'months_to_fetch' => :'Integer',
-          :'account_types' => :'Array<String>',
-          :'fields' => :'Array<Field>'
+          :'account_types'   => :'Array<String>',
+          :'fields'          => :'Array<Field>'
       }
     end
 
@@ -85,7 +85,7 @@ module BudgeaClient
       return unless attributes.is_a?(Hash)
 
       # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
@@ -231,7 +231,7 @@ module BudgeaClient
           # check to ensure the input is an array given that the the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
-            self.send("#{key}=", attributes[self.class.attribute_map[key]].map{ |v| _deserialize($1, v) } )
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
@@ -313,7 +313,7 @@ module BudgeaClient
     # @return [Hash] Returns the value in the form of hash
     def _to_hash(value)
       if value.is_a?(Array)
-        value.compact.map{ |v| _to_hash(v) }
+        value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
