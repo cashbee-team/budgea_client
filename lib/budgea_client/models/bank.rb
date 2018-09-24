@@ -2,7 +2,7 @@
 
 require 'date'
 
-module SwaggerClient
+module BudgeaClient
 
   class Bank
     # ID of the connector
