@@ -19721,16 +19721,7 @@
         "values": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": ["value", "label"],
-            "properties": {
-              "value": {
-                "type": "string"
-              },
-              "label": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/definitions/FieldValue"
           }
         }
       },
@@ -19743,6 +19734,21 @@
         "type": "text",
         "ephemeral": false,
         "value": ""
+      }
+    },
+    "FieldValue": {
+      "required": [
+        "value",
+        "label"
+      ],
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
       }
     },
     "ConnectorLogo": {

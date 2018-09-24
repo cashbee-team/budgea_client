@@ -4,61 +4,25 @@ require 'date'
 
 module BudgeaClient
 
-  class Field
-    # ID of the related bank
-    attr_accessor :id_bank
-
-    # ID of the field
-    attr_accessor :id
-
-    # Name of the field
-    attr_accessor :name
-
-    # Label to display to user
-    attr_accessor :label
-
-    # If set, the value must match this regexp
-    attr_accessor :regex
-
-    # Type of field (text, password, list, hidden)
-    attr_accessor :type
-
-    # This field will not be saved in database
-    attr_accessor :ephemeral
-
-    # Default value of the field
+  class FieldValue
     attr_accessor :value
 
-    attr_accessor :values
+    attr_accessor :label
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-          :'id_bank' => :'id_bank',
-          :'id' => :'id',
-          :'name' => :'name',
-          :'label' => :'label',
-          :'regex' => :'regex',
-          :'type' => :'type',
-          :'ephemeral' => :'ephemeral',
           :'value' => :'value',
-          :'values' => :'values'
+          :'label' => :'label'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-          :'id_bank' => :'Integer',
-          :'id' => :'Integer',
-          :'name' => :'String',
-          :'label' => :'String',
-          :'regex' => :'String',
-          :'type' => :'String',
-          :'ephemeral' => :'BOOLEAN',
           :'value' => :'String',
-          :'values' => :'Array<FieldValue>'
+          :'label' => :'String'
       }
     end
 
@@ -68,48 +32,14 @@ module BudgeaClient
       return unless attributes.is_a?(Hash)
 
       # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-
-      if attributes.has_key?(:'id_bank')
-        self.id_bank = attributes[:'id_bank']
-      end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'label')
-        self.label = attributes[:'label']
-      end
-
-      if attributes.has_key?(:'regex')
-        self.regex = attributes[:'regex']
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      else
-        self.type = "text"
-      end
-
-      if attributes.has_key?(:'ephemeral')
-        self.ephemeral = attributes[:'ephemeral']
-      else
-        self.ephemeral = false
-      end
+      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
       if attributes.has_key?(:'value')
         self.value = attributes[:'value']
       end
 
-      if attributes.has_key?(:'values')
-        if (value = attributes[:'values']).is_a?(Array)
-          self.values = value
-        end
+      if attributes.has_key?(:'label')
+        self.label = attributes[:'label']
       end
 
     end
@@ -118,16 +48,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id_bank.nil?
-        invalid_properties.push("invalid value for 'id_bank', id_bank cannot be nil.")
-      end
-
-      if @id.nil?
-        invalid_properties.push("invalid value for 'id', id cannot be nil.")
-      end
-
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      if @value.nil?
+        invalid_properties.push("invalid value for 'value', value cannot be nil.")
       end
 
       if @label.nil?
@@ -140,9 +62,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id_bank.nil?
-      return false if @id.nil?
-      return false if @name.nil?
+      return false if @value.nil?
       return false if @label.nil?
       return true
     end
@@ -152,15 +72,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id_bank == o.id_bank &&
-          id == o.id &&
-          name == o.name &&
-          label == o.label &&
-          regex == o.regex &&
-          type == o.type &&
-          ephemeral == o.ephemeral &&
           value == o.value &&
-          values == o.values
+          label == o.label
     end
 
     # @see the `==` method
@@ -172,7 +85,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id_bank, id, name, label, regex, type, ephemeral, value, values].hash
+      [value, label].hash
     end
 
     # Builds the object from hash
@@ -185,7 +98,7 @@ module BudgeaClient
           # check to ensure the input is an array given that the the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
-            self.send("#{key}=", attributes[self.class.attribute_map[key]].map{ |v| _deserialize($1, v) } )
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
@@ -232,7 +145,7 @@ module BudgeaClient
             end
           end
         else # model
-        temp_model = BudgeaClient.const_get(type).new
+          temp_model = BudgeaClient.const_get(type).new
           temp_model.build_from_hash(value)
       end
     end
@@ -267,7 +180,7 @@ module BudgeaClient
     # @return [Hash] Returns the value in the form of hash
     def _to_hash(value)
       if value.is_a?(Array)
-        value.compact.map{ |v| _to_hash(v) }
+        value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
