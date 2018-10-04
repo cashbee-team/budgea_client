@@ -14,5 +14,7 @@ Name | Type | Description | Notes
 **slug** | **String** |  | [optional] 
 **sync_frequency** | **Float** | How many days to wait between syncs | [optional] 
 **months_to_fetch** | **Integer** | How many months of history to fetch | [optional] 
+**account_types** | **Array&lt;String&gt;** |  | [optional] 
+**fields** | [**Array&lt;Field&gt;**](Field.md) |  | [optional] 
 
 

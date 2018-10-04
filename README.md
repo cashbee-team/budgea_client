@@ -744,8 +744,8 @@ require 'budgea_client'
 
 api_instance = BudgeaClient::AdministrationApi.new
 
-opts = {
-  expand: "expand_example" # String |
+opts = { 
+  expand: "expand_example" # String | 
 }
 
 begin
@@ -1242,6 +1242,7 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::Document](docs/Document.md)
  - [BudgeaClient::DocumentType](docs/DocumentType.md)
  - [BudgeaClient::Field](docs/Field.md)
+ - [BudgeaClient::FieldValue](docs/FieldValue.md)
  - [BudgeaClient::File](docs/File.md)
  - [BudgeaClient::Group](docs/Group.md)
  - [BudgeaClient::HashTable](docs/HashTable.md)

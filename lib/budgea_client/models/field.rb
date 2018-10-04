@@ -35,30 +35,30 @@ module BudgeaClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-          :'id_bank' => :'id_bank',
-          :'id' => :'id',
-          :'name' => :'name',
-          :'label' => :'label',
-          :'regex' => :'regex',
-          :'type' => :'type',
-          :'ephemeral' => :'ephemeral',
-          :'value' => :'value',
-          :'values' => :'values'
+        :'id_bank' => :'id_bank',
+        :'id' => :'id',
+        :'name' => :'name',
+        :'label' => :'label',
+        :'regex' => :'regex',
+        :'type' => :'type',
+        :'ephemeral' => :'ephemeral',
+        :'value' => :'value',
+        :'values' => :'values'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-          :'id_bank' => :'Integer',
-          :'id' => :'Integer',
-          :'name' => :'String',
-          :'label' => :'String',
-          :'regex' => :'String',
-          :'type' => :'String',
-          :'ephemeral' => :'BOOLEAN',
-          :'value' => :'String',
-          :'values' => :'Array<FieldValue>'
+        :'id_bank' => :'Integer',
+        :'id' => :'Integer',
+        :'name' => :'String',
+        :'label' => :'String',
+        :'regex' => :'String',
+        :'type' => :'String',
+        :'ephemeral' => :'BOOLEAN',
+        :'value' => :'String',
+        :'values' => :'Array<FieldValue>'
       }
     end
 
@@ -201,39 +201,39 @@ module BudgeaClient
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym
-        when :DateTime
-          DateTime.parse(value)
-        when :Date
-          Date.parse(value)
-        when :String
-          value.to_s
-        when :Integer
-          value.to_i
-        when :Float
-          value.to_f
-        when :BOOLEAN
-          if value.to_s =~ /\A(true|t|yes|y|1)\z/i
-            true
-          else
-            false
+      when :DateTime
+        DateTime.parse(value)
+      when :Date
+        Date.parse(value)
+      when :String
+        value.to_s
+      when :Integer
+        value.to_i
+      when :Float
+        value.to_f
+      when :BOOLEAN
+        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
+          true
+        else
+          false
+        end
+      when :Object
+        # generic object (usually a Hash), return directly
+        value
+      when /\AArray<(?<inner_type>.+)>\z/
+        inner_type = Regexp.last_match[:inner_type]
+        value.map { |v| _deserialize(inner_type, v) }
+      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
+        k_type = Regexp.last_match[:k_type]
+        v_type = Regexp.last_match[:v_type]
+        {}.tap do |hash|
+          value.each do |k, v|
+            hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
           end
-        when :Object
-          # generic object (usually a Hash), return directly
-          value
-        when /\AArray<(?<inner_type>.+)>\z/
-          inner_type = Regexp.last_match[:inner_type]
-          value.map { |v| _deserialize(inner_type, v) }
-        when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
-          k_type = Regexp.last_match[:k_type]
-          v_type = Regexp.last_match[:v_type]
-          {}.tap do |hash|
-            value.each do |k, v|
-              hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
-            end
-          end
-        else # model
+        end
+      else # model
         temp_model = BudgeaClient.const_get(type).new
-          temp_model.build_from_hash(value)
+        temp_model.build_from_hash(value)
       end
     end
 

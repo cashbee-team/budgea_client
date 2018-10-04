@@ -139,8 +139,8 @@ module BudgeaClient
     end
 
     # Deserializes the data based on type
-    # @param [String] type Data type
-    # @param [String] value Value to be deserialized
+    # @param string type Data type
+    # @param string value Value to be deserialized
     # @return [Object] Deserialized data
     def _deserialize(type, value)
       case type.to_sym

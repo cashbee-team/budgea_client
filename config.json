@@ -1,0 +1,9 @@
+{
+  "gemName": "budgea_client",
+  "gemAuthor": "Chaker Nakhli",
+  "gemAuthorEmail": "chaker.nakhli@cashbee.fr",
+  "gemSummary": "Budgea API Documentation Ruby Gem",
+  "gemDescription": "Budgea API Documentation Ruby Gem",
+  "gemHomepage": "https://github.com/cashbee-team/budgea_client",
+  "moduleName": "BudgeaClient"
+}
