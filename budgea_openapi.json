@@ -1476,7 +1476,10 @@
             "in": "query"
           }
         ],
-        "summary": "Request a new connector"
+        "summary": "Request a new connector",
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/connectors/{id_bank}/logos": {
