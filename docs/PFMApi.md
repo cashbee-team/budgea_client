@@ -136,7 +136,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 

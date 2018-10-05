@@ -122,7 +122,9 @@
           }
         ],
         "summary": "Confirm email address",
-        "consumes": ["application/x-www-form-urlencoded"]
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/auth/confirmNewEmail": {
@@ -146,7 +148,9 @@
           }
         ],
         "summary": "Confirm new email address",
-        "consumes": ["application/x-www-form-urlencoded"]
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/cookie": {
@@ -191,7 +195,9 @@
           }
         ],
         "summary": "Login with credentials and set as cookie",
-        "consumes": ["application/x-www-form-urlencoded"]
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/init": {
@@ -248,7 +254,9 @@
           }
         ],
         "summary": "Create a new anonymous user",
-        "consumes": ["application/x-www-form-urlencoded"]
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/register": {
@@ -327,7 +335,9 @@
           }
         ],
         "summary": "Register to API",
-        "consumes": ["application/x-www-form-urlencoded"]
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/token": {
@@ -409,7 +419,9 @@
           }
         ],
         "summary": "Login to API with credentials",
-        "consumes": ["application/x-www-form-urlencoded"]
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -496,7 +508,9 @@
           }
         ],
         "summary": "Transform a temporary code to a access_token",
-        "consumes": ["application/x-www-form-urlencoded"]
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/token/code": {
@@ -16720,7 +16734,10 @@
             "in": "query"
           }
         ],
-        "summary": "Update a subscription"
+        "summary": "Update a subscription",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -17052,7 +17069,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -17354,7 +17374,10 @@
             "in": "query"
           }
         ],
-        "summary": "Register user's consent for a specific terms id"
+        "summary": "Register user's consent for a specific terms id",
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/users/{id_user}/token": {
@@ -17394,7 +17417,10 @@
             "description": "application name"
           }
         ],
-        "summary": "Create a token"
+        "summary": "Create a token",
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/users/{id_user}/transactions": {
@@ -17636,7 +17662,10 @@
             "in": "query"
           }
         ],
-        "summary": "Create transactions"
+        "summary": "Create transactions",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -17741,7 +17770,10 @@
             "in": "query"
           }
         ],
-        "summary": "Edit a transaction meta-data"
+        "summary": "Edit a transaction meta-data",
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/users/{id_user}/transactions/{id_transaction}/documents": {
@@ -18036,7 +18068,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -18833,7 +18868,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -19227,7 +19265,10 @@
             "in": "query"
           }
         ],
-        "summary": "Create a transfer object."
+        "summary": "Create a transfer object.",
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/users/{id_user}/transfers/{id_transfer}": {
