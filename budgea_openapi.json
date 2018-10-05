@@ -121,7 +121,8 @@
             "description": "application in use"
           }
         ],
-        "summary": "Confirm email address"
+        "summary": "Confirm email address",
+        "consumes": ["application/x-www-form-urlencoded"]
       }
     },
     "/auth/confirmNewEmail": {
@@ -144,7 +145,8 @@
             "description": "token received by email"
           }
         ],
-        "summary": "Confirm new email address"
+        "summary": "Confirm new email address",
+        "consumes": ["application/x-www-form-urlencoded"]
       }
     },
     "/auth/cookie": {
@@ -188,7 +190,8 @@
             "description": "scope requested for the token"
           }
         ],
-        "summary": "Login with credentials and set as cookie"
+        "summary": "Login with credentials and set as cookie",
+        "consumes": ["application/x-www-form-urlencoded"]
       }
     },
     "/auth/init": {
@@ -245,7 +248,7 @@
           }
         ],
         "summary": "Create a new anonymous user",
-        "consumes": "application/x-www-form-urlencoded"
+        "consumes": ["application/x-www-form-urlencoded"]
       }
     },
     "/auth/register": {
@@ -323,7 +326,8 @@
             "description": "APNS or GCM token to send notifications to device"
           }
         ],
-        "summary": "Register to API"
+        "summary": "Register to API",
+        "consumes": ["application/x-www-form-urlencoded"]
       }
     },
     "/auth/token": {
@@ -404,7 +408,8 @@
             "description": "scope requested for the token"
           }
         ],
-        "summary": "Login to API with credentials"
+        "summary": "Login to API with credentials",
+        "consumes": ["application/x-www-form-urlencoded"]
       },
       "delete": {
         "responses": {
@@ -490,7 +495,8 @@
             "description": "redirect uri used by user"
           }
         ],
-        "summary": "Transform a temporary code to a access_token"
+        "summary": "Transform a temporary code to a access_token",
+        "consumes": ["application/x-www-form-urlencoded"]
       }
     },
     "/auth/token/code": {
@@ -10018,7 +10024,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {

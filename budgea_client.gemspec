@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 $:.push File.expand_path("../lib", __FILE__)
 require "budgea_client/version"
@@ -25,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'autotest-growl', '~> 0.2', '>= 0.2.16'
   s.add_development_dependency 'autotest-fsevent', '~> 0.2', '>= 0.2.12'
 
-  s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
+  s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? }
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
   s.require_paths = ["lib"]

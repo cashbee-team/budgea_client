@@ -59,7 +59,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -118,7 +118,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
