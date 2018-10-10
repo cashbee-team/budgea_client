@@ -22135,5 +22135,17 @@
       "url": "https://cashbee-sandbox.biapi.pro/2.0",
       "description": "cashbee-sandbox.biapi.pro"
     }
+  ],
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
   ]
 }
