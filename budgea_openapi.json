@@ -6658,6 +6658,90 @@
           {
             "required": false,
             "in": "formData",
+            "type": "string",
+            "name": "birthday",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "password",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "oauth_token",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "oauth_token_secret",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "auth_type",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "secret",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "type",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "birthdate",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "nuser",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "website",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "password",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "login",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
             "type": "integer",
             "name": "id_provider",
             "description": "ID of the provider"
@@ -6669,7 +6753,10 @@
             "in": "query"
           }
         ],
-        "summary": "Add a new connection."
+        "summary": "Add a new connection.",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -6771,7 +6858,10 @@
             "in": "query"
           }
         ],
-        "summary": "Update a connection."
+        "summary": "Update a connection.",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "put": {
         "responses": {
@@ -6972,7 +7062,10 @@
             "in": "query"
           }
         ],
-        "summary": "Create an account"
+        "summary": "Create an account",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -7742,7 +7835,10 @@
             "in": "query"
           }
         ],
-        "summary": "Create an alert on transactions or investemens of a given user"
+        "summary": "Create an alert on transactions or investemens of a given user",
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert}": {
@@ -7830,7 +7926,10 @@
             "in": "query"
           }
         ],
-        "summary": "Edit an alert on transactions or investemens"
+        "summary": "Edit an alert on transactions or investments",
+        "consumes": [
+          "multipart/form-data"
+        ]
       },
       "delete": {
         "responses": {
@@ -7884,7 +7983,7 @@
             "in": "query"
           }
         ],
-        "summary": "Delete an alert on transactions or investemens"
+        "summary": "Delete an alert on transactions or investments"
       }
     },
     "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/recipients": {
@@ -19836,36 +19935,6 @@
         "type": ""
       }
     },
-    "HashTable": {
-      "required": [
-        "wording",
-        "income",
-        "display",
-        "nature"
-      ],
-      "type": "object",
-      "properties": {
-        "wording": {
-          "type": "string"
-        },
-        "income": {
-          "type": "boolean"
-        },
-        "display": {
-          "default": true,
-          "type": "boolean"
-        },
-        "nature": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "wording": "",
-        "income": false,
-        "display": true,
-        "nature": ""
-      }
-    },
     "TermsOfService": {
       "required": [
         "id",
@@ -20262,6 +20331,12 @@
           "type": "string",
           "description": "Date of next synchronization",
           "format": "date-time"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Account"
+          }
         }
       },
       "example": {
@@ -20360,60 +20435,6 @@
         "nb_accounts": 0,
         "start": "2018-09-19 10:44:12.469108",
         "worker": ""
-      }
-    },
-    "ProjectType": {
-      "required": [
-        "id",
-        "name"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "icon_url": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "name": "",
-        "icon_url": ""
-      }
-    },
-    "Access": {
-      "required": [
-        "id",
-        "id_profile"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_user": {
-          "type": "integer"
-        },
-        "id_profile": {
-          "type": "integer"
-        },
-        "id_role": {
-          "type": "integer"
-        },
-        "email": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_user": 0,
-        "id_profile": 0,
-        "id_role": 0,
-        "email": ""
       }
     },
     "Profile": {
@@ -21440,7 +21461,7 @@
           "description": "Account IBAN"
         },
         "currency": {
-          "type": "object",
+          "$ref": "#/definitions/Account",
           "description": "Account currency"
         },
         "id_type": {
@@ -21480,118 +21501,6 @@
         "bookmarked": false,
         "name": "",
         "error": ""
-      }
-    },
-    "ConnectionContact": {
-      "required": [
-        "id",
-        "id_connection",
-        "name"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_connection": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "mobile": {
-          "type": "string"
-        },
-        "fax": {
-          "type": "string"
-        },
-        "agency": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        },
-        "role": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_connection": 0,
-        "name": "",
-        "email": "",
-        "phone": "",
-        "mobile": "",
-        "fax": "",
-        "agency": "",
-        "address": "",
-        "role": ""
-      }
-    },
-    "Project": {
-      "required": [
-        "id",
-        "id_user",
-        "id_type",
-        "name",
-        "target",
-        "saved",
-        "monthly_savings",
-        "comment",
-        "active"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_user": {
-          "type": "integer"
-        },
-        "id_type": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "target": {
-          "type": "number",
-          "format": "float"
-        },
-        "saved": {
-          "default": 0,
-          "type": "number",
-          "format": "float"
-        },
-        "monthly_savings": {
-          "type": "number",
-          "format": "float"
-        },
-        "comment": {
-          "default": "",
-          "type": "string"
-        },
-        "active": {
-          "default": true,
-          "type": "boolean"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_user": 0,
-        "id_type": 0,
-        "name": "",
-        "target": 0,
-        "saved": 0,
-        "monthly_savings": 0,
-        "comment": "",
-        "active": true
       }
     },
     "Device": {
@@ -21639,155 +21548,6 @@
         "last_update": "CURRENT_TIMESTAMP",
         "version": "",
         "debug": false
-      }
-    },
-    "Invite": {
-      "required": [
-        "id",
-        "id_user_inviting"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_unsubscribe": {
-          "type": "integer"
-        },
-        "id_user_inviting": {
-          "type": "integer"
-        },
-        "id_user_invited": {
-          "type": "integer"
-        },
-        "email_invited": {
-          "type": "string"
-        },
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_unsubscribe": 0,
-        "id_user_inviting": 0,
-        "id_user_invited": 0,
-        "email_invited": "",
-        "timestamp": "2018-09-19 10:44:12.527373"
-      }
-    },
-    "Pocket": {
-      "required": [
-        "id",
-        "id_account",
-        "id_investment",
-        "value",
-        "condition"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the pocket"
-        },
-        "id_account": {
-          "type": "integer",
-          "description": "ID of the related account"
-        },
-        "id_investment": {
-          "type": "integer",
-          "description": "ID of the related investment"
-        },
-        "label": {
-          "type": "string",
-          "description": "Label of the pocket"
-        },
-        "value": {
-          "type": "number",
-          "description": "Value of the pocket",
-          "format": "float"
-        },
-        "quantity": {
-          "default": 0,
-          "type": "number",
-          "description": "Quantity of stocks",
-          "format": "float"
-        },
-        "availability_date": {
-          "type": "string",
-          "description": "Availability date of the pocket",
-          "format": "date"
-        },
-        "condition": {
-          "default": "inconnu",
-          "type": "string",
-          "description": "Withdrawal condition of the pocket"
-        },
-        "last_update": {
-          "type": "string",
-          "description": "Last update of the pocket",
-          "format": "date-time"
-        },
-        "deleted": {
-          "type": "string",
-          "description": "If set, this pocket has been removed from the website",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_account": 0,
-        "id_investment": 0,
-        "label": "",
-        "value": 0,
-        "quantity": 0,
-        "availability_date": "2018-09-19",
-        "condition": "inconnu",
-        "last_update": "2018-09-19 10:44:12.528530",
-        "deleted": "2018-09-19 10:44:12.528588"
-      }
-    },
-    "Group": {
-      "required": [
-        "id"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_parent_group": {
-          "type": "integer"
-        },
-        "id_logo": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        },
-        "color": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "conf": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_parent_group": 0,
-        "id_logo": 0,
-        "name": "",
-        "url": "",
-        "color": "",
-        "email": "",
-        "conf": ""
       }
     },
     "Alert": {

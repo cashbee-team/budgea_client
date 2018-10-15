@@ -1024,8 +1024,8 @@ Class | Method | HTTP request | Description
 *BudgeaClient::PFMApi* | [**users_id_user_balances_get**](docs/PFMApi.md#users_id_user_balances_get) | **GET** /users/{id_user}/balances | Get balances of accounts
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_balances_get**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/balances | Get balances of accounts
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Get a list of configurated alerts
-*BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investemens
-*BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investemens
+*BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investments
+*BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investments
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Create an alert on transactions or investemens of a given user
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_balances_get**](docs/PFMApi.md#users_id_user_connections_id_connection_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/balances | Get balances of accounts
 *BudgeaClient::PFMApi* | [**users_id_user_devices_get**](docs/PFMApi.md#users_id_user_devices_get) | **GET** /users/{id_user}/devices | Get devices
@@ -1232,7 +1232,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [BudgeaClient::Access](docs/Access.md)
  - [BudgeaClient::Account](docs/Account.md)
  - [BudgeaClient::AccountLog](docs/AccountLog.md)
  - [BudgeaClient::AccountType](docs/AccountType.md)
@@ -1242,7 +1241,6 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::Category](docs/Category.md)
  - [BudgeaClient::Client](docs/Client.md)
  - [BudgeaClient::Connection](docs/Connection.md)
- - [BudgeaClient::ConnectionContact](docs/ConnectionContact.md)
  - [BudgeaClient::ConnectionLog](docs/ConnectionLog.md)
  - [BudgeaClient::ConnectorLogo](docs/ConnectorLogo.md)
  - [BudgeaClient::Currency](docs/Currency.md)
@@ -1252,8 +1250,6 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::Field](docs/Field.md)
  - [BudgeaClient::FieldValue](docs/FieldValue.md)
  - [BudgeaClient::File](docs/File.md)
- - [BudgeaClient::Group](docs/Group.md)
- - [BudgeaClient::HashTable](docs/HashTable.md)
  - [BudgeaClient::InlineResponse200](docs/InlineResponse200.md)
  - [BudgeaClient::InlineResponse2001](docs/InlineResponse2001.md)
  - [BudgeaClient::InlineResponse20010](docs/InlineResponse20010.md)
@@ -1290,13 +1286,9 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::InlineResponse2009](docs/InlineResponse2009.md)
  - [BudgeaClient::Investment](docs/Investment.md)
  - [BudgeaClient::InvestmentValue](docs/InvestmentValue.md)
- - [BudgeaClient::Invite](docs/Invite.md)
  - [BudgeaClient::LockedUser](docs/LockedUser.md)
  - [BudgeaClient::OidcWhitelist](docs/OidcWhitelist.md)
- - [BudgeaClient::Pocket](docs/Pocket.md)
  - [BudgeaClient::Profile](docs/Profile.md)
- - [BudgeaClient::Project](docs/Project.md)
- - [BudgeaClient::ProjectType](docs/ProjectType.md)
  - [BudgeaClient::Recipient](docs/Recipient.md)
  - [BudgeaClient::Security](docs/Security.md)
  - [BudgeaClient::Subscription](docs/Subscription.md)

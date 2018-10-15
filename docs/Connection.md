@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **active** | **BOOLEAN** | This connection is active and will be automatically synced | [default to true]
 **last_push** | **DateTime** | Last successful push | [optional] 
 **next_try** | **DateTime** | Date of next synchronization | [optional] 
+**accounts** | [**Array&lt;Account&gt;**](Account.md) |  | [optional] 
 
 

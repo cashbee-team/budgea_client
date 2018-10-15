@@ -21,8 +21,8 @@ Method | HTTP request | Description
 [**users_id_user_balances_get**](PFMApi.md#users_id_user_balances_get) | **GET** /users/{id_user}/balances | Get balances of accounts
 [**users_id_user_connections_id_connection_accounts_id_account_balances_get**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/balances | Get balances of accounts
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Get a list of configurated alerts
-[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investemens
-[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investemens
+[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investments
+[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investments
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Create an alert on transactions or investemens of a given user
 [**users_id_user_connections_id_connection_balances_get**](PFMApi.md#users_id_user_connections_id_connection_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/balances | Get balances of accounts
 [**users_id_user_devices_get**](PFMApi.md#users_id_user_devices_get) | **GET** /users/{id_user}/devices | Get devices
@@ -1091,7 +1091,7 @@ Name | Type | Description  | Notes
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**
 > UserAlert users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete(id_user, id_connection, id_account, id_operationsalert, opts)
 
-Delete an alert on transactions or investemens
+Delete an alert on transactions or investments
 
 <br><br>
 
@@ -1122,7 +1122,7 @@ opts = {
 }
 
 begin
-  #Delete an alert on transactions or investemens
+  #Delete an alert on transactions or investments
   result = api_instance.users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete(id_user, id_connection, id_account, id_operationsalert, opts)
   p result
 rescue BudgeaClient::ApiError => e
@@ -1158,7 +1158,7 @@ Name | Type | Description  | Notes
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**
 > UserAlert users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put(id_user, id_connection, id_account, id_operationsalert, opts)
 
-Edit an alert on transactions or investemens
+Edit an alert on transactions or investments
 
 
 
@@ -1194,7 +1194,7 @@ opts = {
 }
 
 begin
-  #Edit an alert on transactions or investemens
+  #Edit an alert on transactions or investments
   result = api_instance.users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put(id_user, id_connection, id_account, id_operationsalert, opts)
   p result
 rescue BudgeaClient::ApiError => e
@@ -1227,7 +1227,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 
@@ -1301,7 +1301,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 

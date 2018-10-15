@@ -838,7 +838,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 
@@ -929,6 +929,18 @@ id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
 
 opts = { 
   id_bank: 56, # Integer | ID of the bank
+  birthday: "birthday_example", # String | bank additional login parameter
+  password: "password_example", # String | bank additional login parameter
+  oauth_token: "oauth_token_example", # String | bank additional login parameter
+  oauth_token_secret: "oauth_token_secret_example", # String | bank additional login parameter
+  auth_type: "auth_type_example", # String | bank additional login parameter
+  secret: "secret_example", # String | bank additional login parameter
+  type: "type_example", # String | bank additional login parameter
+  birthdate: "birthdate_example", # String | bank additional login parameter
+  nuser: "nuser_example", # String | bank additional login parameter
+  website: "website_example", # String | bank additional login parameter
+  password2: "password_example", # String | bank additional login parameter
+  login: "login_example", # String | bank additional login parameter
   id_provider: 56, # Integer | ID of the provider
   expand: "expand_example" # String | 
 }
@@ -948,6 +960,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_bank** | **Integer**| ID of the bank | [optional] 
+ **birthday** | **String**| bank additional login parameter | [optional] 
+ **password** | **String**| bank additional login parameter | [optional] 
+ **oauth_token** | **String**| bank additional login parameter | [optional] 
+ **oauth_token_secret** | **String**| bank additional login parameter | [optional] 
+ **auth_type** | **String**| bank additional login parameter | [optional] 
+ **secret** | **String**| bank additional login parameter | [optional] 
+ **type** | **String**| bank additional login parameter | [optional] 
+ **birthdate** | **String**| bank additional login parameter | [optional] 
+ **nuser** | **String**| bank additional login parameter | [optional] 
+ **website** | **String**| bank additional login parameter | [optional] 
+ **password2** | **String**| bank additional login parameter | [optional] 
+ **login** | **String**| bank additional login parameter | [optional] 
  **id_provider** | **Integer**| ID of the provider | [optional] 
  **expand** | **String**|  | [optional] 
 
@@ -961,7 +985,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 

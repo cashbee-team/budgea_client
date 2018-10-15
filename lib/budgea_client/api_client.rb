@@ -99,7 +99,8 @@ module BudgeaClient
         :ssl_verifyhost => _verify_ssl_host,
         :sslcert => @config.cert_file,
         :sslkey => @config.key_file,
-        :verbose => @config.debugging
+        :verbose => @config.debugging,
+        :multipart => header_params['Content-Type'] == 'multipart/form-data'
       }
 
       # set custom cert, if provided

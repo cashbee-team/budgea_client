@@ -4482,7 +4482,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6351,6 +6351,18 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_bank ID of the bank
+    # @option opts [String] :birthday bank additional login parameter
+    # @option opts [String] :password bank additional login parameter
+    # @option opts [String] :oauth_token bank additional login parameter
+    # @option opts [String] :oauth_token_secret bank additional login parameter
+    # @option opts [String] :auth_type bank additional login parameter
+    # @option opts [String] :secret bank additional login parameter
+    # @option opts [String] :type bank additional login parameter
+    # @option opts [String] :birthdate bank additional login parameter
+    # @option opts [String] :nuser bank additional login parameter
+    # @option opts [String] :website bank additional login parameter
+    # @option opts [String] :password2 bank additional login parameter
+    # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [String] :expand 
     # @return [Connection]
@@ -6364,6 +6376,18 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_bank ID of the bank
+    # @option opts [String] :birthday bank additional login parameter
+    # @option opts [String] :password bank additional login parameter
+    # @option opts [String] :oauth_token bank additional login parameter
+    # @option opts [String] :oauth_token_secret bank additional login parameter
+    # @option opts [String] :auth_type bank additional login parameter
+    # @option opts [String] :secret bank additional login parameter
+    # @option opts [String] :type bank additional login parameter
+    # @option opts [String] :birthdate bank additional login parameter
+    # @option opts [String] :nuser bank additional login parameter
+    # @option opts [String] :website bank additional login parameter
+    # @option opts [String] :password2 bank additional login parameter
+    # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [String] :expand 
     # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
@@ -6387,11 +6411,23 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params["id_bank"] = opts[:'id_bank'] if !opts[:'id_bank'].nil?
+      form_params["birthday"] = opts[:'birthday'] if !opts[:'birthday'].nil?
+      form_params["password"] = opts[:'password'] if !opts[:'password'].nil?
+      form_params["oauth_token"] = opts[:'oauth_token'] if !opts[:'oauth_token'].nil?
+      form_params["oauth_token_secret"] = opts[:'oauth_token_secret'] if !opts[:'oauth_token_secret'].nil?
+      form_params["auth_type"] = opts[:'auth_type'] if !opts[:'auth_type'].nil?
+      form_params["secret"] = opts[:'secret'] if !opts[:'secret'].nil?
+      form_params["type"] = opts[:'type'] if !opts[:'type'].nil?
+      form_params["birthdate"] = opts[:'birthdate'] if !opts[:'birthdate'].nil?
+      form_params["nuser"] = opts[:'nuser'] if !opts[:'nuser'].nil?
+      form_params["website"] = opts[:'website'] if !opts[:'website'].nil?
+      form_params["password"] = opts[:'password2'] if !opts[:'password2'].nil?
+      form_params["login"] = opts[:'login'] if !opts[:'login'].nil?
       form_params["id_provider"] = opts[:'id_provider'] if !opts[:'id_provider'].nil?
 
       # http body (model)

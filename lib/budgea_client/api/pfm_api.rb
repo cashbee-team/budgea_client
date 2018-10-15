@@ -1145,7 +1145,7 @@ module BudgeaClient
       return data, status_code, headers
     end
 
-    # Delete an alert on transactions or investemens
+    # Delete an alert on transactions or investments
     # <br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
@@ -1159,7 +1159,7 @@ module BudgeaClient
       return data
     end
 
-    # Delete an alert on transactions or investemens
+    # Delete an alert on transactions or investments
     # &lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
@@ -1221,7 +1221,7 @@ module BudgeaClient
       return data, status_code, headers
     end
 
-    # Edit an alert on transactions or investemens
+    # Edit an alert on transactions or investments
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
@@ -1240,7 +1240,7 @@ module BudgeaClient
       return data
     end
 
-    # Edit an alert on transactions or investemens
+    # Edit an alert on transactions or investments
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
@@ -1286,7 +1286,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1371,7 +1371,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
