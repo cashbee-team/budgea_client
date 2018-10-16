@@ -21461,7 +21461,7 @@
           "description": "Account IBAN"
         },
         "currency": {
-          "$ref": "#/definitions/Account",
+          "$ref": "#/definitions/Currency",
           "description": "Account currency"
         },
         "id_type": {

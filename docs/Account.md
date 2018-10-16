@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **deleted** | **DateTime** | This account is not found on the website anymore | [optional] 
 **disabled** | **DateTime** | This account has been deleted by user and will not be synchronized anymore | [optional] 
 **iban** | **String** | Account IBAN | [optional] 
-**currency** | [**Account**](Account.md) | Account currency | [optional] 
+**currency** | [**Currency**](Currency.md) | Account currency | [optional] 
 **id_type** | **Integer** | ID of the account type | [optional] 
 **bookmarked** | **Integer** | This account has been bookmarked by user | 
 **name** | **String** | Name of the account | [optional] 

@@ -100,7 +100,7 @@ module BudgeaClient
         :'deleted' => :'DateTime',
         :'disabled' => :'DateTime',
         :'iban' => :'String',
-        :'currency' => :'Account',
+        :'currency' => :'Currency',
         :'id_type' => :'Integer',
         :'bookmarked' => :'Integer',
         :'name' => :'String',
