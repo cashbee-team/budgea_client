@@ -44,6 +44,9 @@ module BudgeaClient
     # Account IBAN
     attr_accessor :iban
 
+    # Account BIC/SWIFT
+    attr_accessor :bic
+
     # Account currency
     attr_accessor :currency
 
@@ -76,6 +79,7 @@ module BudgeaClient
         :'deleted' => :'deleted',
         :'disabled' => :'disabled',
         :'iban' => :'iban',
+        :'bic' => :'bic',
         :'currency' => :'currency',
         :'id_type' => :'id_type',
         :'bookmarked' => :'bookmarked',
@@ -100,6 +104,7 @@ module BudgeaClient
         :'deleted' => :'DateTime',
         :'disabled' => :'DateTime',
         :'iban' => :'String',
+        :'bic' => :'String',
         :'currency' => :'Currency',
         :'id_type' => :'Integer',
         :'bookmarked' => :'Integer',
@@ -170,6 +175,10 @@ module BudgeaClient
 
       if attributes.has_key?(:'iban')
         self.iban = attributes[:'iban']
+      end
+
+      if attributes.has_key?(:'bic')
+        self.bic = attributes[:'bic']
       end
 
       if attributes.has_key?(:'currency')
@@ -255,6 +264,7 @@ module BudgeaClient
           deleted == o.deleted &&
           disabled == o.disabled &&
           iban == o.iban &&
+          bic == o.bic &&
           currency == o.currency &&
           id_type == o.id_type &&
           bookmarked == o.bookmarked &&
@@ -271,7 +281,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_connection, id_user, id_parent, number, original_name, balance, coming, display, last_update, deleted, disabled, iban, currency, id_type, bookmarked, name, error].hash
+      [id, id_connection, id_user, id_parent, number, original_name, balance, coming, display, last_update, deleted, disabled, iban, bic, currency, id_type, bookmarked, name, error].hash
     end
 
     # Builds the object from hash

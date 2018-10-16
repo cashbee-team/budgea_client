@@ -21460,6 +21460,10 @@
           "type": "string",
           "description": "Account IBAN"
         },
+        "bic": {
+          "type": "string",
+          "description": "Account BIC/SWIFT"
+        },
         "currency": {
           "$ref": "#/definitions/Currency",
           "description": "Account currency"
