@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**expires_in** | **Integer** | duration in seconds of the token validity | 
-**code** | **String** | the temporary token | 
-**type** | **Object** | the token type | 
+**access_token** | **String** | the access token transformed from the temporary one | 
+**token_type** | **String** | the access token type | 
 
 

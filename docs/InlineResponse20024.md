@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**transfers** | [**Array&lt;Transfer&gt;**](Transfer.md) |  | 
+**useralerts** | [**Array&lt;UserAlert&gt;**](UserAlert.md) |  | 
 
 

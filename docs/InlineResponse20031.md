@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**devices** | [**Array&lt;Device&gt;**](Device.md) |  | 
+**alerts** | [**Array&lt;Alert&gt;**](Alert.md) |  | 
 
 

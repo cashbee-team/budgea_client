@@ -66,7 +66,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-token = "token_example" # String | token received by email
+token = 'token_example' # String | token received by email
 
 
 begin
@@ -119,9 +119,9 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-token = "token_example" # String | token received in email
+token = 'token_example' # String | token received in email
 
-application = "application_example" # String | application in use
+application = 'application_example' # String | application in use
 
 
 begin
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -176,14 +176,14 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-username = "username_example" # String | username
+username = 'username_example' # String | username
 
-password = "password_example" # String | password
+password = 'password_example' # String | password
 
-application = "application_example" # String | application name
+application = 'application_example' # String | application name
 
 opts = { 
-  scope: "scope_example" # String | scope requested for the token
+  scope: 'scope_example' # String | scope requested for the token
 }
 
 begin
@@ -219,7 +219,7 @@ nil (empty response body)
 
 
 # **auth_register_post**
-> InlineResponse2003 auth_register_post(email, password, application, opts)
+> InlineResponse2004 auth_register_post(email, password, application, opts)
 
 Register to API
 
@@ -239,15 +239,15 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-email = "email_example" # String | email address
+email = 'email_example' # String | email address
 
-password = "password_example" # String | password
+password = 'password_example' # String | password
 
-application = "application_example" # String | application in use
+application = 'application_example' # String | application in use
 
 opts = { 
-  sponsor: "sponsor_example", # String | sponsor code to get advantages
-  notification_token: "notification_token_example" # String | APNS or GCM token to send notifications to device
+  sponsor: 'sponsor_example', # String | sponsor code to get advantages
+  notification_token: 'notification_token_example' # String | APNS or GCM token to send notifications to device
 }
 
 begin
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -332,7 +332,7 @@ nil (empty response body)
 
 
 # **auth_token_post**
-> InlineResponse2004 auth_token_post(username, password, application, opts)
+> InlineResponse2005 auth_token_post(username, password, application, opts)
 
 Login to API with credentials
 
@@ -352,14 +352,14 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-username = "username_example" # String | username
+username = 'username_example' # String | username
 
-password = "password_example" # String | password
+password = 'password_example' # String | password
 
-application = "application_example" # String | application name
+application = 'application_example' # String | application name
 
 opts = { 
-  scope: "scope_example" # String | scope requested for the token
+  scope: 'scope_example' # String | scope requested for the token
 }
 
 begin
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -463,14 +463,14 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 opts = { 
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximal (inclusive) date
-  period: "period_example" # String | split output with the given period (default: month)
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximal (inclusive) date
+  period: 'period_example' # String | split output with the given period (default: month)
 }
 
 begin
@@ -507,7 +507,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_operationsalert_get**
-> InlineResponse20022 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
+> InlineResponse20024 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -527,12 +527,12 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -588,14 +588,14 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 id_operationsalert = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -652,19 +652,19 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 id_operationsalert = 56 # Integer | 
 
 opts = { 
-  type: "type_example", # String | parameter to choose the scope of the alert. accepted: transactions, investements
+  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investements
   income_max: 56, # Integer | capital gain thresholds
   expense_max: 56, # Integer | capital loss thresholds
-  value_type: "value_type_example", # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
+  value_type: 'value_type_example', # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
   date_range: 56, # Integer | (number of days) range on which the analysis has to be done
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -726,17 +726,17 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 opts = { 
-  type: "type_example", # String | parameter to choose the scope of the alert. accepted: transactions, investements
+  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investements
   income_max: 56, # Integer | capital gain thresholds
   expense_max: 56, # Integer | capital loss thresholds
-  value_type: "value_type_example", # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
+  value_type: 'value_type_example', # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
   date_range: 56, # Integer | (number of days) range on which the analysis has to be done
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -797,7 +797,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 
 begin
@@ -851,7 +851,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
   expense_max: 56, # Integer | threshold from which an alert has to be sent for a high expense
@@ -917,12 +917,12 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximal (inclusive) date
-  period: "period_example" # String | split output with the given period (default: month)
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximal (inclusive) date
+  period: 'period_example' # String | split output with the given period (default: month)
 }
 
 begin
@@ -978,16 +978,16 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_account = 56 # Integer | 
 
 opts = { 
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximal (inclusive) date
-  period: "period_example" # String | split output with the given period (default: month)
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximal (inclusive) date
+  period: 'period_example' # String | split output with the given period (default: month)
 }
 
 begin
@@ -1025,7 +1025,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**
-> InlineResponse20022 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
+> InlineResponse20024 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -1045,14 +1045,14 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_account = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1075,7 +1075,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -1109,7 +1109,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1118,7 +1118,7 @@ id_account = 56 # Integer |
 id_operationsalert = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1176,7 +1176,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1185,12 +1185,12 @@ id_account = 56 # Integer |
 id_operationsalert = 56 # Integer | 
 
 opts = { 
-  type: "type_example", # String | parameter to choose the scope of the alert. accepted: transactions, investements
+  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investements
   income_max: 56, # Integer | capital gain thresholds
   expense_max: 56, # Integer | capital loss thresholds
-  value_type: "value_type_example", # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
+  value_type: 'value_type_example', # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
   date_range: 56, # Integer | (number of days) range on which the analysis has to be done
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1227,7 +1227,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1253,19 +1253,19 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_account = 56 # Integer | 
 
 opts = { 
-  type: "type_example", # String | parameter to choose the scope of the alert. accepted: transactions, investements
+  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investements
   income_max: 56, # Integer | capital gain thresholds
   expense_max: 56, # Integer | capital loss thresholds
-  value_type: "value_type_example", # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
+  value_type: 'value_type_example', # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
   date_range: 56, # Integer | (number of days) range on which the analysis has to be done
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1301,7 +1301,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1327,14 +1327,14 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximal (inclusive) date
-  period: "period_example" # String | split output with the given period (default: month)
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximal (inclusive) date
+  period: 'period_example' # String | split output with the given period (default: month)
 }
 
 begin
@@ -1371,7 +1371,7 @@ nil (empty response body)
 
 
 # **users_id_user_devices_get**
-> InlineResponse20031 users_id_user_devices_get(id_user, opts)
+> InlineResponse20033 users_id_user_devices_get(id_user, opts)
 
 Get devices
 
@@ -1391,10 +1391,10 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1415,7 +1415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -1449,12 +1449,12 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_device = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1510,12 +1510,12 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_device = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1571,17 +1571,17 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_device = 56 # Integer | 
 
-notification_token = "notification_token_example" # String | the GCM or APNS notification_token to use
+notification_token = 'notification_token_example' # String | the GCM or APNS notification_token to use
 
-application = "application_example" # String | the device in use
+application = 'application_example' # String | the device in use
 
 opts = { 
   notification_version: 56, # Integer | version of notifications
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1640,15 +1640,15 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
-notification_token = "notification_token_example" # String | the GCM or APNS notification_token to use
+notification_token = 'notification_token_example' # String | the GCM or APNS notification_token to use
 
-application = "application_example" # String | the device in use
+application = 'application_example' # String | the device in use
 
 opts = { 
   notification_version: 56, # Integer | version of notifications
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1706,7 +1706,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 
 begin
@@ -1759,10 +1759,10 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1797,7 +1797,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_operationsalert_get**
-> InlineResponse20022 users_id_user_operationsalert_get(id_user, opts)
+> InlineResponse20024 users_id_user_operationsalert_get(id_user, opts)
 
 Get a list of configurated alerts
 
@@ -1817,10 +1817,10 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -1875,12 +1875,12 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_operationsalert = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1936,17 +1936,17 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_operationsalert = 56 # Integer | 
 
 opts = { 
-  type: "type_example", # String | parameter to choose the scope of the alert. accepted: transactions, investements
+  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investements
   income_max: 56, # Integer | capital gain thresholds
   expense_max: 56, # Integer | capital loss thresholds
-  value_type: "value_type_example", # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
+  value_type: 'value_type_example', # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
   date_range: 56, # Integer | (number of days) range on which the analysis has to be done
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2007,15 +2007,15 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  type: "type_example", # String | parameter to choose the scope of the alert. accepted: transactions, investements
+  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investements
   income_max: 56, # Integer | capital gain thresholds
   expense_max: 56, # Integer | capital loss thresholds
-  value_type: "value_type_example", # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
+  value_type: 'value_type_example', # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
   date_range: 56, # Integer | (number of days) range on which the analysis has to be done
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2055,7 +2055,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_profiles_get**
-> InlineResponse20032 users_id_user_profiles_get(id_user, opts)
+> InlineResponse20034 users_id_user_profiles_get(id_user, opts)
 
 Get profiles
 
@@ -2075,10 +2075,10 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2099,7 +2099,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -2133,12 +2133,12 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_profile = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2194,10 +2194,10 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2252,10 +2252,10 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2310,17 +2310,17 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  email: "email_example", # String | change email of profile
-  password: "password_example", # String | change password of profile
-  current_password: "current_password_example", # String | needed when changing the password or the email
-  contact: "contact_example", # String | change contact information of a profile
-  conf: "conf_example", # String | change config of a profile
+  email: 'email_example', # String | change email of profile
+  password: 'password_example', # String | change password of profile
+  current_password: 'current_password_example', # String | needed when changing the password or the email
+  contact: 'contact_example', # String | change contact information of a profile
+  conf: 'conf_example', # String | change config of a profile
   state: true, # BOOLEAN | state of the profile
-  lang: "lang_example", # String | change lang of the profile
-  expand: "expand_example" # String | 
+  lang: 'lang_example', # String | change lang of the profile
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2382,7 +2382,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 
 begin
@@ -2436,7 +2436,7 @@ end
 
 api_instance = BudgeaClient::PFMApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
   resume_enabled: true, # BOOLEAN | whether the synthesis is activated or not

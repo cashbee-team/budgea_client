@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connectors** | [**Array&lt;Bank&gt;**](Bank.md) |  | 
+**clients** | [**Array&lt;Client&gt;**](Client.md) |  | 
 
 

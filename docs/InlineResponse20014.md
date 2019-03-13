@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**securities** | [**Array&lt;Security&gt;**](Security.md) |  | 
+**documenttypes** | [**Array&lt;DocumentType&gt;**](DocumentType.md) |  | 
 
 

@@ -33,7 +33,7 @@ api_instance = BudgeaClient::OIDCApi.new
 id_whitelist = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -90,10 +90,10 @@ api_instance = BudgeaClient::OIDCApi.new
 
 id_whitelist = 56 # Integer | 
 
-redirect_uri = "redirect_uri_example" # String | new authorized redirect uri
+redirect_uri = 'redirect_uri_example' # String | new authorized redirect uri
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -149,10 +149,10 @@ end
 
 api_instance = BudgeaClient::OIDCApi.new
 
-redirect_uri = "redirect_uri_example" # String | authorized redirect uri to be created
+redirect_uri = 'redirect_uri_example' # String | authorized redirect uri to be created
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin

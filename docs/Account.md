@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | ID of the account | 
 **id_connection** | **Integer** | ID of the related connection | [optional] 
-**id_user** | **Integer** | ID of the related user | 
+**id_user** | **Integer** | ID of the related user | [optional] 
 **id_parent** | **Integer** | Id of the parent account | [optional] 
 **number** | **String** | Account number | [optional] 
 **original_name** | **String** | Original name of the account on the bank | 
@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **id_type** | **Integer** | ID of the account type | [optional] 
 **bookmarked** | **Integer** | This account has been bookmarked by user | 
 **name** | **String** | Name of the account | [optional] 
+**transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | [optional] 
 **error** | **String** | If the last update has failed, the error code | [optional] 
+**usage** | **String** | Account usage | [optional] 
 
 

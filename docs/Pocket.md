@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **value** | **Float** | Value of the pocket | 
 **quantity** | **Float** | Quantity of stocks | [optional] [default to 0.0]
 **availability_date** | **Date** | Availability date of the pocket | [optional] 
-**condition** | **String** | Withdrawal condition of the pocket | [default to &quot;inconnu&quot;]
+**condition** | **String** | Withdrawal condition of the pocket | [default to &#39;inconnu&#39;]
 **last_update** | **DateTime** | Last update of the pocket | [optional] 
 **deleted** | **DateTime** | If set, this pocket has been removed from the website | [optional] 
 

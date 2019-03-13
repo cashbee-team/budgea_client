@@ -73,6 +73,53 @@
         "summary": "Get an account type"
       }
     },
+    "/admin/jwt": {
+      "post": {
+        "responses": {
+          "200": {
+            "schema": {
+              "required": [
+                "jwt_token",
+                "payload"
+              ],
+              "type": "object"
+            },
+            "description": "",
+            "examples": {
+              "jwt_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1Mzg1OTUwODYsInR5cGUiOiJtYW5hZ2VfdG9rZW4iLCJhdWQiOiJsb2NhbGhvc3Q6MzE1OCIsImV4cCI6MTUzODU5NTE0Niwic2NvcGUiOiJjb25maWcifQ.Z-ygtorGB3yitd2MNias9r3dPojPh4yxFKO5uVM0NhEty5UhnwkqSZA29JKZKmTc7mUSDc30THFIL-VkHBOu2gfxv3fjrZ9R35jo29H_TEYpxiOxxl0m5jLxDn4KEoWpDCiuwkoEdklVJCOMFGC_Sp3uZ89C82OZ_-7CDExnA99FPKbJpVVHaIQdlmOAATHG-KvRJKJu7j2wIUSpIZ3flIqav9dBtaHbjaI-K0WTSC-a13gdzHJKhHmReKWNL8cOMIziPrUx4zv57_DSLWSI2e2FJ_SKbiEAgHcfEmnwktPwTeAdJhgUq5UVH1EP71NkpTQQL4SzHi3tlKmsG3SCbg",
+              "payload": {
+                "iat": 1538595086,
+                "type": "manage_token",
+                "aud": "localhost:3158",
+                "exp": 1538595146,
+                "scope": "config"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Authentication"
+        ],
+        "description": "This endpoint generates a new jwt manage token. It requires an admin manage token to be used<br><br>",
+        "parameters": [
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "scope",
+            "description": "scope requested for the token (default: config)"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "duration",
+            "description": "number of minute before the token expiration (0 for token that won't expire unless the client application is deleted) (default: 1)"
+          }
+        ],
+        "summary": "Generate a jwt manage token"
+      }
+    },
     "/auth/confirm": {
       "post": {
         "responses": {
@@ -123,7 +170,7 @@
         ],
         "summary": "Confirm email address",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       }
     },
@@ -257,6 +304,86 @@
         "consumes": [
           "application/x-www-form-urlencoded"
         ]
+      }
+    },
+    "/auth/jwt": {
+      "post": {
+        "responses": {
+          "200": {
+            "schema": {
+              "required": [
+                "jwt_token",
+                "payload"
+              ],
+              "type": "object",
+              "properties": {
+                "jwt_token": {
+                  "type": "string",
+                  "description": "the jwt token"
+                },
+                "payload": {
+                  "type": "object",
+                  "description": "the payload contained in the jwt token"
+                }
+              }
+            },
+            "description": "",
+            "examples": {
+              "jwt_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozMywiYXVkIjoibG9jYWxob3N0OjMxNTgiLCJpc3MiOjE5ODM4OTgyLCJleHAiOjE1Mzg1OTY2OTcsInNjb3BlIjoiIiwiaWF0IjoxNTM4NTk0ODk3LCJ0eXBlIjoic2hhcmVkX2FjY2VzcyJ9.Tesc90tQ35Fk2SbRXw_Da1Ec-AwAzi104N-hrZWyBeXYkoao6512Ym8v_3207zm-bE1mRDjmQJQN0bbvImZlNGKA8JqoxbXF5l8eetXnv-U9yZXp9ScpUoNWxrRbtyyiwIGWDsRjCjOXcrVvzYd0oJ2RpUXR2NFyCCRjuMJFU87ojGj9eHo5e1B78vB1xZe3c3Yyx8bCvm0Qe2JjoSuhnXgMzAuLQm2KHha_9iHuQBC4zmmICOvNsQ5gBWAnf0W0IYHTZG1vioGNstX05nYiGSSlmzP6HgA5CmB2A57rBERFYB7V59wSQJzUyVOpCOuPCp7zPkRNfgFsZqqACg-DDg",
+              "payload": {
+                "id_user": 33,
+                "aud": "localhost:3158",
+                "iss": 19838982,
+                "exp": 1538596697,
+                "iat": 1538594897,
+                "scope": "",
+                "type": "shared_access"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Authentication"
+        ],
+        "description": "This endpoint generates a new jwt token for the user. This token will last the time in minutes given by the config key auth.default_token_expire (permanent if this the parameter expire=False is given)<br><br>",
+        "parameters": [
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "client_id",
+            "description": "id of the client"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "client_secret",
+            "description": "secret for the client"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "scope",
+            "description": "scope requested for the token"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_user",
+            "description": "user for whom the token has to be generated. If not supplied, a user will be created"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "expire",
+            "description": "if set to True, the token will expire n minutes after its creation, n being the value of configuration key auth.default_token_expire (default: True)"
+          }
+        ],
+        "summary": "Generate a user jwt token"
       }
     },
     "/auth/register": {
@@ -568,7 +695,7 @@
               "properties": {
                 "banks": {
                   "items": {
-                    "$ref": "#/definitions/Bank"
+                    "$ref": "#/definitions/Connector"
                   },
                   "type": "array"
                 }
@@ -597,9 +724,9 @@
       "post": {
         "responses": {
           "200": {
-            "description": "Successful POST on BankCategory resource",
+            "description": "Successful POST on ConnectorCategory resource",
             "schema": {
-              "$ref": "#/definitions/BankCategory"
+              "$ref": "#/definitions/ConnectorCategory"
             }
           }
         },
@@ -629,9 +756,9 @@
       "post": {
         "responses": {
           "200": {
-            "description": "Successful POST on BankCategory resource",
+            "description": "Successful POST on ConnectorCategory resource",
             "schema": {
-              "$ref": "#/definitions/BankCategory"
+              "$ref": "#/definitions/ConnectorCategory"
             }
           }
         },
@@ -666,9 +793,9 @@
       "delete": {
         "responses": {
           "200": {
-            "description": "Successful DELETE on BankCategory resource",
+            "description": "Successful DELETE on ConnectorCategory resource",
             "schema": {
-              "$ref": "#/definitions/BankCategory"
+              "$ref": "#/definitions/ConnectorCategory"
             }
           }
         },
@@ -694,7 +821,7 @@
         "summary": "Delete the supplied category"
       }
     },
-    "/banks/{id_bank}/connections": {
+    "/banks/{id_connector}/connections": {
       "get": {
         "responses": {
           "200": {
@@ -725,7 +852,7 @@
             "required": true,
             "in": "path",
             "type": "integer",
-            "name": "id_bank",
+            "name": "id_connector",
             "description": ""
           },
           {
@@ -752,7 +879,7 @@
         "summary": "Get a subset of id_connection with the largest diversity of account"
       }
     },
-    "/banks/{id_bank}/logos": {
+    "/banks/{id_connector}/logos": {
       "get": {
         "responses": {
           "200": {
@@ -777,13 +904,13 @@
           "Banks",
           "Providers"
         ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
         "parameters": [
           {
             "required": true,
             "in": "path",
             "type": "integer",
-            "name": "id_bank",
+            "name": "id_connector",
             "description": ""
           },
           {
@@ -793,10 +920,10 @@
             "in": "query"
           }
         ],
-        "summary": "Get all links to the files associated with this bank."
+        "summary": "Get all links to the files associated with this connector."
       }
     },
-    "/banks/{id_bank}/logos/main": {
+    "/banks/{id_connector}/logos/main": {
       "get": {
         "responses": {
           "200": {
@@ -821,13 +948,13 @@
           "Banks",
           "Providers"
         ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
         "parameters": [
           {
             "required": true,
             "in": "path",
             "type": "integer",
-            "name": "id_bank",
+            "name": "id_connector",
             "description": ""
           },
           {
@@ -837,10 +964,10 @@
             "in": "query"
           }
         ],
-        "summary": "Get all links to the files associated with this bank."
+        "summary": "Get all links to the files associated with this connector."
       }
     },
-    "/banks/{id_bank}/logos/thumbnail": {
+    "/banks/{id_connector}/logos/thumbnail": {
       "get": {
         "responses": {
           "200": {
@@ -865,13 +992,13 @@
           "Banks",
           "Providers"
         ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
         "parameters": [
           {
             "required": true,
             "in": "path",
             "type": "integer",
-            "name": "id_bank",
+            "name": "id_connector",
             "description": ""
           },
           {
@@ -881,7 +1008,7 @@
             "in": "query"
           }
         ],
-        "summary": "Get all links to the files associated with this bank."
+        "summary": "Get all links to the files associated with this connector."
       }
     },
     "/categories": {
@@ -972,7 +1099,7 @@
             "in": "formData",
             "type": "integer",
             "name": "value",
-            "description": "vallue of the transaction"
+            "description": "value of the transaction"
           },
           {
             "required": true,
@@ -983,6 +1110,38 @@
           }
         ],
         "summary": "categorize transactions without storing them"
+      }
+    },
+    "/certificate/{type}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful GET on Certificate resource",
+            "schema": {
+              "$ref": "#/definitions/Certificate"
+            }
+          }
+        },
+        "tags": [
+          "Authentication"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "type",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get the latest certificate of a type"
       }
     },
     "/clients": {
@@ -1036,6 +1195,34 @@
         "parameters": [
           {
             "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "generate_keys",
+            "description": "if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "name",
+            "description": "name of client"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "redirect_uri",
+            "description": "redirect_uri"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "information",
+            "description": "custom information about the client"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -1057,7 +1244,7 @@
         "tags": [
           "Administration"
         ],
-        "description": "If you use the manage_token, you will get also the client_secret.<br><br>",
+        "description": "If you use the manage_token or a configuration token, you will get also the client_secret<br><br>",
         "parameters": [
           {
             "required": true,
@@ -1095,6 +1282,13 @@
             "type": "integer",
             "name": "id_client",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "generate_keys",
+            "description": "set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)"
           },
           {
             "required": false,
@@ -1158,6 +1352,20 @@
             "type": "boolean",
             "name": "pro",
             "description": "Wether the client should display the company manager page"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "information",
+            "description": "custom information about the client"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "update_information",
+            "description": "update the custom information about the client instead of replacing the existing one (default: True)"
           },
           {
             "required": false,
@@ -1288,20 +1496,20 @@
           "200": {
             "schema": {
               "required": [
-                "bank.connection.disable_new"
+                "connection.disable_new"
               ],
               "type": "object"
             },
             "description": "",
             "examples": {
-              "bank.connection.disable_new": "0"
+              "connection.disable_new": "0"
             }
           }
         },
         "tags": [
           "Administration"
         ],
-        "description": "Request: { \"bank.connection.disable_new\": \"0\", \"search\": \"bank.connection.disable_new\" }<br><br>",
+        "description": "Request: { \"connection.disable_new\": \"0\", \"search\": \"connection.disable_new\" }<br><br>",
         "parameters": [
           {
             "required": false,
@@ -1365,7 +1573,7 @@
               "properties": {
                 "connectors": {
                   "items": {
-                    "$ref": "#/definitions/Bank"
+                    "$ref": "#/definitions/Connector"
                   },
                   "type": "array"
                 }
@@ -1393,9 +1601,9 @@
         "responses": {
           "200": {
             "schema": {
-              "$ref": "#/definitions/Bank"
+              "$ref": "#/definitions/Connector"
             },
-            "description": "Successful POST on Bank resource",
+            "description": "Successful POST on Connector resource",
             "examples": {}
           }
         },
@@ -1478,280 +1686,8 @@
         ],
         "summary": "Request a new connector",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
-      }
-    },
-    "/connectors/{id_bank}/logos": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "connectorlogos",
-            "schema": {
-              "required": [
-                "connectorlogos"
-              ],
-              "type": "object",
-              "properties": {
-                "connectorlogos": {
-                  "items": {
-                    "$ref": "#/definitions/ConnectorLogo"
-                  },
-                  "type": "array"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Banks",
-          "Providers"
-        ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_bank",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Get all links to the files associated with this bank."
-      },
-      "post": {
-        "responses": {
-          "200": {
-            "description": "Successful POST on ConnectorLogo resource",
-            "schema": {
-              "$ref": "#/definitions/ConnectorLogo"
-            }
-          }
-        },
-        "tags": [
-          "Banks",
-          "Providers"
-        ],
-        "description": "This endpoint creates a bank logo. You can either pass a file to as a parameter to insert and link it with the bank or pass an id_file to link a bank with an existing file. Will fail if the file is already linked with that bank.<br><br>Form params: - id_file (integer): The id of the file to link with that bank. - img (string): Path to the image to link with that bank.<br><br>",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_bank",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Create a Bank Logo"
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "Successful PUT on ConnectorLogo resource",
-            "schema": {
-              "$ref": "#/definitions/ConnectorLogo"
-            }
-          }
-        },
-        "tags": [
-          "Banks",
-          "Providers"
-        ],
-        "description": "This endpoint creates or update a bank logo. This logo is a mapping between a file (/file route) and a bank (/banks route) or a provider (/providers route).<br><br>Form params: - id_file (integer): The id of the file to link with that bank.<br><br>",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_bank",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Create or Update a Bank Logo"
-      }
-    },
-    "/connectors/{id_bank}/logos/main": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "connectorlogos",
-            "schema": {
-              "required": [
-                "connectorlogos"
-              ],
-              "type": "object",
-              "properties": {
-                "connectorlogos": {
-                  "items": {
-                    "$ref": "#/definitions/ConnectorLogo"
-                  },
-                  "type": "array"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Banks",
-          "Providers"
-        ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_bank",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Get all links to the files associated with this bank."
-      }
-    },
-    "/connectors/{id_bank}/logos/thumbnail": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "connectorlogos",
-            "schema": {
-              "required": [
-                "connectorlogos"
-              ],
-              "type": "object",
-              "properties": {
-                "connectorlogos": {
-                  "items": {
-                    "$ref": "#/definitions/ConnectorLogo"
-                  },
-                  "type": "array"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Banks",
-          "Providers"
-        ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_bank",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Get all links to the files associated with this bank."
-      }
-    },
-    "/connectors/{id_bank}/logos/{id_logo}": {
-      "put": {
-        "responses": {
-          "200": {
-            "description": "Successful PUT on ConnectorLogo resource",
-            "schema": {
-              "$ref": "#/definitions/ConnectorLogo"
-            }
-          }
-        },
-        "tags": [
-          "Banks",
-          "Providers"
-        ],
-        "description": "This endpoint creates or update a bank logo. This logo is a mapping between a file (/file route) and a bank (/banks route) or a provider (/providers route).<br><br>Form params: - id_file (integer): The id of the file to link with that bank.<br><br>",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_bank",
-            "description": ""
-          },
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_logo",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Create or Update a Bank Logo."
-      },
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "Successful DELETE on ConnectorLogo resource",
-            "schema": {
-              "$ref": "#/definitions/ConnectorLogo"
-            }
-          }
-        },
-        "tags": [
-          "Banks",
-          "Providers"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_bank",
-            "description": ""
-          },
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_logo",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Delete a single Logo object."
       }
     },
     "/connectors/{id_connector}": {
@@ -1759,9 +1695,9 @@
         "responses": {
           "200": {
             "schema": {
-              "$ref": "#/definitions/Bank"
+              "$ref": "#/definitions/Connector"
             },
-            "description": "Successful PUT on Bank resource",
+            "description": "Successful PUT on Connector resource",
             "examples": {
               "sync_frequency": null,
               "code": "40618",
@@ -1802,7 +1738,7 @@
             "in": "formData",
             "type": "string",
             "name": "id_categories",
-            "description": "one or several comma separated categories to map to the given bank (or null to map no category)"
+            "description": "one or several comma separated categories to map to the given connector (or null to map no category)"
           },
           {
             "required": false,
@@ -1825,7 +1761,279 @@
             "in": "query"
           }
         ],
-        "summary": "Edit the provided bank"
+        "summary": "Edit the provided connector"
+      }
+    },
+    "/connectors/{id_connector}/logos": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "connectorlogos",
+            "schema": {
+              "required": [
+                "connectorlogos"
+              ],
+              "type": "object",
+              "properties": {
+                "connectorlogos": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectorLogo"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get all links to the files associated with this connector."
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on ConnectorLogo resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectorLogo"
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "This endpoint creates a connector logo. You can either pass a file to as a parameter to insert and link it with the connector or pass an id_file to link a connector with an existing file. Will fail if the file is already linked with that connector.<br><br>Form params: - id_file (integer): The id of the file to link with that connector. - img (string): Path to the image to link with that connector.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Create a connector Logo"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on ConnectorLogo resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectorLogo"
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "This endpoint creates or update a connector logo. This logo is a mapping between a file (/file route) and a connector (/connectors route) or a provider (/providers route).<br><br>Form params: - id_file (integer): The id of the file to link with that connector.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Create or Update a connector Logo"
+      }
+    },
+    "/connectors/{id_connector}/logos/main": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "connectorlogos",
+            "schema": {
+              "required": [
+                "connectorlogos"
+              ],
+              "type": "object",
+              "properties": {
+                "connectorlogos": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectorLogo"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get all links to the files associated with this connector."
+      }
+    },
+    "/connectors/{id_connector}/logos/thumbnail": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "connectorlogos",
+            "schema": {
+              "required": [
+                "connectorlogos"
+              ],
+              "type": "object",
+              "properties": {
+                "connectorlogos": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectorLogo"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get all links to the files associated with this connector."
+      }
+    },
+    "/connectors/{id_connector}/logos/{id_logo}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on ConnectorLogo resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectorLogo"
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "This endpoint creates or update a connector logo. This logo is a mapping between a file (/file route) and a connector (/connectors route) or a provider (/providers route).<br><br>Form params: - id_file (integer): The id of the file to link with that connector.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_logo",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Create or Update a connector Logo."
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on ConnectorLogo resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectorLogo"
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_logo",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Delete a single Logo object."
       }
     },
     "/documenttypes": {
@@ -2161,15 +2369,15 @@
             "required": false,
             "in": "query",
             "type": "integer",
-            "name": "id_bank",
-            "description": "ID of a bank"
+            "name": "id_connector",
+            "description": "ID of a connector"
           },
           {
             "required": false,
             "in": "query",
             "type": "boolean",
             "name": "charged",
-            "description": "consider only logs for charged banks"
+            "description": "consider only logs for charged connectors"
           },
           {
             "required": false,
@@ -2179,6 +2387,148 @@
           }
         ],
         "summary": "Get connection logs"
+      }
+    },
+    "/merchants": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "clients",
+            "schema": {
+              "required": [
+                "clients"
+              ],
+              "type": "object",
+              "properties": {
+                "clients": {
+                  "items": {
+                    "$ref": "#/definitions/Client"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "List clients"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on Client resource",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "formData",
+            "type": "string",
+            "name": "name",
+            "description": "name of merchant"
+          },
+          {
+            "required": true,
+            "in": "formData",
+            "type": "string",
+            "name": "redirect_uri",
+            "description": "regexp to check if given redirect_uri are authorized"
+          },
+          {
+            "required": true,
+            "in": "formData",
+            "type": "string",
+            "name": "iban",
+            "description": "payments initiated by this merchant will be done to this IBAN"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Create a merchant. Needs a user identified in bearer to be used"
+      }
+    },
+    "/merchants/{id_client}/logo": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on File resource",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_client",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Update the client logo"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on File resource",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_client",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Delete the client logo"
       }
     },
     "/monitoring": {
@@ -2351,16 +2701,16 @@
       "get": {
         "responses": {
           "200": {
-            "description": "banks",
+            "description": "providers",
             "schema": {
               "required": [
-                "banks"
+                "providers"
               ],
               "type": "object",
               "properties": {
-                "banks": {
+                "providers": {
                   "items": {
-                    "$ref": "#/definitions/Bank"
+                    "$ref": "#/definitions/Connector"
                   },
                   "type": "array"
                 }
@@ -2385,20 +2735,20 @@
         "summary": "Get list of connectors"
       }
     },
-    "/providers/{id_bank}/logos": {
+    "/providers/{id_connector}/connections": {
       "get": {
         "responses": {
           "200": {
-            "description": "connectorlogos",
+            "description": "connections",
             "schema": {
               "required": [
-                "connectorlogos"
+                "connections"
               ],
               "type": "object",
               "properties": {
-                "connectorlogos": {
+                "connections": {
                   "items": {
-                    "$ref": "#/definitions/ConnectorLogo"
+                    "$ref": "#/definitions/Connection"
                   },
                   "type": "array"
                 }
@@ -2408,16 +2758,23 @@
         },
         "tags": [
           "Banks",
-          "Providers"
+          "Connections"
         ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
+        "description": "By default, it selects a set of 3 connections.<br><br>",
         "parameters": [
           {
             "required": true,
             "in": "path",
             "type": "integer",
-            "name": "id_bank",
+            "name": "id_connector",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "range",
+            "description": "the length of the connection subset"
           },
           {
             "required": false,
@@ -2426,10 +2783,10 @@
             "in": "query"
           }
         ],
-        "summary": "Get all links to the files associated with this bank."
+        "summary": "Get a random subset of provider's id_connection"
       }
     },
-    "/providers/{id_bank}/logos/main": {
+    "/providers/{id_connector}/logos": {
       "get": {
         "responses": {
           "200": {
@@ -2454,13 +2811,13 @@
           "Banks",
           "Providers"
         ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
         "parameters": [
           {
             "required": true,
             "in": "path",
             "type": "integer",
-            "name": "id_bank",
+            "name": "id_connector",
             "description": ""
           },
           {
@@ -2470,10 +2827,10 @@
             "in": "query"
           }
         ],
-        "summary": "Get all links to the files associated with this bank."
+        "summary": "Get all links to the files associated with this connector."
       }
     },
-    "/providers/{id_bank}/logos/thumbnail": {
+    "/providers/{id_connector}/logos/main": {
       "get": {
         "responses": {
           "200": {
@@ -2498,13 +2855,13 @@
           "Banks",
           "Providers"
         ],
-        "description": "This endpoint returns all links to files associated with this bank.<br><br>",
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
         "parameters": [
           {
             "required": true,
             "in": "path",
             "type": "integer",
-            "name": "id_bank",
+            "name": "id_connector",
             "description": ""
           },
           {
@@ -2514,7 +2871,51 @@
             "in": "query"
           }
         ],
-        "summary": "Get all links to the files associated with this bank."
+        "summary": "Get all links to the files associated with this connector."
+      }
+    },
+    "/providers/{id_connector}/logos/thumbnail": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "connectorlogos",
+            "schema": {
+              "required": [
+                "connectorlogos"
+              ],
+              "type": "object",
+              "properties": {
+                "connectorlogos": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectorLogo"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Banks",
+          "Providers"
+        ],
+        "description": "This endpoint returns all links to files associated with this connector.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get all links to the files associated with this connector."
       }
     },
     "/terms": {
@@ -2864,7 +3265,7 @@
         "tags": [
           "Banks"
         ],
-        "description": "This endpoint creates an account not related to a connection.<br><br>",
+        "description": "This endpoint creates an account related to a connection or not.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -2911,12 +3312,49 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_connection",
+            "description": "the connection to attach to the account"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
           }
         ],
         "summary": "Create an account"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on Account resource",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Update many accounts at once"
       },
       "delete": {
         "responses": {
@@ -3023,6 +3461,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "usage",
+            "description": "Usage of the account : PRIV, ORGA or ASSO"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -3042,7 +3487,7 @@
         "tags": [
           "Banks"
         ],
-        "description": "It deletes a specific account. If this is the last synced account of a connection, it will be removed too.<br><br>",
+        "description": "It deletes a specific account.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -3780,7 +4225,7 @@
             "in": "query"
           }
         ],
-        "summary": "Returns the list of recipients"
+        "summary": "Returns the list of recipients."
       },
       "post": {
         "responses": {
@@ -3794,7 +4239,7 @@
         "tags": [
           "Recipients"
         ],
-        "description": "",
+        "description": "if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>",
         "parameters": [
           {
             "required": true,
@@ -3809,6 +4254,13 @@
             "type": "integer",
             "name": "id_account",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -3869,6 +4321,13 @@
             "type": "integer",
             "name": "id_recipient",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -4060,6 +4519,13 @@
             "type": "boolean",
             "name": "validated",
             "description": "set it to initialize transfer on the bank website."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
           },
           {
             "required": false,
@@ -4589,7 +5055,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -4605,7 +5071,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -5477,7 +5943,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -5493,7 +5959,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -6189,6 +6655,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -6505,6 +6978,175 @@
           }
         ],
         "summary": "Get the category"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on Category resource",
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "name",
+            "description": "Name of the category."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_parent_category",
+            "description": "ID of the parent category."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_parent_category_in_menu",
+            "description": "ID of the parent category to be displayed."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "color",
+            "description": "Color of the category."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "income",
+            "description": "Is an income category. If null, this is both an income and an expense category."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "refundable",
+            "description": "This category accepts opposite sign of transactions."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "accountant_account",
+            "description": "Accountant account number."
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Create a new transaction category"
+      }
+    },
+    "/users/{id_user}/categories/full/{id_full}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on Category resource",
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_full",
+            "description": ""
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "hide",
+            "description": "Hide (but not delete) a category. Must be 0, 1 or toggle."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "accountant_account",
+            "description": "Accountant account number."
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Modify a user-created category"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on Category resource",
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_full",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Delete a user-created transaction category"
       }
     },
     "/users/{id_user}/config": {
@@ -6652,8 +7294,8 @@
             "required": false,
             "in": "formData",
             "type": "integer",
-            "name": "id_bank",
-            "description": "ID of the bank"
+            "name": "id_connector",
+            "description": "ID of the connector"
           },
           {
             "required": false,
@@ -6729,13 +7371,6 @@
             "required": false,
             "in": "formData",
             "type": "string",
-            "name": "password",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
             "name": "login",
             "description": "bank additional login parameter"
           },
@@ -6755,7 +7390,7 @@
         ],
         "summary": "Add a new connection.",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -6860,7 +7495,7 @@
         ],
         "summary": "Update a connection.",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "put": {
@@ -7003,7 +7638,7 @@
         "tags": [
           "Banks"
         ],
-        "description": "This endpoint creates an account not related to a connection.<br><br>",
+        "description": "This endpoint creates an account related to a connection or not.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -7057,6 +7692,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_connection",
+            "description": "the connection to attach to the account"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -7064,8 +7706,45 @@
         ],
         "summary": "Create an account",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on Account resource",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Update many accounts at once"
       },
       "delete": {
         "responses": {
@@ -7186,6 +7865,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "usage",
+            "description": "Usage of the account : PRIV, ORGA or ASSO"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -7205,7 +7891,7 @@
         "tags": [
           "Banks"
         ],
-        "description": "It deletes a specific account. If this is the last synced account of a connection, it will be removed too.<br><br>",
+        "description": "It deletes a specific account.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -7837,7 +8523,7 @@
         ],
         "summary": "Create an alert on transactions or investemens of a given user",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       }
     },
@@ -7928,7 +8614,7 @@
         ],
         "summary": "Edit an alert on transactions or investments",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -8040,7 +8726,7 @@
             "in": "query"
           }
         ],
-        "summary": "Returns the list of recipients"
+        "summary": "Returns the list of recipients."
       },
       "post": {
         "responses": {
@@ -8054,7 +8740,7 @@
         "tags": [
           "Recipients"
         ],
-        "description": "",
+        "description": "if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>",
         "parameters": [
           {
             "required": true,
@@ -8076,6 +8762,13 @@
             "type": "integer",
             "name": "id_account",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -8143,6 +8836,13 @@
             "type": "integer",
             "name": "id_recipient",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -8355,6 +9055,13 @@
             "type": "boolean",
             "name": "validated",
             "description": "set it to initialize transfer on the bank website."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
           },
           {
             "required": false,
@@ -8926,7 +9633,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -8942,7 +9649,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -9905,7 +10612,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -9921,7 +10628,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -10142,7 +10849,7 @@
         ],
         "summary": "Attach an existing document to a transaction or a transactions_cluster",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -10690,6 +11397,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -10887,7 +11601,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -10903,7 +11617,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -11659,15 +12373,15 @@
             "required": false,
             "in": "query",
             "type": "integer",
-            "name": "id_bank",
-            "description": "ID of a bank"
+            "name": "id_connector",
+            "description": "ID of a connector"
           },
           {
             "required": false,
             "in": "query",
             "type": "boolean",
             "name": "charged",
-            "description": "consider only logs for charged banks"
+            "description": "consider only logs for charged connectors"
           },
           {
             "required": false,
@@ -11726,7 +12440,7 @@
             "in": "query"
           }
         ],
-        "summary": "Returns the list of recipients"
+        "summary": "Returns the list of recipients."
       },
       "post": {
         "responses": {
@@ -11740,7 +12454,7 @@
         "tags": [
           "Recipients"
         ],
-        "description": "",
+        "description": "if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>",
         "parameters": [
           {
             "required": true,
@@ -11755,6 +12469,13 @@
             "type": "integer",
             "name": "id_connection",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -11815,6 +12536,13 @@
             "type": "integer",
             "name": "id_recipient",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -12006,6 +12734,13 @@
             "type": "boolean",
             "name": "validated",
             "description": "set it to initialize transfer on the bank website."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
           },
           {
             "required": false,
@@ -12264,7 +12999,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -12280,7 +13015,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -13191,7 +13926,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -13207,7 +13942,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -14079,7 +14814,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -14095,7 +14830,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -14791,6 +15526,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -15149,7 +15891,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -15165,7 +15907,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -15820,15 +16562,15 @@
             "required": false,
             "in": "query",
             "type": "integer",
-            "name": "id_bank",
-            "description": "ID of a bank"
+            "name": "id_connector",
+            "description": "ID of a connector"
           },
           {
             "required": false,
             "in": "query",
             "type": "boolean",
             "name": "charged",
-            "description": "consider only logs for charged banks"
+            "description": "consider only logs for charged connectors"
           },
           {
             "required": false,
@@ -16398,7 +17140,7 @@
             "in": "query"
           }
         ],
-        "summary": "Returns the list of recipients"
+        "summary": "Returns the list of recipients."
       },
       "post": {
         "responses": {
@@ -16412,7 +17154,7 @@
         "tags": [
           "Recipients"
         ],
-        "description": "",
+        "description": "if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>",
         "parameters": [
           {
             "required": true,
@@ -16420,6 +17162,13 @@
             "type": "string",
             "name": "id_user",
             "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -16473,6 +17222,13 @@
             "type": "integer",
             "name": "id_recipient",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "background",
+            "description": "if true, do synchronization in background"
           },
           {
             "required": false,
@@ -16643,6 +17399,13 @@
             "type": "boolean",
             "name": "validated",
             "description": "set it to initialize transfer on the bank website."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
           },
           {
             "required": false,
@@ -16838,7 +17601,7 @@
         ],
         "summary": "Update a subscription",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -16964,7 +17727,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -16980,7 +17743,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -17173,7 +17936,7 @@
         ],
         "summary": "Attach an existing document to a transaction or a transactions_cluster",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -17459,13 +18222,6 @@
             "required": false,
             "in": "formData",
             "type": "integer",
-            "name": "id_user",
-            "description": "user id (optionnal)"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "integer",
             "name": "id_terms",
             "description": "terms id"
           },
@@ -17478,7 +18234,7 @@
         ],
         "summary": "Register user's consent for a specific terms id",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       }
     },
@@ -17521,7 +18277,7 @@
         ],
         "summary": "Create a token",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       }
     },
@@ -17766,7 +18522,7 @@
         ],
         "summary": "Create transactions",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -17874,7 +18630,7 @@
         ],
         "summary": "Edit a transaction meta-data",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       }
     },
@@ -17963,7 +18719,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -17979,7 +18735,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -18172,7 +18928,7 @@
         ],
         "summary": "Attach an existing document to a transaction or a transactions_cluster",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -18763,7 +19519,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) amount"
+            "description": "maximum (inclusive) amount"
           },
           {
             "name": "min_timestamp",
@@ -18779,7 +19535,7 @@
             "required": false,
             "in": "query",
             "type": "number",
-            "description": "maximumd (inclusive) timestamp"
+            "description": "maximum (inclusive) timestamp"
           },
           {
             "required": false,
@@ -18972,7 +19728,7 @@
         ],
         "summary": "Attach an existing document to a transaction or a transactions_cluster",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       },
       "delete": {
@@ -19369,7 +20125,7 @@
         ],
         "summary": "Create a transfer object.",
         "consumes": [
-          "multipart/form-data"
+          "application/x-www-form-urlencoded"
         ]
       }
     },
@@ -19408,6 +20164,13 @@
             "type": "boolean",
             "name": "validated",
             "description": "set it to initialize transfer on the bank website."
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_recipient",
+            "description": "set the recipient of the transfer"
           },
           {
             "required": false,
@@ -19454,6 +20217,64 @@
           }
         ],
         "summary": "Cancel a transfer."
+      }
+    },
+    "/webauth": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "standard HTTP response"
+          }
+        },
+        "tags": [
+          "Authentication"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_connector",
+            "description": "ID of the connector"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "client_id",
+            "description": "Client Application ID"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "redirect_uri",
+            "description": "Redirect URI"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "state",
+            "description": "Optional state"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "fields",
+            "description": "Optional fields"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_connection",
+            "description": "Optional already existing connection to update"
+          }
+        ],
+        "summary": "Initialize a new OAuth2 proxy session."
       }
     },
     "/webhooks": {
@@ -19737,6 +20558,79 @@
         ],
         "summary": "Deletes a webhook"
       }
+    },
+    "/webhooks/{id_webhook}/logs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "webhooklogs",
+            "schema": {
+              "required": [
+                "webhooklogs"
+              ],
+              "type": "object",
+              "properties": {
+                "webhooklogs": {
+                  "items": {
+                    "$ref": "#/definitions/WebhookLog"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "Get logs of the webhooks.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_webhook",
+            "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "limit",
+            "description": "limit number of results"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "offset",
+            "description": "offset of first result"
+          },
+          {
+            "name": "min_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "minimal (inclusive) date"
+          },
+          {
+            "name": "max_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "maximum (inclusive) date"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get webhooks logs."
+      }
     }
   },
   "host": "demo.biapi.pro",
@@ -19745,7 +20639,7 @@
     "application/json"
   ],
   "definitions": {
-    "Bank": {
+    "Connector": {
       "required": [
         "id",
         "name",
@@ -19807,6 +20701,10 @@
             "type": "string"
           }
         },
+        "auth_mechanism": {
+          "type": "string",
+          "description": "Authentication mechanism to use"
+        },
         "fields": {
           "type": "array",
           "items": {
@@ -19825,21 +20723,22 @@
         "color": "",
         "slug": "",
         "sync_frequency": 0,
-        "months_to_fetch": 0
+        "months_to_fetch": 0,
+        "auth_mechanism": ""
       }
     },
     "Field": {
       "required": [
-        "id_bank",
+        "id_connector",
         "id",
         "name",
         "label"
       ],
       "type": "object",
       "properties": {
-        "id_bank": {
+        "id_connector": {
           "type": "integer",
-          "description": "ID of the related bank"
+          "description": "ID of the related connector"
         },
         "id": {
           "type": "integer",
@@ -19876,17 +20775,23 @@
           "items": {
             "$ref": "#/definitions/FieldValue"
           }
+        },
+        "required": {
+          "default": true,
+          "type": "boolean",
+          "description": "If true, field has to be set to synchronize the connection"
         }
       },
       "example": {
-        "id_bank": 0,
+        "id_connector": 0,
         "id": 0,
         "name": "",
         "label": "",
         "regex": "",
         "type": "text",
         "ephemeral": false,
-        "value": ""
+        "value": "",
+        "required": true
       }
     },
     "FieldValue": {
@@ -19907,7 +20812,7 @@
     "ConnectorLogo": {
       "required": [
         "id",
-        "id_bank",
+        "id_connector",
         "id_file"
       ],
       "type": "object",
@@ -19915,9 +20820,9 @@
         "id": {
           "type": "integer"
         },
-        "id_bank": {
+        "id_connector": {
           "type": "integer",
-          "description": "ID of the bank"
+          "description": "ID of the connector"
         },
         "id_file": {
           "type": "integer",
@@ -19930,9 +20835,45 @@
       },
       "example": {
         "id": 0,
-        "id_bank": 0,
+        "id_connector": 0,
         "id_file": 0,
         "type": ""
+      }
+    },
+    "User": {
+      "required": [
+        "id",
+        "signin",
+        "platform"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "signin": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "format": "date-time"
+        },
+        "platform": {
+          "enum": [
+            "web",
+            "iPad",
+            "iPhone",
+            "Android",
+            "CAstore",
+            "requestAccess",
+            "sharedAccess",
+            "transfer"
+          ],
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "signin": "CURRENT_TIMESTAMP",
+        "platform": ""
       }
     },
     "TermsOfService": {
@@ -19965,8 +20906,8 @@
         "id": 0,
         "version": "",
         "id_file": 0,
-        "created": "2018-09-19 10:44:12.438640",
-        "deleted": "2018-09-19 10:44:12.438702"
+        "created": "2019-03-12 13:08:00.680453",
+        "deleted": "2019-03-12 13:08:00.680558"
       }
     },
     "Category": {
@@ -20054,6 +20995,12 @@
         "secret": {
           "type": "string"
         },
+        "public_key": {
+          "type": "string"
+        },
+        "private_key": {
+          "type": "string"
+        },
         "redirect_uri": {
           "default": "",
           "type": "string"
@@ -20085,12 +21032,18 @@
         },
         "id_logo": {
           "type": "integer"
+        },
+        "information": {
+          "type": "string",
+          "description": "customizable information"
         }
       },
       "example": {
         "id": 0,
         "name": "",
         "secret": "",
+        "public_key": "",
+        "private_key": "",
         "redirect_uri": "",
         "primary_color": "",
         "secondary_color": "",
@@ -20164,7 +21117,7 @@
         "code": "",
         "name": "",
         "id_type": 0,
-        "last_update": "2018-09-19 10:44:12.447943"
+        "last_update": "2019-03-12 13:08:00.694060"
       }
     },
     "Webhook": {
@@ -20213,13 +21166,67 @@
       },
       "example": {
         "id": 0,
-        "created": "2018-09-19 10:44:12.450710",
-        "updated": "2018-09-19 10:44:12.450787",
-        "deleted": "2018-09-19 10:44:12.450846",
+        "created": "2019-03-12 13:08:00.697921",
+        "updated": "2019-03-12 13:08:00.698025",
+        "deleted": "2019-03-12 13:08:00.698104",
         "id_service": 0,
         "id_user": 0,
         "id_event": 0,
         "url": ""
+      }
+    },
+    "WebhookLog": {
+      "required": [
+        "id",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the log"
+        },
+        "id_webhook_data": {
+          "type": "integer",
+          "description": "ID of the webhook data"
+        },
+        "id_service": {
+          "type": "integer",
+          "description": "ID of the service"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the user"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp when the hook was sent",
+          "format": "date-time"
+        },
+        "response_date": {
+          "type": "string",
+          "description": "Timestamp of the reply to the hook",
+          "format": "date-time"
+        },
+        "response_code": {
+          "type": "integer",
+          "description": "Return code of the reply to the hook"
+        },
+        "next_try": {
+          "type": "string",
+          "description": "If the log is an error, do not retry to push before this timestamp",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_webhook_data": 0,
+        "id_service": 0,
+        "id_user": 0,
+        "timestamp": "2019-03-12 13:08:00.700198",
+        "response_date": "2019-03-12 13:08:00.700288",
+        "response_code": 0,
+        "next_try": "2019-03-12 13:08:00.700427"
       }
     },
     "DocumentType": {
@@ -20247,46 +21254,40 @@
         "attacheable": true
       }
     },
-    "User": {
+    "HashTable": {
       "required": [
-        "id",
-        "signin",
-        "platform"
+        "wording",
+        "income",
+        "display",
+        "nature"
       ],
       "type": "object",
       "properties": {
-        "id": {
-          "type": "integer"
+        "wording": {
+          "type": "string"
         },
-        "signin": {
-          "default": "CURRENT_TIMESTAMP",
-          "type": "string",
-          "format": "date-time"
+        "income": {
+          "type": "boolean"
         },
-        "platform": {
-          "enum": [
-            "web",
-            "iPad",
-            "iPhone",
-            "Android",
-            "CAstore",
-            "requestAccess",
-            "sharedAccess",
-            "transfer"
-          ],
+        "display": {
+          "default": true,
+          "type": "boolean"
+        },
+        "nature": {
           "type": "string"
         }
       },
       "example": {
-        "id": 0,
-        "signin": "CURRENT_TIMESTAMP",
-        "platform": ""
+        "wording": "",
+        "income": false,
+        "display": true,
+        "nature": ""
       }
     },
     "Connection": {
       "required": [
         "id",
-        "id_bank",
+        "id_connector",
         "active"
       ],
       "type": "object",
@@ -20299,9 +21300,9 @@
           "type": "integer",
           "description": "ID of the related user"
         },
-        "id_bank": {
+        "id_connector": {
           "type": "integer",
-          "description": "ID of the related bank or provider"
+          "description": "ID of the related connector"
         },
         "last_update": {
           "type": "string",
@@ -20342,13 +21343,48 @@
       "example": {
         "id": 0,
         "id_user": 0,
-        "id_bank": 0,
-        "last_update": "2018-09-19 10:44:12.461304",
+        "id_connector": 0,
+        "last_update": "2019-03-12 13:08:00.715434",
         "error": "",
-        "expire": "2018-09-19 10:44:12.461430",
+        "expire": "2019-03-12 13:08:00.715687",
         "active": true,
-        "last_push": "2018-09-19 10:44:12.461552",
-        "next_try": "2018-09-19 10:44:12.461740"
+        "last_push": "2019-03-12 13:08:00.715851",
+        "next_try": "2019-03-12 13:08:00.716098"
+      }
+    },
+    "Certificate": {
+      "required": [
+        "id",
+        "id_public_key_file",
+        "id_private_key_file",
+        "type",
+        "created"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_public_key_file": {
+          "type": "integer"
+        },
+        "id_private_key_file": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_public_key_file": 0,
+        "id_private_key_file": 0,
+        "type": "",
+        "created": "2019-03-12 13:08:00.724039"
       }
     },
     "ConnectionLog": {
@@ -20371,9 +21407,9 @@
           "type": "integer",
           "description": "ID of the connection"
         },
-        "id_bank": {
+        "id_connector": {
           "type": "integer",
-          "description": "ID of the bank"
+          "description": "ID of the connector"
         },
         "login": {
           "type": "string",
@@ -20400,7 +21436,7 @@
         },
         "error_message": {
           "type": "string",
-          "description": "If fail, error message received from bank or provider"
+          "description": "If fail, error message received from connector"
         },
         "statut": {
           "type": "integer",
@@ -20418,23 +21454,187 @@
         "worker": {
           "type": "string",
           "description": "Worker used to do synchronization"
+        },
+        "session_folder_id": {
+          "type": "string",
+          "description": "Session folder uid"
         }
       },
       "example": {
         "id": 0,
         "id_user": 0,
         "id_connection": 0,
-        "id_bank": 0,
+        "id_connector": 0,
         "login": "",
         "error_uid": "",
         "timestamp": "CURRENT_TIMESTAMP",
-        "next_try": "2018-09-19 10:44:12.468834",
+        "next_try": "2019-03-12 13:08:00.726321",
         "error": "",
         "error_message": "",
         "statut": 0,
         "nb_accounts": 0,
-        "start": "2018-09-19 10:44:12.469108",
-        "worker": ""
+        "start": "2019-03-12 13:08:00.726630",
+        "worker": "",
+        "session_folder_id": ""
+      }
+    },
+    "ProjectType": {
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon_url": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "name": "",
+        "icon_url": ""
+      }
+    },
+    "Transfer": {
+      "description": "This is a representation of a transfer.",
+      "required": [
+        "id",
+        "exec_date",
+        "register_date",
+        "amount",
+        "state"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of transfer"
+        },
+        "id_account": {
+          "type": "integer",
+          "description": "ID of the debited account"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the related user"
+        },
+        "id_recipient": {
+          "type": "integer",
+          "description": "ID of the recipient"
+        },
+        "account_iban": {
+          "type": "string",
+          "description": "IBAN of the debited account"
+        },
+        "recipient_iban": {
+          "type": "string",
+          "description": "IBAN of the recipient"
+        },
+        "exec_date": {
+          "type": "string",
+          "description": "Date when the transfer will be operated by the bank",
+          "format": "date"
+        },
+        "register_date": {
+          "type": "string",
+          "description": "Date when the transfer has been registered",
+          "format": "date-time"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Amount of the transfer",
+          "format": "float"
+        },
+        "fees": {
+          "type": "number",
+          "description": "Fees taken by the bank",
+          "format": "float"
+        },
+        "webid": {
+          "type": "string",
+          "description": "WebID of the transfer"
+        },
+        "state": {
+          "type": "string",
+          "description": "State of the transfer (created, scheduled, validating, pending, done, canceled, error, bug)"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message during transfer, if any"
+        },
+        "label": {
+          "type": "string",
+          "description": "Label of the transfer"
+        },
+        "account_balance": {
+          "type": "number",
+          "description": "Balance of the account just before the transfer",
+          "format": "float"
+        },
+        "id_transaction": {
+          "type": "integer",
+          "description": "If found, ID of the related transaction"
+        },
+        "currency": {
+          "type": "object",
+          "description": "Currency of the object"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_account": 0,
+        "id_user": 0,
+        "id_recipient": 0,
+        "account_iban": "",
+        "recipient_iban": "",
+        "exec_date": "2019-03-12",
+        "register_date": "2019-03-12 13:08:00.736646",
+        "amount": 0,
+        "fees": 0,
+        "webid": "",
+        "state": "",
+        "error": "",
+        "label": "",
+        "account_balance": 0,
+        "id_transaction": 0,
+        "currency": ""
+      }
+    },
+    "Access": {
+      "required": [
+        "id",
+        "id_profile"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_user": {
+          "type": "integer"
+        },
+        "id_profile": {
+          "type": "integer"
+        },
+        "id_role": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_user": 0,
+        "id_profile": 0,
+        "id_role": 0,
+        "email": ""
       }
     },
     "Profile": {
@@ -20484,7 +21684,6 @@
         "id": 0,
         "id_user": 0,
         "role": "admin",
-        "email": "",
         "statut": 0,
         "admin": false,
         "conf": "",
@@ -20538,7 +21737,7 @@
         "mean_amount": 0,
         "median_increment": 0,
         "enabled": true,
-        "next_date": "2018-09-19",
+        "next_date": "2019-03-12",
         "wording": "",
         "id_category": 0,
         "created_by": ""
@@ -20688,7 +21887,6 @@
     "Subscription": {
       "required": [
         "id",
-        "id_user",
         "number",
         "label"
       ],
@@ -20742,6 +21940,10 @@
           "type": "string",
           "description": "This subscription has been deleted by user and will not be synchronized anymore",
           "format": "date-time"
+        },
+        "error": {
+          "type": "string",
+          "description": "If the last update has failed, the error code"
         }
       },
       "example": {
@@ -20751,11 +21953,12 @@
         "number": "",
         "label": "",
         "subscriber": "",
-        "validity": "2018-09-19",
-        "renewdate": "2018-09-19",
-        "last_update": "2018-09-19 10:44:12.502349",
-        "deleted": "2018-09-19 10:44:12.502406",
-        "disabled": "2018-09-19 10:44:12.502462"
+        "validity": "2019-03-12",
+        "renewdate": "2019-03-12",
+        "last_update": "2019-03-12 13:08:00.782154",
+        "deleted": "2019-03-12 13:08:00.782232",
+        "disabled": "2019-03-12 13:08:00.782310",
+        "error": ""
       }
     },
     "Transaction": {
@@ -20763,7 +21966,6 @@
         "id",
         "id_account",
         "date",
-        "value",
         "nature",
         "original_wording",
         "simplified_wording",
@@ -20804,6 +22006,11 @@
           "description": "Value of the transaction",
           "format": "float"
         },
+        "gross_value": {
+          "type": "number",
+          "description": "Gross value of the transaction",
+          "format": "float"
+        },
         "nature": {
           "default": "inconnu",
           "type": "string",
@@ -20842,6 +22049,11 @@
         "rdate": {
           "type": "string",
           "description": "Realization of the transaction",
+          "format": "date"
+        },
+        "vdate": {
+          "type": "string",
+          "description": "Value date of the transaction",
           "format": "date"
         },
         "coming": {
@@ -20890,38 +22102,52 @@
           "description": "Commission taken on the transaction",
           "format": "float"
         },
+        "commission_currency": {
+          "type": "object",
+          "description": "Commission currency"
+        },
         "country": {
           "type": "string",
           "description": "Original country"
+        },
+        "counterparty": {
+          "type": "string",
+          "description": "Counterparty"
+        },
+        "card": {
+          "type": "string",
+          "description": "Card number associated to the transaction"
         }
       },
       "example": {
         "id": 0,
         "id_account": 0,
         "webid": "",
-        "application_date": "2018-09-19",
-        "date": "2018-09-19",
+        "application_date": "2019-03-12",
+        "date": "2019-03-12",
         "value": 0,
+        "gross_value": 0,
         "nature": "inconnu",
-        "original_wording": "",
-        "simplified_wording": "",
-        "stemmed_wording": "",
         "wording": "",
         "id_category": 0,
         "state": "new",
-        "date_scraped": "2018-09-19 10:44:12.504942",
-        "rdate": "2018-09-19",
+        "date_scraped": "2019-03-12 13:08:00.787303",
+        "rdate": "2019-03-12",
+        "vdate": "2019-03-12",
         "coming": false,
         "active": true,
         "id_cluster": 0,
         "comment": "",
-        "last_update": "2018-09-19 10:44:12.505381",
-        "deleted": "2018-09-19 10:44:12.505440",
+        "last_update": "2019-03-12 13:08:00.787854",
+        "deleted": "2019-03-12 13:08:00.787941",
         "nopurge": false,
         "original_value": 0,
         "original_currency": "",
         "commission": 0,
-        "country": ""
+        "commission_currency": "",
+        "country": "",
+        "counterparty": "",
+        "card": ""
       }
     },
     "Investment": {
@@ -21071,16 +22297,16 @@
         "diff_percent": 0,
         "prev_diff": 0,
         "portfolio_share": 0,
-        "vdate": "2018-09-19",
-        "prev_vdate": "2018-09-19",
+        "vdate": "2019-03-12",
+        "prev_vdate": "2019-03-12",
         "id_security": 0,
         "original_currency": "",
         "original_valuation": 0,
         "original_unitvalue": 0,
         "original_unitprice": 0,
         "original_diff": 0,
-        "last_update": "2018-09-19 10:44:12.509707",
-        "deleted": "2018-09-19 10:44:12.509764"
+        "last_update": "2019-03-12 13:08:00.794806",
+        "deleted": "2019-03-12 13:08:00.794887"
       }
     },
     "Recipient": {
@@ -21153,6 +22379,18 @@
           "type": "boolean",
           "description": "Was the recipient adding authorized"
         },
+        "state": {
+          "type": "string",
+          "description": "State of recipient"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Fields for recipient with additionalInformationNeeded state"
+        },
         "currency": {
           "type": "object",
           "description": "Currency of the object"
@@ -21167,12 +22405,14 @@
         "iban": "",
         "webid": "",
         "category": "",
-        "last_update": "2018-09-19 10:44:12.510904",
-        "time_scraped": "2018-09-19 10:44:12.510962",
-        "deleted": "2018-09-19 10:44:12.511019",
-        "expire": "2018-09-19 10:44:12.511073",
-        "enabled_at": "2018-09-19 10:44:12.511128",
+        "last_update": "2019-03-12 13:08:00.798766",
+        "time_scraped": "2019-03-12 13:08:00.798874",
+        "deleted": "2019-03-12 13:08:00.798949",
+        "expire": "2019-03-12 13:08:00.799022",
+        "enabled_at": "2019-03-12 13:08:00.799096",
         "add_verified": false,
+        "state": "",
+        "error": "",
         "currency": ""
       }
     },
@@ -21277,8 +22517,8 @@
         "thumb_url": "",
         "name": "",
         "timestamp": "CURRENT_TIMESTAMP",
-        "date": "2018-09-19 10:44:12.513896",
-        "duedate": "2018-09-19",
+        "date": "2019-03-12 13:08:00.801723",
+        "duedate": "2019-03-12",
         "total_amount": 0,
         "untaxed_amount": 0,
         "vat": 0,
@@ -21286,114 +22526,13 @@
         "readonly": true,
         "number": "",
         "issuer": "",
-        "last_update": "2018-09-19 10:44:12.514455",
-        "currency": ""
-      }
-    },
-    "Transfer": {
-      "description": "This is a representation of a transfer.",
-      "required": [
-        "id",
-        "exec_date",
-        "register_date",
-        "amount",
-        "state"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of transfer"
-        },
-        "id_account": {
-          "type": "integer",
-          "description": "ID of the debited account"
-        },
-        "id_recipient": {
-          "type": "integer",
-          "description": "ID of the recipient"
-        },
-        "account_iban": {
-          "type": "string",
-          "description": "IBAN of the debited account"
-        },
-        "recipient_iban": {
-          "type": "string",
-          "description": "IBAN of the recipient"
-        },
-        "exec_date": {
-          "type": "string",
-          "description": "Date when the transfer will be operated by the bank",
-          "format": "date"
-        },
-        "register_date": {
-          "type": "string",
-          "description": "Date when the transfer has been registered",
-          "format": "date-time"
-        },
-        "amount": {
-          "type": "number",
-          "description": "Amount of the transfer",
-          "format": "float"
-        },
-        "fees": {
-          "type": "number",
-          "description": "Fees taken by the bank",
-          "format": "float"
-        },
-        "webid": {
-          "type": "string",
-          "description": "WebID of the transfer"
-        },
-        "state": {
-          "type": "string",
-          "description": "State of the transfer (created, scheduled, validating, pending, done, canceled, error, bug)"
-        },
-        "error": {
-          "type": "string",
-          "description": "Error message during transfer, if any"
-        },
-        "label": {
-          "type": "string",
-          "description": "Label of the transfer"
-        },
-        "account_balance": {
-          "type": "number",
-          "description": "Balance of the account just before the transfer",
-          "format": "float"
-        },
-        "id_transaction": {
-          "type": "integer",
-          "description": "If found, ID of the related transaction"
-        },
-        "currency": {
-          "type": "object",
-          "description": "Currency of the object"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_account": 0,
-        "id_recipient": 0,
-        "account_iban": "",
-        "recipient_iban": "",
-        "exec_date": "2018-09-19",
-        "register_date": "2018-09-19 10:44:12.516705",
-        "amount": 0,
-        "fees": 0,
-        "webid": "",
-        "state": "",
-        "error": "",
-        "label": "",
-        "account_balance": 0,
-        "id_transaction": 0,
+        "last_update": "2019-03-12 13:08:00.802639",
         "currency": ""
       }
     },
     "Account": {
       "required": [
         "id",
-        "id_user",
         "original_name",
         "balance",
         "display",
@@ -21481,9 +22620,19 @@
           "type": "string",
           "description": "Name of the account"
         },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Transaction"
+          }
+        },
         "error": {
           "type": "string",
           "description": "If the last update has failed, the error code"
+        },
+        "usage": {
+          "type": "string",
+          "description": "Account usage"
         }
       },
       "example": {
@@ -21496,15 +22645,76 @@
         "balance": 0,
         "coming": 0,
         "display": true,
-        "last_update": "2018-09-19 10:44:12.520118",
-        "deleted": "2018-09-19 10:44:12.520178",
-        "disabled": "2018-09-19 10:44:12.520235",
+        "last_update": "2019-03-12 13:08:00.808463",
+        "deleted": "2019-03-12 13:08:00.808560",
+        "disabled": "2019-03-12 13:08:00.808639",
         "iban": "",
         "currency": "",
         "id_type": 0,
         "bookmarked": false,
         "name": "",
-        "error": ""
+        "error": "",
+        "usage": ""
+      }
+    },
+    "Project": {
+      "required": [
+        "id",
+        "id_user",
+        "id_type",
+        "name",
+        "target",
+        "saved",
+        "monthly_savings",
+        "comment",
+        "active"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_user": {
+          "type": "integer"
+        },
+        "id_type": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "target": {
+          "type": "number",
+          "format": "float"
+        },
+        "saved": {
+          "default": 0,
+          "type": "number",
+          "format": "float"
+        },
+        "monthly_savings": {
+          "type": "number",
+          "format": "float"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        },
+        "active": {
+          "default": true,
+          "type": "boolean"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_user": 0,
+        "id_type": 0,
+        "name": "",
+        "target": 0,
+        "saved": 0,
+        "monthly_savings": 0,
+        "comment": "",
+        "active": true
       }
     },
     "Device": {
@@ -21552,6 +22762,113 @@
         "last_update": "CURRENT_TIMESTAMP",
         "version": "",
         "debug": false
+      }
+    },
+    "Pocket": {
+      "required": [
+        "id",
+        "id_account",
+        "id_investment",
+        "value",
+        "condition"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the pocket"
+        },
+        "id_account": {
+          "type": "integer",
+          "description": "ID of the related account"
+        },
+        "id_investment": {
+          "type": "integer",
+          "description": "ID of the related investment"
+        },
+        "label": {
+          "type": "string",
+          "description": "Label of the pocket"
+        },
+        "value": {
+          "type": "number",
+          "description": "Value of the pocket",
+          "format": "float"
+        },
+        "quantity": {
+          "default": 0,
+          "type": "number",
+          "description": "Quantity of stocks",
+          "format": "float"
+        },
+        "availability_date": {
+          "type": "string",
+          "description": "Availability date of the pocket",
+          "format": "date"
+        },
+        "condition": {
+          "default": "inconnu",
+          "type": "string",
+          "description": "Withdrawal condition of the pocket"
+        },
+        "last_update": {
+          "type": "string",
+          "description": "Last update of the pocket",
+          "format": "date-time"
+        },
+        "deleted": {
+          "type": "string",
+          "description": "If set, this pocket has been removed from the website",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_account": 0,
+        "id_investment": 0,
+        "label": "",
+        "value": 0,
+        "quantity": 0,
+        "availability_date": "2019-03-12",
+        "condition": "inconnu",
+        "last_update": "2019-03-12 13:08:00.817603",
+        "deleted": "2019-03-12 13:08:00.817684"
+      }
+    },
+    "Invite": {
+      "required": [
+        "id",
+        "id_user_inviting"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_unsubscribe": {
+          "type": "integer"
+        },
+        "id_user_inviting": {
+          "type": "integer"
+        },
+        "id_user_invited": {
+          "type": "integer"
+        },
+        "email_invited": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_unsubscribe": 0,
+        "id_user_inviting": 0,
+        "id_user_invited": 0,
+        "email_invited": "",
+        "timestamp": "2019-03-12 13:08:00.818970"
       }
     },
     "Alert": {
@@ -21608,6 +22925,96 @@
         "id_account": 0,
         "value": 0,
         "id_investment": 0
+      }
+    },
+    "Group": {
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_parent_group": {
+          "type": "integer"
+        },
+        "id_logo": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "conf": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_parent_group": 0,
+        "id_logo": 0,
+        "name": "",
+        "url": "",
+        "color": "",
+        "email": "",
+        "conf": ""
+      }
+    },
+    "TransferLog": {
+      "required": [
+        "id",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the transfer log entry"
+        },
+        "id_transfer": {
+          "type": "integer",
+          "description": "ID of the related transfer"
+        },
+        "id_file": {
+          "type": "integer",
+          "description": "ID of the related file"
+        },
+        "request_data": {
+          "type": "string",
+          "description": "Data stored related to user who has requested the transfer"
+        },
+        "state": {
+          "type": "string",
+          "description": "State of the transfer (created, scheduled, validating, pending, done, canceled, error, bug)"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message during transfer, if any"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of the log",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_transfer": 0,
+        "id_file": 0,
+        "request_data": "",
+        "state": "",
+        "error": "",
+        "timestamp": "CURRENT_TIMESTAMP"
       }
     },
     "TransactionInformation": {
@@ -21682,10 +23089,58 @@
       "example": {
         "id": 0,
         "id_investment": 0,
-        "vdate": "2018-09-19",
+        "vdate": "2019-03-12",
         "unitvalue": 0,
         "original_currency": "",
         "original_unitvalue": 0
+      }
+    },
+    "RecipientLog": {
+      "required": [
+        "id",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the transfer log entry"
+        },
+        "id_recipient": {
+          "type": "integer",
+          "description": "ID of the related recipient"
+        },
+        "id_file": {
+          "type": "integer",
+          "description": "ID of the related file"
+        },
+        "request_data": {
+          "type": "string",
+          "description": "Data stored related to user who has requested the recipient addition"
+        },
+        "step": {
+          "type": "string",
+          "description": "Step of recipient addition, (add_recipient, asking_field, recipient addition validated, creation, storing_files)"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message during recipient addition, if any"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of the log",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_recipient": 0,
+        "id_file": 0,
+        "request_data": "",
+        "step": "",
+        "error": "",
+        "timestamp": "CURRENT_TIMESTAMP"
       }
     },
     "AccountLog": {
@@ -21700,7 +23155,7 @@
           "type": "integer",
           "description": "ID of the related account"
         },
-        "id_bank": {
+        "id_connector": {
           "type": "integer",
           "description": "provider id"
         },
@@ -21729,20 +23184,20 @@
           "type": "string",
           "description": "If fail, error message received from bank or provider"
         },
-        "id_connection": {
+        "id_connection_log": {
           "type": "integer",
-          "description": "ID of the related connection"
+          "description": "ID of the related connection log"
         }
       },
       "example": {
         "id_account": 0,
-        "id_bank": 0,
+        "id_connector": 0,
         "balance": 0,
         "coming": 0,
         "timestamp": "CURRENT_TIMESTAMP",
         "error": "",
         "error_message": "",
-        "id_connection": 0
+        "id_connection_log": 0
       }
     },
     "Currency": {
@@ -21765,15 +23220,39 @@
           "default": false,
           "type": "boolean",
           "description": "Amount is prefixed or not by the currency"
+        },
+        "crypto": {
+          "default": false,
+          "type": "boolean",
+          "description": "It is a crypto currency or not"
+        },
+        "precision": {
+          "default": 2,
+          "type": "integer",
+          "description": "Numbers of significant digits"
+        },
+        "marketcap": {
+          "type": "number",
+          "description": "Market Capitalization in EUR",
+          "format": "float"
+        },
+        "datetime": {
+          "type": "string",
+          "description": "Time and date of Market Cap (for cryptos)",
+          "format": "date-time"
         }
       },
       "example": {
         "id": "",
         "symbol": "",
-        "prefix": false
+        "prefix": false,
+        "crypto": false,
+        "precision": 2,
+        "marketcap": 0,
+        "datetime": "2019-03-12 13:08:01.124343"
       }
     },
-    "BankCategory": {
+    "ConnectorCategory": {
       "required": [
         "id",
         "name"
@@ -21895,6 +23374,14 @@
     }
   ],
   "x-servers": [
+    {
+      "url": "https://cashbee-local-sandbox.biapi.pro/2.0",
+      "description": "cashbee-local-sandbox.biapi.pro"
+    },
+    {
+      "url": "https://cashbee-mordor-sandbox.biapi.pro/2.0",
+      "description": "cashbee-mordor-sandbox.biapi.pro"
+    },
     {
       "url": "https://cashbee-sandbox.biapi.pro/2.0",
       "description": "cashbee-sandbox.biapi.pro"

@@ -13,19 +13,24 @@ Method | HTTP request | Description
 [**clients_post**](AdministrationApi.md#clients_post) | **POST** /clients | Create a client
 [**config_get**](AdministrationApi.md#config_get) | **GET** /config | Get configuration of the API.
 [**config_post**](AdministrationApi.md#config_post) | **POST** /config | Set a configuration value on the API.
+[**merchants_get**](AdministrationApi.md#merchants_get) | **GET** /merchants | List clients
+[**merchants_id_client_logo_delete**](AdministrationApi.md#merchants_id_client_logo_delete) | **DELETE** /merchants/{id_client}/logo | Delete the client logo
+[**merchants_id_client_logo_post**](AdministrationApi.md#merchants_id_client_logo_post) | **POST** /merchants/{id_client}/logo | Update the client logo
+[**merchants_post**](AdministrationApi.md#merchants_post) | **POST** /merchants | Create a merchant. Needs a user identified in bearer to be used
 [**monitoring_get**](AdministrationApi.md#monitoring_get) | **GET** /monitoring | get performances stats on this instance
 [**test_sync_post**](AdministrationApi.md#test_sync_post) | **POST** /test/sync | Test synchronization on a random connection.
 [**test_webhooks_post**](AdministrationApi.md#test_webhooks_post) | **POST** /test/webhooks | Test synchronization on a random connection.
 [**webhooks_delete**](AdministrationApi.md#webhooks_delete) | **DELETE** /webhooks | Deletes all webhooks
 [**webhooks_get**](AdministrationApi.md#webhooks_get) | **GET** /webhooks | Get webhooks
 [**webhooks_id_webhook_delete**](AdministrationApi.md#webhooks_id_webhook_delete) | **DELETE** /webhooks/{id_webhook} | Deletes a webhook
+[**webhooks_id_webhook_logs_get**](AdministrationApi.md#webhooks_id_webhook_logs_get) | **GET** /webhooks/{id_webhook}/logs | Get webhooks logs.
 [**webhooks_id_webhook_post**](AdministrationApi.md#webhooks_id_webhook_post) | **POST** /webhooks/{id_webhook} | Updates a webhook
 [**webhooks_id_webhook_put**](AdministrationApi.md#webhooks_id_webhook_put) | **PUT** /webhooks/{id_webhook} | Updates a webhook
 [**webhooks_post**](AdministrationApi.md#webhooks_post) | **POST** /webhooks | Adds a new webhook
 
 
 # **clients_get**
-> InlineResponse20011 clients_get(opts)
+> InlineResponse20012 clients_get(opts)
 
 List clients
 
@@ -46,7 +51,7 @@ end
 api_instance = BudgeaClient::AdministrationApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -66,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -103,7 +108,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_client = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -142,7 +147,7 @@ Name | Type | Description  | Notes
 
 Get information about a client
 
-If you use the manage_token, you will get also the client_secret.<br><br>
+If you use the manage_token or a configuration token, you will get also the client_secret<br><br>
 
 ### Example
 ```ruby
@@ -161,7 +166,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_client = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -219,7 +224,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_client = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -277,7 +282,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_client = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -335,16 +340,19 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_client = 56 # Integer | 
 
 opts = { 
-  name: "name_example", # String | name of client
+  generate_keys: true, # BOOLEAN | set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)
+  name: 'name_example', # String | name of client
   secret: true, # BOOLEAN | reset the secret
-  redirect_uri: "redirect_uri_example", # String | redirect_uri
-  primary_color: "primary_color_example", # String | hexadecimal code of the client primary color (e.g F45B9A)
-  secondary_color: "secondary_color_example", # String | hexadecimal code of the client secondary color (e.g F45B9A)
-  description: "description_example", # String | text to display as a default description
-  description_banks: "description_banks_example", # String | text to display as a description for banks
-  description_providers: "description_providers_example", # String | text to display as a description for providers
+  redirect_uri: 'redirect_uri_example', # String | redirect_uri
+  primary_color: 'primary_color_example', # String | hexadecimal code of the client primary color (e.g F45B9A)
+  secondary_color: 'secondary_color_example', # String | hexadecimal code of the client secondary color (e.g F45B9A)
+  description: 'description_example', # String | text to display as a default description
+  description_banks: 'description_banks_example', # String | text to display as a description for banks
+  description_providers: 'description_providers_example', # String | text to display as a description for providers
   pro: true, # BOOLEAN | Wether the client should display the company manager page
-  expand: "expand_example" # String | 
+  information: 'information_example', # String | custom information about the client
+  update_information: true, # BOOLEAN | update the custom information about the client instead of replacing the existing one (default: True)
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -361,6 +369,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_client** | **Integer**|  | 
+ **generate_keys** | **BOOLEAN**| set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False) | [optional] 
  **name** | **String**| name of client | [optional] 
  **secret** | **BOOLEAN**| reset the secret | [optional] 
  **redirect_uri** | **String**| redirect_uri | [optional] 
@@ -370,6 +379,8 @@ Name | Type | Description  | Notes
  **description_banks** | **String**| text to display as a description for banks | [optional] 
  **description_providers** | **String**| text to display as a description for providers | [optional] 
  **pro** | **BOOLEAN**| Wether the client should display the company manager page | [optional] 
+ **information** | **String**| custom information about the client | [optional] 
+ **update_information** | **BOOLEAN**| update the custom information about the client instead of replacing the existing one (default: True) | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -409,7 +420,11 @@ end
 api_instance = BudgeaClient::AdministrationApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  generate_keys: true, # BOOLEAN | if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
+  name: 'name_example', # String | name of client
+  redirect_uri: 'redirect_uri_example', # String | redirect_uri
+  information: 'information_example', # String | custom information about the client
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -425,6 +440,10 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **generate_keys** | **BOOLEAN**| if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False) | [optional] 
+ **name** | **String**| name of client | [optional] 
+ **redirect_uri** | **String**| redirect_uri | [optional] 
+ **information** | **String**| custom information about the client | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -464,7 +483,7 @@ end
 api_instance = BudgeaClient::AdministrationApi.new
 
 opts = { 
-  search: "search_example" # String | limit the results to keys matching the given value
+  search: 'search_example' # String | limit the results to keys matching the given value
 }
 
 begin
@@ -501,7 +520,7 @@ nil (empty response body)
 
 Set a configuration value on the API.
 
-Request: { \"bank.connection.disable_new\": \"0\", \"search\": \"bank.connection.disable_new\" }<br><br>
+Request: { \"connection.disable_new\": \"0\", \"search\": \"connection.disable_new\" }<br><br>
 
 ### Example
 ```ruby
@@ -518,7 +537,7 @@ end
 api_instance = BudgeaClient::AdministrationApi.new
 
 opts = { 
-  search: "search_example" # String | limit the results to keys matching the given value
+  search: 'search_example' # String | limit the results to keys matching the given value
 }
 
 begin
@@ -539,6 +558,241 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Object**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **merchants_get**
+> InlineResponse20012 merchants_get(opts)
+
+List clients
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #List clients
+  result = api_instance.merchants_get(opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->merchants_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20012**](InlineResponse20012.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **merchants_id_client_logo_delete**
+> File merchants_id_client_logo_delete(id_client, opts)
+
+Delete the client logo
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_client = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Delete the client logo
+  result = api_instance.merchants_id_client_logo_delete(id_client, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->merchants_id_client_logo_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_client** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **merchants_id_client_logo_post**
+> File merchants_id_client_logo_post(id_client, opts)
+
+Update the client logo
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_client = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Update the client logo
+  result = api_instance.merchants_id_client_logo_post(id_client, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->merchants_id_client_logo_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_client** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **merchants_post**
+> Client merchants_post(name, redirect_uri, iban, opts)
+
+Create a merchant. Needs a user identified in bearer to be used
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+name = 'name_example' # String | name of merchant
+
+redirect_uri = 'redirect_uri_example' # String | regexp to check if given redirect_uri are authorized
+
+iban = 'iban_example' # String | payments initiated by this merchant will be done to this IBAN
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Create a merchant. Needs a user identified in bearer to be used
+  result = api_instance.merchants_post(name, redirect_uri, iban, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->merchants_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name of merchant | 
+ **redirect_uri** | **String**| regexp to check if given redirect_uri are authorized | 
+ **iban** | **String**| payments initiated by this merchant will be done to this IBAN | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Client**](Client.md)
 
 ### Authorization
 
@@ -721,7 +975,7 @@ end
 api_instance = BudgeaClient::AdministrationApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -755,7 +1009,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_get**
-> InlineResponse20033 webhooks_get(opts)
+> InlineResponse20035 webhooks_get(opts)
 
 Get webhooks
 
@@ -776,7 +1030,7 @@ end
 api_instance = BudgeaClient::AdministrationApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -796,7 +1050,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -833,7 +1087,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_webhook = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -855,6 +1109,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_id_webhook_logs_get**
+> InlineResponse20036 webhooks_id_webhook_logs_get(id_webhook, opts)
+
+Get webhooks logs.
+
+Get logs of the webhooks.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_webhook = 56 # Integer | 
+
+opts = { 
+  limit: 56, # Integer | limit number of results
+  offset: 56, # Integer | offset of first result
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get webhooks logs.
+  result = api_instance.webhooks_id_webhook_logs_get(id_webhook, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_id_webhook_logs_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_webhook** | **Integer**|  | 
+ **limit** | **Integer**| limit number of results | [optional] 
+ **offset** | **Integer**| offset of first result | [optional] 
+ **min_date** | **Date**| minimal (inclusive) date | [optional] 
+ **max_date** | **Date**| maximum (inclusive) date | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -891,12 +1211,12 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_webhook = 56 # Integer | 
 
 opts = { 
-  deleted: "deleted_example", # String | a date to delete the webhook or 'null' to enable it
+  deleted: 'deleted_example', # String | a date to delete the webhook or 'null' to enable it
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
   url: 3.4, # Float | The webhook callback url
-  event: "event_example", # String | The webhook event
-  expand: "expand_example" # String | 
+  event: 'event_example', # String | The webhook event
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -959,12 +1279,12 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_webhook = 56 # Integer | 
 
 opts = { 
-  deleted: "deleted_example", # String | a date to delete the webhook or 'null' to enable it
+  deleted: 'deleted_example', # String | a date to delete the webhook or 'null' to enable it
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
   url: 3.4, # Float | The webhook callback url
-  event: "event_example", # String | The webhook event
-  expand: "expand_example" # String | 
+  event: 'event_example', # String | The webhook event
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1028,9 +1348,9 @@ opts = {
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
   url: 3.4, # Float | The webhook callback url
-  event: "event_example", # String | The webhook event
-  params: "params_example", # String | The webhook parameters as an object with three keys: type, key and value
-  expand: "expand_example" # String | 
+  event: 'event_example', # String | The webhook event
+  params: 'params_example', # String | The webhook parameters as an object with three keys: type, key and value
+  expand: 'expand_example' # String | 
 }
 
 begin

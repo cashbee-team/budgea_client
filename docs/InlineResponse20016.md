@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**termsofservices** | [**Array&lt;TermsOfService&gt;**](TermsOfService.md) |  | 
+**connectionlogs** | [**Array&lt;ConnectionLog&gt;**](ConnectionLog.md) |  | 
 
 

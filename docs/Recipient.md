@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **expire** | **DateTime** |  | [optional] 
 **enabled_at** | **DateTime** | It will be possible to do transfers to this recipient at this date | [optional] 
 **add_verified** | **BOOLEAN** | Was the recipient adding authorized | [optional] 
+**state** | **String** | State of recipient | [optional] 
+**error** | **String** | Error message | [optional] 
+**fields** | **String** | Fields for recipient with additionalInformationNeeded state | [optional] 
 **currency** | **Object** | Currency of the object | [optional] 
 
 

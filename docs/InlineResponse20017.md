@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**users** | [**Array&lt;User&gt;**](User.md) |  | 
+**providers** | [**Array&lt;Connector&gt;**](Connector.md) |  | 
 
 

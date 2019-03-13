@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connectorlogos** | [**Array&lt;ConnectorLogo&gt;**](ConnectorLogo.md) |  | 
+**connections** | [**Array&lt;Connection&gt;**](Connection.md) |  | 
 
 

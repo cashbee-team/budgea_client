@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **terms_get**
-> InlineResponse20016 terms_get(opts)
+> InlineResponse20018 terms_get(opts)
 
 Return the current terms and the content of the associated file
 
@@ -32,7 +32,7 @@ end
 api_instance = BudgeaClient::TermsApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -87,9 +87,9 @@ end
 api_instance = BudgeaClient::TermsApi.new
 
 opts = { 
-  version: "version_example", # String | Number of version
-  file_content: "file_content_example", # String | file containing the terms, optional
-  expand: "expand_example" # String | 
+  version: 'version_example', # String | Number of version
+  file_content: 'file_content_example', # String | file containing the terms, optional
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_terms_get**
-> InlineResponse20016 users_id_user_terms_get(id_user, opts)
+> InlineResponse20018 users_id_user_terms_get(id_user, opts)
 
 Get active terms object for a specific user, only one terms can be active
 
@@ -145,10 +145,10 @@ end
 
 api_instance = BudgeaClient::TermsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -203,12 +203,11 @@ end
 
 api_instance = BudgeaClient::TermsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  id_user2: 56, # Integer | user id (optionnal)
   id_terms: 56, # Integer | terms id
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -225,7 +224,6 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_user2** | **Integer**| user id (optionnal) | [optional] 
  **id_terms** | **Integer**| terms id | [optional] 
  **expand** | **String**|  | [optional] 
 
@@ -239,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 

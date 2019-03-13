@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  | 
 **id_user** | **Integer** |  | 
-**role** | **String** |  | [default to &quot;admin&quot;]
+**role** | **String** |  | [default to &#39;admin&#39;]
 **email** | **String** |  | 
 **statut** | **Integer** |  | 
 **admin** | **BOOLEAN** |  | [default to false]

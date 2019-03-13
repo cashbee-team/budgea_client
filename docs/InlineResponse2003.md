@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**profile** | **Object** | the user profile data object | 
-**token** | **String** | the requested token | 
-**user** | **Object** | the user data object | 
+**jwt_token** | **String** | the jwt token | 
+**payload** | **Object** | the payload contained in the jwt token | 
 
 

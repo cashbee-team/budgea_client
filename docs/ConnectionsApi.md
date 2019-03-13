@@ -5,12 +5,13 @@ All URIs are relative to *https://demo.biapi.pro/2.0/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**banks_get**](ConnectionsApi.md#banks_get) | **GET** /banks | Get list of connectors
-[**banks_id_bank_connections_get**](ConnectionsApi.md#banks_id_bank_connections_get) | **GET** /banks/{id_bank}/connections | Get a subset of id_connection with the largest diversity of account
+[**banks_id_connector_connections_get**](ConnectionsApi.md#banks_id_connector_connections_get) | **GET** /banks/{id_connector}/connections | Get a subset of id_connection with the largest diversity of account
 [**connections_get**](ConnectionsApi.md#connections_get) | **GET** /connections | Get connections without a user
 [**connectors_get**](ConnectionsApi.md#connectors_get) | **GET** /connectors | Get list of connectors
 [**connectors_post**](ConnectionsApi.md#connectors_post) | **POST** /connectors | Request a new connector
 [**logs_get**](ConnectionsApi.md#logs_get) | **GET** /logs | Get connection logs
 [**providers_get**](ConnectionsApi.md#providers_get) | **GET** /providers | Get list of connectors
+[**providers_id_connector_connections_get**](ConnectionsApi.md#providers_id_connector_connections_get) | **GET** /providers/{id_connector}/connections | Get a random subset of provider&#39;s id_connection
 [**users_id_user_connections_delete**](ConnectionsApi.md#users_id_user_connections_delete) | **DELETE** /users/{id_user}/connections | Delete all connections
 [**users_id_user_connections_get**](ConnectionsApi.md#users_id_user_connections_get) | **GET** /users/{id_user}/connections | Get connections
 [**users_id_user_connections_id_connection_delete**](ConnectionsApi.md#users_id_user_connections_id_connection_delete) | **DELETE** /users/{id_user}/connections/{id_connection} | Delete a connection.
@@ -23,7 +24,7 @@ Method | HTTP request | Description
 
 
 # **banks_get**
-> InlineResponse2007 banks_get(opts)
+> InlineResponse2008 banks_get(opts)
 
 Get list of connectors
 
@@ -44,7 +45,7 @@ end
 api_instance = BudgeaClient::ConnectionsApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -64,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -77,8 +78,8 @@ Name | Type | Description  | Notes
 
 
 
-# **banks_id_bank_connections_get**
-> InlineResponse2008 banks_id_bank_connections_get(id_bank, opts)
+# **banks_id_connector_connections_get**
+> InlineResponse2009 banks_id_connector_connections_get(id_connector, opts)
 
 Get a subset of id_connection with the largest diversity of account
 
@@ -98,20 +99,20 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_bank = 56 # Integer | 
+id_connector = 56 # Integer | 
 
 opts = { 
   range: 56, # Integer | the length of the connection subset
   type: 56, # Integer | to target a specific account type which will be
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
   #Get a subset of id_connection with the largest diversity of account
-  result = api_instance.banks_id_bank_connections_get(id_bank, opts)
+  result = api_instance.banks_id_connector_connections_get(id_connector, opts)
   p result
 rescue BudgeaClient::ApiError => e
-  puts "Exception when calling ConnectionsApi->banks_id_bank_connections_get: #{e}"
+  puts "Exception when calling ConnectionsApi->banks_id_connector_connections_get: #{e}"
 end
 ```
 
@@ -119,14 +120,14 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_bank** | **Integer**|  | 
+ **id_connector** | **Integer**|  | 
  **range** | **Integer**| the length of the connection subset | [optional] 
  **type** | **Integer**| to target a specific account type which will be | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -140,7 +141,7 @@ Name | Type | Description  | Notes
 
 
 # **connections_get**
-> InlineResponse2008 connections_get(opts)
+> InlineResponse2009 connections_get(opts)
 
 Get connections without a user
 
@@ -161,7 +162,7 @@ end
 api_instance = BudgeaClient::ConnectionsApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -181,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -195,7 +196,7 @@ Name | Type | Description  | Notes
 
 
 # **connectors_get**
-> InlineResponse20012 connectors_get(opts)
+> InlineResponse20013 connectors_get(opts)
 
 Get list of connectors
 
@@ -216,7 +217,7 @@ end
 api_instance = BudgeaClient::ConnectionsApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -236,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -250,7 +251,7 @@ Name | Type | Description  | Notes
 
 
 # **connectors_post**
-> Bank connectors_post(name, login, password, opts)
+> Connector connectors_post(name, login, password, opts)
 
 Request a new connector
 
@@ -270,20 +271,20 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-name = "name_example" # String | Name of the bank or provider
+name = 'name_example' # String | Name of the bank or provider
 
-login = "login_example" # String | Users login
+login = 'login_example' # String | Users login
 
-password = "password_example" # String | Users password
+password = 'password_example' # String | Users password
 
 opts = { 
-  api: "api_example", # String | Name of the API
-  url: "url_example", # String | Url of the bank
-  email: "email_example", # String | Email of the user
-  types: "types_example", # String | Type of connector, eg. banks or providers
-  comment: "comment_example", # String | Optionnal comment
+  api: 'api_example', # String | Name of the API
+  url: 'url_example', # String | Url of the bank
+  email: 'email_example', # String | Email of the user
+  types: 'types_example', # String | Type of connector, eg. banks or providers
+  comment: 'comment_example', # String | Optionnal comment
   sendmail: true, # BOOLEAN | if set, send an email to user
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -312,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Bank**](Bank.md)
+[**Connector**](Connector.md)
 
 ### Authorization
 
@@ -320,13 +321,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
 
 # **logs_get**
-> InlineResponse20015 logs_get(opts)
+> InlineResponse20016 logs_get(opts)
 
 Get connection logs
 
@@ -349,15 +350,15 @@ api_instance = BudgeaClient::ConnectionsApi.new
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
   state: 56, # Integer | state of user
-  period: "period_example", # String | period to group logs
+  period: 'period_example', # String | period to group logs
   id_user: 56, # Integer | ID of a user
   id_connection: 56, # Integer | ID of a connection
-  id_bank: 56, # Integer | ID of a bank
-  charged: true, # BOOLEAN | consider only logs for charged banks
-  expand: "expand_example" # String | 
+  id_connector: 56, # Integer | ID of a connector
+  charged: true, # BOOLEAN | consider only logs for charged connectors
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -381,13 +382,13 @@ Name | Type | Description  | Notes
  **period** | **String**| period to group logs | [optional] 
  **id_user** | **Integer**| ID of a user | [optional] 
  **id_connection** | **Integer**| ID of a connection | [optional] 
- **id_bank** | **Integer**| ID of a bank | [optional] 
- **charged** | **BOOLEAN**| consider only logs for charged banks | [optional] 
+ **id_connector** | **Integer**| ID of a connector | [optional] 
+ **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -401,7 +402,7 @@ Name | Type | Description  | Notes
 
 
 # **providers_get**
-> InlineResponse2007 providers_get(opts)
+> InlineResponse20017 providers_get(opts)
 
 Get list of connectors
 
@@ -422,7 +423,7 @@ end
 api_instance = BudgeaClient::ConnectionsApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -442,7 +443,67 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse20017**](InlineResponse20017.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **providers_id_connector_connections_get**
+> InlineResponse2009 providers_id_connector_connections_get(id_connector, opts)
+
+Get a random subset of provider's id_connection
+
+By default, it selects a set of 3 connections.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ConnectionsApi.new
+
+id_connector = 56 # Integer | 
+
+opts = { 
+  range: 56, # Integer | the length of the connection subset
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get a random subset of provider's id_connection
+  result = api_instance.providers_id_connector_connections_get(id_connector, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ConnectionsApi->providers_id_connector_connections_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **range** | **Integer**| the length of the connection subset | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -476,10 +537,10 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -514,7 +575,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_get**
-> InlineResponse2008 users_id_user_connections_get(id_user, opts)
+> InlineResponse2009 users_id_user_connections_get(id_user, opts)
 
 Get connections
 
@@ -534,10 +595,10 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -558,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -592,12 +653,12 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -633,7 +694,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_informations_get**
-> InlineResponse2008 users_id_user_connections_id_connection_informations_get(id_user, id_connection, opts)
+> InlineResponse2009 users_id_user_connections_id_connection_informations_get(id_user, id_connection, opts)
 
 Get connection additionnal informations
 
@@ -653,12 +714,12 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -680,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -694,7 +755,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_logs_get**
-> InlineResponse20015 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
+> InlineResponse20016 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
 
 Get connection logs
 
@@ -714,22 +775,22 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
   state: 56, # Integer | state of user
-  period: "period_example", # String | period to group logs
+  period: 'period_example', # String | period to group logs
   id_user2: 56, # Integer | ID of a user
   id_connection2: 56, # Integer | ID of a connection
-  id_bank: 56, # Integer | ID of a bank
-  charged: true, # BOOLEAN | consider only logs for charged banks
-  expand: "expand_example" # String | 
+  id_connector: 56, # Integer | ID of a connector
+  charged: true, # BOOLEAN | consider only logs for charged connectors
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -755,13 +816,13 @@ Name | Type | Description  | Notes
  **period** | **String**| period to group logs | [optional] 
  **id_user2** | **Integer**| ID of a user | [optional] 
  **id_connection2** | **Integer**| ID of a connection | [optional] 
- **id_bank** | **Integer**| ID of a bank | [optional] 
- **charged** | **BOOLEAN**| consider only logs for charged banks | [optional] 
+ **id_connector** | **Integer**| ID of a connector | [optional] 
+ **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -795,16 +856,16 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
   active: true, # BOOLEAN | Set if the connection synchronisation is active
-  expire: DateTime.parse("2013-10-20T19:20:30+01:00"), # DateTime | Set expiration of the connection to this date
-  login: "login_example", # String | Set login to this new login
-  password: "password_example", # String | Set password to this new password
-  expand: "expand_example" # String | 
+  expire: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Set expiration of the connection to this date
+  login: 'login_example', # String | Set login to this new login
+  password: 'password_example', # String | Set password to this new password
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -838,7 +899,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -864,12 +925,12 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -925,24 +986,23 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  id_bank: 56, # Integer | ID of the bank
-  birthday: "birthday_example", # String | bank additional login parameter
-  password: "password_example", # String | bank additional login parameter
-  oauth_token: "oauth_token_example", # String | bank additional login parameter
-  oauth_token_secret: "oauth_token_secret_example", # String | bank additional login parameter
-  auth_type: "auth_type_example", # String | bank additional login parameter
-  secret: "secret_example", # String | bank additional login parameter
-  type: "type_example", # String | bank additional login parameter
-  birthdate: "birthdate_example", # String | bank additional login parameter
-  nuser: "nuser_example", # String | bank additional login parameter
-  website: "website_example", # String | bank additional login parameter
-  password2: "password_example", # String | bank additional login parameter
-  login: "login_example", # String | bank additional login parameter
+  id_connector: 56, # Integer | ID of the connector
+  birthday: 'birthday_example', # String | bank additional login parameter
+  password: 'password_example', # String | bank additional login parameter
+  oauth_token: 'oauth_token_example', # String | bank additional login parameter
+  oauth_token_secret: 'oauth_token_secret_example', # String | bank additional login parameter
+  auth_type: 'auth_type_example', # String | bank additional login parameter
+  secret: 'secret_example', # String | bank additional login parameter
+  type: 'type_example', # String | bank additional login parameter
+  birthdate: 'birthdate_example', # String | bank additional login parameter
+  nuser: 'nuser_example', # String | bank additional login parameter
+  website: 'website_example', # String | bank additional login parameter
+  login: 'login_example', # String | bank additional login parameter
   id_provider: 56, # Integer | ID of the provider
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -959,7 +1019,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_bank** | **Integer**| ID of the bank | [optional] 
+ **id_connector** | **Integer**| ID of the connector | [optional] 
  **birthday** | **String**| bank additional login parameter | [optional] 
  **password** | **String**| bank additional login parameter | [optional] 
  **oauth_token** | **String**| bank additional login parameter | [optional] 
@@ -970,7 +1030,6 @@ Name | Type | Description  | Notes
  **birthdate** | **String**| bank additional login parameter | [optional] 
  **nuser** | **String**| bank additional login parameter | [optional] 
  **website** | **String**| bank additional login parameter | [optional] 
- **password2** | **String**| bank additional login parameter | [optional] 
  **login** | **String**| bank additional login parameter | [optional] 
  **id_provider** | **Integer**| ID of the provider | [optional] 
  **expand** | **String**|  | [optional] 
@@ -985,13 +1044,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
 
 # **users_id_user_logs_get**
-> InlineResponse20015 users_id_user_logs_get(id_user, opts)
+> InlineResponse20016 users_id_user_logs_get(id_user, opts)
 
 Get connection logs
 
@@ -1011,20 +1070,20 @@ end
 
 api_instance = BudgeaClient::ConnectionsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
   state: 56, # Integer | state of user
-  period: "period_example", # String | period to group logs
+  period: 'period_example', # String | period to group logs
   id_user2: 56, # Integer | ID of a user
   id_connection: 56, # Integer | ID of a connection
-  id_bank: 56, # Integer | ID of a bank
-  charged: true, # BOOLEAN | consider only logs for charged banks
-  expand: "expand_example" # String | 
+  id_connector: 56, # Integer | ID of a connector
+  charged: true, # BOOLEAN | consider only logs for charged connectors
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1049,13 +1108,13 @@ Name | Type | Description  | Notes
  **period** | **String**| period to group logs | [optional] 
  **id_user2** | **Integer**| ID of a user | [optional] 
  **id_connection** | **Integer**| ID of a connection | [optional] 
- **id_bank** | **Integer**| ID of a bank | [optional] 
- **charged** | **BOOLEAN**| consider only logs for charged banks | [optional] 
+ **id_connector** | **Integer**| ID of a connector | [optional] 
+ **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 

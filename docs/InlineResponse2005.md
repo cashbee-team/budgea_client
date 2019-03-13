@@ -3,7 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_token** | **String** | the access token transformed from the temporary one | 
-**token_type** | **String** | the access token type | 
+**profile** | **Object** | the user profile data object | 
+**scope** | **String** | the token scope | 
+**token** | **String** | the requested token | 
+**expires_in** | **Integer** | duration in seconds of the token validity | [optional] 
+**user** | **Object** | the user data object | 
 
 

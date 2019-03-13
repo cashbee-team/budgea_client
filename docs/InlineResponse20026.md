@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documents** | [**Array&lt;Document&gt;**](Document.md) |  | 
+**transfers** | [**Array&lt;Transfer&gt;**](Transfer.md) |  | 
 
 

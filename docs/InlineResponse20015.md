@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connectionlogs** | [**Array&lt;ConnectionLog&gt;**](ConnectionLog.md) |  | 
+**securities** | [**Array&lt;Security&gt;**](Security.md) |  | 
 
 

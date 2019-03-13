@@ -83,7 +83,7 @@ Method | HTTP request | Description
 
 
 # **documenttypes_get**
-> InlineResponse20013 documenttypes_get(opts)
+> InlineResponse20014 documenttypes_get(opts)
 
 Get document types
 
@@ -104,7 +104,7 @@ end
 api_instance = BudgeaClient::DocumentsApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -160,12 +160,12 @@ api_instance = BudgeaClient::DocumentsApi.new
 
 id_documenttype = 56 # Integer | 
 
-name = "name_example" # String | Displayed name of document type
+name = 'name_example' # String | Displayed name of document type
 
 attacheable = 56 # Integer | If true, documents of this type can be attached to a transaction, and have amount related meta-data
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -222,11 +222,11 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-file = File.new("/path/to/file.txt") # File | File of the document
+file = File.new('/path/to/file.txt') # File | File of the document
 
 opts = { 
   id_transaction: 56, # Integer | Transaction used to help OCR to find data
-  name: "name_example" # String | Name of the document
+  name: 'name_example' # String | Name of the document
 }
 
 begin
@@ -281,14 +281,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 id_transaction = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20026 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
+> InlineResponse20028 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
 
 Get documents
 
@@ -345,7 +345,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -354,14 +354,14 @@ id_transaction = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -385,15 +385,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -436,7 +436,7 @@ id_transaction = 56 # Integer |
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -494,7 +494,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -505,16 +505,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -583,15 +583,15 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 id_transaction = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -601,10 +601,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -673,7 +673,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -682,7 +682,7 @@ id_transaction = 56 # Integer |
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -740,14 +740,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 id_transactions_cluster = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20026 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
+> InlineResponse20028 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -804,7 +804,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -813,14 +813,14 @@ id_transactions_cluster = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -844,15 +844,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -886,7 +886,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -895,7 +895,7 @@ id_transactions_cluster = 56 # Integer |
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -953,7 +953,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -964,16 +964,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1042,15 +1042,15 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 id_transactions_cluster = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -1060,10 +1060,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1132,7 +1132,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -1141,7 +1141,7 @@ id_transactions_cluster = 56 # Integer |
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1199,7 +1199,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1208,7 +1208,7 @@ id_account = 56 # Integer |
 id_transaction = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1246,7 +1246,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20026 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
+> InlineResponse20028 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
 
 Get documents
 
@@ -1266,7 +1266,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1277,14 +1277,14 @@ id_transaction = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1309,15 +1309,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -1351,7 +1351,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1362,7 +1362,7 @@ id_transaction = 56 # Integer |
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1421,7 +1421,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1434,16 +1434,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1513,7 +1513,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1521,9 +1521,9 @@ id_account = 56 # Integer |
 
 id_transaction = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -1533,10 +1533,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1606,7 +1606,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1617,7 +1617,7 @@ id_transaction = 56 # Integer |
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1676,7 +1676,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1685,7 +1685,7 @@ id_account = 56 # Integer |
 id_transactions_cluster = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1723,7 +1723,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20026 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
+> InlineResponse20028 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -1743,7 +1743,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1754,14 +1754,14 @@ id_transactions_cluster = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1786,15 +1786,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -1828,7 +1828,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1839,7 +1839,7 @@ id_transactions_cluster = 56 # Integer |
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1898,7 +1898,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1911,16 +1911,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -1990,7 +1990,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -1998,9 +1998,9 @@ id_account = 56 # Integer |
 
 id_transactions_cluster = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -2010,10 +2010,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2083,7 +2083,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -2094,7 +2094,7 @@ id_transactions_cluster = 56 # Integer |
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2127,7 +2127,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2153,12 +2153,12 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2194,7 +2194,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_documents_get**
-> InlineResponse20026 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
+> InlineResponse20028 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
 
 Get documents
 
@@ -2214,21 +2214,21 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2251,15 +2251,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -2293,14 +2293,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2357,7 +2357,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -2366,16 +2366,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2443,13 +2443,13 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -2459,10 +2459,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2530,14 +2530,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2594,14 +2594,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_subscription = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2638,7 +2638,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get**
-> InlineResponse20026 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
+> InlineResponse20028 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
 
 Get documents
 
@@ -2658,7 +2658,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -2667,14 +2667,14 @@ id_subscription = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2698,15 +2698,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -2740,7 +2740,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -2749,7 +2749,7 @@ id_subscription = 56 # Integer |
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2807,7 +2807,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -2818,16 +2818,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2896,15 +2896,15 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_subscription = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -2914,10 +2914,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -2986,7 +2986,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -2995,7 +2995,7 @@ id_subscription = 56 # Integer |
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3053,14 +3053,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_transaction = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3097,7 +3097,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactions_id_transaction_documents_get**
-> InlineResponse20026 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
+> InlineResponse20028 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
 
 Get documents
 
@@ -3117,7 +3117,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3126,14 +3126,14 @@ id_transaction = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3157,15 +3157,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -3199,7 +3199,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3208,7 +3208,7 @@ id_transaction = 56 # Integer |
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3266,7 +3266,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3277,16 +3277,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3355,15 +3355,15 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_transaction = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -3373,10 +3373,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3445,7 +3445,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3454,7 +3454,7 @@ id_transaction = 56 # Integer |
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3512,14 +3512,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_transactions_cluster = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3556,7 +3556,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20026 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
+> InlineResponse20028 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
 
 Get documents
 
@@ -3576,7 +3576,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3585,14 +3585,14 @@ id_transactions_cluster = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3616,15 +3616,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -3658,7 +3658,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3667,7 +3667,7 @@ id_transactions_cluster = 56 # Integer |
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3725,7 +3725,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3736,16 +3736,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3814,15 +3814,15 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_transactions_cluster = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -3832,10 +3832,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3904,7 +3904,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -3913,7 +3913,7 @@ id_transactions_cluster = 56 # Integer |
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -3971,10 +3971,10 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4009,7 +4009,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_documents_get**
-> InlineResponse20026 users_id_user_documents_get(id_user, opts)
+> InlineResponse20028 users_id_user_documents_get(id_user, opts)
 
 Get documents
 
@@ -4029,19 +4029,19 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4063,15 +4063,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -4105,12 +4105,12 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4166,23 +4166,23 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_document = 56 # Integer | 
 
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4249,11 +4249,11 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -4263,10 +4263,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4333,12 +4333,12 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4394,13 +4394,13 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
-file = File.new("/path/to/file.txt") # File | File of the document
+file = File.new('/path/to/file.txt') # File | File of the document
 
 opts = { 
   id_transaction: 56, # Integer | Transaction used to help OCR to find data
-  name: "name_example" # String | Name of the document
+  name: 'name_example' # String | Name of the document
 }
 
 begin
@@ -4456,12 +4456,12 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_subscription = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4497,7 +4497,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_subscriptions_id_subscription_documents_get**
-> InlineResponse20026 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
+> InlineResponse20028 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
 
 Get documents
 
@@ -4517,21 +4517,21 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_subscription = 56 # Integer | 
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4554,15 +4554,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -4596,14 +4596,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_subscription = 56 # Integer | 
 
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4660,7 +4660,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_subscription = 56 # Integer | 
 
@@ -4669,16 +4669,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4746,13 +4746,13 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_subscription = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -4762,10 +4762,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4833,14 +4833,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_subscription = 56 # Integer | 
 
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4871,7 +4871,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4897,12 +4897,12 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transaction = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4938,7 +4938,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactions_id_transaction_documents_get**
-> InlineResponse20026 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
+> InlineResponse20028 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
 
 Get documents
 
@@ -4958,21 +4958,21 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transaction = 56 # Integer | 
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -4995,15 +4995,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -5037,14 +5037,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transaction = 56 # Integer | 
 
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5101,7 +5101,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transaction = 56 # Integer | 
 
@@ -5110,16 +5110,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5187,13 +5187,13 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transaction = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -5203,10 +5203,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5274,14 +5274,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transaction = 56 # Integer | 
 
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5312,7 +5312,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5338,12 +5338,12 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transactions_cluster = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5379,7 +5379,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20026 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
+> InlineResponse20028 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
 
 Get documents
 
@@ -5399,21 +5399,21 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transactions_cluster = 56 # Integer | 
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal (inclusive) date
-  max_date: Date.parse("2013-10-20"), # Date | maximum (inclusive) date
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
   min_amount: 3.4, # Float | minimal (inclusive) amount
-  max_amount: 3.4, # Float | maximumd (inclusive) amount
+  max_amount: 3.4, # Float | maximum (inclusive) amount
   min_timestamp: 3.4, # Float | minimal (inclusive) timestamp
-  max_timestamp: 3.4, # Float | maximumd (inclusive) timestamp
+  max_timestamp: 3.4, # Float | maximum (inclusive) timestamp
   id_type: 56, # Integer | filter with a document type
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5436,15 +5436,15 @@ Name | Type | Description  | Notes
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
  **max_date** | **Date**| maximum (inclusive) date | [optional] 
  **min_amount** | **Float**| minimal (inclusive) amount | [optional] 
- **max_amount** | **Float**| maximumd (inclusive) amount | [optional] 
+ **max_amount** | **Float**| maximum (inclusive) amount | [optional] 
  **min_timestamp** | **Float**| minimal (inclusive) timestamp | [optional] 
- **max_timestamp** | **Float**| maximumd (inclusive) timestamp | [optional] 
+ **max_timestamp** | **Float**| maximum (inclusive) timestamp | [optional] 
  **id_type** | **Integer**| filter with a document type | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -5478,14 +5478,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transactions_cluster = 56 # Integer | 
 
 id_document = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5542,7 +5542,7 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transactions_cluster = 56 # Integer | 
 
@@ -5551,16 +5551,16 @@ id_document = 56 # Integer |
 opts = { 
   id_type: 56, # Integer | Type of this document
   id_category: 56, # Integer | Related category
-  date: Date.parse("2013-10-20"), # Date | Date of document
-  duedate: Date.parse("2013-10-20"), # Date | Due date of document
+  date: Date.parse('2013-10-20'), # Date | Date of document
+  duedate: Date.parse('2013-10-20'), # Date | Due date of document
   total_amount: 3.4, # Float | Taxed amount
   untaxed_amount: 3.4, # Float | Untaxed amount
   vat: 3.4, # Float | VAT amount
   income: 56, # Integer | Is an income or an outcome
   readonly: 56, # Integer | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  file: File.new('/path/to/file.txt'), # File | File of the document
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5628,13 +5628,13 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transactions_cluster = 56 # Integer | 
 
-date = Date.parse("2013-10-20") # Date | Date of document
+date = Date.parse('2013-10-20') # Date | Date of document
 
-duedate = Date.parse("2013-10-20") # Date | Due date of document
+duedate = Date.parse('2013-10-20') # Date | Due date of document
 
 opts = { 
   id_type: 56, # Integer | Type of this document
@@ -5644,10 +5644,10 @@ opts = {
   vat: 3.4, # Float | VAT amount
   income: true, # BOOLEAN | Is an income or an outcome
   readonly: true, # BOOLEAN | Is this file readonly
-  file: File.new("/path/to/file.txt"), # File | File of the document
+  file: File.new('/path/to/file.txt'), # File | File of the document
   id_ocr: 56, # Integer | Related OCR process
-  name: "name_example", # String | Name of the document
-  expand: "expand_example" # String | 
+  name: 'name_example', # String | Name of the document
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5715,14 +5715,14 @@ end
 
 api_instance = BudgeaClient::DocumentsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transactions_cluster = 56 # Integer | 
 
 id_document = 56 # Integer | id of the document you want to attach the file to
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -5753,7 +5753,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clients** | [**Array&lt;Client&gt;**](Client.md) |  | 
+**categories** | [**Array&lt;Category&gt;**](Category.md) |  | 
 
 

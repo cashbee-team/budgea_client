@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **finance_securities_get**
-> InlineResponse20014 finance_securities_get(opts)
+> InlineResponse20015 finance_securities_get(opts)
 
 Get securities
 
@@ -42,7 +42,7 @@ end
 api_instance = BudgeaClient::WealthApi.new
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -101,9 +101,9 @@ id_security = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
-  period: "period_example" # String | period to group logs
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
+  period: 'period_example' # String | period to group logs
 }
 
 begin
@@ -141,7 +141,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_investments_get**
-> InlineResponse20019 users_id_user_accounts_id_account_investments_get(id_user, id_account, opts)
+> InlineResponse20021 users_id_user_accounts_id_account_investments_get(id_user, id_account, opts)
 
 Get investments
 
@@ -161,12 +161,12 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_investments_id_investment_history_get**
-> InlineResponse20020 users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts)
+> InlineResponse20022 users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts)
 
 Get investment values
 
@@ -222,14 +222,14 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 id_investment = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -286,7 +286,7 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
@@ -295,9 +295,9 @@ id_investment = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
-  period: "period_example" # String | period to group logs
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
+  period: 'period_example' # String | period to group logs
 }
 
 begin
@@ -337,7 +337,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_investments_get**
-> InlineResponse20019 users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts)
+> InlineResponse20021 users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts)
 
 Get investments
 
@@ -357,14 +357,14 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_account = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get**
-> InlineResponse20020 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts)
+> InlineResponse20022 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts)
 
 Get investment values
 
@@ -421,7 +421,7 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -430,7 +430,7 @@ id_account = 56 # Integer |
 id_investment = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -488,7 +488,7 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -499,9 +499,9 @@ id_investment = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
-  period: "period_example" # String | period to group logs
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
+  period: 'period_example' # String | period to group logs
 }
 
 begin
@@ -542,7 +542,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_investments_get**
-> InlineResponse20019 users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts)
+> InlineResponse20021 users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts)
 
 Get investments
 
@@ -562,12 +562,12 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_investments_id_investment_history_get**
-> InlineResponse20020 users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts)
+> InlineResponse20022 users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts)
 
 Get investment values
 
@@ -623,14 +623,14 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_investment = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -687,7 +687,7 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
@@ -696,9 +696,9 @@ id_investment = 56 # Integer |
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
-  period: "period_example" # String | period to group logs
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
+  period: 'period_example' # String | period to group logs
 }
 
 begin
@@ -738,7 +738,7 @@ nil (empty response body)
 
 
 # **users_id_user_investments_get**
-> InlineResponse20019 users_id_user_investments_get(id_user, opts)
+> InlineResponse20021 users_id_user_investments_get(id_user, opts)
 
 Get investments
 
@@ -758,10 +758,10 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_investments_id_investment_history_get**
-> InlineResponse20020 users_id_user_investments_id_investment_history_get(id_user, id_investment, opts)
+> InlineResponse20022 users_id_user_investments_id_investment_history_get(id_user, id_investment, opts)
 
 Get investment values
 
@@ -816,12 +816,12 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_investment = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -843,7 +843,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -877,16 +877,16 @@ end
 
 api_instance = BudgeaClient::WealthApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_investment = 56 # Integer | 
 
 opts = { 
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
-  min_date: Date.parse("2013-10-20"), # Date | minimal date
-  max_date: Date.parse("2013-10-20"), # Date | maximum date
-  period: "period_example" # String | period to group logs
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
+  period: 'period_example' # String | period to group logs
 }
 
 begin

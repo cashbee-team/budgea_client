@@ -66,7 +66,7 @@ nil (empty response body)
 
 
 # **users_get**
-> InlineResponse20017 users_get(opts)
+> InlineResponse20019 users_get(opts)
 
 Get users
 
@@ -87,8 +87,8 @@ end
 api_instance = BudgeaClient::UsersManagementApi.new
 
 opts = { 
-  search: "search_example", # String | searches a user by mail (if it contains no '@', '@biapi.pro' will be added at the end)
-  expand: "expand_example" # String | 
+  search: 'search_example', # String | searches a user by mail (if it contains no '@', '@biapi.pro' will be added at the end)
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 
 begin
@@ -196,7 +196,7 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 
 begin
@@ -250,7 +250,7 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 
 begin
@@ -303,10 +303,10 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -361,10 +361,10 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_profiles_get**
-> InlineResponse20032 users_id_user_profiles_get(id_user, opts)
+> InlineResponse20034 users_id_user_profiles_get(id_user, opts)
 
 Get profiles
 
@@ -419,10 +419,10 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -477,12 +477,12 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_profile = 56 # Integer | 
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -538,10 +538,10 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -596,10 +596,10 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  expand: "expand_example" # String | 
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -654,9 +654,9 @@ end
 
 api_instance = BudgeaClient::UsersManagementApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
-application = "application_example" # String | application name
+application = 'application_example' # String | application name
 
 
 begin
@@ -685,7 +685,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 

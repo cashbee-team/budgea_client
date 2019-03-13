@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**webhooks** | [**Array&lt;Webhook&gt;**](Webhook.md) |  | 
+**devices** | [**Array&lt;Device&gt;**](Device.md) |  | 
 
 

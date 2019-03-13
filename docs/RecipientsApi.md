@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Add a recipient.
 
-
+if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>
 
 ### Example
 ```ruby
@@ -31,14 +31,15 @@ end
 
 api_instance = BudgeaClient::RecipientsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_account = 56 # Integer | 
 
 opts = { 
-  label: "label_example", # String | label of recipient
-  iban: "iban_example", # String | iban of recipient
-  expand: "expand_example" # String | 
+  background: true, # BOOLEAN | if true, do synchronization in background
+  label: 'label_example', # String | label of recipient
+  iban: 'iban_example', # String | iban of recipient
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_account** | **Integer**|  | 
+ **background** | **BOOLEAN**| if true, do synchronization in background | [optional] 
  **label** | **String**| label of recipient | [optional] 
  **iban** | **String**| iban of recipient | [optional] 
  **expand** | **String**|  | [optional] 
@@ -80,7 +82,7 @@ Name | Type | Description  | Notes
 
 Add a recipient.
 
-
+if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>
 
 ### Example
 ```ruby
@@ -96,16 +98,17 @@ end
 
 api_instance = BudgeaClient::RecipientsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 id_account = 56 # Integer | 
 
 opts = { 
-  label: "label_example", # String | label of recipient
-  iban: "iban_example", # String | iban of recipient
-  expand: "expand_example" # String | 
+  background: true, # BOOLEAN | if true, do synchronization in background
+  label: 'label_example', # String | label of recipient
+  iban: 'iban_example', # String | iban of recipient
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -124,6 +127,7 @@ Name | Type | Description  | Notes
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connection** | **Integer**|  | 
  **id_account** | **Integer**|  | 
+ **background** | **BOOLEAN**| if true, do synchronization in background | [optional] 
  **label** | **String**| label of recipient | [optional] 
  **iban** | **String**| iban of recipient | [optional] 
  **expand** | **String**|  | [optional] 
@@ -148,7 +152,7 @@ Name | Type | Description  | Notes
 
 Add a recipient.
 
-
+if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>
 
 ### Example
 ```ruby
@@ -164,14 +168,15 @@ end
 
 api_instance = BudgeaClient::RecipientsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_connection = 56 # Integer | 
 
 opts = { 
-  label: "label_example", # String | label of recipient
-  iban: "iban_example", # String | iban of recipient
-  expand: "expand_example" # String | 
+  background: true, # BOOLEAN | if true, do synchronization in background
+  label: 'label_example', # String | label of recipient
+  iban: 'iban_example', # String | iban of recipient
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -189,6 +194,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connection** | **Integer**|  | 
+ **background** | **BOOLEAN**| if true, do synchronization in background | [optional] 
  **label** | **String**| label of recipient | [optional] 
  **iban** | **String**| iban of recipient | [optional] 
  **expand** | **String**|  | [optional] 
@@ -213,7 +219,7 @@ Name | Type | Description  | Notes
 
 Add a recipient.
 
-
+if config key transfer.recipient.iban_white_list.enabled is set to 1, recipients whose IBAN are not from countries codes contained in transfer.recipient.iban_white_list.entries will be deleted<br><br>
 
 ### Example
 ```ruby
@@ -229,12 +235,13 @@ end
 
 api_instance = BudgeaClient::RecipientsApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
-  label: "label_example", # String | label of recipient
-  iban: "iban_example", # String | iban of recipient
-  expand: "expand_example" # String | 
+  background: true, # BOOLEAN | if true, do synchronization in background
+  label: 'label_example', # String | label of recipient
+  iban: 'iban_example', # String | iban of recipient
+  expand: 'expand_example' # String | 
 }
 
 begin
@@ -251,6 +258,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **background** | **BOOLEAN**| if true, do synchronization in background | [optional] 
  **label** | **String**| label of recipient | [optional] 
  **iban** | **String**| iban of recipient | [optional] 
  **expand** | **String**|  | [optional] 

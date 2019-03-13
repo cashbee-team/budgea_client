@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | ID of transfer | 
 **id_account** | **Integer** | ID of the debited account | [optional] 
+**id_user** | **Integer** | ID of the related user | [optional] 
 **id_recipient** | **Integer** | ID of the recipient | [optional] 
 **account_iban** | **String** | IBAN of the debited account | [optional] 
 **recipient_iban** | **String** | IBAN of the recipient | [optional] 

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documenttypes** | [**Array&lt;DocumentType&gt;**](DocumentType.md) |  | 
+**connectors** | [**Array&lt;Connector&gt;**](Connector.md) |  | 
 
 

@@ -29,11 +29,11 @@ end
 
 api_instance = BudgeaClient::OCRApi.new
 
-file = File.new("/path/to/file.txt") # File | File of the document
+file = File.new('/path/to/file.txt') # File | File of the document
 
 opts = { 
   id_transaction: 56, # Integer | Transaction used to help OCR to find data
-  name: "name_example" # String | Name of the document
+  name: 'name_example' # String | Name of the document
 }
 
 begin
@@ -88,13 +88,13 @@ end
 
 api_instance = BudgeaClient::OCRApi.new
 
-id_user = "id_user_example" # String | Hint: you can use 'me' or 'all'
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
-file = File.new("/path/to/file.txt") # File | File of the document
+file = File.new('/path/to/file.txt') # File | File of the document
 
 opts = { 
   id_transaction: 56, # Integer | Transaction used to help OCR to find data
-  name: "name_example" # String | Name of the document
+  name: 'name_example' # String | Name of the document
 }
 
 begin

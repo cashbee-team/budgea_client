@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  | 
-**id_bank** | **Integer** | ID of the bank | 
+**id_connector** | **Integer** | ID of the connector | 
 **id_file** | **Integer** | Id of the Bank/Provider Logo | 
 **type** | **String** | Logo&#39;s type | [optional] 
 
