@@ -871,6 +871,13 @@
           },
           {
             "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "occurrences",
+            "description": "require at least N accounts of the targeted"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -1045,6 +1052,63 @@
           }
         ],
         "summary": "Get all categories"
+      }
+    },
+    "/categories/keywords": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on Keyword resource",
+            "schema": {
+              "$ref": "#/definitions/Keyword"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "If the keyword already exists the keyword is not added. Used for the categorization of transactions.<br><br>Form params: - id_category (integer): a reference towards the category associated with the keyword - keyword (string): the searched keyword - income (bool): 1 if the associated category represents an income else 0 - priority (integer): sets the priority for the keyword, used when categorizing<br><br>",
+        "parameters": [
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Add a new keyword associated with a category in the database."
+      }
+    },
+    "/categories/keywords/{id_keyword}": {
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on Keyword resource",
+            "schema": {
+              "$ref": "#/definitions/Keyword"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_keyword",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Delete a particular key-value pair on a transaction."
       }
     },
     "/categorize": {
@@ -1522,6 +1586,72 @@
         "summary": "Set a configuration value on the API."
       }
     },
+    "/config/logs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "configlogs",
+            "schema": {
+              "required": [
+                "configlogs"
+              ],
+              "type": "object",
+              "properties": {
+                "configlogs": {
+                  "items": {
+                    "$ref": "#/definitions/ConfigLog"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "<br><br>",
+        "parameters": [
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "search",
+            "description": "limit the results to keys matching the given value"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "type",
+            "description": "type of change done on the configuration"
+          },
+          {
+            "name": "min_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "minimal date of the change"
+          },
+          {
+            "name": "max_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "maximum date of the change"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get configuration change history of the API."
+      }
+    },
     "/connections": {
       "get": {
         "responses": {
@@ -1614,13 +1744,6 @@
         ],
         "description": "Send a request to add a new connector<br><br>",
         "parameters": [
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "api",
-            "description": "Name of the API"
-          },
           {
             "required": true,
             "in": "formData",
@@ -7350,6 +7473,13 @@
             "type": "integer",
             "name": "id_connector",
             "description": "ID of the connector"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "connector_uuid",
+            "description": "optional uuid of the connector (replaces id_connector)"
           },
           {
             "required": false,
@@ -20295,6 +20425,13 @@
           {
             "required": false,
             "in": "formData",
+            "type": "string",
+            "name": "connector_uuid",
+            "description": "Optional unique ID of the connector (replaces id_connector)"
+          },
+          {
+            "required": false,
+            "in": "formData",
             "type": "integer",
             "name": "client_id",
             "description": "Client Application ID"
@@ -20395,6 +20532,13 @@
             "description": "The service ID to associate with the webhook"
           },
           {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "id_auth",
+            "description": "The webhook authentication process to use (its ID or its name)"
+          },
+          {
             "name": "url",
             "format": "float",
             "required": false,
@@ -20449,6 +20593,243 @@
         "summary": "Deletes all webhooks"
       }
     },
+    "/webhooks/auth": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "authproviders",
+            "schema": {
+              "required": [
+                "authproviders"
+              ],
+              "type": "object",
+              "properties": {
+                "authproviders": {
+                  "items": {
+                    "$ref": "#/definitions/AuthProvider"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get webhooks authentication types"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on AuthProvider resource",
+            "schema": {
+              "$ref": "#/definitions/AuthProvider"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "formData",
+            "type": "integer",
+            "name": "type",
+            "description": "The type of the authentication process (oauth, certificate, token, etc...)"
+          },
+          {
+            "required": true,
+            "in": "formData",
+            "type": "string",
+            "name": "name",
+            "description": "The name of the authentication process to differentiate"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "config",
+            "description": "The authentication process configuration. A dict contains either the certificate"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Adds a new webhook authentication type"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on AuthProvider resource",
+            "schema": {
+              "$ref": "#/definitions/AuthProvider"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Deletes all webhook authentication types"
+      }
+    },
+    "/webhooks/auth/{id_auth}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on AuthProvider resource",
+            "schema": {
+              "$ref": "#/definitions/AuthProvider"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_auth",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "formData",
+            "type": "integer",
+            "name": "type",
+            "description": "The type of the authentication process (oauth, certificate, token, etc...)"
+          },
+          {
+            "required": true,
+            "in": "formData",
+            "type": "string",
+            "name": "name",
+            "description": "The name of the authentication process to differentiate"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "config",
+            "description": "The authentication process configuration. A dict containing either the certificate"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Updates the webhook authentication type"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on AuthProvider resource",
+            "schema": {
+              "$ref": "#/definitions/AuthProvider"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_auth",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "formData",
+            "type": "integer",
+            "name": "type",
+            "description": "The type of the authentication process (oauth, certificate, token, etc...)"
+          },
+          {
+            "required": true,
+            "in": "formData",
+            "type": "string",
+            "name": "name",
+            "description": "The name of the authentication process to differentiate"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "config",
+            "description": "The authentication process configuration. A dict containt either the certificate"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Updates the webhook authentication type"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on AuthProvider resource",
+            "schema": {
+              "$ref": "#/definitions/AuthProvider"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "Updates the deleted field with the date of the deletion<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_auth",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Deletes the webhook authentication type"
+      }
+    },
     "/webhooks/{id_webhook}": {
       "post": {
         "responses": {
@@ -20491,6 +20872,13 @@
             "type": "integer",
             "name": "id_service",
             "description": "The service ID to associate with the webhook"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_auth",
+            "description": "The webhook authentication process to use"
           },
           {
             "name": "url",
@@ -20559,6 +20947,13 @@
             "description": "The service ID to associate with the webhook"
           },
           {
+            "required": false,
+            "in": "formData",
+            "type": "integer",
+            "name": "id_auth",
+            "description": "The webhook authentication process to use"
+          },
+          {
             "name": "url",
             "format": "float",
             "required": false,
@@ -20611,6 +21006,50 @@
           }
         ],
         "summary": "Deletes a webhook"
+      }
+    },
+    "/webhooks/{id_webhook}/add_to_data": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "standard HTTP response"
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_webhook",
+            "description": ""
+          }
+        ],
+        "summary": "retrieve the list of the value to add in webhooks when sending the requested webhook"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "standard HTTP response"
+          }
+        },
+        "tags": [
+          "HUB"
+        ],
+        "description": "For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_webhook",
+            "description": ""
+          }
+        ],
+        "summary": "Setup a field to store in user config when calling the endpoint"
       }
     },
     "/webhooks/{id_webhook}/logs": {
@@ -20699,7 +21138,8 @@
         "name",
         "id_weboob",
         "charged",
-        "beta"
+        "beta",
+        "uuid"
       ],
       "type": "object",
       "properties": {
@@ -20759,6 +21199,14 @@
           "type": "string",
           "description": "Authentication mechanism to use"
         },
+        "siret": {
+          "type": "string",
+          "description": "SIRET code for Bill modules"
+        },
+        "uuid": {
+          "type": "string",
+          "description": "Unique connector identifier"
+        },
         "fields": {
           "type": "array",
           "items": {
@@ -20778,7 +21226,9 @@
         "slug": "",
         "sync_frequency": 0,
         "months_to_fetch": 0,
-        "auth_mechanism": ""
+        "auth_mechanism": "",
+        "siret": "",
+        "uuid": ""
       }
     },
     "Field": {
@@ -20928,6 +21378,66 @@
         "id": 0,
         "signin": "CURRENT_TIMESTAMP",
         "platform": ""
+      }
+    },
+    "Keyword": {
+      "required": [
+        "id",
+        "keyword",
+        "id_category",
+        "priority",
+        "income"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "id_category": {
+          "type": "integer"
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "income": {
+          "type": "boolean"
+        }
+      },
+      "example": {
+        "id": 0,
+        "keyword": "",
+        "id_category": 0,
+        "priority": 0,
+        "income": false
+      }
+    },
+    "AuthProvider": {
+      "required": [
+        "id",
+        "name",
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name to differentiate the authentication type"
+        },
+        "type": {
+          "type": "string",
+          "description": "Authentication type to use when pushing the webhook"
+        }
+      },
+      "example": {
+        "id": 0,
+        "name": "",
+        "type": ""
       }
     },
     "TermsOfService": {
@@ -21213,9 +21723,17 @@
           "type": "integer",
           "description": "ID of the webhook event"
         },
+        "id_auth": {
+          "type": "integer",
+          "description": "ID of the authentication process"
+        },
         "url": {
           "type": "string",
           "description": "URL of the webhook"
+        },
+        "add_to_data": {
+          "type": "string",
+          "description": "json object to describe data to add"
         }
       },
       "example": {
@@ -21226,7 +21744,67 @@
         "id_service": 0,
         "id_user": 0,
         "id_event": 0,
+        "id_auth": 0,
         "url": ""
+      }
+    },
+    "WebhookData": {
+      "required": [
+        "id",
+        "id_webhook",
+        "id_user",
+        "created"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the webhook data"
+        },
+        "id_webhook": {
+          "type": "integer",
+          "description": "ID of the webhook"
+        },
+        "id_service": {
+          "type": "integer",
+          "description": "ID of the recipient service"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the emitter user"
+        },
+        "id_resource": {
+          "type": "integer",
+          "description": "a changing ID used to filter webhookdata depending on the event triggered"
+        },
+        "data": {
+          "type": "string",
+          "description": "Data emitted"
+        },
+        "mimetype": {
+          "type": "string",
+          "description": "Mimetype of the data"
+        },
+        "created": {
+          "type": "string",
+          "description": "Timestamp when the hook data was generated",
+          "format": "date-time"
+        },
+        "success": {
+          "type": "string",
+          "description": "Timestamp when the hook has been successfully called",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_webhook": 0,
+        "id_service": 0,
+        "id_user": 0,
+        "id_resource": 0,
+        "mimetype": "",
+        "created": "2019-06-28 14:51:56.345068",
+        "success": "2019-06-28 14:51:56.345133"
       }
     },
     "WebhookLog": {
@@ -22028,8 +22606,7 @@
         "date_scraped",
         "rdate",
         "coming",
-        "active",
-        "nopurge"
+        "active"
       ],
       "type": "object",
       "properties": {
@@ -22110,6 +22687,11 @@
           "description": "Value date of the transaction",
           "format": "date"
         },
+        "bdate": {
+          "type": "string",
+          "description": "Date used by the bank for the transaction",
+          "format": "date"
+        },
         "coming": {
           "type": "boolean",
           "description": "If true, this transaction hasn't been yet debited"
@@ -22136,11 +22718,6 @@
           "type": "string",
           "description": "If set, this transaction has been removed from the bank",
           "format": "date-time"
-        },
-        "nopurge": {
-          "default": false,
-          "type": "boolean",
-          "description": "If set to true, this transaction will never be considered as deleted"
         },
         "original_value": {
           "type": "number",
@@ -22188,13 +22765,13 @@
         "date_scraped": "2019-03-12 13:08:00.787303",
         "rdate": "2019-03-12",
         "vdate": "2019-03-12",
+        "bdate": "2019-06-28",
         "coming": false,
         "active": true,
         "id_cluster": 0,
         "comment": "",
         "last_update": "2019-03-12 13:08:00.787854",
         "deleted": "2019-03-12 13:08:00.787941",
-        "nopurge": false,
         "original_value": 0,
         "original_currency": "",
         "commission": 0,
@@ -22614,6 +23191,10 @@
           "type": "string",
           "description": "Account number"
         },
+        "webid": {
+          "type": "string",
+          "description": "Account webid"
+        },
         "original_name": {
           "type": "string",
           "description": "Original name of the account on the bank"
@@ -22687,6 +23268,10 @@
         "usage": {
           "type": "string",
           "description": "Account usage"
+        },
+        "ownership": {
+          "type": "string",
+          "description": "Relationship between the credentials owner and the account"
         }
       },
       "example": {
@@ -22695,6 +23280,7 @@
         "id_user": 0,
         "id_parent": 0,
         "number": "",
+        "webid": "",
         "original_name": "",
         "balance": 0,
         "coming": 0,
@@ -22708,7 +23294,8 @@
         "bookmarked": false,
         "name": "",
         "error": "",
-        "usage": ""
+        "usage": "",
+        "ownership": ""
       }
     },
     "Project": {
@@ -23353,6 +23940,47 @@
         "worker": ""
       }
     },
+    "ConfigLog": {
+      "required": [
+        "id",
+        "key",
+        "type",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "key": {
+          "type": "string"
+        },
+        "previous_value": {
+          "type": "string"
+        },
+        "new_value": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "description": "Action done on the config: add, update or delete"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of when the configuration key was changed",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "key": "",
+        "previous_value": "",
+        "new_value": "",
+        "type": "",
+        "timestamp": "CURRENT_TIMESTAMP"
+      }
+    },
     "OidcWhitelist": {
       "required": [
         "id",
@@ -23395,6 +24023,9 @@
     },
     {
       "name": "Documents"
+    },
+    {
+      "name": "HUB"
     },
     {
       "name": "OCR"
