@@ -657,6 +657,7 @@ api_instance = BudgeaClient::AuthenticationApi.new
 
 opts = { 
   id_connector: 56, # Integer | ID of the connector
+  connector_uuid: 'connector_uuid_example', # String | Optional unique ID of the connector (replaces id_connector)
   client_id: 56, # Integer | Client Application ID
   redirect_uri: 'redirect_uri_example', # String | Redirect URI
   state: 'state_example', # String | Optional state
@@ -677,6 +678,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_connector** | **Integer**| ID of the connector | [optional] 
+ **connector_uuid** | **String**| Optional unique ID of the connector (replaces id_connector) | [optional] 
  **client_id** | **Integer**| Client Application ID | [optional] 
  **redirect_uri** | **String**| Redirect URI | [optional] 
  **state** | **String**| Optional state | [optional] 

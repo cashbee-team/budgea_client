@@ -14,19 +14,19 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20017
-    attr_accessor :providers
+    attr_accessor :connectionlogs
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'providers' => :'providers'
+        :'connectionlogs' => :'connectionlogs'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'providers' => :'Array<Connector>'
+        :'connectionlogs' => :'Array<ConnectionLog>'
       }
     end
 
@@ -38,9 +38,9 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'providers')
-        if (value = attributes[:'providers']).is_a?(Array)
-          self.providers = value
+      if attributes.has_key?(:'connectionlogs')
+        if (value = attributes[:'connectionlogs']).is_a?(Array)
+          self.connectionlogs = value
         end
       end
     end
@@ -49,8 +49,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @providers.nil?
-        invalid_properties.push('invalid value for "providers", providers cannot be nil.')
+      if @connectionlogs.nil?
+        invalid_properties.push('invalid value for "connectionlogs", connectionlogs cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +59,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @providers.nil?
+      return false if @connectionlogs.nil?
       true
     end
 
@@ -68,7 +68,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          providers == o.providers
+          connectionlogs == o.connectionlogs
     end
 
     # @see the `==` method
@@ -80,7 +80,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [providers].hash
+      [connectionlogs].hash
     end
 
     # Builds the object from hash

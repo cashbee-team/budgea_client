@@ -65,6 +65,9 @@ module BudgeaClient
     # Value date of the transaction
     attr_accessor :vdate
 
+    # Date used by the bank for the transaction
+    attr_accessor :bdate
+
     # If true, this transaction hasn't been yet debited
     attr_accessor :coming
 
@@ -82,9 +85,6 @@ module BudgeaClient
 
     # If set, this transaction has been removed from the bank
     attr_accessor :deleted
-
-    # If set to true, this transaction will never be considered as deleted
-    attr_accessor :nopurge
 
     # Value in the original currency
     attr_accessor :original_value
@@ -127,13 +127,13 @@ module BudgeaClient
         :'date_scraped' => :'date_scraped',
         :'rdate' => :'rdate',
         :'vdate' => :'vdate',
+        :'bdate' => :'bdate',
         :'coming' => :'coming',
         :'active' => :'active',
         :'id_cluster' => :'id_cluster',
         :'comment' => :'comment',
         :'last_update' => :'last_update',
         :'deleted' => :'deleted',
-        :'nopurge' => :'nopurge',
         :'original_value' => :'original_value',
         :'original_currency' => :'original_currency',
         :'commission' => :'commission',
@@ -164,13 +164,13 @@ module BudgeaClient
         :'date_scraped' => :'DateTime',
         :'rdate' => :'Date',
         :'vdate' => :'Date',
+        :'bdate' => :'Date',
         :'coming' => :'BOOLEAN',
         :'active' => :'BOOLEAN',
         :'id_cluster' => :'Integer',
         :'comment' => :'String',
         :'last_update' => :'DateTime',
         :'deleted' => :'DateTime',
-        :'nopurge' => :'BOOLEAN',
         :'original_value' => :'Float',
         :'original_currency' => :'Object',
         :'commission' => :'Float',
@@ -261,6 +261,10 @@ module BudgeaClient
         self.vdate = attributes[:'vdate']
       end
 
+      if attributes.has_key?(:'bdate')
+        self.bdate = attributes[:'bdate']
+      end
+
       if attributes.has_key?(:'coming')
         self.coming = attributes[:'coming']
       end
@@ -285,12 +289,6 @@ module BudgeaClient
 
       if attributes.has_key?(:'deleted')
         self.deleted = attributes[:'deleted']
-      end
-
-      if attributes.has_key?(:'nopurge')
-        self.nopurge = attributes[:'nopurge']
-      else
-        self.nopurge = false
       end
 
       if attributes.has_key?(:'original_value')
@@ -374,10 +372,6 @@ module BudgeaClient
         invalid_properties.push('invalid value for "active", active cannot be nil.')
       end
 
-      if @nopurge.nil?
-        invalid_properties.push('invalid value for "nopurge", nopurge cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -396,7 +390,6 @@ module BudgeaClient
       return false if @rdate.nil?
       return false if @coming.nil?
       return false if @active.nil?
-      return false if @nopurge.nil?
       true
     end
 
@@ -422,13 +415,13 @@ module BudgeaClient
           date_scraped == o.date_scraped &&
           rdate == o.rdate &&
           vdate == o.vdate &&
+          bdate == o.bdate &&
           coming == o.coming &&
           active == o.active &&
           id_cluster == o.id_cluster &&
           comment == o.comment &&
           last_update == o.last_update &&
           deleted == o.deleted &&
-          nopurge == o.nopurge &&
           original_value == o.original_value &&
           original_currency == o.original_currency &&
           commission == o.commission &&
@@ -447,7 +440,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_account, webid, application_date, date, value, gross_value, nature, original_wording, simplified_wording, stemmed_wording, wording, id_category, state, date_scraped, rdate, vdate, coming, active, id_cluster, comment, last_update, deleted, nopurge, original_value, original_currency, commission, commission_currency, country, counterparty, card].hash
+      [id, id_account, webid, application_date, date, value, gross_value, nature, original_wording, simplified_wording, stemmed_wording, wording, id_category, state, date_scraped, rdate, vdate, bdate, coming, active, id_cluster, comment, last_update, deleted, original_value, original_currency, commission, commission_currency, country, counterparty, card].hash
     end
 
     # Builds the object from hash

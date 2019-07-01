@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**investments** | [**Array&lt;Investment&gt;**](Investment.md) |  | 
+**accounts** | [**Array&lt;Account&gt;**](Account.md) |  | 
 
 

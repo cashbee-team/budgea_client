@@ -35,8 +35,14 @@ module BudgeaClient
     # ID of the webhook event
     attr_accessor :id_event
 
+    # ID of the authentication process
+    attr_accessor :id_auth
+
     # URL of the webhook
     attr_accessor :url
+
+    # json object to describe data to add
+    attr_accessor :add_to_data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -48,7 +54,9 @@ module BudgeaClient
         :'id_service' => :'id_service',
         :'id_user' => :'id_user',
         :'id_event' => :'id_event',
-        :'url' => :'url'
+        :'id_auth' => :'id_auth',
+        :'url' => :'url',
+        :'add_to_data' => :'add_to_data'
       }
     end
 
@@ -62,7 +70,9 @@ module BudgeaClient
         :'id_service' => :'Integer',
         :'id_user' => :'Integer',
         :'id_event' => :'Integer',
-        :'url' => :'String'
+        :'id_auth' => :'Integer',
+        :'url' => :'String',
+        :'add_to_data' => :'String'
       }
     end
 
@@ -102,8 +112,16 @@ module BudgeaClient
         self.id_event = attributes[:'id_event']
       end
 
+      if attributes.has_key?(:'id_auth')
+        self.id_auth = attributes[:'id_auth']
+      end
+
       if attributes.has_key?(:'url')
         self.url = attributes[:'url']
+      end
+
+      if attributes.has_key?(:'add_to_data')
+        self.add_to_data = attributes[:'add_to_data']
       end
     end
 
@@ -147,7 +165,9 @@ module BudgeaClient
           id_service == o.id_service &&
           id_user == o.id_user &&
           id_event == o.id_event &&
-          url == o.url
+          id_auth == o.id_auth &&
+          url == o.url &&
+          add_to_data == o.add_to_data
     end
 
     # @see the `==` method
@@ -159,7 +179,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, created, updated, deleted, id_service, id_user, id_event, url].hash
+      [id, created, updated, deleted, id_service, id_user, id_event, id_auth, url, add_to_data].hash
     end
 
     # Builds the object from hash

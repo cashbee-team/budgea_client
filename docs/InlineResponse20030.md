@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**transactionsclusters** | [**Array&lt;TransactionsCluster&gt;**](TransactionsCluster.md) |  | 
+**transactioninformations** | [**Array&lt;TransactionInformation&gt;**](TransactionInformation.md) |  | 
 
 

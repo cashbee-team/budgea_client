@@ -66,7 +66,7 @@ nil (empty response body)
 
 
 # **users_get**
-> InlineResponse20019 users_get(opts)
+> InlineResponse20020 users_get(opts)
 
 Get users
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_profiles_get**
-> InlineResponse20034 users_id_user_profiles_get(id_user, opts)
+> InlineResponse20035 users_id_user_profiles_get(id_user, opts)
 
 Get profiles
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 

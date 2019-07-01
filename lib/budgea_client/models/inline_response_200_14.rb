@@ -14,19 +14,19 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20014
-    attr_accessor :documenttypes
+    attr_accessor :connectors
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'documenttypes' => :'documenttypes'
+        :'connectors' => :'connectors'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'documenttypes' => :'Array<DocumentType>'
+        :'connectors' => :'Array<Connector>'
       }
     end
 
@@ -38,9 +38,9 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'documenttypes')
-        if (value = attributes[:'documenttypes']).is_a?(Array)
-          self.documenttypes = value
+      if attributes.has_key?(:'connectors')
+        if (value = attributes[:'connectors']).is_a?(Array)
+          self.connectors = value
         end
       end
     end
@@ -49,8 +49,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @documenttypes.nil?
-        invalid_properties.push('invalid value for "documenttypes", documenttypes cannot be nil.')
+      if @connectors.nil?
+        invalid_properties.push('invalid value for "connectors", connectors cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +59,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @documenttypes.nil?
+      return false if @connectors.nil?
       true
     end
 
@@ -68,7 +68,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          documenttypes == o.documenttypes
+          connectors == o.connectors
     end
 
     # @see the `==` method
@@ -80,7 +80,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [documenttypes].hash
+      [connectors].hash
     end
 
     # Builds the object from hash

@@ -50,6 +50,12 @@ module BudgeaClient
     # Authentication mechanism to use
     attr_accessor :auth_mechanism
 
+    # SIRET code for Bill modules
+    attr_accessor :siret
+
+    # Unique connector identifier
+    attr_accessor :uuid
+
     attr_accessor :fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -68,6 +74,8 @@ module BudgeaClient
         :'months_to_fetch' => :'months_to_fetch',
         :'account_types' => :'account_types',
         :'auth_mechanism' => :'auth_mechanism',
+        :'siret' => :'siret',
+        :'uuid' => :'uuid',
         :'fields' => :'fields'
       }
     end
@@ -88,6 +96,8 @@ module BudgeaClient
         :'months_to_fetch' => :'Integer',
         :'account_types' => :'Array<String>',
         :'auth_mechanism' => :'String',
+        :'siret' => :'String',
+        :'uuid' => :'String',
         :'fields' => :'Array<Field>'
       }
     end
@@ -160,6 +170,14 @@ module BudgeaClient
         self.auth_mechanism = attributes[:'auth_mechanism']
       end
 
+      if attributes.has_key?(:'siret')
+        self.siret = attributes[:'siret']
+      end
+
+      if attributes.has_key?(:'uuid')
+        self.uuid = attributes[:'uuid']
+      end
+
       if attributes.has_key?(:'fields')
         if (value = attributes[:'fields']).is_a?(Array)
           self.fields = value
@@ -191,6 +209,10 @@ module BudgeaClient
         invalid_properties.push('invalid value for "beta", beta cannot be nil.')
       end
 
+      if @uuid.nil?
+        invalid_properties.push('invalid value for "uuid", uuid cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -202,6 +224,7 @@ module BudgeaClient
       return false if @id_weboob.nil?
       return false if @charged.nil?
       return false if @beta.nil?
+      return false if @uuid.nil?
       true
     end
 
@@ -223,6 +246,8 @@ module BudgeaClient
           months_to_fetch == o.months_to_fetch &&
           account_types == o.account_types &&
           auth_mechanism == o.auth_mechanism &&
+          siret == o.siret &&
+          uuid == o.uuid &&
           fields == o.fields
     end
 
@@ -235,7 +260,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, id_weboob, hidden, charged, code, beta, color, slug, sync_frequency, months_to_fetch, account_types, auth_mechanism, fields].hash
+      [id, name, id_weboob, hidden, charged, code, beta, color, slug, sync_frequency, months_to_fetch, account_types, auth_mechanism, siret, uuid, fields].hash
     end
 
     # Builds the object from hash

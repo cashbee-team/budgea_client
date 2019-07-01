@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 
 # **connectors_get**
-> InlineResponse20013 connectors_get(opts)
+> InlineResponse20014 connectors_get(opts)
 
 Get list of connectors
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -893,7 +893,6 @@ login = 'login_example' # String | Users login
 password = 'password_example' # String | Users password
 
 opts = { 
-  api: 'api_example', # String | Name of the API
   url: 'url_example', # String | Url of the bank
   email: 'email_example', # String | Email of the user
   types: 'types_example', # String | Type of connector, eg. banks or providers
@@ -918,7 +917,6 @@ Name | Type | Description  | Notes
  **name** | **String**| Name of the bank or provider | 
  **login** | **String**| Users login | 
  **password** | **String**| Users password | 
- **api** | **String**| Name of the API | [optional] 
  **url** | **String**| Url of the bank | [optional] 
  **email** | **String**| Email of the user | [optional] 
  **types** | **String**| Type of connector, eg. banks or providers | [optional] 
@@ -942,7 +940,7 @@ Name | Type | Description  | Notes
 
 
 # **documenttypes_get**
-> InlineResponse20014 documenttypes_get(opts)
+> InlineResponse20015 documenttypes_get(opts)
 
 Get document types
 
@@ -983,7 +981,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -1061,7 +1059,7 @@ Name | Type | Description  | Notes
 
 
 # **logs_get**
-> InlineResponse20016 logs_get(opts)
+> InlineResponse20017 logs_get(opts)
 
 Get connection logs
 
@@ -1122,7 +1120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -1195,7 +1193,7 @@ nil (empty response body)
 
 
 # **providers_get**
-> InlineResponse20017 providers_get(opts)
+> InlineResponse20018 providers_get(opts)
 
 Get list of connectors
 
@@ -1236,7 +1234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -1488,7 +1486,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20028 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
+> InlineResponse20029 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
 
 Get documents
 
@@ -1556,7 +1554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -1947,7 +1945,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20028 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
+> InlineResponse20029 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -2015,7 +2013,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -2525,7 +2523,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20028 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
 
 Get documents
 
@@ -2596,7 +2594,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -3002,7 +3000,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20028 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -3073,7 +3071,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -3534,7 +3532,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_documents_get**
-> InlineResponse20028 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
 
 Get documents
 
@@ -3599,7 +3597,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -3975,7 +3973,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_logs_get**
-> InlineResponse20016 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
+> InlineResponse20017 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
 
 Get connection logs
 
@@ -4042,7 +4040,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -4314,7 +4312,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get**
-> InlineResponse20028 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
 
 Get documents
 
@@ -4382,7 +4380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -4841,7 +4839,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactions_id_transaction_documents_get**
-> InlineResponse20028 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
 
 Get documents
 
@@ -4909,7 +4907,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -5300,7 +5298,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20028 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
 
 Get documents
 
@@ -5368,7 +5366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -5719,6 +5717,7 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
   id_connector: 56, # Integer | ID of the connector
+  connector_uuid: 'connector_uuid_example', # String | optional uuid of the connector (replaces id_connector)
   birthday: 'birthday_example', # String | bank additional login parameter
   password: 'password_example', # String | bank additional login parameter
   oauth_token: 'oauth_token_example', # String | bank additional login parameter
@@ -5749,6 +5748,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connector** | **Integer**| ID of the connector | [optional] 
+ **connector_uuid** | **String**| optional uuid of the connector (replaces id_connector) | [optional] 
  **birthday** | **String**| bank additional login parameter | [optional] 
  **password** | **String**| bank additional login parameter | [optional] 
  **oauth_token** | **String**| bank additional login parameter | [optional] 
@@ -5837,7 +5837,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_documents_get**
-> InlineResponse20028 users_id_user_documents_get(id_user, opts)
+> InlineResponse20029 users_id_user_documents_get(id_user, opts)
 
 Get documents
 
@@ -5899,7 +5899,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -6202,7 +6202,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_logs_get**
-> InlineResponse20016 users_id_user_logs_get(id_user, opts)
+> InlineResponse20017 users_id_user_logs_get(id_user, opts)
 
 Get connection logs
 
@@ -6266,7 +6266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -6464,7 +6464,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_subscriptions_id_subscription_documents_get**
-> InlineResponse20028 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
+> InlineResponse20029 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
 
 Get documents
 
@@ -6529,7 +6529,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -6970,7 +6970,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactions_id_transaction_documents_get**
-> InlineResponse20028 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
+> InlineResponse20029 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
 
 Get documents
 
@@ -7035,7 +7035,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -7411,7 +7411,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20028 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
+> InlineResponse20029 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
 
 Get documents
 
@@ -7476,7 +7476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 

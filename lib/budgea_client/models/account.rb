@@ -29,6 +29,9 @@ module BudgeaClient
     # Account number
     attr_accessor :number
 
+    # Account webid
+    attr_accessor :webid
+
     # Original name of the account on the bank
     attr_accessor :original_name
 
@@ -76,6 +79,9 @@ module BudgeaClient
     # Account usage
     attr_accessor :usage
 
+    # Relationship between the credentials owner and the account
+    attr_accessor :ownership
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -84,6 +90,7 @@ module BudgeaClient
         :'id_user' => :'id_user',
         :'id_parent' => :'id_parent',
         :'number' => :'number',
+        :'webid' => :'webid',
         :'original_name' => :'original_name',
         :'balance' => :'balance',
         :'coming' => :'coming',
@@ -99,7 +106,8 @@ module BudgeaClient
         :'name' => :'name',
         :'transactions' => :'transactions',
         :'error' => :'error',
-        :'usage' => :'usage'
+        :'usage' => :'usage',
+        :'ownership' => :'ownership'
       }
     end
 
@@ -111,6 +119,7 @@ module BudgeaClient
         :'id_user' => :'Integer',
         :'id_parent' => :'Integer',
         :'number' => :'String',
+        :'webid' => :'String',
         :'original_name' => :'String',
         :'balance' => :'Float',
         :'coming' => :'Float',
@@ -126,7 +135,8 @@ module BudgeaClient
         :'name' => :'String',
         :'transactions' => :'Array<Transaction>',
         :'error' => :'String',
-        :'usage' => :'String'
+        :'usage' => :'String',
+        :'ownership' => :'String'
       }
     end
 
@@ -156,6 +166,10 @@ module BudgeaClient
 
       if attributes.has_key?(:'number')
         self.number = attributes[:'number']
+      end
+
+      if attributes.has_key?(:'webid')
+        self.webid = attributes[:'webid']
       end
 
       if attributes.has_key?(:'original_name')
@@ -227,6 +241,10 @@ module BudgeaClient
       if attributes.has_key?(:'usage')
         self.usage = attributes[:'usage']
       end
+
+      if attributes.has_key?(:'ownership')
+        self.ownership = attributes[:'ownership']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -277,6 +295,7 @@ module BudgeaClient
           id_user == o.id_user &&
           id_parent == o.id_parent &&
           number == o.number &&
+          webid == o.webid &&
           original_name == o.original_name &&
           balance == o.balance &&
           coming == o.coming &&
@@ -292,7 +311,8 @@ module BudgeaClient
           name == o.name &&
           transactions == o.transactions &&
           error == o.error &&
-          usage == o.usage
+          usage == o.usage &&
+          ownership == o.ownership
     end
 
     # @see the `==` method
@@ -304,7 +324,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_connection, id_user, id_parent, number, original_name, balance, coming, display, last_update, deleted, disabled, iban, bic, currency, id_type, bookmarked, name, transactions, error, usage].hash
+      [id, id_connection, id_user, id_parent, number, webid, original_name, balance, coming, display, last_update, deleted, disabled, iban, bic, currency, id_type, bookmarked, name, transactions, error, usage, ownership].hash
     end
 
     # Builds the object from hash

@@ -507,7 +507,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_operationsalert_get**
-> InlineResponse20024 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
+> InlineResponse20025 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -1025,7 +1025,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**
-> InlineResponse20024 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
+> InlineResponse20025 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -1075,7 +1075,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -1371,7 +1371,7 @@ nil (empty response body)
 
 
 # **users_id_user_devices_get**
-> InlineResponse20033 users_id_user_devices_get(id_user, opts)
+> InlineResponse20034 users_id_user_devices_get(id_user, opts)
 
 Get devices
 
@@ -1415,7 +1415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -1797,7 +1797,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_operationsalert_get**
-> InlineResponse20024 users_id_user_operationsalert_get(id_user, opts)
+> InlineResponse20025 users_id_user_operationsalert_get(id_user, opts)
 
 Get a list of configurated alerts
 
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -2055,7 +2055,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_profiles_get**
-> InlineResponse20034 users_id_user_profiles_get(id_user, opts)
+> InlineResponse20035 users_id_user_profiles_get(id_user, opts)
 
 Get profiles
 
@@ -2099,7 +2099,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 

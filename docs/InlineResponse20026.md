@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**transfers** | [**Array&lt;Transfer&gt;**](Transfer.md) |  | 
+**recipients** | [**Array&lt;Recipient&gt;**](Recipient.md) |  | 
 
 

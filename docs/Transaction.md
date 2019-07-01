@@ -20,13 +20,13 @@ Name | Type | Description | Notes
 **date_scraped** | **DateTime** | Date when the transaction has been seen | 
 **rdate** | **Date** | Realization of the transaction | 
 **vdate** | **Date** | Value date of the transaction | [optional] 
+**bdate** | **Date** | Date used by the bank for the transaction | [optional] 
 **coming** | **BOOLEAN** | If true, this transaction hasn&#39;t been yet debited | 
 **active** | **BOOLEAN** | If false, PFM services will ignore this transaction | [default to true]
 **id_cluster** | **Integer** | If the transaction is part of a cluster | [optional] 
 **comment** | **String** | User comment | [optional] 
 **last_update** | **DateTime** | Last update of the transaction | [optional] 
 **deleted** | **DateTime** | If set, this transaction has been removed from the bank | [optional] 
-**nopurge** | **BOOLEAN** | If set to true, this transaction will never be considered as deleted | [default to false]
 **original_value** | **Float** | Value in the original currency | [optional] 
 **original_currency** | **Object** | Original currency | [optional] 
 **commission** | **Float** | Commission taken on the transaction | [optional] 

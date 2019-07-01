@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **id_user** | **Integer** | ID of the related user | [optional] 
 **id_parent** | **Integer** | Id of the parent account | [optional] 
 **number** | **String** | Account number | [optional] 
+**webid** | **String** | Account webid | [optional] 
 **original_name** | **String** | Original name of the account on the bank | 
 **balance** | **Float** | Balance of the account | 
 **coming** | **Float** | Amount of coming operations not yet debited | [optional] [default to 0.0]
@@ -24,5 +25,6 @@ Name | Type | Description | Notes
 **transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | [optional] 
 **error** | **String** | If the last update has failed, the error code | [optional] 
 **usage** | **String** | Account usage | [optional] 
+**ownership** | **String** | Relationship between the credentials owner and the account | [optional] 
 
 

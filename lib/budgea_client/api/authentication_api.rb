@@ -643,6 +643,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_connector ID of the connector
+    # @option opts [String] :connector_uuid Optional unique ID of the connector (replaces id_connector)
     # @option opts [Integer] :client_id Client Application ID
     # @option opts [String] :redirect_uri Redirect URI
     # @option opts [String] :state Optional state
@@ -658,6 +659,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_connector ID of the connector
+    # @option opts [String] :connector_uuid Optional unique ID of the connector (replaces id_connector)
     # @option opts [Integer] :client_id Client Application ID
     # @option opts [String] :redirect_uri Redirect URI
     # @option opts [String] :state Optional state
@@ -684,6 +686,7 @@ module BudgeaClient
       # form parameters
       form_params = {}
       form_params['id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
+      form_params['connector_uuid'] = opts[:'connector_uuid'] if !opts[:'connector_uuid'].nil?
       form_params['client_id'] = opts[:'client_id'] if !opts[:'client_id'].nil?
       form_params['redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
       form_params['state'] = opts[:'state'] if !opts[:'state'].nil?
