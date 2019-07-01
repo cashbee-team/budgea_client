@@ -14,19 +14,19 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20029
-    attr_accessor :transactioninformations
+    attr_accessor :documents
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'transactioninformations' => :'transactioninformations'
+        :'documents' => :'documents'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'transactioninformations' => :'Array<TransactionInformation>'
+        :'documents' => :'Array<Document>'
       }
     end
 
@@ -38,9 +38,9 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'transactioninformations')
-        if (value = attributes[:'transactioninformations']).is_a?(Array)
-          self.transactioninformations = value
+      if attributes.has_key?(:'documents')
+        if (value = attributes[:'documents']).is_a?(Array)
+          self.documents = value
         end
       end
     end
@@ -49,8 +49,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @transactioninformations.nil?
-        invalid_properties.push('invalid value for "transactioninformations", transactioninformations cannot be nil.')
+      if @documents.nil?
+        invalid_properties.push('invalid value for "documents", documents cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +59,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @transactioninformations.nil?
+      return false if @documents.nil?
       true
     end
 
@@ -68,7 +68,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          transactioninformations == o.transactioninformations
+          documents == o.documents
     end
 
     # @see the `==` method
@@ -80,7 +80,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [transactioninformations].hash
+      [documents].hash
     end
 
     # Builds the object from hash

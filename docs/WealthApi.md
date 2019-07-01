@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **finance_securities_get**
-> InlineResponse20015 finance_securities_get(opts)
+> InlineResponse20016 finance_securities_get(opts)
 
 Get securities
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_investments_get**
-> InlineResponse20021 users_id_user_accounts_id_account_investments_get(id_user, id_account, opts)
+> InlineResponse20022 users_id_user_accounts_id_account_investments_get(id_user, id_account, opts)
 
 Get investments
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_investments_id_investment_history_get**
-> InlineResponse20022 users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts)
+> InlineResponse20023 users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts)
 
 Get investment values
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -337,7 +337,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_investments_get**
-> InlineResponse20021 users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts)
+> InlineResponse20022 users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts)
 
 Get investments
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get**
-> InlineResponse20022 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts)
+> InlineResponse20023 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts)
 
 Get investment values
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -542,7 +542,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_investments_get**
-> InlineResponse20021 users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts)
+> InlineResponse20022 users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts)
 
 Get investments
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_investments_id_investment_history_get**
-> InlineResponse20022 users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts)
+> InlineResponse20023 users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts)
 
 Get investment values
 
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -738,7 +738,7 @@ nil (empty response body)
 
 
 # **users_id_user_investments_get**
-> InlineResponse20021 users_id_user_investments_get(id_user, opts)
+> InlineResponse20022 users_id_user_investments_get(id_user, opts)
 
 Get investments
 
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_investments_id_investment_history_get**
-> InlineResponse20022 users_id_user_investments_id_investment_history_get(id_user, id_investment, opts)
+> InlineResponse20023 users_id_user_investments_id_investment_history_get(id_user, id_investment, opts)
 
 Get investment values
 
@@ -843,7 +843,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 

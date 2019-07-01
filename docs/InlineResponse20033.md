@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**devices** | [**Array&lt;Device&gt;**](Device.md) |  | 
+**categorys** | [**Array&lt;Category&gt;**](Category.md) |  | 
 
 

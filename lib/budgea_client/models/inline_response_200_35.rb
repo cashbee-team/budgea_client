@@ -14,19 +14,19 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20035
-    attr_accessor :webhooks
+    attr_accessor :profiles
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'webhooks' => :'webhooks'
+        :'profiles' => :'profiles'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'webhooks' => :'Array<Webhook>'
+        :'profiles' => :'Array<Profile>'
       }
     end
 
@@ -38,9 +38,9 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'webhooks')
-        if (value = attributes[:'webhooks']).is_a?(Array)
-          self.webhooks = value
+      if attributes.has_key?(:'profiles')
+        if (value = attributes[:'profiles']).is_a?(Array)
+          self.profiles = value
         end
       end
     end
@@ -49,8 +49,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @webhooks.nil?
-        invalid_properties.push('invalid value for "webhooks", webhooks cannot be nil.')
+      if @profiles.nil?
+        invalid_properties.push('invalid value for "profiles", profiles cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +59,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @webhooks.nil?
+      return false if @profiles.nil?
       true
     end
 
@@ -68,7 +68,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          webhooks == o.webhooks
+          profiles == o.profiles
     end
 
     # @see the `==` method
@@ -80,7 +80,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [webhooks].hash
+      [profiles].hash
     end
 
     # Builds the object from hash

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | 
+**transfers** | [**Array&lt;Transfer&gt;**](Transfer.md) |  | 
 
 

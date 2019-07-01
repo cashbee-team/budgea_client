@@ -504,6 +504,69 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get configuration change history of the API.
+    # <br><br>
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search limit the results to keys matching the given value
+    # @option opts [String] :type type of change done on the configuration
+    # @option opts [Date] :min_date minimal date of the change
+    # @option opts [Date] :max_date maximum date of the change
+    # @option opts [String] :expand 
+    # @return [InlineResponse20013]
+    def config_logs_get(opts = {})
+      data, _status_code, _headers = config_logs_get_with_http_info(opts)
+      data
+    end
+
+    # Get configuration change history of the API.
+    # &lt;br&gt;&lt;br&gt;
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search limit the results to keys matching the given value
+    # @option opts [String] :type type of change done on the configuration
+    # @option opts [Date] :min_date minimal date of the change
+    # @option opts [Date] :max_date maximum date of the change
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20013, Fixnum, Hash)>] InlineResponse20013 data, response status code and response headers
+    def config_logs_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.config_logs_get ...'
+      end
+      # resource path
+      local_var_path = '/config/logs'
+
+      # query parameters
+      query_params = {}
+      query_params[:'search'] = opts[:'search'] if !opts[:'search'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'min_date'] = opts[:'min_date'] if !opts[:'min_date'].nil?
+      query_params[:'max_date'] = opts[:'max_date'] if !opts[:'max_date'].nil?
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20013')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#config_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Set a configuration value on the API.
     # Request: { \"connection.disable_new\": \"0\", \"search\": \"connection.disable_new\" }<br><br>
     # @param [Hash] opts the optional parameters
@@ -936,6 +999,381 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Deletes all webhook authentication types
+    # 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [AuthProvider]
+    def webhooks_auth_delete(opts = {})
+      data, _status_code, _headers = webhooks_auth_delete_with_http_info(opts)
+      data
+    end
+
+    # Deletes all webhook authentication types
+    # 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(AuthProvider, Fixnum, Hash)>] AuthProvider data, response status code and response headers
+    def webhooks_auth_delete_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_delete ...'
+      end
+      # resource path
+      local_var_path = '/webhooks/auth'
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AuthProvider')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get webhooks authentication types
+    # 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20037]
+    def webhooks_auth_get(opts = {})
+      data, _status_code, _headers = webhooks_auth_get_with_http_info(opts)
+      data
+    end
+
+    # Get webhooks authentication types
+    # 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20037, Fixnum, Hash)>] InlineResponse20037 data, response status code and response headers
+    def webhooks_auth_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_get ...'
+      end
+      # resource path
+      local_var_path = '/webhooks/auth'
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20037')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Deletes the webhook authentication type
+    # Updates the deleted field with the date of the deletion<br><br>
+    # @param id_auth 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [AuthProvider]
+    def webhooks_auth_id_auth_delete(id_auth, opts = {})
+      data, _status_code, _headers = webhooks_auth_id_auth_delete_with_http_info(id_auth, opts)
+      data
+    end
+
+    # Deletes the webhook authentication type
+    # Updates the deleted field with the date of the deletion&lt;br&gt;&lt;br&gt;
+    # @param id_auth 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(AuthProvider, Fixnum, Hash)>] AuthProvider data, response status code and response headers
+    def webhooks_auth_id_auth_delete_with_http_info(id_auth, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_id_auth_delete ...'
+      end
+      # verify the required parameter 'id_auth' is set
+      if @api_client.config.client_side_validation && id_auth.nil?
+        fail ArgumentError, "Missing the required parameter 'id_auth' when calling AdministrationApi.webhooks_auth_id_auth_delete"
+      end
+      # resource path
+      local_var_path = '/webhooks/auth/{id_auth}'.sub('{' + 'id_auth' + '}', id_auth.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AuthProvider')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_id_auth_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Updates the webhook authentication type
+    # 
+    # @param id_auth 
+    # @param type The type of the authentication process (oauth, certificate, token, etc...)
+    # @param name The name of the authentication process to differentiate
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :config The authentication process configuration. A dict containing either the certificate
+    # @option opts [String] :expand 
+    # @return [AuthProvider]
+    def webhooks_auth_id_auth_post(id_auth, type, name, opts = {})
+      data, _status_code, _headers = webhooks_auth_id_auth_post_with_http_info(id_auth, type, name, opts)
+      data
+    end
+
+    # Updates the webhook authentication type
+    # 
+    # @param id_auth 
+    # @param type The type of the authentication process (oauth, certificate, token, etc...)
+    # @param name The name of the authentication process to differentiate
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :config The authentication process configuration. A dict containing either the certificate
+    # @option opts [String] :expand 
+    # @return [Array<(AuthProvider, Fixnum, Hash)>] AuthProvider data, response status code and response headers
+    def webhooks_auth_id_auth_post_with_http_info(id_auth, type, name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_id_auth_post ...'
+      end
+      # verify the required parameter 'id_auth' is set
+      if @api_client.config.client_side_validation && id_auth.nil?
+        fail ArgumentError, "Missing the required parameter 'id_auth' when calling AdministrationApi.webhooks_auth_id_auth_post"
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling AdministrationApi.webhooks_auth_id_auth_post"
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling AdministrationApi.webhooks_auth_id_auth_post"
+      end
+      # resource path
+      local_var_path = '/webhooks/auth/{id_auth}'.sub('{' + 'id_auth' + '}', id_auth.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['type'] = type
+      form_params['name'] = name
+      form_params['config'] = opts[:'config'] if !opts[:'config'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AuthProvider')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_id_auth_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Updates the webhook authentication type
+    # 
+    # @param id_auth 
+    # @param type The type of the authentication process (oauth, certificate, token, etc...)
+    # @param name The name of the authentication process to differentiate
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :config The authentication process configuration. A dict containt either the certificate
+    # @option opts [String] :expand 
+    # @return [AuthProvider]
+    def webhooks_auth_id_auth_put(id_auth, type, name, opts = {})
+      data, _status_code, _headers = webhooks_auth_id_auth_put_with_http_info(id_auth, type, name, opts)
+      data
+    end
+
+    # Updates the webhook authentication type
+    # 
+    # @param id_auth 
+    # @param type The type of the authentication process (oauth, certificate, token, etc...)
+    # @param name The name of the authentication process to differentiate
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :config The authentication process configuration. A dict containt either the certificate
+    # @option opts [String] :expand 
+    # @return [Array<(AuthProvider, Fixnum, Hash)>] AuthProvider data, response status code and response headers
+    def webhooks_auth_id_auth_put_with_http_info(id_auth, type, name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_id_auth_put ...'
+      end
+      # verify the required parameter 'id_auth' is set
+      if @api_client.config.client_side_validation && id_auth.nil?
+        fail ArgumentError, "Missing the required parameter 'id_auth' when calling AdministrationApi.webhooks_auth_id_auth_put"
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling AdministrationApi.webhooks_auth_id_auth_put"
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling AdministrationApi.webhooks_auth_id_auth_put"
+      end
+      # resource path
+      local_var_path = '/webhooks/auth/{id_auth}'.sub('{' + 'id_auth' + '}', id_auth.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['type'] = type
+      form_params['name'] = name
+      form_params['config'] = opts[:'config'] if !opts[:'config'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AuthProvider')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_id_auth_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Adds a new webhook authentication type
+    # 
+    # @param type The type of the authentication process (oauth, certificate, token, etc...)
+    # @param name The name of the authentication process to differentiate
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :config The authentication process configuration. A dict contains either the certificate
+    # @option opts [String] :expand 
+    # @return [AuthProvider]
+    def webhooks_auth_post(type, name, opts = {})
+      data, _status_code, _headers = webhooks_auth_post_with_http_info(type, name, opts)
+      data
+    end
+
+    # Adds a new webhook authentication type
+    # 
+    # @param type The type of the authentication process (oauth, certificate, token, etc...)
+    # @param name The name of the authentication process to differentiate
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :config The authentication process configuration. A dict contains either the certificate
+    # @option opts [String] :expand 
+    # @return [Array<(AuthProvider, Fixnum, Hash)>] AuthProvider data, response status code and response headers
+    def webhooks_auth_post_with_http_info(type, name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_post ...'
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling AdministrationApi.webhooks_auth_post"
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling AdministrationApi.webhooks_auth_post"
+      end
+      # resource path
+      local_var_path = '/webhooks/auth'
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['type'] = type
+      form_params['name'] = name
+      form_params['config'] = opts[:'config'] if !opts[:'config'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AuthProvider')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Deletes all webhooks
     # Updates the deleted field with the date of the deletion<br><br>
     # @param [Hash] opts the optional parameters
@@ -991,7 +1429,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20035]
+    # @return [InlineResponse20036]
     def webhooks_get(opts = {})
       data, _status_code, _headers = webhooks_get_with_http_info(opts)
       data
@@ -1001,7 +1439,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20035, Fixnum, Hash)>] InlineResponse20035 data, response status code and response headers
+    # @return [Array<(InlineResponse20036, Fixnum, Hash)>] InlineResponse20036 data, response status code and response headers
     def webhooks_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_get ...'
@@ -1032,9 +1470,62 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20035')
+        :return_type => 'InlineResponse20036')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # retrieve the list of the value to add in webhooks when sending the requested webhook
+    # 
+    # @param id_webhook 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def webhooks_id_webhook_add_to_data_get(id_webhook, opts = {})
+      webhooks_id_webhook_add_to_data_get_with_http_info(id_webhook, opts)
+      nil
+    end
+
+    # retrieve the list of the value to add in webhooks when sending the requested webhook
+    # 
+    # @param id_webhook 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def webhooks_id_webhook_add_to_data_get_with_http_info(id_webhook, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_add_to_data_get ...'
+      end
+      # verify the required parameter 'id_webhook' is set
+      if @api_client.config.client_side_validation && id_webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'id_webhook' when calling AdministrationApi.webhooks_id_webhook_add_to_data_get"
+      end
+      # resource path
+      local_var_path = '/webhooks/{id_webhook}/add_to_data'.sub('{' + 'id_webhook' + '}', id_webhook.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_add_to_data_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1104,7 +1595,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [InlineResponse20036]
+    # @return [InlineResponse20038]
     def webhooks_id_webhook_logs_get(id_webhook, opts = {})
       data, _status_code, _headers = webhooks_id_webhook_logs_get_with_http_info(id_webhook, opts)
       data
@@ -1119,7 +1610,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20036, Fixnum, Hash)>] InlineResponse20036 data, response status code and response headers
+    # @return [Array<(InlineResponse20038, Fixnum, Hash)>] InlineResponse20038 data, response status code and response headers
     def webhooks_id_webhook_logs_get_with_http_info(id_webhook, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_logs_get ...'
@@ -1158,7 +1649,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20036')
+        :return_type => 'InlineResponse20038')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1171,6 +1662,7 @@ module BudgeaClient
     # @option opts [String] :deleted a date to delete the webhook or &#39;null&#39; to enable it
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
+    # @option opts [Integer] :id_auth The webhook authentication process to use
     # @option opts [Float] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
@@ -1187,6 +1679,7 @@ module BudgeaClient
     # @option opts [String] :deleted a date to delete the webhook or &#39;null&#39; to enable it
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
+    # @option opts [Integer] :id_auth The webhook authentication process to use
     # @option opts [Float] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
@@ -1218,6 +1711,7 @@ module BudgeaClient
       form_params['deleted'] = opts[:'deleted'] if !opts[:'deleted'].nil?
       form_params['id_user'] = opts[:'id_user'] if !opts[:'id_user'].nil?
       form_params['id_service'] = opts[:'id_service'] if !opts[:'id_service'].nil?
+      form_params['id_auth'] = opts[:'id_auth'] if !opts[:'id_auth'].nil?
       form_params['url'] = opts[:'url'] if !opts[:'url'].nil?
       form_params['event'] = opts[:'event'] if !opts[:'event'].nil?
 
@@ -1243,6 +1737,7 @@ module BudgeaClient
     # @option opts [String] :deleted a date to delete the webhook or &#39;null&#39; to enable it
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
+    # @option opts [Integer] :id_auth The webhook authentication process to use
     # @option opts [Float] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
@@ -1259,6 +1754,7 @@ module BudgeaClient
     # @option opts [String] :deleted a date to delete the webhook or &#39;null&#39; to enable it
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
+    # @option opts [Integer] :id_auth The webhook authentication process to use
     # @option opts [Float] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
@@ -1290,6 +1786,7 @@ module BudgeaClient
       form_params['deleted'] = opts[:'deleted'] if !opts[:'deleted'].nil?
       form_params['id_user'] = opts[:'id_user'] if !opts[:'id_user'].nil?
       form_params['id_service'] = opts[:'id_service'] if !opts[:'id_service'].nil?
+      form_params['id_auth'] = opts[:'id_auth'] if !opts[:'id_auth'].nil?
       form_params['url'] = opts[:'url'] if !opts[:'url'].nil?
       form_params['event'] = opts[:'event'] if !opts[:'event'].nil?
 
@@ -1313,6 +1810,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
+    # @option opts [String] :id_auth The webhook authentication process to use (its ID or its name)
     # @option opts [Float] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :params The webhook parameters as an object with three keys: type, key and value
@@ -1328,6 +1826,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
+    # @option opts [String] :id_auth The webhook authentication process to use (its ID or its name)
     # @option opts [Float] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :params The webhook parameters as an object with three keys: type, key and value
@@ -1355,6 +1854,7 @@ module BudgeaClient
       form_params = {}
       form_params['id_user'] = opts[:'id_user'] if !opts[:'id_user'].nil?
       form_params['id_service'] = opts[:'id_service'] if !opts[:'id_service'].nil?
+      form_params['id_auth'] = opts[:'id_auth'] if !opts[:'id_auth'].nil?
       form_params['url'] = opts[:'url'] if !opts[:'url'].nil?
       form_params['event'] = opts[:'event'] if !opts[:'event'].nil?
       form_params['params'] = opts[:'params'] if !opts[:'params'].nil?

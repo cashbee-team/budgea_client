@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connectors** | [**Array&lt;Connector&gt;**](Connector.md) |  | 
+**configlogs** | [**Array&lt;ConfigLog&gt;**](ConfigLog.md) |  | 
 
 

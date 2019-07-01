@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**clients_id_client_put**](AdministrationApi.md#clients_id_client_put) | **PUT** /clients/{id_client} | Update a client
 [**clients_post**](AdministrationApi.md#clients_post) | **POST** /clients | Create a client
 [**config_get**](AdministrationApi.md#config_get) | **GET** /config | Get configuration of the API.
+[**config_logs_get**](AdministrationApi.md#config_logs_get) | **GET** /config/logs | Get configuration change history of the API.
 [**config_post**](AdministrationApi.md#config_post) | **POST** /config | Set a configuration value on the API.
 [**merchants_get**](AdministrationApi.md#merchants_get) | **GET** /merchants | List clients
 [**merchants_id_client_logo_delete**](AdministrationApi.md#merchants_id_client_logo_delete) | **DELETE** /merchants/{id_client}/logo | Delete the client logo
@@ -20,8 +21,15 @@ Method | HTTP request | Description
 [**monitoring_get**](AdministrationApi.md#monitoring_get) | **GET** /monitoring | get performances stats on this instance
 [**test_sync_post**](AdministrationApi.md#test_sync_post) | **POST** /test/sync | Test synchronization on a random connection.
 [**test_webhooks_post**](AdministrationApi.md#test_webhooks_post) | **POST** /test/webhooks | Test synchronization on a random connection.
+[**webhooks_auth_delete**](AdministrationApi.md#webhooks_auth_delete) | **DELETE** /webhooks/auth | Deletes all webhook authentication types
+[**webhooks_auth_get**](AdministrationApi.md#webhooks_auth_get) | **GET** /webhooks/auth | Get webhooks authentication types
+[**webhooks_auth_id_auth_delete**](AdministrationApi.md#webhooks_auth_id_auth_delete) | **DELETE** /webhooks/auth/{id_auth} | Deletes the webhook authentication type
+[**webhooks_auth_id_auth_post**](AdministrationApi.md#webhooks_auth_id_auth_post) | **POST** /webhooks/auth/{id_auth} | Updates the webhook authentication type
+[**webhooks_auth_id_auth_put**](AdministrationApi.md#webhooks_auth_id_auth_put) | **PUT** /webhooks/auth/{id_auth} | Updates the webhook authentication type
+[**webhooks_auth_post**](AdministrationApi.md#webhooks_auth_post) | **POST** /webhooks/auth | Adds a new webhook authentication type
 [**webhooks_delete**](AdministrationApi.md#webhooks_delete) | **DELETE** /webhooks | Deletes all webhooks
 [**webhooks_get**](AdministrationApi.md#webhooks_get) | **GET** /webhooks | Get webhooks
+[**webhooks_id_webhook_add_to_data_get**](AdministrationApi.md#webhooks_id_webhook_add_to_data_get) | **GET** /webhooks/{id_webhook}/add_to_data | retrieve the list of the value to add in webhooks when sending the requested webhook
 [**webhooks_id_webhook_delete**](AdministrationApi.md#webhooks_id_webhook_delete) | **DELETE** /webhooks/{id_webhook} | Deletes a webhook
 [**webhooks_id_webhook_logs_get**](AdministrationApi.md#webhooks_id_webhook_logs_get) | **GET** /webhooks/{id_webhook}/logs | Get webhooks logs.
 [**webhooks_id_webhook_post**](AdministrationApi.md#webhooks_id_webhook_post) | **POST** /webhooks/{id_webhook} | Updates a webhook
@@ -515,6 +523,69 @@ nil (empty response body)
 
 
 
+# **config_logs_get**
+> InlineResponse20013 config_logs_get(opts)
+
+Get configuration change history of the API.
+
+<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+opts = { 
+  search: 'search_example', # String | limit the results to keys matching the given value
+  type: 'type_example', # String | type of change done on the configuration
+  min_date: Date.parse('2013-10-20'), # Date | minimal date of the change
+  max_date: Date.parse('2013-10-20'), # Date | maximum date of the change
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get configuration change history of the API.
+  result = api_instance.config_logs_get(opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->config_logs_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search** | **String**| limit the results to keys matching the given value | [optional] 
+ **type** | **String**| type of change done on the configuration | [optional] 
+ **min_date** | **Date**| minimal date of the change | [optional] 
+ **max_date** | **Date**| maximum date of the change | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20013**](InlineResponse20013.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
 # **config_post**
 > Object config_post(opts)
 
@@ -953,6 +1024,369 @@ nil (empty response body)
 
 
 
+# **webhooks_auth_delete**
+> AuthProvider webhooks_auth_delete(opts)
+
+Deletes all webhook authentication types
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Deletes all webhook authentication types
+  result = api_instance.webhooks_auth_delete(opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_auth_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**AuthProvider**](AuthProvider.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_auth_get**
+> InlineResponse20037 webhooks_auth_get(opts)
+
+Get webhooks authentication types
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get webhooks authentication types
+  result = api_instance.webhooks_auth_get(opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_auth_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20037**](InlineResponse20037.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_auth_id_auth_delete**
+> AuthProvider webhooks_auth_id_auth_delete(id_auth, opts)
+
+Deletes the webhook authentication type
+
+Updates the deleted field with the date of the deletion<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_auth = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Deletes the webhook authentication type
+  result = api_instance.webhooks_auth_id_auth_delete(id_auth, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_auth_id_auth_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_auth** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**AuthProvider**](AuthProvider.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_auth_id_auth_post**
+> AuthProvider webhooks_auth_id_auth_post(id_auth, type, name, opts)
+
+Updates the webhook authentication type
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_auth = 56 # Integer | 
+
+type = 56 # Integer | The type of the authentication process (oauth, certificate, token, etc...)
+
+name = 'name_example' # String | The name of the authentication process to differentiate
+
+opts = { 
+  config: 'config_example', # String | The authentication process configuration. A dict containing either the certificate
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Updates the webhook authentication type
+  result = api_instance.webhooks_auth_id_auth_post(id_auth, type, name, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_auth_id_auth_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_auth** | **Integer**|  | 
+ **type** | **Integer**| The type of the authentication process (oauth, certificate, token, etc...) | 
+ **name** | **String**| The name of the authentication process to differentiate | 
+ **config** | **String**| The authentication process configuration. A dict containing either the certificate | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**AuthProvider**](AuthProvider.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_auth_id_auth_put**
+> AuthProvider webhooks_auth_id_auth_put(id_auth, type, name, opts)
+
+Updates the webhook authentication type
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_auth = 56 # Integer | 
+
+type = 56 # Integer | The type of the authentication process (oauth, certificate, token, etc...)
+
+name = 'name_example' # String | The name of the authentication process to differentiate
+
+opts = { 
+  config: 'config_example', # String | The authentication process configuration. A dict containt either the certificate
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Updates the webhook authentication type
+  result = api_instance.webhooks_auth_id_auth_put(id_auth, type, name, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_auth_id_auth_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_auth** | **Integer**|  | 
+ **type** | **Integer**| The type of the authentication process (oauth, certificate, token, etc...) | 
+ **name** | **String**| The name of the authentication process to differentiate | 
+ **config** | **String**| The authentication process configuration. A dict containt either the certificate | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**AuthProvider**](AuthProvider.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_auth_post**
+> AuthProvider webhooks_auth_post(type, name, opts)
+
+Adds a new webhook authentication type
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+type = 56 # Integer | The type of the authentication process (oauth, certificate, token, etc...)
+
+name = 'name_example' # String | The name of the authentication process to differentiate
+
+opts = { 
+  config: 'config_example', # String | The authentication process configuration. A dict contains either the certificate
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Adds a new webhook authentication type
+  result = api_instance.webhooks_auth_post(type, name, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_auth_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **Integer**| The type of the authentication process (oauth, certificate, token, etc...) | 
+ **name** | **String**| The name of the authentication process to differentiate | 
+ **config** | **String**| The authentication process configuration. A dict contains either the certificate | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**AuthProvider**](AuthProvider.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
 # **webhooks_delete**
 > Webhook webhooks_delete(opts)
 
@@ -1009,7 +1443,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_get**
-> InlineResponse20035 webhooks_get(opts)
+> InlineResponse20036 webhooks_get(opts)
 
 Get webhooks
 
@@ -1050,7 +1484,60 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20036**](InlineResponse20036.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_id_webhook_add_to_data_get**
+> webhooks_id_webhook_add_to_data_get(id_webhook)
+
+retrieve the list of the value to add in webhooks when sending the requested webhook
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_webhook = 56 # Integer | 
+
+
+begin
+  #retrieve the list of the value to add in webhooks when sending the requested webhook
+  api_instance.webhooks_id_webhook_add_to_data_get(id_webhook)
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_id_webhook_add_to_data_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_webhook** | **Integer**|  | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 
@@ -1122,7 +1609,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_id_webhook_logs_get**
-> InlineResponse20036 webhooks_id_webhook_logs_get(id_webhook, opts)
+> InlineResponse20038 webhooks_id_webhook_logs_get(id_webhook, opts)
 
 Get webhooks logs.
 
@@ -1174,7 +1661,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -1214,6 +1701,7 @@ opts = {
   deleted: 'deleted_example', # String | a date to delete the webhook or 'null' to enable it
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
+  id_auth: 56, # Integer | The webhook authentication process to use
   url: 3.4, # Float | The webhook callback url
   event: 'event_example', # String | The webhook event
   expand: 'expand_example' # String | 
@@ -1236,6 +1724,7 @@ Name | Type | Description  | Notes
  **deleted** | **String**| a date to delete the webhook or &#39;null&#39; to enable it | [optional] 
  **id_user** | **Integer**| The user ID to associate with the webhook | [optional] 
  **id_service** | **Integer**| The service ID to associate with the webhook | [optional] 
+ **id_auth** | **Integer**| The webhook authentication process to use | [optional] 
  **url** | **Float**| The webhook callback url | [optional] 
  **event** | **String**| The webhook event | [optional] 
  **expand** | **String**|  | [optional] 
@@ -1282,6 +1771,7 @@ opts = {
   deleted: 'deleted_example', # String | a date to delete the webhook or 'null' to enable it
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
+  id_auth: 56, # Integer | The webhook authentication process to use
   url: 3.4, # Float | The webhook callback url
   event: 'event_example', # String | The webhook event
   expand: 'expand_example' # String | 
@@ -1304,6 +1794,7 @@ Name | Type | Description  | Notes
  **deleted** | **String**| a date to delete the webhook or &#39;null&#39; to enable it | [optional] 
  **id_user** | **Integer**| The user ID to associate with the webhook | [optional] 
  **id_service** | **Integer**| The service ID to associate with the webhook | [optional] 
+ **id_auth** | **Integer**| The webhook authentication process to use | [optional] 
  **url** | **Float**| The webhook callback url | [optional] 
  **event** | **String**| The webhook event | [optional] 
  **expand** | **String**|  | [optional] 
@@ -1347,6 +1838,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 opts = { 
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
+  id_auth: 'id_auth_example', # String | The webhook authentication process to use (its ID or its name)
   url: 3.4, # Float | The webhook callback url
   event: 'event_example', # String | The webhook event
   params: 'params_example', # String | The webhook parameters as an object with three keys: type, key and value
@@ -1368,6 +1860,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **Integer**| The user ID to associate with the webhook | [optional] 
  **id_service** | **Integer**| The service ID to associate with the webhook | [optional] 
+ **id_auth** | **String**| The webhook authentication process to use (its ID or its name) | [optional] 
  **url** | **Float**| The webhook callback url | [optional] 
  **event** | **String**| The webhook event | [optional] 
  **params** | **String**| The webhook parameters as an object with three keys: type, key and value | [optional] 

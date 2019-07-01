@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::AdministrationApi* | [**clients_id_client_put**](docs/AdministrationApi.md#clients_id_client_put) | **PUT** /clients/{id_client} | Update a client
 *BudgeaClient::AdministrationApi* | [**clients_post**](docs/AdministrationApi.md#clients_post) | **POST** /clients | Create a client
 *BudgeaClient::AdministrationApi* | [**config_get**](docs/AdministrationApi.md#config_get) | **GET** /config | Get configuration of the API.
+*BudgeaClient::AdministrationApi* | [**config_logs_get**](docs/AdministrationApi.md#config_logs_get) | **GET** /config/logs | Get configuration change history of the API.
 *BudgeaClient::AdministrationApi* | [**config_post**](docs/AdministrationApi.md#config_post) | **POST** /config | Set a configuration value on the API.
 *BudgeaClient::AdministrationApi* | [**merchants_get**](docs/AdministrationApi.md#merchants_get) | **GET** /merchants | List clients
 *BudgeaClient::AdministrationApi* | [**merchants_id_client_logo_delete**](docs/AdministrationApi.md#merchants_id_client_logo_delete) | **DELETE** /merchants/{id_client}/logo | Delete the client logo
@@ -100,8 +101,15 @@ Class | Method | HTTP request | Description
 *BudgeaClient::AdministrationApi* | [**monitoring_get**](docs/AdministrationApi.md#monitoring_get) | **GET** /monitoring | get performances stats on this instance
 *BudgeaClient::AdministrationApi* | [**test_sync_post**](docs/AdministrationApi.md#test_sync_post) | **POST** /test/sync | Test synchronization on a random connection.
 *BudgeaClient::AdministrationApi* | [**test_webhooks_post**](docs/AdministrationApi.md#test_webhooks_post) | **POST** /test/webhooks | Test synchronization on a random connection.
+*BudgeaClient::AdministrationApi* | [**webhooks_auth_delete**](docs/AdministrationApi.md#webhooks_auth_delete) | **DELETE** /webhooks/auth | Deletes all webhook authentication types
+*BudgeaClient::AdministrationApi* | [**webhooks_auth_get**](docs/AdministrationApi.md#webhooks_auth_get) | **GET** /webhooks/auth | Get webhooks authentication types
+*BudgeaClient::AdministrationApi* | [**webhooks_auth_id_auth_delete**](docs/AdministrationApi.md#webhooks_auth_id_auth_delete) | **DELETE** /webhooks/auth/{id_auth} | Deletes the webhook authentication type
+*BudgeaClient::AdministrationApi* | [**webhooks_auth_id_auth_post**](docs/AdministrationApi.md#webhooks_auth_id_auth_post) | **POST** /webhooks/auth/{id_auth} | Updates the webhook authentication type
+*BudgeaClient::AdministrationApi* | [**webhooks_auth_id_auth_put**](docs/AdministrationApi.md#webhooks_auth_id_auth_put) | **PUT** /webhooks/auth/{id_auth} | Updates the webhook authentication type
+*BudgeaClient::AdministrationApi* | [**webhooks_auth_post**](docs/AdministrationApi.md#webhooks_auth_post) | **POST** /webhooks/auth | Adds a new webhook authentication type
 *BudgeaClient::AdministrationApi* | [**webhooks_delete**](docs/AdministrationApi.md#webhooks_delete) | **DELETE** /webhooks | Deletes all webhooks
 *BudgeaClient::AdministrationApi* | [**webhooks_get**](docs/AdministrationApi.md#webhooks_get) | **GET** /webhooks | Get webhooks
+*BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_add_to_data_get**](docs/AdministrationApi.md#webhooks_id_webhook_add_to_data_get) | **GET** /webhooks/{id_webhook}/add_to_data | retrieve the list of the value to add in webhooks when sending the requested webhook
 *BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_delete**](docs/AdministrationApi.md#webhooks_id_webhook_delete) | **DELETE** /webhooks/{id_webhook} | Deletes a webhook
 *BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_logs_get**](docs/AdministrationApi.md#webhooks_id_webhook_logs_get) | **GET** /webhooks/{id_webhook}/logs | Get webhooks logs.
 *BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_post**](docs/AdministrationApi.md#webhooks_id_webhook_post) | **POST** /webhooks/{id_webhook} | Updates a webhook
@@ -130,6 +138,8 @@ Class | Method | HTTP request | Description
 *BudgeaClient::BanksApi* | [**banks_id_connector_logos_main_get**](docs/BanksApi.md#banks_id_connector_logos_main_get) | **GET** /banks/{id_connector}/logos/main | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**banks_id_connector_logos_thumbnail_get**](docs/BanksApi.md#banks_id_connector_logos_thumbnail_get) | **GET** /banks/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**categories_get**](docs/BanksApi.md#categories_get) | **GET** /categories | Get all categories
+*BudgeaClient::BanksApi* | [**categories_keywords_id_keyword_delete**](docs/BanksApi.md#categories_keywords_id_keyword_delete) | **DELETE** /categories/keywords/{id_keyword} | Delete a particular key-value pair on a transaction.
+*BudgeaClient::BanksApi* | [**categories_keywords_post**](docs/BanksApi.md#categories_keywords_post) | **POST** /categories/keywords | Add a new keyword associated with a category in the database.
 *BudgeaClient::BanksApi* | [**categorize_post**](docs/BanksApi.md#categorize_post) | **POST** /categorize | categorize transactions without storing them
 *BudgeaClient::BanksApi* | [**connections_get**](docs/BanksApi.md#connections_get) | **GET** /connections | Get connections without a user
 *BudgeaClient::BanksApi* | [**connectors_get**](docs/BanksApi.md#connectors_get) | **GET** /connectors | Get list of connectors
@@ -330,6 +340,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::DocumentsApi* | [**users_id_user_transactionsclusters_id_transactions_cluster_documents_id_document_put**](docs/DocumentsApi.md#users_id_user_transactionsclusters_id_transactions_cluster_documents_id_document_put) | **PUT** /users/{id_user}/transactionsclusters/{id_transactions_cluster}/documents/{id_document} | Edit a document
 *BudgeaClient::DocumentsApi* | [**users_id_user_transactionsclusters_id_transactions_cluster_documents_post**](docs/DocumentsApi.md#users_id_user_transactionsclusters_id_transactions_cluster_documents_post) | **POST** /users/{id_user}/transactionsclusters/{id_transactions_cluster}/documents | Add a new document
 *BudgeaClient::DocumentsApi* | [**users_id_user_transactionsclusters_id_transactions_cluster_documents_put**](docs/DocumentsApi.md#users_id_user_transactionsclusters_id_transactions_cluster_documents_put) | **PUT** /users/{id_user}/transactionsclusters/{id_transactions_cluster}/documents | Attach an existing document to a transaction or a transactions_cluster
+*BudgeaClient::HUBApi* | [**webhooks_id_webhook_add_to_data_post**](docs/HUBApi.md#webhooks_id_webhook_add_to_data_post) | **POST** /webhooks/{id_webhook}/add_to_data | Setup a field to store in user config when calling the endpoint
 *BudgeaClient::OCRApi* | [**ocr_post**](docs/OCRApi.md#ocr_post) | **POST** /ocr | Post an image with OCR
 *BudgeaClient::OCRApi* | [**users_id_user_ocr_post**](docs/OCRApi.md#users_id_user_ocr_post) | **POST** /users/{id_user}/ocr | Post an image with OCR
 *BudgeaClient::OIDCApi* | [**oidc_whitelist_id_whitelist_delete**](docs/OIDCApi.md#oidc_whitelist_id_whitelist_delete) | **DELETE** /oidc/whitelist/{id_whitelist} | Delete the supplied authorized redirect uri
@@ -565,9 +576,11 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::AccountLog](docs/AccountLog.md)
  - [BudgeaClient::AccountType](docs/AccountType.md)
  - [BudgeaClient::Alert](docs/Alert.md)
+ - [BudgeaClient::AuthProvider](docs/AuthProvider.md)
  - [BudgeaClient::Category](docs/Category.md)
  - [BudgeaClient::Certificate](docs/Certificate.md)
  - [BudgeaClient::Client](docs/Client.md)
+ - [BudgeaClient::ConfigLog](docs/ConfigLog.md)
  - [BudgeaClient::Connection](docs/Connection.md)
  - [BudgeaClient::ConnectionLog](docs/ConnectionLog.md)
  - [BudgeaClient::Connector](docs/Connector.md)
@@ -613,6 +626,8 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::InlineResponse20034](docs/InlineResponse20034.md)
  - [BudgeaClient::InlineResponse20035](docs/InlineResponse20035.md)
  - [BudgeaClient::InlineResponse20036](docs/InlineResponse20036.md)
+ - [BudgeaClient::InlineResponse20037](docs/InlineResponse20037.md)
+ - [BudgeaClient::InlineResponse20038](docs/InlineResponse20038.md)
  - [BudgeaClient::InlineResponse2004](docs/InlineResponse2004.md)
  - [BudgeaClient::InlineResponse2005](docs/InlineResponse2005.md)
  - [BudgeaClient::InlineResponse2006](docs/InlineResponse2006.md)
@@ -622,6 +637,7 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::Investment](docs/Investment.md)
  - [BudgeaClient::InvestmentValue](docs/InvestmentValue.md)
  - [BudgeaClient::Invite](docs/Invite.md)
+ - [BudgeaClient::Keyword](docs/Keyword.md)
  - [BudgeaClient::LockedUser](docs/LockedUser.md)
  - [BudgeaClient::OidcWhitelist](docs/OidcWhitelist.md)
  - [BudgeaClient::Pocket](docs/Pocket.md)
@@ -641,6 +657,7 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::User](docs/User.md)
  - [BudgeaClient::UserAlert](docs/UserAlert.md)
  - [BudgeaClient::Webhook](docs/Webhook.md)
+ - [BudgeaClient::WebhookData](docs/WebhookData.md)
  - [BudgeaClient::WebhookLog](docs/WebhookLog.md)
 
 

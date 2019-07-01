@@ -14,19 +14,19 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20016
-    attr_accessor :connectionlogs
+    attr_accessor :securities
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'connectionlogs' => :'connectionlogs'
+        :'securities' => :'securities'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'connectionlogs' => :'Array<ConnectionLog>'
+        :'securities' => :'Array<Security>'
       }
     end
 
@@ -38,9 +38,9 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'connectionlogs')
-        if (value = attributes[:'connectionlogs']).is_a?(Array)
-          self.connectionlogs = value
+      if attributes.has_key?(:'securities')
+        if (value = attributes[:'securities']).is_a?(Array)
+          self.securities = value
         end
       end
     end
@@ -49,8 +49,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @connectionlogs.nil?
-        invalid_properties.push('invalid value for "connectionlogs", connectionlogs cannot be nil.')
+      if @securities.nil?
+        invalid_properties.push('invalid value for "securities", securities cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +59,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @connectionlogs.nil?
+      return false if @securities.nil?
       true
     end
 
@@ -68,7 +68,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          connectionlogs == o.connectionlogs
+          securities == o.securities
     end
 
     # @see the `==` method
@@ -80,7 +80,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [connectionlogs].hash
+      [securities].hash
     end
 
     # Builds the object from hash

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accounts** | [**Array&lt;Account&gt;**](Account.md) |  | 
+**users** | [**Array&lt;User&gt;**](User.md) |  | 
 
 

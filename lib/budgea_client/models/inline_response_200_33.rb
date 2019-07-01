@@ -14,19 +14,19 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20033
-    attr_accessor :devices
+    attr_accessor :categorys
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'devices' => :'devices'
+        :'categorys' => :'categorys'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'devices' => :'Array<Device>'
+        :'categorys' => :'Array<Category>'
       }
     end
 
@@ -38,9 +38,9 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'devices')
-        if (value = attributes[:'devices']).is_a?(Array)
-          self.devices = value
+      if attributes.has_key?(:'categorys')
+        if (value = attributes[:'categorys']).is_a?(Array)
+          self.categorys = value
         end
       end
     end
@@ -49,8 +49,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @devices.nil?
-        invalid_properties.push('invalid value for "devices", devices cannot be nil.')
+      if @categorys.nil?
+        invalid_properties.push('invalid value for "categorys", categorys cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +59,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @devices.nil?
+      return false if @categorys.nil?
       true
     end
 
@@ -68,7 +68,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          devices == o.devices
+          categorys == o.categorys
     end
 
     # @see the `==` method
@@ -80,7 +80,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [devices].hash
+      [categorys].hash
     end
 
     # Builds the object from hash

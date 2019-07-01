@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **months_to_fetch** | **Integer** | How many months of history to fetch | [optional] 
 **account_types** | **Array&lt;String&gt;** |  | [optional] 
 **auth_mechanism** | **String** | Authentication mechanism to use | [optional] 
+**siret** | **String** | SIRET code for Bill modules | [optional] 
+**uuid** | **String** | Unique connector identifier | 
 **fields** | [**Array&lt;Field&gt;**](Field.md) |  | [optional] 
 
 
