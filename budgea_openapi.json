@@ -4223,6 +4223,60 @@
             "type": "string",
             "name": "expand",
             "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "category",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "bank_name",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "deleted",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "bic",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "label",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "state",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "iban",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "error",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "id",
+            "in": "query"
           }
         ],
         "summary": "Returns the list of recipients."

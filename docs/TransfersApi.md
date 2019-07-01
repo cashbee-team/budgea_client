@@ -72,7 +72,16 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 id_account = 56 # Integer | 
 
 opts = { 
-  expand: 'expand_example' # String | 
+  expand: 'expand_example', # String | 
+  category: 'category_example', # String | 
+  bank_name: 'bank_name_example', # String | 
+  deleted: 'deleted_example', # String | 
+  bic: 'bic_example', # String | 
+  label: 'label_example', # String | 
+  state: 'state_example', # String | 
+  iban: 'iban_example', # String | 
+  error: 'error_example', # String | 
+  id: 'id_example' # String | 
 }
 
 begin
@@ -91,6 +100,15 @@ Name | Type | Description  | Notes
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_account** | **Integer**|  | 
  **expand** | **String**|  | [optional] 
+ **category** | **String**|  | [optional] 
+ **bank_name** | **String**|  | [optional] 
+ **deleted** | **String**|  | [optional] 
+ **bic** | **String**|  | [optional] 
+ **label** | **String**|  | [optional] 
+ **state** | **String**|  | [optional] 
+ **iban** | **String**|  | [optional] 
+ **error** | **String**|  | [optional] 
+ **id** | **String**|  | [optional] 
 
 ### Return type
 

@@ -25,6 +25,15 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
+    # @option opts [String] :category 
+    # @option opts [String] :bank_name 
+    # @option opts [String] :deleted 
+    # @option opts [String] :bic 
+    # @option opts [String] :label 
+    # @option opts [String] :state 
+    # @option opts [String] :iban 
+    # @option opts [String] :error 
+    # @option opts [String] :id 
     # @return [InlineResponse20025]
     def users_id_user_accounts_id_account_recipients_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_recipients_get_with_http_info(id_user, id_account, opts)
@@ -37,6 +46,15 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
+    # @option opts [String] :category 
+    # @option opts [String] :bank_name 
+    # @option opts [String] :deleted 
+    # @option opts [String] :bic 
+    # @option opts [String] :label 
+    # @option opts [String] :state 
+    # @option opts [String] :iban 
+    # @option opts [String] :error 
+    # @option opts [String] :id 
     # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
     def users_id_user_accounts_id_account_recipients_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
@@ -56,6 +74,15 @@ module BudgeaClient
       # query parameters
       query_params = {}
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+      query_params[:'bank_name'] = opts[:'bank_name'] if !opts[:'bank_name'].nil?
+      query_params[:'deleted'] = opts[:'deleted'] if !opts[:'deleted'].nil?
+      query_params[:'bic'] = opts[:'bic'] if !opts[:'bic'].nil?
+      query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+      query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
+      query_params[:'iban'] = opts[:'iban'] if !opts[:'iban'].nil?
+      query_params[:'error'] = opts[:'error'] if !opts[:'error'].nil?
+      query_params[:'id'] = opts[:'id'] if !opts[:'id'].nil?
 
       # header parameters
       header_params = {}
