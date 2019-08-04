@@ -21,6 +21,10 @@
                     "$ref": "#/definitions/AccountType"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -698,6 +702,10 @@
                     "$ref": "#/definitions/Connector"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -837,6 +845,10 @@
                     "$ref": "#/definitions/Connection"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -902,6 +914,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -946,6 +962,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -990,6 +1010,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -1029,6 +1053,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "categories": {
                   "items": {
                     "$ref": "#/definitions/Category"
@@ -1219,6 +1247,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "clients": {
                   "items": {
                     "$ref": "#/definitions/Client"
@@ -1282,8 +1314,8 @@
             "required": false,
             "in": "formData",
             "type": "string",
-            "name": "information",
-            "description": "custom information about the client"
+            "name": "config",
+            "description": "custom config about the client"
           },
           {
             "required": false,
@@ -1421,14 +1453,14 @@
             "required": false,
             "in": "formData",
             "type": "string",
-            "name": "information",
-            "description": "custom information about the client"
+            "name": "config",
+            "description": "custom config about the client"
           },
           {
             "required": false,
             "in": "formData",
             "type": "boolean",
-            "name": "update_information",
+            "name": "update_config",
             "description": "update the custom information about the client instead of replacing the existing one (default: True)"
           },
           {
@@ -1597,6 +1629,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "configlogs": {
                   "items": {
                     "$ref": "#/definitions/ConfigLog"
@@ -1668,6 +1704,10 @@
                     "$ref": "#/definitions/Connection"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -1706,6 +1746,10 @@
                     "$ref": "#/definitions/Connector"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -1903,6 +1947,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -2009,6 +2057,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -2053,6 +2105,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -2170,6 +2226,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documenttypes": {
                   "items": {
                     "$ref": "#/definitions/DocumentType"
@@ -2259,6 +2319,10 @@
                     "$ref": "#/definitions/Security"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -2413,6 +2477,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "connectionlogs": {
                   "items": {
                     "$ref": "#/definitions/ConnectionLog"
@@ -2523,6 +2591,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "clients": {
                   "items": {
                     "$ref": "#/definitions/Client"
@@ -2831,6 +2903,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "providers": {
                   "items": {
                     "$ref": "#/definitions/Connector"
@@ -2874,6 +2950,10 @@
                     "$ref": "#/definitions/Connection"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -2969,6 +3049,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -3013,6 +3097,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -3057,6 +3145,10 @@
                     "$ref": "#/definitions/TermsOfService"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -3155,6 +3247,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "users": {
                   "items": {
                     "$ref": "#/definitions/User"
@@ -3268,6 +3364,10 @@
                     "$ref": "#/definitions/AccountType"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -3345,6 +3445,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "accounts": {
                   "items": {
                     "$ref": "#/definitions/Account"
@@ -3783,6 +3887,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "investments": {
                   "items": {
                     "$ref": "#/definitions/Investment"
@@ -3838,6 +3946,10 @@
                     "$ref": "#/definitions/InvestmentValue"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -3877,6 +3989,67 @@
           }
         ],
         "summary": "Get investment values"
+      }
+    },
+    "/users/{id_user}/accounts/{id_account}/investments/{id_investment}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_account",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_investment",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
       }
     },
     "/users/{id_user}/accounts/{id_account}/investments/{id_investment}/security/history": {
@@ -3964,6 +4137,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "accountlogs": {
                   "items": {
                     "$ref": "#/definitions/AccountLog"
@@ -4043,6 +4220,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "useralerts": {
                   "items": {
                     "$ref": "#/definitions/UserAlert"
@@ -4301,6 +4482,60 @@
         "summary": "Delete an alert on transactions or investemens"
       }
     },
+    "/users/{id_user}/accounts/{id_account}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_account",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
+      }
+    },
     "/users/{id_user}/accounts/{id_account}/recipients": {
       "get": {
         "responses": {
@@ -4312,6 +4547,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "recipients": {
                   "items": {
                     "$ref": "#/definitions/Recipient"
@@ -4532,6 +4771,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -4776,6 +5019,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactions": {
                   "items": {
                     "$ref": "#/definitions/Transaction"
@@ -5151,6 +5398,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -5708,6 +5959,10 @@
                     "$ref": "#/definitions/TransactionInformation"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -5952,6 +6207,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactionsclusters": {
                   "items": {
                     "$ref": "#/definitions/TransactionsCluster"
@@ -6039,6 +6298,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -6686,6 +6949,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -7013,6 +7280,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "alerts": {
                   "items": {
                     "$ref": "#/definitions/Alert"
@@ -7130,6 +7401,10 @@
                     "$ref": "#/definitions/Category"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -7416,6 +7691,10 @@
                     "$ref": "#/definitions/Connection"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -7672,6 +7951,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "decoupled",
+            "description": "Try to update a connection with the decoupled error"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -7772,6 +8058,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "accounts": {
                   "items": {
                     "$ref": "#/definitions/Account"
@@ -8276,6 +8566,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "investments": {
                   "items": {
                     "$ref": "#/definitions/Investment"
@@ -8338,6 +8632,10 @@
                     "$ref": "#/definitions/InvestmentValue"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -8384,6 +8682,74 @@
           }
         ],
         "summary": "Get investment values"
+      }
+    },
+    "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/investments/{id_investment}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_account",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_investment",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
       }
     },
     "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/investments/{id_investment}/security/history": {
@@ -8478,6 +8844,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "accountlogs": {
                   "items": {
                     "$ref": "#/definitions/AccountLog"
@@ -8564,6 +8934,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "useralerts": {
                   "items": {
                     "$ref": "#/definitions/UserAlert"
@@ -8705,7 +9079,7 @@
             "in": "query"
           }
         ],
-        "summary": "Create an alert on transactions or investemens of a given user",
+        "summary": "Create an alert on transactions or investments of a given user",
         "consumes": [
           "application/x-www-form-urlencoded"
         ]
@@ -8759,7 +9133,7 @@
             "in": "formData",
             "type": "string",
             "name": "type",
-            "description": "parameter to choose the scope of the alert. accepted: transactions, investements"
+            "description": "parameter to choose the scope of the alert. accepted: transactions, investments"
           },
           {
             "required": false,
@@ -8856,6 +9230,67 @@
         "summary": "Delete an alert on transactions or investments"
       }
     },
+    "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_account",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
+      }
+    },
     "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/recipients": {
       "get": {
         "responses": {
@@ -8867,6 +9302,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "recipients": {
                   "items": {
                     "$ref": "#/definitions/Recipient"
@@ -9054,6 +9493,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -9326,6 +9769,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactions": {
                   "items": {
                     "$ref": "#/definitions/Transaction"
@@ -9729,6 +10176,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -10328,6 +10779,10 @@
                     "$ref": "#/definitions/TransactionInformation"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -10607,6 +11062,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactionsclusters": {
                   "items": {
                     "$ref": "#/definitions/TransactionsCluster"
@@ -10708,6 +11167,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -11414,6 +11877,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -11711,6 +12178,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -12225,6 +12696,10 @@
                     "$ref": "#/definitions/Connection"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             },
@@ -12283,6 +12758,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "investments": {
                   "items": {
                     "$ref": "#/definitions/Investment"
@@ -12338,6 +12817,10 @@
                     "$ref": "#/definitions/InvestmentValue"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -12377,6 +12860,67 @@
           }
         ],
         "summary": "Get investment values"
+      }
+    },
+    "/users/{id_user}/connections/{id_connection}/investments/{id_investment}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_investment",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
       }
     },
     "/users/{id_user}/connections/{id_connection}/investments/{id_investment}/security/history": {
@@ -12464,6 +13008,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "connectionlogs": {
                   "items": {
                     "$ref": "#/definitions/ConnectionLog"
@@ -12577,6 +13125,60 @@
         "summary": "Get connection logs"
       }
     },
+    "/users/{id_user}/connections/{id_connection}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
+      }
+    },
     "/users/{id_user}/connections/{id_connection}/recipients": {
       "get": {
         "responses": {
@@ -12588,6 +13190,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "recipients": {
                   "items": {
                     "$ref": "#/definitions/Recipient"
@@ -12754,6 +13360,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -13058,7 +13668,7 @@
         "tags": [
           "Providers"
         ],
-        "description": "It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.<br><br>",
+        "description": "It deletes a specific subscription.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -13102,6 +13712,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -13654,6 +14268,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactions": {
                   "items": {
                     "$ref": "#/definitions/Transaction"
@@ -14029,6 +14647,14 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -14586,6 +15212,10 @@
                     "$ref": "#/definitions/TransactionInformation"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -14830,6 +15460,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactionsclusters": {
                   "items": {
                     "$ref": "#/definitions/TransactionsCluster"
@@ -14917,6 +15551,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -15564,6 +16202,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -15780,6 +16422,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "devices": {
                   "items": {
                     "$ref": "#/definitions/Device"
@@ -16008,6 +16654,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -16500,6 +17150,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "investments": {
                   "items": {
                     "$ref": "#/definitions/Investment"
@@ -16548,6 +17202,10 @@
                     "$ref": "#/definitions/InvestmentValue"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -16580,6 +17238,60 @@
           }
         ],
         "summary": "Get investment values"
+      }
+    },
+    "/users/{id_user}/investments/{id_investment}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_investment",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
       }
     },
     "/users/{id_user}/investments/{id_investment}/security/history": {
@@ -16660,6 +17372,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "connectionlogs": {
                   "items": {
                     "$ref": "#/definitions/ConnectionLog"
@@ -16825,6 +17541,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "useralerts": {
                   "items": {
                     "$ref": "#/definitions/UserAlert"
@@ -17055,6 +17775,53 @@
         "summary": "Delete an alert on transactions or investemens"
       }
     },
+    "/users/{id_user}/pockets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "pockets",
+            "schema": {
+              "required": [
+                "pockets"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "pockets": {
+                  "items": {
+                    "$ref": "#/definitions/Pocket"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Wealth"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get pockets"
+      }
+    },
     "/users/{id_user}/profiles": {
       "get": {
         "responses": {
@@ -17066,6 +17833,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "profiles": {
                   "items": {
                     "$ref": "#/definitions/Profile"
@@ -17295,6 +18066,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "recipients": {
                   "items": {
                     "$ref": "#/definitions/Recipient"
@@ -17440,6 +18215,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -17800,7 +18579,7 @@
         "tags": [
           "Providers"
         ],
-        "description": "It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.<br><br>",
+        "description": "It deletes a specific subscription.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -17837,6 +18616,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -18355,6 +19138,10 @@
                     "$ref": "#/definitions/TermsOfService"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -18476,6 +19263,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactions": {
                   "items": {
                     "$ref": "#/definitions/Transaction"
@@ -18829,6 +19620,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -19347,6 +20142,10 @@
                     "$ref": "#/definitions/TransactionInformation"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -19556,6 +20355,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "transactionsclusters": {
                   "items": {
                     "$ref": "#/definitions/TransactionsCluster"
@@ -19629,6 +20432,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -20223,6 +21030,10 @@
                     "$ref": "#/definitions/Transfer"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -20484,6 +21295,10 @@
                     "$ref": "#/definitions/Webhook"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -20604,6 +21419,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "authproviders": {
                   "items": {
                     "$ref": "#/definitions/AuthProvider"
@@ -21063,6 +21882,10 @@
               ],
               "type": "object",
               "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
                 "webhooklogs": {
                   "items": {
                     "$ref": "#/definitions/WebhookLog"
@@ -21569,37 +22392,17 @@
           "default": "",
           "type": "string"
         },
-        "primary_color": {
-          "type": "string",
-          "description": "Primary color of client"
-        },
-        "secondary_color": {
-          "type": "string",
-          "description": "Secondary color of client"
-        },
         "pro": {
           "default": false,
           "type": "boolean",
           "description": "Should the client display the company manager page."
         },
-        "description": {
-          "type": "string",
-          "description": "Text to display as a default description."
-        },
-        "description_banks": {
-          "type": "string",
-          "description": "Text to display as a description for banks."
-        },
-        "description_providers": {
-          "type": "string",
-          "description": "Text to display as a description for providers."
-        },
         "id_logo": {
           "type": "integer"
         },
-        "information": {
+        "config": {
           "type": "string",
-          "description": "customizable information"
+          "description": "customizable config"
         }
       },
       "example": {
@@ -21609,12 +22412,7 @@
         "public_key": "",
         "private_key": "",
         "redirect_uri": "",
-        "primary_color": "",
-        "secondary_color": "",
         "pro": false,
-        "description": "",
-        "description_banks": "",
-        "description_providers": "",
         "id_logo": 0
       }
     },
@@ -21681,7 +22479,7 @@
         "code": "",
         "name": "",
         "id_type": 0,
-        "last_update": "2019-03-12 13:08:00.694060"
+        "last_update": "2019-08-02 17:21:59.346961"
       }
     },
     "Webhook": {
@@ -21738,9 +22536,9 @@
       },
       "example": {
         "id": 0,
-        "created": "2019-03-12 13:08:00.697921",
-        "updated": "2019-03-12 13:08:00.698025",
-        "deleted": "2019-03-12 13:08:00.698104",
+        "created": "2019-08-02 17:21:59.349908",
+        "updated": "2019-08-02 17:21:59.349984",
+        "deleted": "2019-08-02 17:21:59.350042",
         "id_service": 0,
         "id_user": 0,
         "id_event": 0,
@@ -21803,8 +22601,8 @@
         "id_user": 0,
         "id_resource": 0,
         "mimetype": "",
-        "created": "2019-06-28 14:51:56.345068",
-        "success": "2019-06-28 14:51:56.345133"
+        "created": "2019-08-02 17:21:59.351997",
+        "success": "2019-08-02 17:21:59.352060"
       }
     },
     "WebhookLog": {
@@ -21855,10 +22653,10 @@
         "id_webhook_data": 0,
         "id_service": 0,
         "id_user": 0,
-        "timestamp": "2019-03-12 13:08:00.700198",
-        "response_date": "2019-03-12 13:08:00.700288",
+        "timestamp": "2019-08-02 17:21:59.353067",
+        "response_date": "2019-08-02 17:21:59.353127",
         "response_code": 0,
-        "next_try": "2019-03-12 13:08:00.700427"
+        "next_try": "2019-08-02 17:21:59.353228"
       }
     },
     "DocumentType": {
@@ -21976,12 +22774,12 @@
         "id": 0,
         "id_user": 0,
         "id_connector": 0,
-        "last_update": "2019-03-12 13:08:00.715434",
+        "last_update": "2019-08-02 17:21:59.365076",
         "error": "",
-        "expire": "2019-03-12 13:08:00.715687",
+        "expire": "2019-08-02 17:21:59.365257",
         "active": true,
-        "last_push": "2019-03-12 13:08:00.715851",
-        "next_try": "2019-03-12 13:08:00.716098"
+        "last_push": "2019-08-02 17:21:59.365378",
+        "next_try": "2019-08-02 17:21:59.365554"
       }
     },
     "Certificate": {
@@ -22016,7 +22814,7 @@
         "id_public_key_file": 0,
         "id_private_key_file": 0,
         "type": "",
-        "created": "2019-03-12 13:08:00.724039"
+        "created": "2019-08-02 17:21:59.372311"
       }
     },
     "ConnectionLog": {
@@ -22090,6 +22888,10 @@
         "session_folder_id": {
           "type": "string",
           "description": "Session folder uid"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Fields for connection in additionalInformationNeeded state with background option"
         }
       },
       "example": {
@@ -22100,12 +22902,12 @@
         "login": "",
         "error_uid": "",
         "timestamp": "CURRENT_TIMESTAMP",
-        "next_try": "2019-03-12 13:08:00.726321",
+        "next_try": "2019-08-02 17:21:59.374222",
         "error": "",
         "error_message": "",
         "statut": 0,
         "nb_accounts": 0,
-        "start": "2019-03-12 13:08:00.726630",
+        "start": "2019-08-02 17:21:59.374490",
         "worker": "",
         "session_folder_id": ""
       }
@@ -22166,7 +22968,7 @@
         },
         "recipient_iban": {
           "type": "string",
-          "description": "IBAN of the recipient"
+          "description": "IBAN of the recipient in bank recipient list"
         },
         "exec_date": {
           "type": "string",
@@ -22194,7 +22996,7 @@
         },
         "state": {
           "type": "string",
-          "description": "State of the transfer (created, scheduled, validating, pending, done, canceled, error, bug)"
+          "description": "State of the transfer (created, scheduled, validating, pending, coming, done, canceled, transaction_not_found, deleted, error, bug)"
         },
         "error": {
           "type": "string",
@@ -22225,8 +23027,8 @@
         "id_recipient": 0,
         "account_iban": "",
         "recipient_iban": "",
-        "exec_date": "2019-03-12",
-        "register_date": "2019-03-12 13:08:00.736646",
+        "exec_date": "2019-08-02",
+        "register_date": "2019-08-02 17:21:59.383325",
         "amount": 0,
         "fees": 0,
         "webid": "",
@@ -22369,7 +23171,7 @@
         "mean_amount": 0,
         "median_increment": 0,
         "enabled": true,
-        "next_date": "2019-03-12",
+        "next_date": "2019-08-02",
         "wording": "",
         "id_category": 0,
         "created_by": ""
@@ -22585,11 +23387,11 @@
         "number": "",
         "label": "",
         "subscriber": "",
-        "validity": "2019-03-12",
-        "renewdate": "2019-03-12",
-        "last_update": "2019-03-12 13:08:00.782154",
-        "deleted": "2019-03-12 13:08:00.782232",
-        "disabled": "2019-03-12 13:08:00.782310",
+        "validity": "2019-08-02",
+        "renewdate": "2019-08-02",
+        "last_update": "2019-08-02 17:21:59.421714",
+        "deleted": "2019-08-02 17:21:59.421772",
+        "disabled": "2019-08-02 17:21:59.421828",
         "error": ""
       }
     },
@@ -22754,24 +23556,24 @@
         "id": 0,
         "id_account": 0,
         "webid": "",
-        "application_date": "2019-03-12",
-        "date": "2019-03-12",
+        "application_date": "2019-08-02",
+        "date": "2019-08-02",
         "value": 0,
         "gross_value": 0,
         "nature": "inconnu",
         "wording": "",
         "id_category": 0,
         "state": "new",
-        "date_scraped": "2019-03-12 13:08:00.787303",
-        "rdate": "2019-03-12",
-        "vdate": "2019-03-12",
-        "bdate": "2019-06-28",
+        "date_scraped": "2019-08-02 17:21:59.425220",
+        "rdate": "2019-08-02",
+        "vdate": "2019-08-02",
+        "bdate": "2019-08-02",
         "coming": false,
         "active": true,
         "id_cluster": 0,
         "comment": "",
-        "last_update": "2019-03-12 13:08:00.787854",
-        "deleted": "2019-03-12 13:08:00.787941",
+        "last_update": "2019-08-02 17:21:59.425674",
+        "deleted": "2019-08-02 17:21:59.425732",
         "original_value": 0,
         "original_currency": "",
         "commission": 0,
@@ -22928,16 +23730,16 @@
         "diff_percent": 0,
         "prev_diff": 0,
         "portfolio_share": 0,
-        "vdate": "2019-03-12",
-        "prev_vdate": "2019-03-12",
+        "vdate": "2019-08-02",
+        "prev_vdate": "2019-08-02",
         "id_security": 0,
         "original_currency": "",
         "original_valuation": 0,
         "original_unitvalue": 0,
         "original_unitprice": 0,
         "original_diff": 0,
-        "last_update": "2019-03-12 13:08:00.794806",
-        "deleted": "2019-03-12 13:08:00.794887"
+        "last_update": "2019-08-02 17:21:59.430536",
+        "deleted": "2019-08-02 17:21:59.430602"
       }
     },
     "Recipient": {
@@ -23036,11 +23838,11 @@
         "iban": "",
         "webid": "",
         "category": "",
-        "last_update": "2019-03-12 13:08:00.798766",
-        "time_scraped": "2019-03-12 13:08:00.798874",
-        "deleted": "2019-03-12 13:08:00.798949",
-        "expire": "2019-03-12 13:08:00.799022",
-        "enabled_at": "2019-03-12 13:08:00.799096",
+        "last_update": "2019-08-02 17:21:59.433156",
+        "time_scraped": "2019-08-02 17:21:59.433215",
+        "deleted": "2019-08-02 17:21:59.433271",
+        "expire": "2019-08-02 17:21:59.433326",
+        "enabled_at": "2019-08-02 17:21:59.433382",
         "add_verified": false,
         "state": "",
         "error": "",
@@ -23052,8 +23854,8 @@
         "id",
         "id_user",
         "timestamp",
-        "date",
-        "readonly"
+        "readonly",
+        "has_file_on_website"
       ],
       "type": "object",
       "properties": {
@@ -23077,12 +23879,6 @@
         },
         "id_thumbnail": {
           "type": "integer"
-        },
-        "url": {
-          "type": "string"
-        },
-        "thumb_url": {
-          "type": "string"
         },
         "name": {
           "type": "string"
@@ -23131,6 +23927,11 @@
           "description": "Last successful update of the document",
           "format": "date-time"
         },
+        "has_file_on_website": {
+          "default": true,
+          "type": "boolean",
+          "description": "Boolean to set if file is available on website"
+        },
         "currency": {
           "type": "object",
           "description": "Document currency"
@@ -23144,12 +23945,10 @@
         "id_subscription": 0,
         "id_file": 0,
         "id_thumbnail": 0,
-        "url": "",
-        "thumb_url": "",
         "name": "",
         "timestamp": "CURRENT_TIMESTAMP",
-        "date": "2019-03-12 13:08:00.801723",
-        "duedate": "2019-03-12",
+        "date": "2019-08-02 17:21:59.435173",
+        "duedate": "2019-08-02",
         "total_amount": 0,
         "untaxed_amount": 0,
         "vat": 0,
@@ -23157,7 +23956,8 @@
         "readonly": true,
         "number": "",
         "issuer": "",
-        "last_update": "2019-03-12 13:08:00.802639",
+        "last_update": "2019-08-02 17:21:59.435734",
+        "has_file_on_website": true,
         "currency": ""
       }
     },
@@ -23285,9 +24085,9 @@
         "balance": 0,
         "coming": 0,
         "display": true,
-        "last_update": "2019-03-12 13:08:00.808463",
-        "deleted": "2019-03-12 13:08:00.808560",
-        "disabled": "2019-03-12 13:08:00.808639",
+        "last_update": "2019-08-02 17:21:59.440223",
+        "deleted": "2019-08-02 17:21:59.440285",
+        "disabled": "2019-08-02 17:21:59.440342",
         "iban": "",
         "currency": "",
         "id_type": 0,
@@ -23470,10 +24270,10 @@
         "label": "",
         "value": 0,
         "quantity": 0,
-        "availability_date": "2019-03-12",
+        "availability_date": "2019-08-02",
         "condition": "inconnu",
-        "last_update": "2019-03-12 13:08:00.817603",
-        "deleted": "2019-03-12 13:08:00.817684"
+        "last_update": "2019-08-02 17:21:59.448433",
+        "deleted": "2019-08-02 17:21:59.448498"
       }
     },
     "Invite": {
@@ -23646,6 +24446,10 @@
           "type": "string",
           "description": "Timestamp of the log",
           "format": "date-time"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Fields for transfer in additionalInformationNeeded state with background option"
         }
       },
       "example": {
@@ -23730,7 +24534,7 @@
       "example": {
         "id": 0,
         "id_investment": 0,
-        "vdate": "2019-03-12",
+        "vdate": "2019-08-02",
         "unitvalue": 0,
         "original_currency": "",
         "original_unitvalue": 0
@@ -23772,6 +24576,10 @@
           "type": "string",
           "description": "Timestamp of the log",
           "format": "date-time"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Fields for recipient in additionalInformationNeeded state with background option"
         }
       },
       "example": {
@@ -23890,7 +24698,7 @@
         "crypto": false,
         "precision": 2,
         "marketcap": 0,
-        "datetime": "2019-03-12 13:08:01.124343"
+        "datetime": "2019-08-02 17:21:59.693929"
       }
     },
     "ConnectorCategory": {
@@ -24065,10 +24873,6 @@
     {
       "url": "https://cashbee-mordor-sandbox.biapi.pro/2.0",
       "description": "cashbee-mordor-sandbox.biapi.pro"
-    },
-    {
-      "url": "https://cashbee-sandbox.biapi.pro/2.0",
-      "description": "cashbee-sandbox.biapi.pro"
     }
   ],
   "securityDefinitions": {
