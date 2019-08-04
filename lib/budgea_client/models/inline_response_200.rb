@@ -16,17 +16,22 @@ module BudgeaClient
   class InlineResponse200
     attr_accessor :accounttypes
 
+    # total number of results
+    attr_accessor :total
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'accounttypes' => :'accounttypes'
+        :'accounttypes' => :'accounttypes',
+        :'total' => :'total'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'accounttypes' => :'Array<AccountType>'
+        :'accounttypes' => :'Array<AccountType>',
+        :'total' => :'Float'
       }
     end
 
@@ -42,6 +47,10 @@ module BudgeaClient
         if (value = attributes[:'accounttypes']).is_a?(Array)
           self.accounttypes = value
         end
+      end
+
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
       end
     end
 
@@ -68,7 +77,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          accounttypes == o.accounttypes
+          accounttypes == o.accounttypes &&
+          total == o.total
     end
 
     # @see the `==` method
@@ -80,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [accounttypes].hash
+      [accounttypes, total].hash
     end
 
     # Builds the object from hash

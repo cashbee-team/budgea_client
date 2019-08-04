@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Get a list of configurated alerts
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investments
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investments
-[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Create an alert on transactions or investemens of a given user
+[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Create an alert on transactions or investments of a given user
 [**users_id_user_connections_id_connection_balances_get**](PFMApi.md#users_id_user_connections_id_connection_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/balances | Get balances of accounts
 [**users_id_user_devices_get**](PFMApi.md#users_id_user_devices_get) | **GET** /users/{id_user}/devices | Get devices
 [**users_id_user_devices_id_device_delete**](PFMApi.md#users_id_user_devices_id_device_delete) | **DELETE** /users/{id_user}/devices/{id_device} | Delete device.
@@ -507,7 +507,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_operationsalert_get**
-> InlineResponse20025 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
+> InlineResponse20027 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -1025,7 +1025,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**
-> InlineResponse20025 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
+> InlineResponse20027 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -1075,7 +1075,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -1185,7 +1185,7 @@ id_account = 56 # Integer |
 id_operationsalert = 56 # Integer | 
 
 opts = { 
-  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investements
+  type: 'type_example', # String | parameter to choose the scope of the alert. accepted: transactions, investments
   income_max: 56, # Integer | capital gain thresholds
   expense_max: 56, # Integer | capital loss thresholds
   value_type: 'value_type_example', # String | whether the threshold is given in absolut value or percent. accepted: percent, flat
@@ -1210,7 +1210,7 @@ Name | Type | Description  | Notes
  **id_connection** | **Integer**|  | 
  **id_account** | **Integer**|  | 
  **id_operationsalert** | **Integer**|  | 
- **type** | **String**| parameter to choose the scope of the alert. accepted: transactions, investements | [optional] 
+ **type** | **String**| parameter to choose the scope of the alert. accepted: transactions, investments | [optional] 
  **income_max** | **Integer**| capital gain thresholds | [optional] 
  **expense_max** | **Integer**| capital loss thresholds | [optional] 
  **value_type** | **String**| whether the threshold is given in absolut value or percent. accepted: percent, flat | [optional] 
@@ -1235,7 +1235,7 @@ Name | Type | Description  | Notes
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**
 > UserAlert users_id_user_connections_id_connection_accounts_id_account_operationsalert_post(id_user, id_connection, id_account, opts)
 
-Create an alert on transactions or investemens of a given user
+Create an alert on transactions or investments of a given user
 
 
 
@@ -1269,7 +1269,7 @@ opts = {
 }
 
 begin
-  #Create an alert on transactions or investemens of a given user
+  #Create an alert on transactions or investments of a given user
   result = api_instance.users_id_user_connections_id_connection_accounts_id_account_operationsalert_post(id_user, id_connection, id_account, opts)
   p result
 rescue BudgeaClient::ApiError => e
@@ -1371,7 +1371,7 @@ nil (empty response body)
 
 
 # **users_id_user_devices_get**
-> InlineResponse20034 users_id_user_devices_get(id_user, opts)
+> InlineResponse20036 users_id_user_devices_get(id_user, opts)
 
 Get devices
 
@@ -1415,7 +1415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -1797,7 +1797,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_operationsalert_get**
-> InlineResponse20025 users_id_user_operationsalert_get(id_user, opts)
+> InlineResponse20027 users_id_user_operationsalert_get(id_user, opts)
 
 Get a list of configurated alerts
 
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -2055,7 +2055,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_profiles_get**
-> InlineResponse20035 users_id_user_profiles_get(id_user, opts)
+> InlineResponse20037 users_id_user_profiles_get(id_user, opts)
 
 Get profiles
 
@@ -2099,7 +2099,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 

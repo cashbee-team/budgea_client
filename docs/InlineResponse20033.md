@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**categorys** | [**Array&lt;Category&gt;**](Category.md) |  | 
+**total** | **Float** | total number of results | [optional] 
+**transactionsclusters** | [**Array&lt;TransactionsCluster&gt;**](TransactionsCluster.md) |  | 
 
 

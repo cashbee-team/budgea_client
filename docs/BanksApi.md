@@ -1848,7 +1848,7 @@ Name | Type | Description  | Notes
 
 
 # **providers_id_connector_logos_get**
-> InlineResponse20010 providers_id_connector_logos_get(id_connector, opts)
+> InlineResponse20019 providers_id_connector_logos_get(id_connector, opts)
 
 Get all links to the files associated with this connector.
 
@@ -1892,7 +1892,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -2199,7 +2199,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_get**
-> InlineResponse20021 users_id_user_accounts_get(id_user, opts)
+> InlineResponse20022 users_id_user_accounts_get(id_user, opts)
 
 Get accounts list.
 
@@ -2243,7 +2243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -2438,7 +2438,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_logs_get**
-> InlineResponse20024 users_id_user_accounts_id_account_logs_get(id_user, id_account, opts)
+> InlineResponse20026 users_id_user_accounts_id_account_logs_get(id_user, id_account, opts)
 
 Get accounts logs.
 
@@ -2493,7 +2493,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -2643,7 +2643,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactions_get**
-> InlineResponse20028 users_id_user_accounts_id_account_transactions_get(id_user, id_account, opts)
+> InlineResponse20030 users_id_user_accounts_id_account_transactions_get(id_user, id_account, opts)
 
 Get transactions
 
@@ -2716,7 +2716,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -2794,7 +2794,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactions_id_transaction_informations_get**
-> InlineResponse20030 users_id_user_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_account, id_transaction, opts)
+> InlineResponse20032 users_id_user_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_account, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -2844,7 +2844,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -3214,7 +3214,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactionsclusters_get**
-> InlineResponse20031 users_id_user_accounts_id_account_transactionsclusters_get(id_user, id_account, opts)
+> InlineResponse20033 users_id_user_accounts_id_account_transactionsclusters_get(id_user, id_account, opts)
 
 Get clustered transactions
 
@@ -3261,7 +3261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -3594,7 +3594,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_alerts_get**
-> InlineResponse20032 users_id_user_alerts_get(id_user, opts)
+> InlineResponse20034 users_id_user_alerts_get(id_user, opts)
 
 Get alerts
 
@@ -3638,7 +3638,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -3652,7 +3652,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_categories_full_get**
-> InlineResponse20033 users_id_user_categories_full_get(id_user, opts)
+> InlineResponse20035 users_id_user_categories_full_get(id_user, opts)
 
 Get the category
 
@@ -3696,7 +3696,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -4138,7 +4138,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_get**
-> InlineResponse20021 users_id_user_connections_id_connection_accounts_get(id_user, id_connection, opts)
+> InlineResponse20022 users_id_user_connections_id_connection_accounts_get(id_user, id_connection, opts)
 
 Get accounts list.
 
@@ -4185,7 +4185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -4389,7 +4389,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_logs_get**
-> InlineResponse20024 users_id_user_connections_id_connection_accounts_id_account_logs_get(id_user, id_connection, id_account, opts)
+> InlineResponse20026 users_id_user_connections_id_connection_accounts_id_account_logs_get(id_user, id_connection, id_account, opts)
 
 Get accounts logs.
 
@@ -4447,7 +4447,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -4603,7 +4603,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_get**
-> InlineResponse20028 users_id_user_connections_id_connection_accounts_id_account_transactions_get(id_user, id_connection, id_account, opts)
+> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_transactions_get(id_user, id_connection, id_account, opts)
 
 Get transactions
 
@@ -4679,7 +4679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -4760,7 +4760,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get**
-> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_connection, id_account, id_transaction, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_connection, id_account, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -4813,7 +4813,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -5198,7 +5198,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get**
-> InlineResponse20031 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get(id_user, id_connection, id_account, opts)
+> InlineResponse20033 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get(id_user, id_connection, id_account, opts)
 
 Get clustered transactions
 
@@ -5248,7 +5248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -5828,6 +5828,7 @@ opts = {
   expire: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Set expiration of the connection to this date
   login: 'login_example', # String | Set login to this new login
   password: 'password_example', # String | Set password to this new password
+  decoupled: true, # BOOLEAN | Try to update a connection with the decoupled error
   expand: 'expand_example' # String | 
 }
 
@@ -5850,6 +5851,7 @@ Name | Type | Description  | Notes
  **expire** | **DateTime**| Set expiration of the connection to this date | [optional] 
  **login** | **String**| Set login to this new login | [optional] 
  **password** | **String**| Set password to this new password | [optional] 
+ **decoupled** | **BOOLEAN**| Try to update a connection with the decoupled error | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -5990,7 +5992,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactions_get**
-> InlineResponse20028 users_id_user_connections_id_connection_transactions_get(id_user, id_connection, opts)
+> InlineResponse20030 users_id_user_connections_id_connection_transactions_get(id_user, id_connection, opts)
 
 Get transactions
 
@@ -6063,7 +6065,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -6141,7 +6143,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactions_id_transaction_informations_get**
-> InlineResponse20030 users_id_user_connections_id_connection_transactions_id_transaction_informations_get(id_user, id_connection, id_transaction, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_transactions_id_transaction_informations_get(id_user, id_connection, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -6191,7 +6193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -6561,7 +6563,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactionsclusters_get**
-> InlineResponse20031 users_id_user_connections_id_connection_transactionsclusters_get(id_user, id_connection, opts)
+> InlineResponse20033 users_id_user_connections_id_connection_transactionsclusters_get(id_user, id_connection, opts)
 
 Get clustered transactions
 
@@ -6608,7 +6610,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -7086,7 +7088,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactions_get**
-> InlineResponse20028 users_id_user_transactions_get(id_user, opts)
+> InlineResponse20030 users_id_user_transactions_get(id_user, opts)
 
 Get transactions
 
@@ -7156,7 +7158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -7231,7 +7233,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactions_id_transaction_informations_get**
-> InlineResponse20030 users_id_user_transactions_id_transaction_informations_get(id_user, id_transaction, opts)
+> InlineResponse20032 users_id_user_transactions_id_transaction_informations_get(id_user, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -7278,7 +7280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -7633,7 +7635,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactionsclusters_get**
-> InlineResponse20031 users_id_user_transactionsclusters_get(id_user, opts)
+> InlineResponse20033 users_id_user_transactionsclusters_get(id_user, opts)
 
 Get clustered transactions
 
@@ -7677,7 +7679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 

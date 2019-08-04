@@ -1,9 +1,9 @@
-# BudgeaClient::InlineResponse2009
+# BudgeaClient::InlineResponse20040
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connections** | [**Array&lt;Connection&gt;**](Connection.md) |  | 
 **total** | **Float** | total number of results | [optional] 
+**webhooklogs** | [**Array&lt;WebhookLog&gt;**](WebhookLog.md) |  | 
 
 

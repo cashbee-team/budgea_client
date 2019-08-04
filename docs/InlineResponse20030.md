@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**transactioninformations** | [**Array&lt;TransactionInformation&gt;**](TransactionInformation.md) |  | 
+**total** | **Float** | total number of results | [optional] 
+**transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | 
 
 

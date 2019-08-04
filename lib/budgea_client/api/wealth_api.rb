@@ -144,7 +144,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20022]
+    # @return [InlineResponse20023]
     def users_id_user_accounts_id_account_investments_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_investments_get_with_http_info(id_user, id_account, opts)
       data
@@ -156,7 +156,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20022, Fixnum, Hash)>] InlineResponse20022 data, response status code and response headers
+    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
     def users_id_user_accounts_id_account_investments_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_investments_get ...'
@@ -195,7 +195,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20022')
+        :return_type => 'InlineResponse20023')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -208,7 +208,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_account, id_investment, opts)
       data
@@ -221,7 +221,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_account, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_investments_id_investment_history_get ...'
@@ -264,9 +264,78 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_account 
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_accounts_id_account_investments_id_investment_pockets_get(id_user, id_account, id_investment, opts = {})
+      data, _status_code, _headers = users_id_user_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_account, id_investment, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_account 
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_account, id_investment, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_investments_id_investment_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_accounts_id_account_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_account' is set
+      if @api_client.config.client_side_validation && id_account.nil?
+        fail ArgumentError, "Missing the required parameter 'id_account' when calling WealthApi.users_id_user_accounts_id_account_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_investment' is set
+      if @api_client.config.client_side_validation && id_investment.nil?
+        fail ArgumentError, "Missing the required parameter 'id_investment' when calling WealthApi.users_id_user_accounts_id_account_investments_id_investment_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/accounts/{id_account}/investments/{id_investment}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_account' + '}', id_account.to_s).sub('{' + 'id_investment' + '}', id_investment.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -350,6 +419,69 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_accounts_id_account_pockets_get(id_user, id_account, opts = {})
+      data, _status_code, _headers = users_id_user_accounts_id_account_pockets_get_with_http_info(id_user, id_account, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_accounts_id_account_pockets_get_with_http_info(id_user, id_account, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_accounts_id_account_pockets_get"
+      end
+      # verify the required parameter 'id_account' is set
+      if @api_client.config.client_side_validation && id_account.nil?
+        fail ArgumentError, "Missing the required parameter 'id_account' when calling WealthApi.users_id_user_accounts_id_account_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/accounts/{id_account}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_account' + '}', id_account.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get investments
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
@@ -357,7 +489,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20022]
+    # @return [InlineResponse20023]
     def users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_investments_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -370,7 +502,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20022, Fixnum, Hash)>] InlineResponse20022 data, response status code and response headers
+    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_investments_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_get ...'
@@ -413,7 +545,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20022')
+        :return_type => 'InlineResponse20023')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -427,7 +559,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_account, id_investment, opts)
       data
@@ -441,7 +573,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_account, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get ...'
@@ -488,9 +620,84 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_account 
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get(id_user, id_connection, id_account, id_investment, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_account, id_investment, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_account 
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_account, id_investment, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_account' is set
+      if @api_client.config.client_side_validation && id_account.nil?
+        fail ArgumentError, "Missing the required parameter 'id_account' when calling WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_investment' is set
+      if @api_client.config.client_side_validation && id_investment.nil?
+        fail ArgumentError, "Missing the required parameter 'id_investment' when calling WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/accounts/{id_account}/investments/{id_investment}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_account' + '}', id_account.to_s).sub('{' + 'id_investment' + '}', id_investment.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -580,13 +787,82 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_connections_id_connection_accounts_id_account_pockets_get(id_user, id_connection, id_account, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_pockets_get_with_http_info(id_user, id_connection, id_account, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_connections_id_connection_accounts_id_account_pockets_get_with_http_info(id_user, id_connection, id_account, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_connections_id_connection_accounts_id_account_pockets_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling WealthApi.users_id_user_connections_id_connection_accounts_id_account_pockets_get"
+      end
+      # verify the required parameter 'id_account' is set
+      if @api_client.config.client_side_validation && id_account.nil?
+        fail ArgumentError, "Missing the required parameter 'id_account' when calling WealthApi.users_id_user_connections_id_connection_accounts_id_account_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/accounts/{id_account}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_account' + '}', id_account.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get investments
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20022]
+    # @return [InlineResponse20023]
     def users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_investments_get_with_http_info(id_user, id_connection, opts)
       data
@@ -598,7 +874,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20022, Fixnum, Hash)>] InlineResponse20022 data, response status code and response headers
+    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
     def users_id_user_connections_id_connection_investments_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_investments_get ...'
@@ -637,7 +913,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20022')
+        :return_type => 'InlineResponse20023')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -650,7 +926,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_investment, opts)
       data
@@ -663,7 +939,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_connections_id_connection_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_investments_id_investment_history_get ...'
@@ -706,9 +982,78 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_connections_id_connection_investments_id_investment_pockets_get(id_user, id_connection, id_investment, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_investment, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_connections_id_connection_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_investment, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_investments_id_investment_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_connections_id_connection_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling WealthApi.users_id_user_connections_id_connection_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_investment' is set
+      if @api_client.config.client_side_validation && id_investment.nil?
+        fail ArgumentError, "Missing the required parameter 'id_investment' when calling WealthApi.users_id_user_connections_id_connection_investments_id_investment_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/investments/{id_investment}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_investment' + '}', id_investment.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -792,12 +1137,75 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_connections_id_connection_pockets_get(id_user, id_connection, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_pockets_get_with_http_info(id_user, id_connection, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_connections_id_connection_pockets_get_with_http_info(id_user, id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_connections_id_connection_pockets_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling WealthApi.users_id_user_connections_id_connection_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get investments
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20022]
+    # @return [InlineResponse20023]
     def users_id_user_investments_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_investments_get_with_http_info(id_user, opts)
       data
@@ -808,7 +1216,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20022, Fixnum, Hash)>] InlineResponse20022 data, response status code and response headers
+    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
     def users_id_user_investments_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_investments_get ...'
@@ -843,7 +1251,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20022')
+        :return_type => 'InlineResponse20023')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -855,7 +1263,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_investments_id_investment_history_get(id_user, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_investments_id_investment_history_get_with_http_info(id_user, id_investment, opts)
       data
@@ -867,7 +1275,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_investments_id_investment_history_get_with_http_info(id_user, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_investments_id_investment_history_get ...'
@@ -906,9 +1314,72 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_investments_id_investment_pockets_get(id_user, id_investment, opts = {})
+      data, _status_code, _headers = users_id_user_investments_id_investment_pockets_get_with_http_info(id_user, id_investment, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_investment 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_investments_id_investment_pockets_get_with_http_info(id_user, id_investment, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_investments_id_investment_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_investments_id_investment_pockets_get"
+      end
+      # verify the required parameter 'id_investment' is set
+      if @api_client.config.client_side_validation && id_investment.nil?
+        fail ArgumentError, "Missing the required parameter 'id_investment' when calling WealthApi.users_id_user_investments_id_investment_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/investments/{id_investment}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_investment' + '}', id_investment.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -983,6 +1454,63 @@ module BudgeaClient
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_investments_id_investment_security_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20025]
+    def users_id_user_pockets_get(id_user, opts = {})
+      data, _status_code, _headers = users_id_user_pockets_get_with_http_info(id_user, opts)
+      data
+    end
+
+    # Get pockets
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    def users_id_user_pockets_get_with_http_info(id_user, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_pockets_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling WealthApi.users_id_user_pockets_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/pockets'.sub('{' + 'id_user' + '}', id_user.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20025')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WealthApi#users_id_user_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**users** | [**Array&lt;User&gt;**](User.md) |  | 
+**termsofservices** | [**Array&lt;TermsOfService&gt;**](TermsOfService.md) |  | 
+**total** | **Float** | total number of results | [optional] 
 
 

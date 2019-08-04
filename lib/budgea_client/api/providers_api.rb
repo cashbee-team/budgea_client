@@ -1160,7 +1160,7 @@ module BudgeaClient
     # @param id_connector 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20010]
+    # @return [InlineResponse20019]
     def providers_id_connector_logos_get(id_connector, opts = {})
       data, _status_code, _headers = providers_id_connector_logos_get_with_http_info(id_connector, opts)
       data
@@ -1171,7 +1171,7 @@ module BudgeaClient
     # @param id_connector 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20010, Fixnum, Hash)>] InlineResponse20010 data, response status code and response headers
+    # @return [Array<(InlineResponse20019, Fixnum, Hash)>] InlineResponse20019 data, response status code and response headers
     def providers_id_connector_logos_get_with_http_info(id_connector, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.providers_id_connector_logos_get ...'
@@ -1206,7 +1206,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20010')
+        :return_type => 'InlineResponse20019')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#providers_id_connector_logos_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1411,7 +1411,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_account, id_transaction, opts)
       data
@@ -1433,7 +1433,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_account, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_accounts_id_account_transactions_id_transaction_documents_get ...'
@@ -1485,7 +1485,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_accounts_id_account_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1948,7 +1948,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_account, id_transactions_cluster, opts)
       data
@@ -1970,7 +1970,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_account, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -2022,7 +2022,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2606,7 +2606,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_account, id_transaction, opts)
       data
@@ -2629,7 +2629,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_account, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get ...'
@@ -2685,7 +2685,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3179,7 +3179,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_account, id_transactions_cluster, opts)
       data
@@ -3202,7 +3202,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_account, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -3258,7 +3258,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3801,7 +3801,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_documents_get_with_http_info(id_user, id_connection, opts)
       data
@@ -3822,7 +3822,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_documents_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_documents_get ...'
@@ -3870,7 +3870,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4389,6 +4389,7 @@ module BudgeaClient
     # @option opts [DateTime] :expire Set expiration of the connection to this date
     # @option opts [String] :login Set login to this new login
     # @option opts [String] :password Set password to this new password
+    # @option opts [BOOLEAN] :decoupled Try to update a connection with the decoupled error
     # @option opts [String] :expand 
     # @return [Connection]
     def users_id_user_connections_id_connection_post(id_user, id_connection, opts = {})
@@ -4405,6 +4406,7 @@ module BudgeaClient
     # @option opts [DateTime] :expire Set expiration of the connection to this date
     # @option opts [String] :login Set login to this new login
     # @option opts [String] :password Set password to this new password
+    # @option opts [BOOLEAN] :decoupled Try to update a connection with the decoupled error
     # @option opts [String] :expand 
     # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
     def users_id_user_connections_id_connection_post_with_http_info(id_user, id_connection, opts = {})
@@ -4439,6 +4441,7 @@ module BudgeaClient
       form_params['expire'] = opts[:'expire'] if !opts[:'expire'].nil?
       form_params['login'] = opts[:'login'] if !opts[:'login'].nil?
       form_params['password'] = opts[:'password'] if !opts[:'password'].nil?
+      form_params['decoupled'] = opts[:'decoupled'] if !opts[:'decoupled'].nil?
 
       # http body (model)
       post_body = nil
@@ -4519,7 +4522,7 @@ module BudgeaClient
       return data, status_code, headers
     end
     # Delete a subscription.
-    # It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.<br><br>
+    # It deletes a specific subscription.<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param id_subscription 
@@ -4532,7 +4535,7 @@ module BudgeaClient
     end
 
     # Delete a subscription.
-    # It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.&lt;br&gt;&lt;br&gt;
+    # It deletes a specific subscription.&lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param id_subscription 
@@ -4672,7 +4675,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_connection, id_subscription, opts)
       data
@@ -4694,7 +4697,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_connection, id_subscription, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get ...'
@@ -4746,7 +4749,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5284,7 +5287,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_transaction, opts)
       data
@@ -5306,7 +5309,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_transactions_id_transaction_documents_get ...'
@@ -5358,7 +5361,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5821,7 +5824,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_transactions_cluster, opts)
       data
@@ -5843,7 +5846,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -5895,7 +5898,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6443,7 +6446,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_documents_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_documents_get_with_http_info(id_user, opts)
       data
@@ -6463,7 +6466,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_documents_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_documents_get ...'
@@ -6507,7 +6510,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6991,7 +6994,7 @@ module BudgeaClient
       return data, status_code, headers
     end
     # Delete a subscription.
-    # It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.<br><br>
+    # It deletes a specific subscription.<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_subscription 
     # @param [Hash] opts the optional parameters
@@ -7003,7 +7006,7 @@ module BudgeaClient
     end
 
     # Delete a subscription.
-    # It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.&lt;br&gt;&lt;br&gt;
+    # It deletes a specific subscription.&lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_subscription 
     # @param [Hash] opts the optional parameters
@@ -7131,7 +7134,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts = {})
       data, _status_code, _headers = users_id_user_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_subscription, opts)
       data
@@ -7152,7 +7155,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_subscription, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_subscriptions_id_subscription_documents_get ...'
@@ -7200,7 +7203,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_subscriptions_id_subscription_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7701,7 +7704,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_transactions_id_transaction_documents_get_with_http_info(id_user, id_transaction, opts)
       data
@@ -7722,7 +7725,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_transactions_id_transaction_documents_get_with_http_info(id_user, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_transactions_id_transaction_documents_get ...'
@@ -7770,7 +7773,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8202,7 +8205,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20029]
+    # @return [InlineResponse20031]
     def users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_transactions_cluster, opts)
       data
@@ -8223,7 +8226,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -8271,7 +8274,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20029')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

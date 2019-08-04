@@ -30,7 +30,7 @@ module BudgeaClient
     # IBAN of the debited account
     attr_accessor :account_iban
 
-    # IBAN of the recipient
+    # IBAN of the recipient in bank recipient list
     attr_accessor :recipient_iban
 
     # Date when the transfer will be operated by the bank
@@ -48,7 +48,7 @@ module BudgeaClient
     # WebID of the transfer
     attr_accessor :webid
 
-    # State of the transfer (created, scheduled, validating, pending, done, canceled, error, bug)
+    # State of the transfer (created, scheduled, validating, pending, coming, done, canceled, transaction_not_found, deleted, error, bug)
     attr_accessor :state
 
     # Error message during transfer, if any

@@ -1248,7 +1248,7 @@ Name | Type | Description  | Notes
 
 
 # **providers_id_connector_logos_get**
-> InlineResponse20010 providers_id_connector_logos_get(id_connector, opts)
+> InlineResponse20019 providers_id_connector_logos_get(id_connector, opts)
 
 Get all links to the files associated with this connector.
 
@@ -1292,7 +1292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -1486,7 +1486,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20029 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
+> InlineResponse20031 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
 
 Get documents
 
@@ -1554,7 +1554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -1945,7 +1945,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20029 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
+> InlineResponse20031 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -2013,7 +2013,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -2523,7 +2523,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20029 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
 
 Get documents
 
@@ -2594,7 +2594,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -3000,7 +3000,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20029 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -3071,7 +3071,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -3532,7 +3532,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_documents_get**
-> InlineResponse20029 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
 
 Get documents
 
@@ -3597,7 +3597,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -4083,6 +4083,7 @@ opts = {
   expire: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Set expiration of the connection to this date
   login: 'login_example', # String | Set login to this new login
   password: 'password_example', # String | Set password to this new password
+  decoupled: true, # BOOLEAN | Try to update a connection with the decoupled error
   expand: 'expand_example' # String | 
 }
 
@@ -4105,6 +4106,7 @@ Name | Type | Description  | Notes
  **expire** | **DateTime**| Set expiration of the connection to this date | [optional] 
  **login** | **String**| Set login to this new login | [optional] 
  **password** | **String**| Set password to this new password | [optional] 
+ **decoupled** | **BOOLEAN**| Try to update a connection with the decoupled error | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -4188,7 +4190,7 @@ Name | Type | Description  | Notes
 
 Delete a subscription.
 
-It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.<br><br>
+It deletes a specific subscription.<br><br>
 
 ### Example
 ```ruby
@@ -4312,7 +4314,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get**
-> InlineResponse20029 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
 
 Get documents
 
@@ -4380,7 +4382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -4839,7 +4841,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactions_id_transaction_documents_get**
-> InlineResponse20029 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
 
 Get documents
 
@@ -4907,7 +4909,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -5298,7 +5300,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20029 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
 
 Get documents
 
@@ -5366,7 +5368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -5837,7 +5839,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_documents_get**
-> InlineResponse20029 users_id_user_documents_get(id_user, opts)
+> InlineResponse20031 users_id_user_documents_get(id_user, opts)
 
 Get documents
 
@@ -5899,7 +5901,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -6346,7 +6348,7 @@ nil (empty response body)
 
 Delete a subscription.
 
-It deletes a specific subscription If this is the last synced subscription of a connection, it will be removed too.<br><br>
+It deletes a specific subscription.<br><br>
 
 ### Example
 ```ruby
@@ -6464,7 +6466,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_subscriptions_id_subscription_documents_get**
-> InlineResponse20029 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
+> InlineResponse20031 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
 
 Get documents
 
@@ -6529,7 +6531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -6970,7 +6972,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactions_id_transaction_documents_get**
-> InlineResponse20029 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
+> InlineResponse20031 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
 
 Get documents
 
@@ -7035,7 +7037,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -7411,7 +7413,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20029 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
+> InlineResponse20031 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
 
 Get documents
 
@@ -7476,7 +7478,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 

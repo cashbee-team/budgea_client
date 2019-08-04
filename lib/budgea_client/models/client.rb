@@ -26,28 +26,13 @@ module BudgeaClient
 
     attr_accessor :redirect_uri
 
-    # Primary color of client
-    attr_accessor :primary_color
-
-    # Secondary color of client
-    attr_accessor :secondary_color
-
     # Should the client display the company manager page.
     attr_accessor :pro
 
-    # Text to display as a default description.
-    attr_accessor :description
-
-    # Text to display as a description for banks.
-    attr_accessor :description_banks
-
-    # Text to display as a description for providers.
-    attr_accessor :description_providers
-
     attr_accessor :id_logo
 
-    # customizable information
-    attr_accessor :information
+    # customizable config
+    attr_accessor :config
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -58,14 +43,9 @@ module BudgeaClient
         :'public_key' => :'public_key',
         :'private_key' => :'private_key',
         :'redirect_uri' => :'redirect_uri',
-        :'primary_color' => :'primary_color',
-        :'secondary_color' => :'secondary_color',
         :'pro' => :'pro',
-        :'description' => :'description',
-        :'description_banks' => :'description_banks',
-        :'description_providers' => :'description_providers',
         :'id_logo' => :'id_logo',
-        :'information' => :'information'
+        :'config' => :'config'
       }
     end
 
@@ -78,14 +58,9 @@ module BudgeaClient
         :'public_key' => :'String',
         :'private_key' => :'String',
         :'redirect_uri' => :'String',
-        :'primary_color' => :'String',
-        :'secondary_color' => :'String',
         :'pro' => :'BOOLEAN',
-        :'description' => :'String',
-        :'description_banks' => :'String',
-        :'description_providers' => :'String',
         :'id_logo' => :'Integer',
-        :'information' => :'String'
+        :'config' => :'String'
       }
     end
 
@@ -125,38 +100,18 @@ module BudgeaClient
         self.redirect_uri = ''
       end
 
-      if attributes.has_key?(:'primary_color')
-        self.primary_color = attributes[:'primary_color']
-      end
-
-      if attributes.has_key?(:'secondary_color')
-        self.secondary_color = attributes[:'secondary_color']
-      end
-
       if attributes.has_key?(:'pro')
         self.pro = attributes[:'pro']
       else
         self.pro = false
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'description_banks')
-        self.description_banks = attributes[:'description_banks']
-      end
-
-      if attributes.has_key?(:'description_providers')
-        self.description_providers = attributes[:'description_providers']
-      end
-
       if attributes.has_key?(:'id_logo')
         self.id_logo = attributes[:'id_logo']
       end
 
-      if attributes.has_key?(:'information')
-        self.information = attributes[:'information']
+      if attributes.has_key?(:'config')
+        self.config = attributes[:'config']
       end
     end
 
@@ -209,14 +164,9 @@ module BudgeaClient
           public_key == o.public_key &&
           private_key == o.private_key &&
           redirect_uri == o.redirect_uri &&
-          primary_color == o.primary_color &&
-          secondary_color == o.secondary_color &&
           pro == o.pro &&
-          description == o.description &&
-          description_banks == o.description_banks &&
-          description_providers == o.description_providers &&
           id_logo == o.id_logo &&
-          information == o.information
+          config == o.config
     end
 
     # @see the `==` method
@@ -228,7 +178,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, secret, public_key, private_key, redirect_uri, primary_color, secondary_color, pro, description, description_banks, description_providers, id_logo, information].hash
+      [id, name, secret, public_key, private_key, redirect_uri, pro, id_logo, config].hash
     end
 
     # Builds the object from hash

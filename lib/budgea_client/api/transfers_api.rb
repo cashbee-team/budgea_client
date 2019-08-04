@@ -34,7 +34,7 @@ module BudgeaClient
     # @option opts [String] :iban 
     # @option opts [String] :error 
     # @option opts [String] :id 
-    # @return [InlineResponse20026]
+    # @return [InlineResponse20028]
     def users_id_user_accounts_id_account_recipients_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_recipients_get_with_http_info(id_user, id_account, opts)
       data
@@ -55,7 +55,7 @@ module BudgeaClient
     # @option opts [String] :iban 
     # @option opts [String] :error 
     # @option opts [String] :id 
-    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
+    # @return [Array<(InlineResponse20028, Fixnum, Hash)>] InlineResponse20028 data, response status code and response headers
     def users_id_user_accounts_id_account_recipients_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_accounts_id_account_recipients_get ...'
@@ -103,7 +103,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20026')
+        :return_type => 'InlineResponse20028')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_accounts_id_account_recipients_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -189,7 +189,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_accounts_id_account_recipients_id_recipient_transfers_get(id_user, id_account, id_recipient, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_recipients_id_recipient_transfers_get_with_http_info(id_user, id_account, id_recipient, opts)
       data
@@ -203,7 +203,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_accounts_id_account_recipients_id_recipient_transfers_get_with_http_info(id_user, id_account, id_recipient, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_accounts_id_account_recipients_id_recipient_transfers_get ...'
@@ -247,7 +247,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_accounts_id_account_recipients_id_recipient_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -498,7 +498,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_accounts_id_account_transfers_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transfers_get_with_http_info(id_user, id_account, opts)
       data
@@ -511,7 +511,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_accounts_id_account_transfers_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_accounts_id_account_transfers_get ...'
@@ -551,7 +551,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_accounts_id_account_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -784,7 +784,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20026]
+    # @return [InlineResponse20028]
     def users_id_user_connections_id_connection_accounts_id_account_recipients_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_recipients_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -797,7 +797,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
+    # @return [Array<(InlineResponse20028, Fixnum, Hash)>] InlineResponse20028 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_recipients_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_connections_id_connection_accounts_id_account_recipients_get ...'
@@ -840,7 +840,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20026')
+        :return_type => 'InlineResponse20028')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_connections_id_connection_accounts_id_account_recipients_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -933,7 +933,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get(id_user, id_connection, id_account, id_recipient, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get_with_http_info(id_user, id_connection, id_account, id_recipient, opts)
       data
@@ -948,7 +948,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get_with_http_info(id_user, id_connection, id_account, id_recipient, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get ...'
@@ -996,7 +996,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1266,7 +1266,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_connections_id_connection_accounts_id_account_transfers_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transfers_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -1280,7 +1280,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transfers_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_connections_id_connection_accounts_id_account_transfers_get ...'
@@ -1324,7 +1324,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_connections_id_connection_accounts_id_account_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1574,7 +1574,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20026]
+    # @return [InlineResponse20028]
     def users_id_user_connections_id_connection_recipients_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_recipients_get_with_http_info(id_user, id_connection, opts)
       data
@@ -1586,7 +1586,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
+    # @return [Array<(InlineResponse20028, Fixnum, Hash)>] InlineResponse20028 data, response status code and response headers
     def users_id_user_connections_id_connection_recipients_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_connections_id_connection_recipients_get ...'
@@ -1625,7 +1625,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20026')
+        :return_type => 'InlineResponse20028')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_connections_id_connection_recipients_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1711,7 +1711,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_connections_id_connection_recipients_id_recipient_transfers_get(id_user, id_connection, id_recipient, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_recipients_id_recipient_transfers_get_with_http_info(id_user, id_connection, id_recipient, opts)
       data
@@ -1725,7 +1725,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_connections_id_connection_recipients_id_recipient_transfers_get_with_http_info(id_user, id_connection, id_recipient, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_connections_id_connection_recipients_id_recipient_transfers_get ...'
@@ -1769,7 +1769,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_connections_id_connection_recipients_id_recipient_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2020,7 +2020,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_connections_id_connection_transfers_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transfers_get_with_http_info(id_user, id_connection, opts)
       data
@@ -2033,7 +2033,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_connections_id_connection_transfers_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_connections_id_connection_transfers_get ...'
@@ -2073,7 +2073,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_connections_id_connection_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2304,7 +2304,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20026]
+    # @return [InlineResponse20028]
     def users_id_user_recipients_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_recipients_get_with_http_info(id_user, opts)
       data
@@ -2315,7 +2315,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
+    # @return [Array<(InlineResponse20028, Fixnum, Hash)>] InlineResponse20028 data, response status code and response headers
     def users_id_user_recipients_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_recipients_get ...'
@@ -2350,7 +2350,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20026')
+        :return_type => 'InlineResponse20028')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_recipients_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2429,7 +2429,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_recipients_id_recipient_transfers_get(id_user, id_recipient, opts = {})
       data, _status_code, _headers = users_id_user_recipients_id_recipient_transfers_get_with_http_info(id_user, id_recipient, opts)
       data
@@ -2442,7 +2442,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_recipients_id_recipient_transfers_get_with_http_info(id_user, id_recipient, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_recipients_id_recipient_transfers_get ...'
@@ -2482,7 +2482,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_recipients_id_recipient_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2714,7 +2714,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20029]
     def users_id_user_transfers_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_transfers_get_with_http_info(id_user, opts)
       data
@@ -2726,7 +2726,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :period period to group logs
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20029, Fixnum, Hash)>] InlineResponse20029 data, response status code and response headers
     def users_id_user_transfers_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_transfers_get ...'
@@ -2762,7 +2762,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20029')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransfersApi#users_id_user_transfers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

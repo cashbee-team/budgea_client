@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **start** | **DateTime** | Timestamp when the synchronization has started | [optional] 
 **worker** | **String** | Worker used to do synchronization | [optional] 
 **session_folder_id** | **String** | Session folder uid | [optional] 
+**fields** | **String** | Fields for connection in additionalInformationNeeded state with background option | [optional] 
 
 

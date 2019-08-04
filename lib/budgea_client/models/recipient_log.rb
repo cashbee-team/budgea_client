@@ -35,6 +35,9 @@ module BudgeaClient
     # Timestamp of the log
     attr_accessor :timestamp
 
+    # Fields for recipient in additionalInformationNeeded state with background option
+    attr_accessor :fields
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -44,7 +47,8 @@ module BudgeaClient
         :'request_data' => :'request_data',
         :'step' => :'step',
         :'error' => :'error',
-        :'timestamp' => :'timestamp'
+        :'timestamp' => :'timestamp',
+        :'fields' => :'fields'
       }
     end
 
@@ -57,7 +61,8 @@ module BudgeaClient
         :'request_data' => :'String',
         :'step' => :'String',
         :'error' => :'String',
-        :'timestamp' => :'DateTime'
+        :'timestamp' => :'DateTime',
+        :'fields' => :'String'
       }
     end
 
@@ -96,6 +101,10 @@ module BudgeaClient
       if attributes.has_key?(:'timestamp')
         self.timestamp = attributes[:'timestamp']
       end
+
+      if attributes.has_key?(:'fields')
+        self.fields = attributes[:'fields']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -132,7 +141,8 @@ module BudgeaClient
           request_data == o.request_data &&
           step == o.step &&
           error == o.error &&
-          timestamp == o.timestamp
+          timestamp == o.timestamp &&
+          fields == o.fields
     end
 
     # @see the `==` method
@@ -144,7 +154,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_recipient, id_file, request_data, step, error, timestamp].hash
+      [id, id_recipient, id_file, request_data, step, error, timestamp, fields].hash
     end
 
     # Builds the object from hash

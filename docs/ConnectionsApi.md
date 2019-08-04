@@ -865,6 +865,7 @@ opts = {
   expire: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Set expiration of the connection to this date
   login: 'login_example', # String | Set login to this new login
   password: 'password_example', # String | Set password to this new password
+  decoupled: true, # BOOLEAN | Try to update a connection with the decoupled error
   expand: 'expand_example' # String | 
 }
 
@@ -887,6 +888,7 @@ Name | Type | Description  | Notes
  **expire** | **DateTime**| Set expiration of the connection to this date | [optional] 
  **login** | **String**| Set login to this new login | [optional] 
  **password** | **String**| Set password to this new password | [optional] 
+ **decoupled** | **BOOLEAN**| Try to update a connection with the decoupled error | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type

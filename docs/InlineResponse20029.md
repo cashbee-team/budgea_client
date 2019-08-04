@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documents** | [**Array&lt;Document&gt;**](Document.md) |  | 
+**transfers** | [**Array&lt;Transfer&gt;**](Transfer.md) |  | 
+**total** | **Float** | total number of results | [optional] 
 
 

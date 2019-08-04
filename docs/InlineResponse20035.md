@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**profiles** | [**Array&lt;Profile&gt;**](Profile.md) |  | 
+**categorys** | [**Array&lt;Category&gt;**](Category.md) |  | 
+**total** | **Float** | total number of results | [optional] 
 
 

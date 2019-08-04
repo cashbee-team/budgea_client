@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**webhooklogs** | [**Array&lt;WebhookLog&gt;**](WebhookLog.md) |  | 
+**webhooks** | [**Array&lt;Webhook&gt;**](Webhook.md) |  | 
+**total** | **Float** | total number of results | [optional] 
 
 

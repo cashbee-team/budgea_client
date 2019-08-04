@@ -14,19 +14,24 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20025
-    attr_accessor :useralerts
+    # total number of results
+    attr_accessor :total
+
+    attr_accessor :pockets
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'useralerts' => :'useralerts'
+        :'total' => :'total',
+        :'pockets' => :'pockets'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'useralerts' => :'Array<UserAlert>'
+        :'total' => :'Float',
+        :'pockets' => :'Array<Pocket>'
       }
     end
 
@@ -38,9 +43,13 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'useralerts')
-        if (value = attributes[:'useralerts']).is_a?(Array)
-          self.useralerts = value
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
+      end
+
+      if attributes.has_key?(:'pockets')
+        if (value = attributes[:'pockets']).is_a?(Array)
+          self.pockets = value
         end
       end
     end
@@ -49,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @useralerts.nil?
-        invalid_properties.push('invalid value for "useralerts", useralerts cannot be nil.')
+      if @pockets.nil?
+        invalid_properties.push('invalid value for "pockets", pockets cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @useralerts.nil?
+      return false if @pockets.nil?
       true
     end
 
@@ -68,7 +77,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          useralerts == o.useralerts
+          total == o.total &&
+          pockets == o.pockets
     end
 
     # @see the `==` method
@@ -80,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [useralerts].hash
+      [total, pockets].hash
     end
 
     # Builds the object from hash

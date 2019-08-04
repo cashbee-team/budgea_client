@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **step** | **String** | Step of recipient addition, (add_recipient, asking_field, recipient addition validated, creation, storing_files) | [optional] 
 **error** | **String** | Error message during recipient addition, if any | [optional] 
 **timestamp** | **DateTime** | Timestamp of the log | 
+**fields** | **String** | Fields for recipient in additionalInformationNeeded state with background option | [optional] 
 
 

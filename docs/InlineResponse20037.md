@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authproviders** | [**Array&lt;AuthProvider&gt;**](AuthProvider.md) |  | 
+**total** | **Float** | total number of results | [optional] 
+**profiles** | [**Array&lt;Profile&gt;**](Profile.md) |  | 
 
 

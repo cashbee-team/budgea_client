@@ -312,8 +312,8 @@ module BudgeaClient
     # @option opts [String] :description_banks text to display as a description for banks
     # @option opts [String] :description_providers text to display as a description for providers
     # @option opts [BOOLEAN] :pro Wether the client should display the company manager page
-    # @option opts [String] :information custom information about the client
-    # @option opts [BOOLEAN] :update_information update the custom information about the client instead of replacing the existing one (default: True)
+    # @option opts [String] :config custom config about the client
+    # @option opts [BOOLEAN] :update_config update the custom information about the client instead of replacing the existing one (default: True)
     # @option opts [String] :expand 
     # @return [Client]
     def clients_id_client_put(id_client, opts = {})
@@ -335,8 +335,8 @@ module BudgeaClient
     # @option opts [String] :description_banks text to display as a description for banks
     # @option opts [String] :description_providers text to display as a description for providers
     # @option opts [BOOLEAN] :pro Wether the client should display the company manager page
-    # @option opts [String] :information custom information about the client
-    # @option opts [BOOLEAN] :update_information update the custom information about the client instead of replacing the existing one (default: True)
+    # @option opts [String] :config custom config about the client
+    # @option opts [BOOLEAN] :update_config update the custom information about the client instead of replacing the existing one (default: True)
     # @option opts [String] :expand 
     # @return [Array<(Client, Fixnum, Hash)>] Client data, response status code and response headers
     def clients_id_client_put_with_http_info(id_client, opts = {})
@@ -373,8 +373,8 @@ module BudgeaClient
       form_params['description_banks'] = opts[:'description_banks'] if !opts[:'description_banks'].nil?
       form_params['description_providers'] = opts[:'description_providers'] if !opts[:'description_providers'].nil?
       form_params['pro'] = opts[:'pro'] if !opts[:'pro'].nil?
-      form_params['information'] = opts[:'information'] if !opts[:'information'].nil?
-      form_params['update_information'] = opts[:'update_information'] if !opts[:'update_information'].nil?
+      form_params['config'] = opts[:'config'] if !opts[:'config'].nil?
+      form_params['update_config'] = opts[:'update_config'] if !opts[:'update_config'].nil?
 
       # http body (model)
       post_body = nil
@@ -397,7 +397,7 @@ module BudgeaClient
     # @option opts [BOOLEAN] :generate_keys if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
     # @option opts [String] :name name of client
     # @option opts [String] :redirect_uri redirect_uri
-    # @option opts [String] :information custom information about the client
+    # @option opts [String] :config custom config about the client
     # @option opts [String] :expand 
     # @return [Client]
     def clients_post(opts = {})
@@ -411,7 +411,7 @@ module BudgeaClient
     # @option opts [BOOLEAN] :generate_keys if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
     # @option opts [String] :name name of client
     # @option opts [String] :redirect_uri redirect_uri
-    # @option opts [String] :information custom information about the client
+    # @option opts [String] :config custom config about the client
     # @option opts [String] :expand 
     # @return [Array<(Client, Fixnum, Hash)>] Client data, response status code and response headers
     def clients_post_with_http_info(opts = {})
@@ -437,7 +437,7 @@ module BudgeaClient
       form_params['generate_keys'] = opts[:'generate_keys'] if !opts[:'generate_keys'].nil?
       form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
       form_params['redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
-      form_params['information'] = opts[:'information'] if !opts[:'information'].nil?
+      form_params['config'] = opts[:'config'] if !opts[:'config'].nil?
 
       # http body (model)
       post_body = nil
@@ -1054,7 +1054,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20037]
+    # @return [InlineResponse20039]
     def webhooks_auth_get(opts = {})
       data, _status_code, _headers = webhooks_auth_get_with_http_info(opts)
       data
@@ -1064,7 +1064,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20037, Fixnum, Hash)>] InlineResponse20037 data, response status code and response headers
+    # @return [Array<(InlineResponse20039, Fixnum, Hash)>] InlineResponse20039 data, response status code and response headers
     def webhooks_auth_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_get ...'
@@ -1095,7 +1095,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20037')
+        :return_type => 'InlineResponse20039')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1429,7 +1429,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20036]
+    # @return [InlineResponse20038]
     def webhooks_get(opts = {})
       data, _status_code, _headers = webhooks_get_with_http_info(opts)
       data
@@ -1439,7 +1439,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20036, Fixnum, Hash)>] InlineResponse20036 data, response status code and response headers
+    # @return [Array<(InlineResponse20038, Fixnum, Hash)>] InlineResponse20038 data, response status code and response headers
     def webhooks_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_get ...'
@@ -1470,7 +1470,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20036')
+        :return_type => 'InlineResponse20038')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1595,7 +1595,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [InlineResponse20038]
+    # @return [InlineResponse20040]
     def webhooks_id_webhook_logs_get(id_webhook, opts = {})
       data, _status_code, _headers = webhooks_id_webhook_logs_get_with_http_info(id_webhook, opts)
       data
@@ -1610,7 +1610,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20038, Fixnum, Hash)>] InlineResponse20038 data, response status code and response headers
+    # @return [Array<(InlineResponse20040, Fixnum, Hash)>] InlineResponse20040 data, response status code and response headers
     def webhooks_id_webhook_logs_get_with_http_info(id_webhook, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_logs_get ...'
@@ -1649,7 +1649,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20038')
+        :return_type => 'InlineResponse20040')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

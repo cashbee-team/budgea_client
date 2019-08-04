@@ -71,7 +71,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :search searches a user by mail (if it contains no &#39;@&#39;, &#39;@biapi.pro&#39; will be added at the end)
     # @option opts [String] :expand 
-    # @return [InlineResponse20020]
+    # @return [InlineResponse20021]
     def users_get(opts = {})
       data, _status_code, _headers = users_get_with_http_info(opts)
       data
@@ -82,7 +82,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :search searches a user by mail (if it contains no &#39;@&#39;, &#39;@biapi.pro&#39; will be added at the end)
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20020, Fixnum, Hash)>] InlineResponse20020 data, response status code and response headers
+    # @return [Array<(InlineResponse20021, Fixnum, Hash)>] InlineResponse20021 data, response status code and response headers
     def users_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersManagementApi.users_get ...'
@@ -114,7 +114,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20020')
+        :return_type => 'InlineResponse20021')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersManagementApi#users_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -399,7 +399,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20035]
+    # @return [InlineResponse20037]
     def users_id_user_profiles_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_profiles_get_with_http_info(id_user, opts)
       data
@@ -410,7 +410,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20035, Fixnum, Hash)>] InlineResponse20035 data, response status code and response headers
+    # @return [Array<(InlineResponse20037, Fixnum, Hash)>] InlineResponse20037 data, response status code and response headers
     def users_id_user_profiles_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersManagementApi.users_id_user_profiles_get ...'
@@ -445,7 +445,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20035')
+        :return_type => 'InlineResponse20037')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersManagementApi#users_id_user_profiles_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

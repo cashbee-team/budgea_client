@@ -14,11 +14,15 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20018
+    # total number of results
+    attr_accessor :total
+
     attr_accessor :providers
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'total' => :'total',
         :'providers' => :'providers'
       }
     end
@@ -26,6 +30,7 @@ module BudgeaClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'total' => :'Float',
         :'providers' => :'Array<Connector>'
       }
     end
@@ -37,6 +42,10 @@ module BudgeaClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
+      end
 
       if attributes.has_key?(:'providers')
         if (value = attributes[:'providers']).is_a?(Array)
@@ -68,6 +77,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          total == o.total &&
           providers == o.providers
     end
 
@@ -80,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [providers].hash
+      [total, providers].hash
     end
 
     # Builds the object from hash

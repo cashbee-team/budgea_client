@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accounts** | [**Array&lt;Account&gt;**](Account.md) |  | 
+**total** | **Float** | total number of results | [optional] 
+**users** | [**Array&lt;User&gt;**](User.md) |  | 
 
 

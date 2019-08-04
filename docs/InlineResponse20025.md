@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**useralerts** | [**Array&lt;UserAlert&gt;**](UserAlert.md) |  | 
+**total** | **Float** | total number of results | [optional] 
+**pockets** | [**Array&lt;Pocket&gt;**](Pocket.md) |  | 
 
 

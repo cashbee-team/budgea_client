@@ -358,8 +358,8 @@ opts = {
   description_banks: 'description_banks_example', # String | text to display as a description for banks
   description_providers: 'description_providers_example', # String | text to display as a description for providers
   pro: true, # BOOLEAN | Wether the client should display the company manager page
-  information: 'information_example', # String | custom information about the client
-  update_information: true, # BOOLEAN | update the custom information about the client instead of replacing the existing one (default: True)
+  config: 'config_example', # String | custom config about the client
+  update_config: true, # BOOLEAN | update the custom information about the client instead of replacing the existing one (default: True)
   expand: 'expand_example' # String | 
 }
 
@@ -387,8 +387,8 @@ Name | Type | Description  | Notes
  **description_banks** | **String**| text to display as a description for banks | [optional] 
  **description_providers** | **String**| text to display as a description for providers | [optional] 
  **pro** | **BOOLEAN**| Wether the client should display the company manager page | [optional] 
- **information** | **String**| custom information about the client | [optional] 
- **update_information** | **BOOLEAN**| update the custom information about the client instead of replacing the existing one (default: True) | [optional] 
+ **config** | **String**| custom config about the client | [optional] 
+ **update_config** | **BOOLEAN**| update the custom information about the client instead of replacing the existing one (default: True) | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -431,7 +431,7 @@ opts = {
   generate_keys: true, # BOOLEAN | if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
   name: 'name_example', # String | name of client
   redirect_uri: 'redirect_uri_example', # String | redirect_uri
-  information: 'information_example', # String | custom information about the client
+  config: 'config_example', # String | custom config about the client
   expand: 'expand_example' # String | 
 }
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
  **generate_keys** | **BOOLEAN**| if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False) | [optional] 
  **name** | **String**| name of client | [optional] 
  **redirect_uri** | **String**| redirect_uri | [optional] 
- **information** | **String**| custom information about the client | [optional] 
+ **config** | **String**| custom config about the client | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -1080,7 +1080,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_auth_get**
-> InlineResponse20037 webhooks_auth_get(opts)
+> InlineResponse20039 webhooks_auth_get(opts)
 
 Get webhooks authentication types
 
@@ -1121,7 +1121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -1443,7 +1443,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_get**
-> InlineResponse20036 webhooks_get(opts)
+> InlineResponse20038 webhooks_get(opts)
 
 Get webhooks
 
@@ -1484,7 +1484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -1609,7 +1609,7 @@ Name | Type | Description  | Notes
 
 
 # **webhooks_id_webhook_logs_get**
-> InlineResponse20038 webhooks_id_webhook_logs_get(id_webhook, opts)
+> InlineResponse20040 webhooks_id_webhook_logs_get(id_webhook, opts)
 
 Get webhooks logs.
 
@@ -1661,7 +1661,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 

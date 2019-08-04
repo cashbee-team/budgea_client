@@ -28,10 +28,6 @@ module BudgeaClient
 
     attr_accessor :id_thumbnail
 
-    attr_accessor :url
-
-    attr_accessor :thumb_url
-
     attr_accessor :name
 
     attr_accessor :timestamp
@@ -57,6 +53,9 @@ module BudgeaClient
     # Last successful update of the document
     attr_accessor :last_update
 
+    # Boolean to set if file is available on website
+    attr_accessor :has_file_on_website
+
     # Document currency
     attr_accessor :currency
 
@@ -70,8 +69,6 @@ module BudgeaClient
         :'id_subscription' => :'id_subscription',
         :'id_file' => :'id_file',
         :'id_thumbnail' => :'id_thumbnail',
-        :'url' => :'url',
-        :'thumb_url' => :'thumb_url',
         :'name' => :'name',
         :'timestamp' => :'timestamp',
         :'date' => :'date',
@@ -84,6 +81,7 @@ module BudgeaClient
         :'number' => :'number',
         :'issuer' => :'issuer',
         :'last_update' => :'last_update',
+        :'has_file_on_website' => :'has_file_on_website',
         :'currency' => :'currency'
       }
     end
@@ -98,8 +96,6 @@ module BudgeaClient
         :'id_subscription' => :'Integer',
         :'id_file' => :'Integer',
         :'id_thumbnail' => :'Integer',
-        :'url' => :'String',
-        :'thumb_url' => :'String',
         :'name' => :'String',
         :'timestamp' => :'DateTime',
         :'date' => :'DateTime',
@@ -112,6 +108,7 @@ module BudgeaClient
         :'number' => :'String',
         :'issuer' => :'String',
         :'last_update' => :'DateTime',
+        :'has_file_on_website' => :'BOOLEAN',
         :'currency' => :'Object'
       }
     end
@@ -150,14 +147,6 @@ module BudgeaClient
 
       if attributes.has_key?(:'id_thumbnail')
         self.id_thumbnail = attributes[:'id_thumbnail']
-      end
-
-      if attributes.has_key?(:'url')
-        self.url = attributes[:'url']
-      end
-
-      if attributes.has_key?(:'thumb_url')
-        self.thumb_url = attributes[:'thumb_url']
       end
 
       if attributes.has_key?(:'name')
@@ -212,6 +201,12 @@ module BudgeaClient
         self.last_update = attributes[:'last_update']
       end
 
+      if attributes.has_key?(:'has_file_on_website')
+        self.has_file_on_website = attributes[:'has_file_on_website']
+      else
+        self.has_file_on_website = true
+      end
+
       if attributes.has_key?(:'currency')
         self.currency = attributes[:'currency']
       end
@@ -233,12 +228,12 @@ module BudgeaClient
         invalid_properties.push('invalid value for "timestamp", timestamp cannot be nil.')
       end
 
-      if @date.nil?
-        invalid_properties.push('invalid value for "date", date cannot be nil.')
-      end
-
       if @readonly.nil?
         invalid_properties.push('invalid value for "readonly", readonly cannot be nil.')
+      end
+
+      if @has_file_on_website.nil?
+        invalid_properties.push('invalid value for "has_file_on_website", has_file_on_website cannot be nil.')
       end
 
       invalid_properties
@@ -250,8 +245,8 @@ module BudgeaClient
       return false if @id.nil?
       return false if @id_user.nil?
       return false if @timestamp.nil?
-      return false if @date.nil?
       return false if @readonly.nil?
+      return false if @has_file_on_website.nil?
       true
     end
 
@@ -267,8 +262,6 @@ module BudgeaClient
           id_subscription == o.id_subscription &&
           id_file == o.id_file &&
           id_thumbnail == o.id_thumbnail &&
-          url == o.url &&
-          thumb_url == o.thumb_url &&
           name == o.name &&
           timestamp == o.timestamp &&
           date == o.date &&
@@ -281,6 +274,7 @@ module BudgeaClient
           number == o.number &&
           issuer == o.issuer &&
           last_update == o.last_update &&
+          has_file_on_website == o.has_file_on_website &&
           currency == o.currency
     end
 
@@ -293,7 +287,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_type, id_category, id_user, id_subscription, id_file, id_thumbnail, url, thumb_url, name, timestamp, date, duedate, total_amount, untaxed_amount, vat, income, readonly, number, issuer, last_update, currency].hash
+      [id, id_type, id_category, id_user, id_subscription, id_file, id_thumbnail, name, timestamp, date, duedate, total_amount, untaxed_amount, vat, income, readonly, number, issuer, last_update, has_file_on_website, currency].hash
     end
 
     # Builds the object from hash

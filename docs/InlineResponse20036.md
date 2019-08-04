@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**webhooks** | [**Array&lt;Webhook&gt;**](Webhook.md) |  | 
+**total** | **Float** | total number of results | [optional] 
+**devices** | [**Array&lt;Device&gt;**](Device.md) |  | 
 
 

@@ -13,17 +13,17 @@ Swagger Codegen version: 2.4.1
 require 'date'
 
 module BudgeaClient
-  class InlineResponse20027
+  class InlineResponse20039
     # total number of results
     attr_accessor :total
 
-    attr_accessor :useralerts
+    attr_accessor :authproviders
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'useralerts' => :'useralerts'
+        :'authproviders' => :'authproviders'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'useralerts' => :'Array<UserAlert>'
+        :'authproviders' => :'Array<AuthProvider>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'useralerts')
-        if (value = attributes[:'useralerts']).is_a?(Array)
-          self.useralerts = value
+      if attributes.has_key?(:'authproviders')
+        if (value = attributes[:'authproviders']).is_a?(Array)
+          self.authproviders = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @useralerts.nil?
-        invalid_properties.push('invalid value for "useralerts", useralerts cannot be nil.')
+      if @authproviders.nil?
+        invalid_properties.push('invalid value for "authproviders", authproviders cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @useralerts.nil?
+      return false if @authproviders.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          useralerts == o.useralerts
+          authproviders == o.authproviders
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, useralerts].hash
+      [total, authproviders].hash
     end
 
     # Builds the object from hash

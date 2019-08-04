@@ -14,19 +14,24 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20037
-    attr_accessor :authproviders
+    # total number of results
+    attr_accessor :total
+
+    attr_accessor :profiles
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'authproviders' => :'authproviders'
+        :'total' => :'total',
+        :'profiles' => :'profiles'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'authproviders' => :'Array<AuthProvider>'
+        :'total' => :'Float',
+        :'profiles' => :'Array<Profile>'
       }
     end
 
@@ -38,9 +43,13 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'authproviders')
-        if (value = attributes[:'authproviders']).is_a?(Array)
-          self.authproviders = value
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
+      end
+
+      if attributes.has_key?(:'profiles')
+        if (value = attributes[:'profiles']).is_a?(Array)
+          self.profiles = value
         end
       end
     end
@@ -49,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @authproviders.nil?
-        invalid_properties.push('invalid value for "authproviders", authproviders cannot be nil.')
+      if @profiles.nil?
+        invalid_properties.push('invalid value for "profiles", profiles cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @authproviders.nil?
+      return false if @profiles.nil?
       true
     end
 
@@ -68,7 +77,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          authproviders == o.authproviders
+          total == o.total &&
+          profiles == o.profiles
     end
 
     # @see the `==` method
@@ -80,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [authproviders].hash
+      [total, profiles].hash
     end
 
     # Builds the object from hash

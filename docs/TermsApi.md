@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **terms_get**
-> InlineResponse20019 terms_get(opts)
+> InlineResponse20020 terms_get(opts)
 
 Return the current terms and the content of the associated file
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_terms_get**
-> InlineResponse20019 users_id_user_terms_get(id_user, opts)
+> InlineResponse20020 users_id_user_terms_get(id_user, opts)
 
 Get active terms object for a specific user, only one terms can be active
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 

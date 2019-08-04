@@ -59,6 +59,9 @@ module BudgeaClient
     # Session folder uid
     attr_accessor :session_folder_id
 
+    # Fields for connection in additionalInformationNeeded state with background option
+    attr_accessor :fields
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -76,7 +79,8 @@ module BudgeaClient
         :'nb_accounts' => :'nb_accounts',
         :'start' => :'start',
         :'worker' => :'worker',
-        :'session_folder_id' => :'session_folder_id'
+        :'session_folder_id' => :'session_folder_id',
+        :'fields' => :'fields'
       }
     end
 
@@ -97,7 +101,8 @@ module BudgeaClient
         :'nb_accounts' => :'Integer',
         :'start' => :'DateTime',
         :'worker' => :'String',
-        :'session_folder_id' => :'String'
+        :'session_folder_id' => :'String',
+        :'fields' => :'String'
       }
     end
 
@@ -168,6 +173,10 @@ module BudgeaClient
       if attributes.has_key?(:'session_folder_id')
         self.session_folder_id = attributes[:'session_folder_id']
       end
+
+      if attributes.has_key?(:'fields')
+        self.fields = attributes[:'fields']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -217,7 +226,8 @@ module BudgeaClient
           nb_accounts == o.nb_accounts &&
           start == o.start &&
           worker == o.worker &&
-          session_folder_id == o.session_folder_id
+          session_folder_id == o.session_folder_id &&
+          fields == o.fields
     end
 
     # @see the `==` method
@@ -229,7 +239,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_user, id_connection, id_connector, login, error_uid, timestamp, next_try, error, error_message, statut, nb_accounts, start, worker, session_folder_id].hash
+      [id, id_user, id_connection, id_connector, login, error_uid, timestamp, next_try, error, error_message, statut, nb_accounts, start, worker, session_folder_id, fields].hash
     end
 
     # Builds the object from hash

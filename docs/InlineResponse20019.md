@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**termsofservices** | [**Array&lt;TermsOfService&gt;**](TermsOfService.md) |  | 
+**connectorlogos** | [**Array&lt;ConnectorLogo&gt;**](ConnectorLogo.md) |  | 
 
 

@@ -859,6 +859,7 @@ module BudgeaClient
     # @option opts [DateTime] :expire Set expiration of the connection to this date
     # @option opts [String] :login Set login to this new login
     # @option opts [String] :password Set password to this new password
+    # @option opts [BOOLEAN] :decoupled Try to update a connection with the decoupled error
     # @option opts [String] :expand 
     # @return [Connection]
     def users_id_user_connections_id_connection_post(id_user, id_connection, opts = {})
@@ -875,6 +876,7 @@ module BudgeaClient
     # @option opts [DateTime] :expire Set expiration of the connection to this date
     # @option opts [String] :login Set login to this new login
     # @option opts [String] :password Set password to this new password
+    # @option opts [BOOLEAN] :decoupled Try to update a connection with the decoupled error
     # @option opts [String] :expand 
     # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
     def users_id_user_connections_id_connection_post_with_http_info(id_user, id_connection, opts = {})
@@ -909,6 +911,7 @@ module BudgeaClient
       form_params['expire'] = opts[:'expire'] if !opts[:'expire'].nil?
       form_params['login'] = opts[:'login'] if !opts[:'login'].nil?
       form_params['password'] = opts[:'password'] if !opts[:'password'].nil?
+      form_params['decoupled'] = opts[:'decoupled'] if !opts[:'decoupled'].nil?
 
       # http body (model)
       post_body = nil

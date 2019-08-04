@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**devices** | [**Array&lt;Device&gt;**](Device.md) |  | 
+**total** | **Float** | total number of results | [optional] 
+**alerts** | [**Array&lt;Alert&gt;**](Alert.md) |  | 
 
 

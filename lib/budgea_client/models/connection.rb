@@ -29,6 +29,9 @@ module BudgeaClient
     # If the last update has failed, the error code
     attr_accessor :error
 
+    # If fail, error message received from connector
+    attr_accessor :error_message
+
     # Expiration of the connection. Used during add of a two-factor authentication, to purge the connection if the user abort
     attr_accessor :expire
 
@@ -51,6 +54,7 @@ module BudgeaClient
         :'id_connector' => :'id_connector',
         :'last_update' => :'last_update',
         :'error' => :'error',
+        :'error_message' => :'error_message',
         :'expire' => :'expire',
         :'active' => :'active',
         :'last_push' => :'last_push',
@@ -67,6 +71,7 @@ module BudgeaClient
         :'id_connector' => :'Integer',
         :'last_update' => :'DateTime',
         :'error' => :'String',
+        :'error_message' => :'String',
         :'expire' => :'DateTime',
         :'active' => :'BOOLEAN',
         :'last_push' => :'DateTime',
@@ -101,6 +106,10 @@ module BudgeaClient
 
       if attributes.has_key?(:'error')
         self.error = attributes[:'error']
+      end
+
+      if attributes.has_key?(:'error_message')
+        self.error_message = attributes[:'error_message']
       end
 
       if attributes.has_key?(:'expire')
@@ -166,6 +175,7 @@ module BudgeaClient
           id_connector == o.id_connector &&
           last_update == o.last_update &&
           error == o.error &&
+          error_message == o.error_message &&
           expire == o.expire &&
           active == o.active &&
           last_push == o.last_push &&
@@ -182,7 +192,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_user, id_connector, last_update, error, expire, active, last_push, next_try, accounts].hash
+      [id, id_user, id_connector, last_update, error, error_message, expire, active, last_push, next_try, accounts].hash
     end
 
     # Builds the object from hash
