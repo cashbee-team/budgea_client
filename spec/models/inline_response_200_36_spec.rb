@@ -32,7 +32,13 @@ describe 'InlineResponse20036' do
       expect(@instance).to be_instance_of(BudgeaClient::InlineResponse20036)
     end
   end
-  describe 'test attribute "webhooklogs"' do
+  describe 'test attribute "total"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "devices"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -32,7 +32,13 @@ describe 'InlineResponse20037' do
       expect(@instance).to be_instance_of(BudgeaClient::InlineResponse20037)
     end
   end
-  describe 'test attribute "authproviders"' do
+  describe 'test attribute "total"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "profiles"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
