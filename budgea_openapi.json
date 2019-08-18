@@ -14651,10 +14651,6 @@
                   "type": "number",
                   "description": "total number of results"
                 },
-                "total": {
-                  "type": "number",
-                  "description": "total number of results"
-                },
                 "documents": {
                   "items": {
                     "$ref": "#/definitions/Document"
@@ -22034,6 +22030,12 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Field"
+          }
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         }
       },

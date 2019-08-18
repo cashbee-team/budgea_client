@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **siret** | **String** | SIRET code for Bill modules | [optional] 
 **uuid** | **String** | Unique connector identifier | 
 **fields** | [**Array&lt;Field&gt;**](Field.md) |  | [optional] 
+**capabilities** | **Array&lt;String&gt;** |  | [optional] 
 
 

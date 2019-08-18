@@ -58,6 +58,8 @@ module BudgeaClient
 
     attr_accessor :fields
 
+    attr_accessor :capabilities
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -76,7 +78,8 @@ module BudgeaClient
         :'auth_mechanism' => :'auth_mechanism',
         :'siret' => :'siret',
         :'uuid' => :'uuid',
-        :'fields' => :'fields'
+        :'fields' => :'fields',
+        :'capabilities' => :'capabilities'
       }
     end
 
@@ -98,7 +101,8 @@ module BudgeaClient
         :'auth_mechanism' => :'String',
         :'siret' => :'String',
         :'uuid' => :'String',
-        :'fields' => :'Array<Field>'
+        :'fields' => :'Array<Field>',
+        :'capabilities' => :'Array<String>'
       }
     end
 
@@ -183,6 +187,12 @@ module BudgeaClient
           self.fields = value
         end
       end
+
+      if attributes.has_key?(:'capabilities')
+        if (value = attributes[:'capabilities']).is_a?(Array)
+          self.capabilities = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -248,7 +258,8 @@ module BudgeaClient
           auth_mechanism == o.auth_mechanism &&
           siret == o.siret &&
           uuid == o.uuid &&
-          fields == o.fields
+          fields == o.fields &&
+          capabilities == o.capabilities
     end
 
     # @see the `==` method
@@ -260,7 +271,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, id_weboob, hidden, charged, code, beta, color, slug, sync_frequency, months_to_fetch, account_types, auth_mechanism, siret, uuid, fields].hash
+      [id, name, id_weboob, hidden, charged, code, beta, color, slug, sync_frequency, months_to_fetch, account_types, auth_mechanism, siret, uuid, fields, capabilities].hash
     end
 
     # Builds the object from hash
