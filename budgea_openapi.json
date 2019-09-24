@@ -24061,6 +24061,12 @@
           "type": "string",
           "description": "Name of the account"
         },
+        "recipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Recipient"
+          }
+        },
         "transactions": {
           "type": "array",
           "items": {
