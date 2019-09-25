@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **id_type** | **Integer** | ID of the account type | [optional] 
 **bookmarked** | **Integer** | This account has been bookmarked by user | 
 **name** | **String** | Name of the account | [optional] 
+**recipients** | [**Array&lt;Recipient&gt;**](Recipient.md) |  | [optional] 
 **transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | [optional] 
 **error** | **String** | If the last update has failed, the error code | [optional] 
 **usage** | **String** | Account usage | [optional] 

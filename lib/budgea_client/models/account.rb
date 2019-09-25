@@ -71,6 +71,8 @@ module BudgeaClient
     # Name of the account
     attr_accessor :name
 
+    attr_accessor :recipients
+
     attr_accessor :transactions
 
     # If the last update has failed, the error code
@@ -104,6 +106,7 @@ module BudgeaClient
         :'id_type' => :'id_type',
         :'bookmarked' => :'bookmarked',
         :'name' => :'name',
+        :'recipients' => :'recipients',
         :'transactions' => :'transactions',
         :'error' => :'error',
         :'usage' => :'usage',
@@ -133,6 +136,7 @@ module BudgeaClient
         :'id_type' => :'Integer',
         :'bookmarked' => :'Integer',
         :'name' => :'String',
+        :'recipients' => :'Array<Recipient>',
         :'transactions' => :'Array<Transaction>',
         :'error' => :'String',
         :'usage' => :'String',
@@ -228,6 +232,12 @@ module BudgeaClient
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'recipients')
+        if (value = attributes[:'recipients']).is_a?(Array)
+          self.recipients = value
+        end
+      end
+
       if attributes.has_key?(:'transactions')
         if (value = attributes[:'transactions']).is_a?(Array)
           self.transactions = value
@@ -309,6 +319,7 @@ module BudgeaClient
           id_type == o.id_type &&
           bookmarked == o.bookmarked &&
           name == o.name &&
+          recipients == o.recipients &&
           transactions == o.transactions &&
           error == o.error &&
           usage == o.usage &&
@@ -324,7 +335,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_connection, id_user, id_parent, number, webid, original_name, balance, coming, display, last_update, deleted, disabled, iban, bic, currency, id_type, bookmarked, name, transactions, error, usage, ownership].hash
+      [id, id_connection, id_user, id_parent, number, webid, original_name, balance, coming, display, last_update, deleted, disabled, iban, bic, currency, id_type, bookmarked, name, recipients, transactions, error, usage, ownership].hash
     end
 
     # Builds the object from hash
