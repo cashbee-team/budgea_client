@@ -46,6 +46,8 @@ module BudgeaClient
 
     attr_accessor :accounts
 
+    attr_accessor :subscriptions
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -59,7 +61,8 @@ module BudgeaClient
         :'active' => :'active',
         :'last_push' => :'last_push',
         :'next_try' => :'next_try',
-        :'accounts' => :'accounts'
+        :'accounts' => :'accounts',
+        :'subscriptions' => :'subscriptions'
       }
     end
 
@@ -76,7 +79,8 @@ module BudgeaClient
         :'active' => :'BOOLEAN',
         :'last_push' => :'DateTime',
         :'next_try' => :'DateTime',
-        :'accounts' => :'Array<Account>'
+        :'accounts' => :'Array<Account>',
+        :'subscriptions' => :'Array<Subscription>'
       }
     end
 
@@ -135,6 +139,12 @@ module BudgeaClient
           self.accounts = value
         end
       end
+
+      if attributes.has_key?(:'subscriptions')
+        if (value = attributes[:'subscriptions']).is_a?(Array)
+          self.subscriptions = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -180,7 +190,8 @@ module BudgeaClient
           active == o.active &&
           last_push == o.last_push &&
           next_try == o.next_try &&
-          accounts == o.accounts
+          accounts == o.accounts &&
+          subscriptions == o.subscriptions
     end
 
     # @see the `==` method
@@ -192,7 +203,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_user, id_connector, last_update, error, error_message, expire, active, last_push, next_try, accounts].hash
+      [id, id_user, id_connector, last_update, error, error_message, expire, active, last_push, next_try, accounts, subscriptions].hash
     end
 
     # Builds the object from hash

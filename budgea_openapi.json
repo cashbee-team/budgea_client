@@ -22774,6 +22774,12 @@
           "items": {
             "$ref": "#/definitions/Account"
           }
+        },
+        "subscriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Subscription"
+          }
         }
       },
       "example": {

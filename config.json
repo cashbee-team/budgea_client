@@ -6,5 +6,6 @@
   "gemDescription": "Budgea API Documentation Ruby Gem",
   "gemHomepage": "https://github.com/cashbee-team/budgea_client",
   "moduleName": "BudgeaClient",
-  "gemLicense": "Apache 2.0"
+  "gemLicense": "Apache 2.0",
+  "gemVersion": "4.0.2"
 }
