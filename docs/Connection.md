@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **last_push** | **DateTime** | Last successful push | [optional] 
 **next_try** | **DateTime** | Date of next synchronization | [optional] 
 **accounts** | [**Array&lt;Account&gt;**](Account.md) |  | [optional] 
+**subscriptions** | [**Array&lt;Subscription&gt;**](Subscription.md) |  | [optional] 
 
 
