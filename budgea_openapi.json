@@ -21224,49 +21224,49 @@
         "parameters": [
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "integer",
             "name": "id_connector",
             "description": "ID of the connector"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "connector_uuid",
             "description": "Optional unique ID of the connector (replaces id_connector)"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "integer",
             "name": "client_id",
             "description": "Client Application ID"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "redirect_uri",
             "description": "Redirect URI"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "state",
             "description": "Optional state"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "fields",
             "description": "Optional fields"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "integer",
             "name": "id_connection",
             "description": "Optional already existing connection to update"
