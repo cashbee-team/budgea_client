@@ -694,6 +694,69 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get connection
+    # Get connection by ID
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Connection]
+    def users_id_user_connections_id_connection_get(id_user, id_connection, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_get_with_http_info(id_user, id_connection, opts)
+      data
+    end
+
+    # Get connection
+    # Get connection by ID
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
+    def users_id_user_connections_id_connection_get_with_http_info(id_user, id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConnectionsApi.users_id_user_connections_id_connection_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ConnectionsApi.users_id_user_connections_id_connection_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ConnectionsApi.users_id_user_connections_id_connection_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Connection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConnectionsApi#users_id_user_connections_id_connection_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get connection additionnal informations
     # <br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;

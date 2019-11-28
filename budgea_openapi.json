@@ -7890,6 +7890,45 @@
       }
     },
     "/users/{id_user}/connections/{id_connection}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "connection",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "Get connection by ID",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get connection"
+      },
       "post": {
         "responses": {
           "200": {
@@ -21224,49 +21263,49 @@
         "parameters": [
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "integer",
             "name": "id_connector",
             "description": "ID of the connector"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "connector_uuid",
             "description": "Optional unique ID of the connector (replaces id_connector)"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "integer",
             "name": "client_id",
             "description": "Client Application ID"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "redirect_uri",
             "description": "Redirect URI"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "state",
             "description": "Optional state"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "string",
             "name": "fields",
             "description": "Optional fields"
           },
           {
             "required": false,
-            "in": "formData",
+            "in": "query",
             "type": "integer",
             "name": "id_connection",
             "description": "Optional already existing connection to update"

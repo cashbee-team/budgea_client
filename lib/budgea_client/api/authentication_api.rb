@@ -675,6 +675,13 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
+      query_params[:'connector_uuid'] = opts[:'connector_uuid'] if !opts[:'connector_uuid'].nil?
+      query_params[:'client_id'] = opts[:'client_id'] if !opts[:'client_id'].nil?
+      query_params[:'redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
+      query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
+      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
+      query_params[:'id_connection'] = opts[:'id_connection'] if !opts[:'id_connection'].nil?
 
       # header parameters
       header_params = {}
@@ -685,13 +692,6 @@ module BudgeaClient
 
       # form parameters
       form_params = {}
-      form_params['id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
-      form_params['connector_uuid'] = opts[:'connector_uuid'] if !opts[:'connector_uuid'].nil?
-      form_params['client_id'] = opts[:'client_id'] if !opts[:'client_id'].nil?
-      form_params['redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
-      form_params['state'] = opts[:'state'] if !opts[:'state'].nil?
-      form_params['fields'] = opts[:'fields'] if !opts[:'fields'].nil?
-      form_params['id_connection'] = opts[:'id_connection'] if !opts[:'id_connection'].nil?
 
       # http body (model)
       post_body = nil
