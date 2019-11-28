@@ -7890,6 +7890,45 @@
       }
     },
     "/users/{id_user}/connections/{id_connection}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "connection",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "Get connection by ID",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get connection"
+      },
       "post": {
         "responses": {
           "200": {

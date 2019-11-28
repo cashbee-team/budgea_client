@@ -59,6 +59,7 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_documents_id_document_put**](ProvidersApi.md#users_id_user_connections_id_connection_documents_id_document_put) | **PUT** /users/{id_user}/connections/{id_connection}/documents/{id_document} | Edit a document
 [**users_id_user_connections_id_connection_documents_post**](ProvidersApi.md#users_id_user_connections_id_connection_documents_post) | **POST** /users/{id_user}/connections/{id_connection}/documents | Add a new document
 [**users_id_user_connections_id_connection_documents_put**](ProvidersApi.md#users_id_user_connections_id_connection_documents_put) | **PUT** /users/{id_user}/connections/{id_connection}/documents | Attach an existing document to a transaction or a transactions_cluster
+[**users_id_user_connections_id_connection_get**](ProvidersApi.md#users_id_user_connections_id_connection_get) | **GET** /users/{id_user}/connections/{id_connection} | Get connection
 [**users_id_user_connections_id_connection_informations_get**](ProvidersApi.md#users_id_user_connections_id_connection_informations_get) | **GET** /users/{id_user}/connections/{id_connection}/informations | Get connection additionnal informations
 [**users_id_user_connections_id_connection_logs_get**](ProvidersApi.md#users_id_user_connections_id_connection_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/logs | Get connection logs
 [**users_id_user_connections_id_connection_post**](ProvidersApi.md#users_id_user_connections_id_connection_post) | **POST** /users/{id_user}/connections/{id_connection} | Update a connection.
@@ -3899,6 +3900,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Document**](Document.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_get**
+> Connection users_id_user_connections_id_connection_get(id_user, id_connection, opts)
+
+Get connection
+
+Get connection by ID
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get connection
+  result = api_instance.users_id_user_connections_id_connection_get(id_user, id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_connections_id_connection_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Connection**](Connection.md)
 
 ### Authorization
 

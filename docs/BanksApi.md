@@ -91,6 +91,7 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_accounts_post**](BanksApi.md#users_id_user_connections_id_connection_accounts_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts | Create an account
 [**users_id_user_connections_id_connection_accounts_put**](BanksApi.md#users_id_user_connections_id_connection_accounts_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts | Update many accounts at once
 [**users_id_user_connections_id_connection_delete**](BanksApi.md#users_id_user_connections_id_connection_delete) | **DELETE** /users/{id_user}/connections/{id_connection} | Delete a connection.
+[**users_id_user_connections_id_connection_get**](BanksApi.md#users_id_user_connections_id_connection_get) | **GET** /users/{id_user}/connections/{id_connection} | Get connection
 [**users_id_user_connections_id_connection_informations_get**](BanksApi.md#users_id_user_connections_id_connection_informations_get) | **GET** /users/{id_user}/connections/{id_connection}/informations | Get connection additionnal informations
 [**users_id_user_connections_id_connection_logs_get**](BanksApi.md#users_id_user_connections_id_connection_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/logs | Get connection logs
 [**users_id_user_connections_id_connection_post**](BanksApi.md#users_id_user_connections_id_connection_post) | **POST** /users/{id_user}/connections/{id_connection} | Update a connection.
@@ -5630,6 +5631,67 @@ begin
   p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling BanksApi->users_id_user_connections_id_connection_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Connection**](Connection.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_get**
+> Connection users_id_user_connections_id_connection_get(id_user, id_connection, opts)
+
+Get connection
+
+Get connection by ID
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get connection
+  result = api_instance.users_id_user_connections_id_connection_get(id_user, id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_get: #{e}"
 end
 ```
 
