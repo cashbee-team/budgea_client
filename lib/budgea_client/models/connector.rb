@@ -20,8 +20,6 @@ module BudgeaClient
     # Name of the bank or provider
     attr_accessor :name
 
-    attr_accessor :id_weboob
-
     # This connector is hidden from your users
     attr_accessor :hidden
 
@@ -56,6 +54,9 @@ module BudgeaClient
     # Unique connector identifier
     attr_accessor :uuid
 
+    # If true, new connections cannot be added with this connector
+    attr_accessor :restricted
+
     attr_accessor :fields
 
     attr_accessor :capabilities
@@ -65,7 +66,6 @@ module BudgeaClient
       {
         :'id' => :'id',
         :'name' => :'name',
-        :'id_weboob' => :'id_weboob',
         :'hidden' => :'hidden',
         :'charged' => :'charged',
         :'code' => :'code',
@@ -78,6 +78,7 @@ module BudgeaClient
         :'auth_mechanism' => :'auth_mechanism',
         :'siret' => :'siret',
         :'uuid' => :'uuid',
+        :'restricted' => :'restricted',
         :'fields' => :'fields',
         :'capabilities' => :'capabilities'
       }
@@ -88,7 +89,6 @@ module BudgeaClient
       {
         :'id' => :'Integer',
         :'name' => :'String',
-        :'id_weboob' => :'String',
         :'hidden' => :'BOOLEAN',
         :'charged' => :'BOOLEAN',
         :'code' => :'String',
@@ -101,6 +101,7 @@ module BudgeaClient
         :'auth_mechanism' => :'String',
         :'siret' => :'String',
         :'uuid' => :'String',
+        :'restricted' => :'BOOLEAN',
         :'fields' => :'Array<Field>',
         :'capabilities' => :'Array<String>'
       }
@@ -120,10 +121,6 @@ module BudgeaClient
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'id_weboob')
-        self.id_weboob = attributes[:'id_weboob']
       end
 
       if attributes.has_key?(:'hidden')
@@ -182,6 +179,12 @@ module BudgeaClient
         self.uuid = attributes[:'uuid']
       end
 
+      if attributes.has_key?(:'restricted')
+        self.restricted = attributes[:'restricted']
+      else
+        self.restricted = false
+      end
+
       if attributes.has_key?(:'fields')
         if (value = attributes[:'fields']).is_a?(Array)
           self.fields = value
@@ -207,10 +210,6 @@ module BudgeaClient
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @id_weboob.nil?
-        invalid_properties.push('invalid value for "id_weboob", id_weboob cannot be nil.')
-      end
-
       if @charged.nil?
         invalid_properties.push('invalid value for "charged", charged cannot be nil.')
       end
@@ -223,6 +222,10 @@ module BudgeaClient
         invalid_properties.push('invalid value for "uuid", uuid cannot be nil.')
       end
 
+      if @restricted.nil?
+        invalid_properties.push('invalid value for "restricted", restricted cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -231,10 +234,10 @@ module BudgeaClient
     def valid?
       return false if @id.nil?
       return false if @name.nil?
-      return false if @id_weboob.nil?
       return false if @charged.nil?
       return false if @beta.nil?
       return false if @uuid.nil?
+      return false if @restricted.nil?
       true
     end
 
@@ -245,7 +248,6 @@ module BudgeaClient
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
-          id_weboob == o.id_weboob &&
           hidden == o.hidden &&
           charged == o.charged &&
           code == o.code &&
@@ -258,6 +260,7 @@ module BudgeaClient
           auth_mechanism == o.auth_mechanism &&
           siret == o.siret &&
           uuid == o.uuid &&
+          restricted == o.restricted &&
           fields == o.fields &&
           capabilities == o.capabilities
     end
@@ -271,7 +274,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, id_weboob, hidden, charged, code, beta, color, slug, sync_frequency, months_to_fetch, account_types, auth_mechanism, siret, uuid, fields, capabilities].hash
+      [id, name, hidden, charged, code, beta, color, slug, sync_frequency, months_to_fetch, account_types, auth_mechanism, siret, uuid, restricted, fields, capabilities].hash
     end
 
     # Builds the object from hash

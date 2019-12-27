@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :profiles
+    attr_accessor :subscriptionlogs
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'profiles' => :'profiles'
+        :'subscriptionlogs' => :'subscriptionlogs'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'profiles' => :'Array<Profile>'
+        :'subscriptionlogs' => :'Array<SubscriptionLog>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'profiles')
-        if (value = attributes[:'profiles']).is_a?(Array)
-          self.profiles = value
+      if attributes.has_key?(:'subscriptionlogs')
+        if (value = attributes[:'subscriptionlogs']).is_a?(Array)
+          self.subscriptionlogs = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @profiles.nil?
-        invalid_properties.push('invalid value for "profiles", profiles cannot be nil.')
+      if @subscriptionlogs.nil?
+        invalid_properties.push('invalid value for "subscriptionlogs", subscriptionlogs cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @profiles.nil?
+      return false if @subscriptionlogs.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          profiles == o.profiles
+          subscriptionlogs == o.subscriptionlogs
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, profiles].hash
+      [total, subscriptionlogs].hash
     end
 
     # Builds the object from hash

@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **last_update** | **DateTime** | Last update of the transaction | [optional] 
 **deleted** | **DateTime** | If set, this transaction has been removed from the bank | [optional] 
 **original_value** | **Float** | Value in the original currency | [optional] 
+**original_gross_value** | **Float** | Gross value in the original currency | [optional] 
 **original_currency** | **Object** | Original currency | [optional] 
 **commission** | **Float** | Commission taken on the transaction | [optional] 
 **commission_currency** | **Object** | Commission currency | [optional] 

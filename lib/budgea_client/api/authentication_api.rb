@@ -51,7 +51,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -105,7 +105,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -165,7 +165,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -240,7 +240,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -293,7 +293,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -341,7 +341,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -397,7 +397,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -445,7 +445,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -501,7 +501,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -558,7 +558,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -618,7 +618,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -639,10 +639,11 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
-    # Initialize a new OAuth2 proxy session.
-    # 
+    # First step to establish an oAuth2 connection.
+    # The route encapsulate 2 functionalities: 1. Create or update a connection through oAuth2 session.<br><br>2. Execute a transfer through OAuth2 session.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_connector ID of the connector
+    # @option opts [Integer] :id_transfer ID of the transfer
     # @option opts [String] :connector_uuid Optional unique ID of the connector (replaces id_connector)
     # @option opts [Integer] :client_id Client Application ID
     # @option opts [String] :redirect_uri Redirect URI
@@ -655,10 +656,11 @@ module BudgeaClient
       nil
     end
 
-    # Initialize a new OAuth2 proxy session.
-    # 
+    # First step to establish an oAuth2 connection.
+    # The route encapsulate 2 functionalities: 1. Create or update a connection through oAuth2 session.&lt;br&gt;&lt;br&gt;2. Execute a transfer through OAuth2 session.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :id_connector ID of the connector
+    # @option opts [Integer] :id_transfer ID of the transfer
     # @option opts [String] :connector_uuid Optional unique ID of the connector (replaces id_connector)
     # @option opts [Integer] :client_id Client Application ID
     # @option opts [String] :redirect_uri Redirect URI
@@ -676,6 +678,7 @@ module BudgeaClient
       # query parameters
       query_params = {}
       query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
+      query_params[:'id_transfer'] = opts[:'id_transfer'] if !opts[:'id_transfer'].nil?
       query_params[:'connector_uuid'] = opts[:'connector_uuid'] if !opts[:'connector_uuid'].nil?
       query_params[:'client_id'] = opts[:'client_id'] if !opts[:'client_id'].nil?
       query_params[:'redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
@@ -688,7 +691,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}

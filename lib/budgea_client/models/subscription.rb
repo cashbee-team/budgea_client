@@ -23,6 +23,9 @@ module BudgeaClient
     # ID of related user
     attr_accessor :id_user
 
+    # ID of the related connection source
+    attr_accessor :id_source
+
     # Subscription's number
     attr_accessor :number
 
@@ -56,6 +59,7 @@ module BudgeaClient
         :'id' => :'id',
         :'id_connection' => :'id_connection',
         :'id_user' => :'id_user',
+        :'id_source' => :'id_source',
         :'number' => :'number',
         :'label' => :'label',
         :'subscriber' => :'subscriber',
@@ -74,6 +78,7 @@ module BudgeaClient
         :'id' => :'Integer',
         :'id_connection' => :'Integer',
         :'id_user' => :'Integer',
+        :'id_source' => :'Integer',
         :'number' => :'String',
         :'label' => :'String',
         :'subscriber' => :'String',
@@ -104,6 +109,10 @@ module BudgeaClient
 
       if attributes.has_key?(:'id_user')
         self.id_user = attributes[:'id_user']
+      end
+
+      if attributes.has_key?(:'id_source')
+        self.id_source = attributes[:'id_source']
       end
 
       if attributes.has_key?(:'number')
@@ -179,6 +188,7 @@ module BudgeaClient
           id == o.id &&
           id_connection == o.id_connection &&
           id_user == o.id_user &&
+          id_source == o.id_source &&
           number == o.number &&
           label == o.label &&
           subscriber == o.subscriber &&
@@ -199,7 +209,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_connection, id_user, number, label, subscriber, validity, renewdate, last_update, deleted, disabled, error].hash
+      [id, id_connection, id_user, id_source, number, label, subscriber, validity, renewdate, last_update, deleted, disabled, error].hash
     end
 
     # Builds the object from hash

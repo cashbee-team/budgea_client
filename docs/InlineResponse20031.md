@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total** | **Float** | total number of results | [optional] 
-**documents** | [**Array&lt;Document&gt;**](Document.md) |  | 
+**transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | 
 
 

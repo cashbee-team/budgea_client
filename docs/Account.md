@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **Integer** | ID of the account | 
 **id_connection** | **Integer** | ID of the related connection | [optional] 
 **id_user** | **Integer** | ID of the related user | [optional] 
+**id_source** | **Integer** | ID of the related connection source | [optional] 
 **id_parent** | **Integer** | Id of the parent account | [optional] 
 **number** | **String** | Account number | [optional] 
 **webid** | **String** | Account webid | [optional] 
@@ -27,5 +28,6 @@ Name | Type | Description | Notes
 **error** | **String** | If the last update has failed, the error code | [optional] 
 **usage** | **String** | Account usage | [optional] 
 **ownership** | **String** | Relationship between the credentials owner and the account | [optional] 
+**company_name** | **String** | Name of the company holding the employee savings of the account | [optional] 
 
 

@@ -109,7 +109,12 @@ Class | Method | HTTP request | Description
 *BudgeaClient::AdministrationApi* | [**webhooks_auth_post**](docs/AdministrationApi.md#webhooks_auth_post) | **POST** /webhooks/auth | Adds a new webhook authentication type
 *BudgeaClient::AdministrationApi* | [**webhooks_delete**](docs/AdministrationApi.md#webhooks_delete) | **DELETE** /webhooks | Deletes all webhooks
 *BudgeaClient::AdministrationApi* | [**webhooks_get**](docs/AdministrationApi.md#webhooks_get) | **GET** /webhooks | Get webhooks
+*BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_add_to_data_delete**](docs/AdministrationApi.md#webhooks_id_webhook_add_to_data_delete) | **DELETE** /webhooks/{id_webhook}/add_to_data | delete all entries
 *BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_add_to_data_get**](docs/AdministrationApi.md#webhooks_id_webhook_add_to_data_get) | **GET** /webhooks/{id_webhook}/add_to_data | retrieve the list of the value to add in webhooks when sending the requested webhook
+*BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_add_to_data_key_delete**](docs/AdministrationApi.md#webhooks_id_webhook_add_to_data_key_delete) | **DELETE** /webhooks/{id_webhook}/add_to_data/{key} | delete the requested entry
+*BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_add_to_data_key_get**](docs/AdministrationApi.md#webhooks_id_webhook_add_to_data_key_get) | **GET** /webhooks/{id_webhook}/add_to_data/{key} | retrieve the value to add in the requested webhook for the requested name
+*BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_add_to_data_key_post**](docs/AdministrationApi.md#webhooks_id_webhook_add_to_data_key_post) | **POST** /webhooks/{id_webhook}/add_to_data/{key} | upate the requested field to store in user config when calling the endpoint
+*BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_add_to_data_post**](docs/AdministrationApi.md#webhooks_id_webhook_add_to_data_post) | **POST** /webhooks/{id_webhook}/add_to_data | Setup a field to store in user config when calling the endpoint
 *BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_delete**](docs/AdministrationApi.md#webhooks_id_webhook_delete) | **DELETE** /webhooks/{id_webhook} | Deletes a webhook
 *BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_logs_get**](docs/AdministrationApi.md#webhooks_id_webhook_logs_get) | **GET** /webhooks/{id_webhook}/logs | Get webhooks logs.
 *BudgeaClient::AdministrationApi* | [**webhooks_id_webhook_post**](docs/AdministrationApi.md#webhooks_id_webhook_post) | **POST** /webhooks/{id_webhook} | Updates a webhook
@@ -126,7 +131,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::AuthenticationApi* | [**users_id_user_delete**](docs/AuthenticationApi.md#users_id_user_delete) | **DELETE** /users/{id_user} | Delete the user
 *BudgeaClient::AuthenticationApi* | [**users_id_user_get**](docs/AuthenticationApi.md#users_id_user_get) | **GET** /users/{id_user} | Get a user
 *BudgeaClient::AuthenticationApi* | [**users_id_user_token_post**](docs/AuthenticationApi.md#users_id_user_token_post) | **POST** /users/{id_user}/token | Create a token
-*BudgeaClient::AuthenticationApi* | [**webauth_get**](docs/AuthenticationApi.md#webauth_get) | **GET** /webauth | Initialize a new OAuth2 proxy session.
+*BudgeaClient::AuthenticationApi* | [**webauth_get**](docs/AuthenticationApi.md#webauth_get) | **GET** /webauth | First step to establish an oAuth2 connection.
 *BudgeaClient::BanksApi* | [**account_types_get**](docs/BanksApi.md#account_types_get) | **GET** /account_types | Get account types
 *BudgeaClient::BanksApi* | [**account_types_id_account_type_get**](docs/BanksApi.md#account_types_id_account_type_get) | **GET** /account_types/{id_account_type} | Get an account type
 *BudgeaClient::BanksApi* | [**banks_categories_id_category_delete**](docs/BanksApi.md#banks_categories_id_category_delete) | **DELETE** /banks/categories/{id_category} | Delete the supplied category
@@ -137,11 +142,13 @@ Class | Method | HTTP request | Description
 *BudgeaClient::BanksApi* | [**banks_id_connector_logos_get**](docs/BanksApi.md#banks_id_connector_logos_get) | **GET** /banks/{id_connector}/logos | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**banks_id_connector_logos_main_get**](docs/BanksApi.md#banks_id_connector_logos_main_get) | **GET** /banks/{id_connector}/logos/main | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**banks_id_connector_logos_thumbnail_get**](docs/BanksApi.md#banks_id_connector_logos_thumbnail_get) | **GET** /banks/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+*BudgeaClient::BanksApi* | [**banks_id_connector_sources_get**](docs/BanksApi.md#banks_id_connector_sources_get) | **GET** /banks/{id_connector}/sources | Get list of connector sources
 *BudgeaClient::BanksApi* | [**categories_get**](docs/BanksApi.md#categories_get) | **GET** /categories | Get all categories
 *BudgeaClient::BanksApi* | [**categories_keywords_id_keyword_delete**](docs/BanksApi.md#categories_keywords_id_keyword_delete) | **DELETE** /categories/keywords/{id_keyword} | Delete a particular key-value pair on a transaction.
 *BudgeaClient::BanksApi* | [**categories_keywords_post**](docs/BanksApi.md#categories_keywords_post) | **POST** /categories/keywords | Add a new keyword associated with a category in the database.
 *BudgeaClient::BanksApi* | [**categorize_post**](docs/BanksApi.md#categorize_post) | **POST** /categorize | categorize transactions without storing them
 *BudgeaClient::BanksApi* | [**connections_get**](docs/BanksApi.md#connections_get) | **GET** /connections | Get connections without a user
+*BudgeaClient::BanksApi* | [**connections_id_connection_logs_get**](docs/BanksApi.md#connections_id_connection_logs_get) | **GET** /connections/{id_connection}/logs | Get connection logs
 *BudgeaClient::BanksApi* | [**connectors_get**](docs/BanksApi.md#connectors_get) | **GET** /connectors | Get list of connectors
 *BudgeaClient::BanksApi* | [**connectors_id_connector_logos_get**](docs/BanksApi.md#connectors_id_connector_logos_get) | **GET** /connectors/{id_connector}/logos | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**connectors_id_connector_logos_id_logo_delete**](docs/BanksApi.md#connectors_id_connector_logos_id_logo_delete) | **DELETE** /connectors/{id_connector}/logos/{id_logo} | Delete a single Logo object.
@@ -151,14 +158,18 @@ Class | Method | HTTP request | Description
 *BudgeaClient::BanksApi* | [**connectors_id_connector_logos_put**](docs/BanksApi.md#connectors_id_connector_logos_put) | **PUT** /connectors/{id_connector}/logos | Create or Update a connector Logo
 *BudgeaClient::BanksApi* | [**connectors_id_connector_logos_thumbnail_get**](docs/BanksApi.md#connectors_id_connector_logos_thumbnail_get) | **GET** /connectors/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**connectors_id_connector_put**](docs/BanksApi.md#connectors_id_connector_put) | **PUT** /connectors/{id_connector} | Edit the provided connector
+*BudgeaClient::BanksApi* | [**connectors_id_connector_sources_get**](docs/BanksApi.md#connectors_id_connector_sources_get) | **GET** /connectors/{id_connector}/sources | Get list of connector sources
+*BudgeaClient::BanksApi* | [**connectors_id_connector_sources_id_source_put**](docs/BanksApi.md#connectors_id_connector_sources_id_source_put) | **PUT** /connectors/{id_connector}/sources/{id_source} | Edit the provided connector source
 *BudgeaClient::BanksApi* | [**connectors_post**](docs/BanksApi.md#connectors_post) | **POST** /connectors | Request a new connector
-*BudgeaClient::BanksApi* | [**invoicing_get**](docs/BanksApi.md#invoicing_get) | **GET** /invoicing | Get number of accounts, connections and users synced.
+*BudgeaClient::BanksApi* | [**connectors_put**](docs/BanksApi.md#connectors_put) | **PUT** /connectors | Enable/disable several connectors
+*BudgeaClient::BanksApi* | [**invoicing_get**](docs/BanksApi.md#invoicing_get) | **GET** /invoicing | Get invoicing data for a given period (default is the current month).
 *BudgeaClient::BanksApi* | [**logs_get**](docs/BanksApi.md#logs_get) | **GET** /logs | Get connection logs
 *BudgeaClient::BanksApi* | [**providers_get**](docs/BanksApi.md#providers_get) | **GET** /providers | Get list of connectors
 *BudgeaClient::BanksApi* | [**providers_id_connector_connections_get**](docs/BanksApi.md#providers_id_connector_connections_get) | **GET** /providers/{id_connector}/connections | Get a random subset of provider's id_connection
 *BudgeaClient::BanksApi* | [**providers_id_connector_logos_get**](docs/BanksApi.md#providers_id_connector_logos_get) | **GET** /providers/{id_connector}/logos | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**providers_id_connector_logos_main_get**](docs/BanksApi.md#providers_id_connector_logos_main_get) | **GET** /providers/{id_connector}/logos/main | Get all links to the files associated with this connector.
 *BudgeaClient::BanksApi* | [**providers_id_connector_logos_thumbnail_get**](docs/BanksApi.md#providers_id_connector_logos_thumbnail_get) | **GET** /providers/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+*BudgeaClient::BanksApi* | [**providers_id_connector_sources_get**](docs/BanksApi.md#providers_id_connector_sources_get) | **GET** /providers/{id_connector}/sources | Get list of connector sources
 *BudgeaClient::BanksApi* | [**users_id_user_account_types_get**](docs/BanksApi.md#users_id_user_account_types_get) | **GET** /users/{id_user}/account_types | Get account types
 *BudgeaClient::BanksApi* | [**users_id_user_account_types_id_account_type_get**](docs/BanksApi.md#users_id_user_account_types_id_account_type_get) | **GET** /users/{id_user}/account_types/{id_account_type} | Get an account type
 *BudgeaClient::BanksApi* | [**users_id_user_accounts_delete**](docs/BanksApi.md#users_id_user_accounts_delete) | **DELETE** /users/{id_user}/accounts | Delete all accounts
@@ -168,6 +179,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::BanksApi* | [**users_id_user_accounts_id_account_delta_get**](docs/BanksApi.md#users_id_user_accounts_id_account_delta_get) | **GET** /users/{id_user}/accounts/{id_account}/delta | Get deltas of accounts
 *BudgeaClient::BanksApi* | [**users_id_user_accounts_id_account_logs_get**](docs/BanksApi.md#users_id_user_accounts_id_account_logs_get) | **GET** /users/{id_user}/accounts/{id_account}/logs | Get accounts logs.
 *BudgeaClient::BanksApi* | [**users_id_user_accounts_id_account_put**](docs/BanksApi.md#users_id_user_accounts_id_account_put) | **PUT** /users/{id_user}/accounts/{id_account} | Update an account
+*BudgeaClient::BanksApi* | [**users_id_user_accounts_id_account_sources_get**](docs/BanksApi.md#users_id_user_accounts_id_account_sources_get) | **GET** /users/{id_user}/accounts/{id_account}/sources | Get account sources
 *BudgeaClient::BanksApi* | [**users_id_user_accounts_id_account_transactions_delete**](docs/BanksApi.md#users_id_user_accounts_id_account_transactions_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions | Delete transactions
 *BudgeaClient::BanksApi* | [**users_id_user_accounts_id_account_transactions_get**](docs/BanksApi.md#users_id_user_accounts_id_account_transactions_get) | **GET** /users/{id_user}/accounts/{id_account}/transactions | Get transactions
 *BudgeaClient::BanksApi* | [**users_id_user_accounts_id_account_transactions_id_transaction_informations_delete**](docs/BanksApi.md#users_id_user_accounts_id_account_transactions_id_transaction_informations_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/informations | Delete all arbitrary key-value pairs of a transaction
@@ -198,6 +210,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_accounts_id_account_delta_get**](docs/BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_delta_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/delta | Get deltas of accounts
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_accounts_id_account_logs_get**](docs/BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/logs | Get accounts logs.
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_accounts_id_account_put**](docs/BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account} | Update an account
+*BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_accounts_id_account_sources_get**](docs/BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_sources_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/sources | Get account sources
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_accounts_id_account_transactions_delete**](docs/BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_transactions_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/transactions | Delete transactions
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_accounts_id_account_transactions_get**](docs/BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_transactions_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/transactions | Get transactions
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_delete**](docs/BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/transactions/{id_transaction}/informations | Delete all arbitrary key-value pairs of a transaction
@@ -219,6 +232,10 @@ Class | Method | HTTP request | Description
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_logs_get**](docs/BanksApi.md#users_id_user_connections_id_connection_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/logs | Get connection logs
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_post**](docs/BanksApi.md#users_id_user_connections_id_connection_post) | **POST** /users/{id_user}/connections/{id_connection} | Update a connection.
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_put**](docs/BanksApi.md#users_id_user_connections_id_connection_put) | **PUT** /users/{id_user}/connections/{id_connection} | Force synchronisation of a connection.
+*BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_sources_get**](docs/BanksApi.md#users_id_user_connections_id_connection_sources_get) | **GET** /users/{id_user}/connections/{id_connection}/sources | Get connection sources
+*BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_sources_id_source_delete**](docs/BanksApi.md#users_id_user_connections_id_connection_sources_id_source_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Disable a connection source
+*BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_sources_id_source_post**](docs/BanksApi.md#users_id_user_connections_id_connection_sources_id_source_post) | **POST** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
+*BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_sources_id_source_put**](docs/BanksApi.md#users_id_user_connections_id_connection_sources_id_source_put) | **PUT** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_transactions_delete**](docs/BanksApi.md#users_id_user_connections_id_connection_transactions_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions | Delete transactions
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_transactions_get**](docs/BanksApi.md#users_id_user_connections_id_connection_transactions_get) | **GET** /users/{id_user}/connections/{id_connection}/transactions | Get transactions
 *BudgeaClient::BanksApi* | [**users_id_user_connections_id_connection_transactions_id_transaction_informations_delete**](docs/BanksApi.md#users_id_user_connections_id_connection_transactions_id_transaction_informations_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/informations | Delete all arbitrary key-value pairs of a transaction
@@ -250,12 +267,17 @@ Class | Method | HTTP request | Description
 *BudgeaClient::BanksApi* | [**users_id_user_transactionsclusters_post**](docs/BanksApi.md#users_id_user_transactionsclusters_post) | **POST** /users/{id_user}/transactionsclusters | Create clustered transaction
 *BudgeaClient::ConnectionsApi* | [**banks_get**](docs/ConnectionsApi.md#banks_get) | **GET** /banks | Get list of connectors
 *BudgeaClient::ConnectionsApi* | [**banks_id_connector_connections_get**](docs/ConnectionsApi.md#banks_id_connector_connections_get) | **GET** /banks/{id_connector}/connections | Get a subset of id_connection with the largest diversity of account
+*BudgeaClient::ConnectionsApi* | [**banks_id_connector_sources_get**](docs/ConnectionsApi.md#banks_id_connector_sources_get) | **GET** /banks/{id_connector}/sources | Get list of connector sources
 *BudgeaClient::ConnectionsApi* | [**connections_get**](docs/ConnectionsApi.md#connections_get) | **GET** /connections | Get connections without a user
+*BudgeaClient::ConnectionsApi* | [**connections_id_connection_logs_get**](docs/ConnectionsApi.md#connections_id_connection_logs_get) | **GET** /connections/{id_connection}/logs | Get connection logs
 *BudgeaClient::ConnectionsApi* | [**connectors_get**](docs/ConnectionsApi.md#connectors_get) | **GET** /connectors | Get list of connectors
+*BudgeaClient::ConnectionsApi* | [**connectors_id_connector_sources_get**](docs/ConnectionsApi.md#connectors_id_connector_sources_get) | **GET** /connectors/{id_connector}/sources | Get list of connector sources
+*BudgeaClient::ConnectionsApi* | [**connectors_id_connector_sources_id_source_put**](docs/ConnectionsApi.md#connectors_id_connector_sources_id_source_put) | **PUT** /connectors/{id_connector}/sources/{id_source} | Edit the provided connector source
 *BudgeaClient::ConnectionsApi* | [**connectors_post**](docs/ConnectionsApi.md#connectors_post) | **POST** /connectors | Request a new connector
 *BudgeaClient::ConnectionsApi* | [**logs_get**](docs/ConnectionsApi.md#logs_get) | **GET** /logs | Get connection logs
 *BudgeaClient::ConnectionsApi* | [**providers_get**](docs/ConnectionsApi.md#providers_get) | **GET** /providers | Get list of connectors
 *BudgeaClient::ConnectionsApi* | [**providers_id_connector_connections_get**](docs/ConnectionsApi.md#providers_id_connector_connections_get) | **GET** /providers/{id_connector}/connections | Get a random subset of provider's id_connection
+*BudgeaClient::ConnectionsApi* | [**providers_id_connector_sources_get**](docs/ConnectionsApi.md#providers_id_connector_sources_get) | **GET** /providers/{id_connector}/sources | Get list of connector sources
 *BudgeaClient::ConnectionsApi* | [**users_id_user_connections_delete**](docs/ConnectionsApi.md#users_id_user_connections_delete) | **DELETE** /users/{id_user}/connections | Delete all connections
 *BudgeaClient::ConnectionsApi* | [**users_id_user_connections_get**](docs/ConnectionsApi.md#users_id_user_connections_get) | **GET** /users/{id_user}/connections | Get connections
 *BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_delete**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_delete) | **DELETE** /users/{id_user}/connections/{id_connection} | Delete a connection.
@@ -264,6 +286,10 @@ Class | Method | HTTP request | Description
 *BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_logs_get**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/logs | Get connection logs
 *BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_post**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_post) | **POST** /users/{id_user}/connections/{id_connection} | Update a connection.
 *BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_put**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_put) | **PUT** /users/{id_user}/connections/{id_connection} | Force synchronisation of a connection.
+*BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_sources_get**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_sources_get) | **GET** /users/{id_user}/connections/{id_connection}/sources | Get connection sources
+*BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_sources_id_source_delete**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_sources_id_source_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Disable a connection source
+*BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_sources_id_source_post**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_sources_id_source_post) | **POST** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
+*BudgeaClient::ConnectionsApi* | [**users_id_user_connections_id_connection_sources_id_source_put**](docs/ConnectionsApi.md#users_id_user_connections_id_connection_sources_id_source_put) | **PUT** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
 *BudgeaClient::ConnectionsApi* | [**users_id_user_connections_post**](docs/ConnectionsApi.md#users_id_user_connections_post) | **POST** /users/{id_user}/connections | Add a new connection.
 *BudgeaClient::ConnectionsApi* | [**users_id_user_logs_get**](docs/ConnectionsApi.md#users_id_user_logs_get) | **GET** /users/{id_user}/logs | Get connection logs
 *BudgeaClient::DocumentsApi* | [**documenttypes_get**](docs/DocumentsApi.md#documenttypes_get) | **GET** /documenttypes | Get document types
@@ -342,7 +368,6 @@ Class | Method | HTTP request | Description
 *BudgeaClient::DocumentsApi* | [**users_id_user_transactionsclusters_id_transactions_cluster_documents_id_document_put**](docs/DocumentsApi.md#users_id_user_transactionsclusters_id_transactions_cluster_documents_id_document_put) | **PUT** /users/{id_user}/transactionsclusters/{id_transactions_cluster}/documents/{id_document} | Edit a document
 *BudgeaClient::DocumentsApi* | [**users_id_user_transactionsclusters_id_transactions_cluster_documents_post**](docs/DocumentsApi.md#users_id_user_transactionsclusters_id_transactions_cluster_documents_post) | **POST** /users/{id_user}/transactionsclusters/{id_transactions_cluster}/documents | Add a new document
 *BudgeaClient::DocumentsApi* | [**users_id_user_transactionsclusters_id_transactions_cluster_documents_put**](docs/DocumentsApi.md#users_id_user_transactionsclusters_id_transactions_cluster_documents_put) | **PUT** /users/{id_user}/transactionsclusters/{id_transactions_cluster}/documents | Attach an existing document to a transaction or a transactions_cluster
-*BudgeaClient::HUBApi* | [**webhooks_id_webhook_add_to_data_post**](docs/HUBApi.md#webhooks_id_webhook_add_to_data_post) | **POST** /webhooks/{id_webhook}/add_to_data | Setup a field to store in user config when calling the endpoint
 *BudgeaClient::OCRApi* | [**ocr_post**](docs/OCRApi.md#ocr_post) | **POST** /ocr | Post an image with OCR
 *BudgeaClient::OCRApi* | [**users_id_user_ocr_post**](docs/OCRApi.md#users_id_user_ocr_post) | **POST** /users/{id_user}/ocr | Post an image with OCR
 *BudgeaClient::OIDCApi* | [**oidc_whitelist_id_whitelist_delete**](docs/OIDCApi.md#oidc_whitelist_id_whitelist_delete) | **DELETE** /oidc/whitelist/{id_whitelist} | Delete the supplied authorized redirect uri
@@ -352,6 +377,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::PFMApi* | [**auth_confirm_post**](docs/PFMApi.md#auth_confirm_post) | **POST** /auth/confirm | Confirm email address
 *BudgeaClient::PFMApi* | [**auth_cookie_post**](docs/PFMApi.md#auth_cookie_post) | **POST** /auth/cookie | Login with credentials and set as cookie
 *BudgeaClient::PFMApi* | [**auth_register_post**](docs/PFMApi.md#auth_register_post) | **POST** /auth/register | Register to API
+*BudgeaClient::PFMApi* | [**auth_resend_confirm_email_post**](docs/PFMApi.md#auth_resend_confirm_email_post) | **POST** /auth/resendConfirmEmail | Resend an email to confirm email address.
 *BudgeaClient::PFMApi* | [**auth_token_delete**](docs/PFMApi.md#auth_token_delete) | **DELETE** /auth/token | Remove user access
 *BudgeaClient::PFMApi* | [**auth_token_post**](docs/PFMApi.md#auth_token_post) | **POST** /auth/token | Login to API with credentials
 *BudgeaClient::PFMApi* | [**hash_delete**](docs/PFMApi.md#hash_delete) | **DELETE** /hash | Delete the user's connections
@@ -366,7 +392,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_balances_get**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/balances | Get balances of accounts
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Get a list of configurated alerts
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investments
-*BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investments
+*BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investements
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**](docs/PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Create an alert on transactions or investments of a given user
 *BudgeaClient::PFMApi* | [**users_id_user_connections_id_connection_balances_get**](docs/PFMApi.md#users_id_user_connections_id_connection_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/balances | Get balances of accounts
 *BudgeaClient::PFMApi* | [**users_id_user_devices_get**](docs/PFMApi.md#users_id_user_devices_get) | **GET** /users/{id_user}/devices | Get devices
@@ -391,7 +417,9 @@ Class | Method | HTTP request | Description
 *BudgeaClient::ProvidersApi* | [**banks_id_connector_logos_get**](docs/ProvidersApi.md#banks_id_connector_logos_get) | **GET** /banks/{id_connector}/logos | Get all links to the files associated with this connector.
 *BudgeaClient::ProvidersApi* | [**banks_id_connector_logos_main_get**](docs/ProvidersApi.md#banks_id_connector_logos_main_get) | **GET** /banks/{id_connector}/logos/main | Get all links to the files associated with this connector.
 *BudgeaClient::ProvidersApi* | [**banks_id_connector_logos_thumbnail_get**](docs/ProvidersApi.md#banks_id_connector_logos_thumbnail_get) | **GET** /banks/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+*BudgeaClient::ProvidersApi* | [**banks_id_connector_sources_get**](docs/ProvidersApi.md#banks_id_connector_sources_get) | **GET** /banks/{id_connector}/sources | Get list of connector sources
 *BudgeaClient::ProvidersApi* | [**connections_get**](docs/ProvidersApi.md#connections_get) | **GET** /connections | Get connections without a user
+*BudgeaClient::ProvidersApi* | [**connections_id_connection_logs_get**](docs/ProvidersApi.md#connections_id_connection_logs_get) | **GET** /connections/{id_connection}/logs | Get connection logs
 *BudgeaClient::ProvidersApi* | [**connectors_get**](docs/ProvidersApi.md#connectors_get) | **GET** /connectors | Get list of connectors
 *BudgeaClient::ProvidersApi* | [**connectors_id_connector_logos_get**](docs/ProvidersApi.md#connectors_id_connector_logos_get) | **GET** /connectors/{id_connector}/logos | Get all links to the files associated with this connector.
 *BudgeaClient::ProvidersApi* | [**connectors_id_connector_logos_id_logo_delete**](docs/ProvidersApi.md#connectors_id_connector_logos_id_logo_delete) | **DELETE** /connectors/{id_connector}/logos/{id_logo} | Delete a single Logo object.
@@ -400,6 +428,8 @@ Class | Method | HTTP request | Description
 *BudgeaClient::ProvidersApi* | [**connectors_id_connector_logos_post**](docs/ProvidersApi.md#connectors_id_connector_logos_post) | **POST** /connectors/{id_connector}/logos | Create a connector Logo
 *BudgeaClient::ProvidersApi* | [**connectors_id_connector_logos_put**](docs/ProvidersApi.md#connectors_id_connector_logos_put) | **PUT** /connectors/{id_connector}/logos | Create or Update a connector Logo
 *BudgeaClient::ProvidersApi* | [**connectors_id_connector_logos_thumbnail_get**](docs/ProvidersApi.md#connectors_id_connector_logos_thumbnail_get) | **GET** /connectors/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+*BudgeaClient::ProvidersApi* | [**connectors_id_connector_sources_get**](docs/ProvidersApi.md#connectors_id_connector_sources_get) | **GET** /connectors/{id_connector}/sources | Get list of connector sources
+*BudgeaClient::ProvidersApi* | [**connectors_id_connector_sources_id_source_put**](docs/ProvidersApi.md#connectors_id_connector_sources_id_source_put) | **PUT** /connectors/{id_connector}/sources/{id_source} | Edit the provided connector source
 *BudgeaClient::ProvidersApi* | [**connectors_post**](docs/ProvidersApi.md#connectors_post) | **POST** /connectors | Request a new connector
 *BudgeaClient::ProvidersApi* | [**documenttypes_get**](docs/ProvidersApi.md#documenttypes_get) | **GET** /documenttypes | Get document types
 *BudgeaClient::ProvidersApi* | [**documenttypes_id_documenttype_put**](docs/ProvidersApi.md#documenttypes_id_documenttype_put) | **PUT** /documenttypes/{id_documenttype} | Edit a document type
@@ -409,6 +439,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::ProvidersApi* | [**providers_id_connector_logos_get**](docs/ProvidersApi.md#providers_id_connector_logos_get) | **GET** /providers/{id_connector}/logos | Get all links to the files associated with this connector.
 *BudgeaClient::ProvidersApi* | [**providers_id_connector_logos_main_get**](docs/ProvidersApi.md#providers_id_connector_logos_main_get) | **GET** /providers/{id_connector}/logos/main | Get all links to the files associated with this connector.
 *BudgeaClient::ProvidersApi* | [**providers_id_connector_logos_thumbnail_get**](docs/ProvidersApi.md#providers_id_connector_logos_thumbnail_get) | **GET** /providers/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+*BudgeaClient::ProvidersApi* | [**providers_id_connector_sources_get**](docs/ProvidersApi.md#providers_id_connector_sources_get) | **GET** /providers/{id_connector}/sources | Get list of connector sources
 *BudgeaClient::ProvidersApi* | [**users_id_user_accounts_id_account_transactions_id_transaction_documents_delete**](docs/ProvidersApi.md#users_id_user_accounts_id_account_transactions_id_transaction_documents_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/documents | Delete documents
 *BudgeaClient::ProvidersApi* | [**users_id_user_accounts_id_account_transactions_id_transaction_documents_get**](docs/ProvidersApi.md#users_id_user_accounts_id_account_transactions_id_transaction_documents_get) | **GET** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/documents | Get documents
 *BudgeaClient::ProvidersApi* | [**users_id_user_accounts_id_account_transactions_id_transaction_documents_id_document_delete**](docs/ProvidersApi.md#users_id_user_accounts_id_account_transactions_id_transaction_documents_id_document_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/documents/{id_document} | Delete a document
@@ -447,6 +478,10 @@ Class | Method | HTTP request | Description
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_logs_get**](docs/ProvidersApi.md#users_id_user_connections_id_connection_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/logs | Get connection logs
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_post**](docs/ProvidersApi.md#users_id_user_connections_id_connection_post) | **POST** /users/{id_user}/connections/{id_connection} | Update a connection.
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_put**](docs/ProvidersApi.md#users_id_user_connections_id_connection_put) | **PUT** /users/{id_user}/connections/{id_connection} | Force synchronisation of a connection.
+*BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_sources_get**](docs/ProvidersApi.md#users_id_user_connections_id_connection_sources_get) | **GET** /users/{id_user}/connections/{id_connection}/sources | Get connection sources
+*BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_sources_id_source_delete**](docs/ProvidersApi.md#users_id_user_connections_id_connection_sources_id_source_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Disable a connection source
+*BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_sources_id_source_post**](docs/ProvidersApi.md#users_id_user_connections_id_connection_sources_id_source_post) | **POST** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
+*BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_sources_id_source_put**](docs/ProvidersApi.md#users_id_user_connections_id_connection_sources_id_source_put) | **PUT** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_delete**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription} | Delete a subscription.
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_delete**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Delete documents
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get) | **GET** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Get documents
@@ -454,7 +489,9 @@ Class | Method | HTTP request | Description
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_id_document_put**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_id_document_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents/{id_document} | Edit a document
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_post**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_post) | **POST** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Add a new document
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_put**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Attach an existing document to a transaction or a transactions_cluster
+*BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/logs | Get subscriptions logs.
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_id_subscription_put**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription} | Update a subscription
+*BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_subscriptions_put**](docs/ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions | Update many subscriptions at once
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_transactions_id_transaction_documents_delete**](docs/ProvidersApi.md#users_id_user_connections_id_connection_transactions_id_transaction_documents_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/documents | Delete documents
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_transactions_id_transaction_documents_get**](docs/ProvidersApi.md#users_id_user_connections_id_connection_transactions_id_transaction_documents_get) | **GET** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/documents | Get documents
 *BudgeaClient::ProvidersApi* | [**users_id_user_connections_id_connection_transactions_id_transaction_documents_id_document_delete**](docs/ProvidersApi.md#users_id_user_connections_id_connection_transactions_id_transaction_documents_id_document_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/documents/{id_document} | Delete a document
@@ -483,7 +520,9 @@ Class | Method | HTTP request | Description
 *BudgeaClient::ProvidersApi* | [**users_id_user_subscriptions_id_subscription_documents_id_document_put**](docs/ProvidersApi.md#users_id_user_subscriptions_id_subscription_documents_id_document_put) | **PUT** /users/{id_user}/subscriptions/{id_subscription}/documents/{id_document} | Edit a document
 *BudgeaClient::ProvidersApi* | [**users_id_user_subscriptions_id_subscription_documents_post**](docs/ProvidersApi.md#users_id_user_subscriptions_id_subscription_documents_post) | **POST** /users/{id_user}/subscriptions/{id_subscription}/documents | Add a new document
 *BudgeaClient::ProvidersApi* | [**users_id_user_subscriptions_id_subscription_documents_put**](docs/ProvidersApi.md#users_id_user_subscriptions_id_subscription_documents_put) | **PUT** /users/{id_user}/subscriptions/{id_subscription}/documents | Attach an existing document to a transaction or a transactions_cluster
+*BudgeaClient::ProvidersApi* | [**users_id_user_subscriptions_id_subscription_logs_get**](docs/ProvidersApi.md#users_id_user_subscriptions_id_subscription_logs_get) | **GET** /users/{id_user}/subscriptions/{id_subscription}/logs | Get subscriptions logs.
 *BudgeaClient::ProvidersApi* | [**users_id_user_subscriptions_id_subscription_put**](docs/ProvidersApi.md#users_id_user_subscriptions_id_subscription_put) | **PUT** /users/{id_user}/subscriptions/{id_subscription} | Update a subscription
+*BudgeaClient::ProvidersApi* | [**users_id_user_subscriptions_put**](docs/ProvidersApi.md#users_id_user_subscriptions_put) | **PUT** /users/{id_user}/subscriptions | Update many subscriptions at once
 *BudgeaClient::ProvidersApi* | [**users_id_user_transactions_id_transaction_documents_delete**](docs/ProvidersApi.md#users_id_user_transactions_id_transaction_documents_delete) | **DELETE** /users/{id_user}/transactions/{id_transaction}/documents | Delete documents
 *BudgeaClient::ProvidersApi* | [**users_id_user_transactions_id_transaction_documents_get**](docs/ProvidersApi.md#users_id_user_transactions_id_transaction_documents_get) | **GET** /users/{id_user}/transactions/{id_transaction}/documents | Get documents
 *BudgeaClient::ProvidersApi* | [**users_id_user_transactions_id_transaction_documents_id_document_delete**](docs/ProvidersApi.md#users_id_user_transactions_id_transaction_documents_id_document_delete) | **DELETE** /users/{id_user}/transactions/{id_transaction}/documents/{id_document} | Delete a document
@@ -504,6 +543,7 @@ Class | Method | HTTP request | Description
 *BudgeaClient::TermsApi* | [**terms_post**](docs/TermsApi.md#terms_post) | **POST** /terms | Register a version of 'Terms of Service' in database
 *BudgeaClient::TermsApi* | [**users_id_user_terms_get**](docs/TermsApi.md#users_id_user_terms_get) | **GET** /users/{id_user}/terms | Get active terms object for a specific user, only one terms can be active
 *BudgeaClient::TermsApi* | [**users_id_user_terms_post**](docs/TermsApi.md#users_id_user_terms_post) | **POST** /users/{id_user}/terms | Register user's consent for a specific terms id
+*BudgeaClient::TransferApi* | [**webauth_get**](docs/TransferApi.md#webauth_get) | **GET** /webauth | First step to establish an oAuth2 connection.
 *BudgeaClient::TransfersApi* | [**users_id_user_accounts_id_account_recipients_get**](docs/TransfersApi.md#users_id_user_accounts_id_account_recipients_get) | **GET** /users/{id_user}/accounts/{id_account}/recipients | Returns the list of recipients.
 *BudgeaClient::TransfersApi* | [**users_id_user_accounts_id_account_recipients_id_recipient_post**](docs/TransfersApi.md#users_id_user_accounts_id_account_recipients_id_recipient_post) | **POST** /users/{id_user}/accounts/{id_account}/recipients/{id_recipient} | Continue addition of a recipient.
 *BudgeaClient::TransfersApi* | [**users_id_user_accounts_id_account_recipients_id_recipient_transfers_get**](docs/TransfersApi.md#users_id_user_accounts_id_account_recipients_id_recipient_transfers_get) | **GET** /users/{id_user}/accounts/{id_account}/recipients/{id_recipient}/transfers | Get transfers
@@ -594,9 +634,11 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::ConfigLog](docs/ConfigLog.md)
  - [BudgeaClient::Connection](docs/Connection.md)
  - [BudgeaClient::ConnectionLog](docs/ConnectionLog.md)
+ - [BudgeaClient::ConnectionSource](docs/ConnectionSource.md)
  - [BudgeaClient::Connector](docs/Connector.md)
  - [BudgeaClient::ConnectorCategory](docs/ConnectorCategory.md)
  - [BudgeaClient::ConnectorLogo](docs/ConnectorLogo.md)
+ - [BudgeaClient::ConnectorSource](docs/ConnectorSource.md)
  - [BudgeaClient::Currency](docs/Currency.md)
  - [BudgeaClient::Device](docs/Device.md)
  - [BudgeaClient::Document](docs/Document.md)
@@ -642,6 +684,8 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::InlineResponse20039](docs/InlineResponse20039.md)
  - [BudgeaClient::InlineResponse2004](docs/InlineResponse2004.md)
  - [BudgeaClient::InlineResponse20040](docs/InlineResponse20040.md)
+ - [BudgeaClient::InlineResponse20041](docs/InlineResponse20041.md)
+ - [BudgeaClient::InlineResponse20042](docs/InlineResponse20042.md)
  - [BudgeaClient::InlineResponse2005](docs/InlineResponse2005.md)
  - [BudgeaClient::InlineResponse2006](docs/InlineResponse2006.md)
  - [BudgeaClient::InlineResponse2007](docs/InlineResponse2007.md)
@@ -649,10 +693,10 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::InlineResponse2009](docs/InlineResponse2009.md)
  - [BudgeaClient::Investment](docs/Investment.md)
  - [BudgeaClient::InvestmentValue](docs/InvestmentValue.md)
- - [BudgeaClient::Invite](docs/Invite.md)
  - [BudgeaClient::Keyword](docs/Keyword.md)
  - [BudgeaClient::LockedUser](docs/LockedUser.md)
  - [BudgeaClient::OidcWhitelist](docs/OidcWhitelist.md)
+ - [BudgeaClient::Order](docs/Order.md)
  - [BudgeaClient::Pocket](docs/Pocket.md)
  - [BudgeaClient::Profile](docs/Profile.md)
  - [BudgeaClient::Project](docs/Project.md)
@@ -661,6 +705,7 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::RecipientLog](docs/RecipientLog.md)
  - [BudgeaClient::Security](docs/Security.md)
  - [BudgeaClient::Subscription](docs/Subscription.md)
+ - [BudgeaClient::SubscriptionLog](docs/SubscriptionLog.md)
  - [BudgeaClient::TermsOfService](docs/TermsOfService.md)
  - [BudgeaClient::Transaction](docs/Transaction.md)
  - [BudgeaClient::TransactionInformation](docs/TransactionInformation.md)

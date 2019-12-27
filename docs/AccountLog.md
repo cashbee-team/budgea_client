@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **Integer** | ID of the log | 
 **id_account** | **Integer** | ID of the related account | 
 **id_connector** | **Integer** | provider id | [optional] 
 **balance** | **Float** | Balanced recorded | 

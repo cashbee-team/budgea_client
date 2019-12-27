@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :documenttypes
+    attr_accessor :connectionlogs
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'documenttypes' => :'documenttypes'
+        :'connectionlogs' => :'connectionlogs'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'documenttypes' => :'Array<DocumentType>'
+        :'connectionlogs' => :'Array<ConnectionLog>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'documenttypes')
-        if (value = attributes[:'documenttypes']).is_a?(Array)
-          self.documenttypes = value
+      if attributes.has_key?(:'connectionlogs')
+        if (value = attributes[:'connectionlogs']).is_a?(Array)
+          self.connectionlogs = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @documenttypes.nil?
-        invalid_properties.push('invalid value for "documenttypes", documenttypes cannot be nil.')
+      if @connectionlogs.nil?
+        invalid_properties.push('invalid value for "connectionlogs", connectionlogs cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @documenttypes.nil?
+      return false if @connectionlogs.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          documenttypes == o.documenttypes
+          connectionlogs == o.connectionlogs
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, documenttypes].hash
+      [total, connectionlogs].hash
     end
 
     # Builds the object from hash

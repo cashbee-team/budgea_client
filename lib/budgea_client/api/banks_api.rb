@@ -50,7 +50,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -107,7 +107,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -164,7 +164,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -227,7 +227,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -285,7 +285,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -337,7 +337,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -403,7 +403,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -460,7 +460,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -517,7 +517,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -574,7 +574,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -594,11 +594,68 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20011]
+    def banks_id_connector_sources_get(id_connector, opts = {})
+      data, _status_code, _headers = banks_id_connector_sources_get_with_http_info(id_connector, opts)
+      data
+    end
+
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20011, Fixnum, Hash)>] InlineResponse20011 data, response status code and response headers
+    def banks_id_connector_sources_get_with_http_info(id_connector, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.banks_id_connector_sources_get ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling BanksApi.banks_id_connector_sources_get"
+      end
+      # resource path
+      local_var_path = '/banks/{id_connector}/sources'.sub('{' + 'id_connector' + '}', id_connector.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20011')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#banks_id_connector_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get all categories
     # Ressource to get all existing categories<br><br>
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20011]
+    # @return [InlineResponse20012]
     def categories_get(opts = {})
       data, _status_code, _headers = categories_get_with_http_info(opts)
       data
@@ -608,7 +665,7 @@ module BudgeaClient
     # Ressource to get all existing categories&lt;br&gt;&lt;br&gt;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20011, Fixnum, Hash)>] InlineResponse20011 data, response status code and response headers
+    # @return [Array<(InlineResponse20012, Fixnum, Hash)>] InlineResponse20012 data, response status code and response headers
     def categories_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.categories_get ...'
@@ -625,7 +682,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -639,7 +696,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20011')
+        :return_type => 'InlineResponse20012')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#categories_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -682,7 +739,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -733,7 +790,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -799,7 +856,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -853,7 +910,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -873,11 +930,101 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get connection logs
+    # Get logs about connections.<br><br>
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal date
+    # @option opts [Date] :max_date maximum date
+    # @option opts [Integer] :state state of user
+    # @option opts [String] :period period to group logs
+    # @option opts [Integer] :id_user ID of a user
+    # @option opts [Integer] :id_connection2 ID of a connection
+    # @option opts [Integer] :id_connector ID of a connector
+    # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
+    # @option opts [String] :expand 
+    # @return [InlineResponse20015]
+    def connections_id_connection_logs_get(id_connection, opts = {})
+      data, _status_code, _headers = connections_id_connection_logs_get_with_http_info(id_connection, opts)
+      data
+    end
+
+    # Get connection logs
+    # Get logs about connections.&lt;br&gt;&lt;br&gt;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal date
+    # @option opts [Date] :max_date maximum date
+    # @option opts [Integer] :state state of user
+    # @option opts [String] :period period to group logs
+    # @option opts [Integer] :id_user ID of a user
+    # @option opts [Integer] :id_connection2 ID of a connection
+    # @option opts [Integer] :id_connector ID of a connector
+    # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
+    def connections_id_connection_logs_get_with_http_info(id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connections_id_connection_logs_get ...'
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.connections_id_connection_logs_get"
+      end
+      # resource path
+      local_var_path = '/connections/{id_connection}/logs'.sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'min_date'] = opts[:'min_date'] if !opts[:'min_date'].nil?
+      query_params[:'max_date'] = opts[:'max_date'] if !opts[:'max_date'].nil?
+      query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
+      query_params[:'period'] = opts[:'period'] if !opts[:'period'].nil?
+      query_params[:'id_user'] = opts[:'id_user'] if !opts[:'id_user'].nil?
+      query_params[:'id_connection'] = opts[:'id_connection2'] if !opts[:'id_connection2'].nil?
+      query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
+      query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20015')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connections_id_connection_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get list of connectors
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20014]
+    # @return [InlineResponse20016]
     def connectors_get(opts = {})
       data, _status_code, _headers = connectors_get_with_http_info(opts)
       data
@@ -887,7 +1034,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20014, Fixnum, Hash)>] InlineResponse20014 data, response status code and response headers
+    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
     def connectors_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.connectors_get ...'
@@ -904,7 +1051,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -918,7 +1065,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20014')
+        :return_type => 'InlineResponse20016')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#connectors_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -961,7 +1108,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1024,7 +1171,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1087,7 +1234,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1144,7 +1291,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1201,7 +1348,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1258,7 +1405,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1315,7 +1462,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1342,6 +1489,7 @@ module BudgeaClient
     # @option opts [String] :id_categories one or several comma separated categories to map to the given connector (or null to map no category)
     # @option opts [BOOLEAN] :hidden to enable  or disable connector (bank or provider)
     # @option opts [Integer] :sync_frequency Allows you to overload global sync_frequency param
+    # @option opts [String] :auth_mechanism the authentication mechanism to use for this connector
     # @option opts [String] :expand 
     # @return [Connector]
     def connectors_id_connector_put(id_connector, opts = {})
@@ -1356,6 +1504,7 @@ module BudgeaClient
     # @option opts [String] :id_categories one or several comma separated categories to map to the given connector (or null to map no category)
     # @option opts [BOOLEAN] :hidden to enable  or disable connector (bank or provider)
     # @option opts [Integer] :sync_frequency Allows you to overload global sync_frequency param
+    # @option opts [String] :auth_mechanism the authentication mechanism to use for this connector
     # @option opts [String] :expand 
     # @return [Array<(Connector, Fixnum, Hash)>] Connector data, response status code and response headers
     def connectors_id_connector_put_with_http_info(id_connector, opts = {})
@@ -1378,13 +1527,14 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params['id_categories'] = opts[:'id_categories'] if !opts[:'id_categories'].nil?
       form_params['hidden'] = opts[:'hidden'] if !opts[:'hidden'].nil?
       form_params['sync_frequency'] = opts[:'sync_frequency'] if !opts[:'sync_frequency'].nil?
+      form_params['auth_mechanism'] = opts[:'auth_mechanism'] if !opts[:'auth_mechanism'].nil?
 
       # http body (model)
       post_body = nil
@@ -1398,6 +1548,132 @@ module BudgeaClient
         :return_type => 'Connector')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#connectors_id_connector_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20011]
+    def connectors_id_connector_sources_get(id_connector, opts = {})
+      data, _status_code, _headers = connectors_id_connector_sources_get_with_http_info(id_connector, opts)
+      data
+    end
+
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20011, Fixnum, Hash)>] InlineResponse20011 data, response status code and response headers
+    def connectors_id_connector_sources_get_with_http_info(id_connector, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connectors_id_connector_sources_get ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling BanksApi.connectors_id_connector_sources_get"
+      end
+      # resource path
+      local_var_path = '/connectors/{id_connector}/sources'.sub('{' + 'id_connector' + '}', id_connector.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20011')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connectors_id_connector_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Edit the provided connector source
+    # 
+    # @param id_connector 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :auth_mechanism the authentication mechanism to use for this connector source
+    # @option opts [DateTime] :disabled to enable or disable connector source
+    # @option opts [String] :expand 
+    # @return [ConnectorSource]
+    def connectors_id_connector_sources_id_source_put(id_connector, id_source, opts = {})
+      data, _status_code, _headers = connectors_id_connector_sources_id_source_put_with_http_info(id_connector, id_source, opts)
+      data
+    end
+
+    # Edit the provided connector source
+    # 
+    # @param id_connector 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :auth_mechanism the authentication mechanism to use for this connector source
+    # @option opts [DateTime] :disabled to enable or disable connector source
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectorSource, Fixnum, Hash)>] ConnectorSource data, response status code and response headers
+    def connectors_id_connector_sources_id_source_put_with_http_info(id_connector, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connectors_id_connector_sources_id_source_put ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling BanksApi.connectors_id_connector_sources_id_source_put"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling BanksApi.connectors_id_connector_sources_id_source_put"
+      end
+      # resource path
+      local_var_path = '/connectors/{id_connector}/sources/{id_source}'.sub('{' + 'id_connector' + '}', id_connector.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['auth_mechanism'] = opts[:'auth_mechanism'] if !opts[:'auth_mechanism'].nil?
+      form_params['disabled'] = opts[:'disabled'] if !opts[:'disabled'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectorSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connectors_id_connector_sources_id_source_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1460,7 +1736,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1488,26 +1764,96 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
-    # Get number of accounts, connections and users synced.
-    # Get number of accounts, connections and users synced between two dates for the given period.<br><br>
+    # Enable/disable several connectors
+    # 
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :hidden to enable  or disable connector (bank or provider)
+    # @option opts [String] :expand 
+    # @return [Connector]
+    def connectors_put(opts = {})
+      data, _status_code, _headers = connectors_put_with_http_info(opts)
+      data
+    end
+
+    # Enable/disable several connectors
+    # 
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :hidden to enable  or disable connector (bank or provider)
+    # @option opts [String] :expand 
+    # @return [Array<(Connector, Fixnum, Hash)>] Connector data, response status code and response headers
+    def connectors_put_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connectors_put ...'
+      end
+      # resource path
+      local_var_path = '/connectors'
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['hidden'] = opts[:'hidden'] if !opts[:'hidden'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Connector')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connectors_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get invoicing data for a given period (default is the current month).
+    # You can get all the invoicing data or just specific ones by using the available parameters.<br><br>If no parameters are specified, no invoicing data is returned.<br><br>
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :min_date minimal date
     # @option opts [Date] :max_date maximum date
-    # @option opts [String] :period period to group logs
-    # @option opts [String] :all get full ids list instead of numbers
+    # @option opts [String] :users_synced the number of user synchronized during the period
+    # @option opts [String] :users_bank the number of user of the Bank API synchronized during the period
+    # @option opts [String] :users_bill  the number of user of the Bill API synchronized during the period
+    # @option opts [String] :accounts_synced the number of accounts synchronized during the period
+    # @option opts [String] :subscriptions_synced the number of subscriptions synchronized during the period
+    # @option opts [String] :connections_synced the number of connections synchronized during the period
+    # @option opts [String] :connections_account the number of Bank API connections synchronized during the period
+    # @option opts [String] :transfers_synced the number of transfers done during the period
+    # @option opts [String] :all get all the invoicing data at once
+    # @option opts [String] :detail get full ids list instead of numbers
     # @return [nil]
     def invoicing_get(opts = {})
       invoicing_get_with_http_info(opts)
       nil
     end
 
-    # Get number of accounts, connections and users synced.
-    # Get number of accounts, connections and users synced between two dates for the given period.&lt;br&gt;&lt;br&gt;
+    # Get invoicing data for a given period (default is the current month).
+    # You can get all the invoicing data or just specific ones by using the available parameters.&lt;br&gt;&lt;br&gt;If no parameters are specified, no invoicing data is returned.&lt;br&gt;&lt;br&gt;
     # @param [Hash] opts the optional parameters
     # @option opts [Date] :min_date minimal date
     # @option opts [Date] :max_date maximum date
-    # @option opts [String] :period period to group logs
-    # @option opts [String] :all get full ids list instead of numbers
+    # @option opts [String] :users_synced the number of user synchronized during the period
+    # @option opts [String] :users_bank the number of user of the Bank API synchronized during the period
+    # @option opts [String] :users_bill  the number of user of the Bill API synchronized during the period
+    # @option opts [String] :accounts_synced the number of accounts synchronized during the period
+    # @option opts [String] :subscriptions_synced the number of subscriptions synchronized during the period
+    # @option opts [String] :connections_synced the number of connections synchronized during the period
+    # @option opts [String] :connections_account the number of Bank API connections synchronized during the period
+    # @option opts [String] :transfers_synced the number of transfers done during the period
+    # @option opts [String] :all get all the invoicing data at once
+    # @option opts [String] :detail get full ids list instead of numbers
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def invoicing_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1520,15 +1866,23 @@ module BudgeaClient
       query_params = {}
       query_params[:'min_date'] = opts[:'min_date'] if !opts[:'min_date'].nil?
       query_params[:'max_date'] = opts[:'max_date'] if !opts[:'max_date'].nil?
-      query_params[:'period'] = opts[:'period'] if !opts[:'period'].nil?
+      query_params[:'users_synced'] = opts[:'users_synced'] if !opts[:'users_synced'].nil?
+      query_params[:'users_bank'] = opts[:'users_bank'] if !opts[:'users_bank'].nil?
+      query_params[:'users_bill'] = opts[:'users_bill'] if !opts[:'users_bill'].nil?
+      query_params[:'accounts_synced'] = opts[:'accounts_synced'] if !opts[:'accounts_synced'].nil?
+      query_params[:'subscriptions_synced'] = opts[:'subscriptions_synced'] if !opts[:'subscriptions_synced'].nil?
+      query_params[:'connections_synced'] = opts[:'connections_synced'] if !opts[:'connections_synced'].nil?
+      query_params[:'connections_account'] = opts[:'connections_account'] if !opts[:'connections_account'].nil?
+      query_params[:'transfers_synced'] = opts[:'transfers_synced'] if !opts[:'transfers_synced'].nil?
       query_params[:'all'] = opts[:'all'] if !opts[:'all'].nil?
+      query_params[:'detail'] = opts[:'detail'] if !opts[:'detail'].nil?
 
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1560,8 +1914,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [InlineResponse20017]
+    # @return [InlineResponse20015]
     def logs_get(opts = {})
       data, _status_code, _headers = logs_get_with_http_info(opts)
       data
@@ -1580,8 +1935,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
     def logs_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.logs_get ...'
@@ -1601,6 +1957,7 @@ module BudgeaClient
       query_params[:'id_connection'] = opts[:'id_connection'] if !opts[:'id_connection'].nil?
       query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
       query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -1608,7 +1965,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1622,7 +1979,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20017')
+        :return_type => 'InlineResponse20015')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1632,7 +1989,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20018]
+    # @return [InlineResponse20019]
     def providers_get(opts = {})
       data, _status_code, _headers = providers_get_with_http_info(opts)
       data
@@ -1642,7 +1999,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20018, Fixnum, Hash)>] InlineResponse20018 data, response status code and response headers
+    # @return [Array<(InlineResponse20019, Fixnum, Hash)>] InlineResponse20019 data, response status code and response headers
     def providers_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.providers_get ...'
@@ -1659,7 +2016,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1673,7 +2030,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20018')
+        :return_type => 'InlineResponse20019')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#providers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1719,7 +2076,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1744,7 +2101,7 @@ module BudgeaClient
     # @param id_connector 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20019]
+    # @return [InlineResponse20010]
     def providers_id_connector_logos_get(id_connector, opts = {})
       data, _status_code, _headers = providers_id_connector_logos_get_with_http_info(id_connector, opts)
       data
@@ -1755,7 +2112,7 @@ module BudgeaClient
     # @param id_connector 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20019, Fixnum, Hash)>] InlineResponse20019 data, response status code and response headers
+    # @return [Array<(InlineResponse20010, Fixnum, Hash)>] InlineResponse20010 data, response status code and response headers
     def providers_id_connector_logos_get_with_http_info(id_connector, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.providers_id_connector_logos_get ...'
@@ -1776,7 +2133,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1790,7 +2147,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20019')
+        :return_type => 'InlineResponse20010')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#providers_id_connector_logos_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1833,7 +2190,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1890,7 +2247,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1907,6 +2264,63 @@ module BudgeaClient
         :return_type => 'InlineResponse20010')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#providers_id_connector_logos_thumbnail_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20011]
+    def providers_id_connector_sources_get(id_connector, opts = {})
+      data, _status_code, _headers = providers_id_connector_sources_get_with_http_info(id_connector, opts)
+      data
+    end
+
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20011, Fixnum, Hash)>] InlineResponse20011 data, response status code and response headers
+    def providers_id_connector_sources_get_with_http_info(id_connector, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.providers_id_connector_sources_get ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling BanksApi.providers_id_connector_sources_get"
+      end
+      # resource path
+      local_var_path = '/providers/{id_connector}/sources'.sub('{' + 'id_connector' + '}', id_connector.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20011')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#providers_id_connector_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1947,7 +2361,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2010,7 +2424,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2067,7 +2481,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2124,7 +2538,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2184,7 +2598,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2246,7 +2660,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2315,7 +2729,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2335,7 +2749,7 @@ module BudgeaClient
       return data, status_code, headers
     end
     # Get accounts logs.
-    # Get logs of account.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+    # Get logs of account. By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_account 
     # @param [Hash] opts the optional parameters
@@ -2351,7 +2765,7 @@ module BudgeaClient
     end
 
     # Get accounts logs.
-    # Get logs of account.&lt;br&gt;&lt;br&gt;By default, it selects logs for the last month. You can use \&quot;min_date\&quot; and \&quot;max_date\&quot; to change boundary dates.&lt;br&gt;&lt;br&gt;
+    # Get logs of account. By default, it selects logs for the last month. You can use \&quot;min_date\&quot; and \&quot;max_date\&quot; to change boundary dates.&lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_account 
     # @param [Hash] opts the optional parameters
@@ -2389,7 +2803,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2466,7 +2880,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2490,6 +2904,69 @@ module BudgeaClient
         :return_type => 'Account')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_id_account_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get account sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20030]
+    def users_id_user_accounts_id_account_sources_get(id_user, id_account, opts = {})
+      data, _status_code, _headers = users_id_user_accounts_id_account_sources_get_with_http_info(id_user, id_account, opts)
+      data
+    end
+
+    # Get account sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    def users_id_user_accounts_id_account_sources_get_with_http_info(id_user, id_account, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_id_account_sources_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling BanksApi.users_id_user_accounts_id_account_sources_get"
+      end
+      # verify the required parameter 'id_account' is set
+      if @api_client.config.client_side_validation && id_account.nil?
+        fail ArgumentError, "Missing the required parameter 'id_account' when calling BanksApi.users_id_user_accounts_id_account_sources_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/accounts/{id_account}/sources'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_account' + '}', id_account.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20030')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_id_account_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2536,7 +3013,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2575,7 +3052,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [InlineResponse20030]
+    # @return [InlineResponse20031]
     def users_id_user_accounts_id_account_transactions_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transactions_get_with_http_info(id_user, id_account, opts)
       data
@@ -2600,7 +3077,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_accounts_id_account_transactions_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_id_account_transactions_get ...'
@@ -2638,7 +3115,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2652,7 +3129,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20030')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_id_account_transactions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2707,7 +3184,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2734,7 +3211,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20032]
+    # @return [InlineResponse20033]
     def users_id_user_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_account, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transactions_id_transaction_informations_get_with_http_info(id_user, id_account, id_transaction, opts)
       data
@@ -2747,7 +3224,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
+    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
     def users_id_user_accounts_id_account_transactions_id_transaction_informations_get_with_http_info(id_user, id_account, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_id_account_transactions_id_transaction_informations_get ...'
@@ -2776,7 +3253,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2790,7 +3267,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20032')
+        :return_type => 'InlineResponse20033')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_id_account_transactions_id_transaction_informations_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2851,7 +3328,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2926,7 +3403,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2995,7 +3472,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3074,7 +3551,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3174,7 +3651,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3210,7 +3687,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20033]
+    # @return [InlineResponse20034]
     def users_id_user_accounts_id_account_transactionsclusters_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transactionsclusters_get_with_http_info(id_user, id_account, opts)
       data
@@ -3222,7 +3699,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
+    # @return [Array<(InlineResponse20034, Fixnum, Hash)>] InlineResponse20034 data, response status code and response headers
     def users_id_user_accounts_id_account_transactionsclusters_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_id_account_transactionsclusters_get ...'
@@ -3247,7 +3724,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3261,7 +3738,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20033')
+        :return_type => 'InlineResponse20034')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_id_account_transactionsclusters_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3316,7 +3793,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3385,7 +3862,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3448,7 +3925,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3472,16 +3949,16 @@ module BudgeaClient
     # This endpoint creates an account related to a connection or not.<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param name name of account
-    # @param balance balance of account
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :balance balance of account
     # @option opts [String] :number number of account
     # @option opts [String] :iban IBAN of account
     # @option opts [String] :id_currency the currency of the account (default: &#39;EUR&#39;)
     # @option opts [Integer] :id_connection the connection to attach to the account
     # @option opts [String] :expand 
     # @return [Account]
-    def users_id_user_accounts_post(id_user, name, balance, opts = {})
-      data, _status_code, _headers = users_id_user_accounts_post_with_http_info(id_user, name, balance, opts)
+    def users_id_user_accounts_post(id_user, name, opts = {})
+      data, _status_code, _headers = users_id_user_accounts_post_with_http_info(id_user, name, opts)
       data
     end
 
@@ -3489,15 +3966,15 @@ module BudgeaClient
     # This endpoint creates an account related to a connection or not.&lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param name name of account
-    # @param balance balance of account
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :balance balance of account
     # @option opts [String] :number number of account
     # @option opts [String] :iban IBAN of account
     # @option opts [String] :id_currency the currency of the account (default: &#39;EUR&#39;)
     # @option opts [Integer] :id_connection the connection to attach to the account
     # @option opts [String] :expand 
     # @return [Array<(Account, Fixnum, Hash)>] Account data, response status code and response headers
-    def users_id_user_accounts_post_with_http_info(id_user, name, balance, opts = {})
+    def users_id_user_accounts_post_with_http_info(id_user, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_post ...'
       end
@@ -3508,10 +3985,6 @@ module BudgeaClient
       # verify the required parameter 'name' is set
       if @api_client.config.client_side_validation && name.nil?
         fail ArgumentError, "Missing the required parameter 'name' when calling BanksApi.users_id_user_accounts_post"
-      end
-      # verify the required parameter 'balance' is set
-      if @api_client.config.client_side_validation && balance.nil?
-        fail ArgumentError, "Missing the required parameter 'balance' when calling BanksApi.users_id_user_accounts_post"
       end
       # resource path
       local_var_path = '/users/{id_user}/accounts'.sub('{' + 'id_user' + '}', id_user.to_s)
@@ -3525,12 +3998,12 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params['name'] = name
-      form_params['balance'] = balance
+      form_params['balance'] = opts[:'balance'] if !opts[:'balance'].nil?
       form_params['number'] = opts[:'number'] if !opts[:'number'].nil?
       form_params['iban'] = opts[:'iban'] if !opts[:'iban'].nil?
       form_params['id_currency'] = opts[:'id_currency'] if !opts[:'id_currency'].nil?
@@ -3588,7 +4061,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3613,7 +4086,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20034]
+    # @return [InlineResponse20035]
     def users_id_user_alerts_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_alerts_get_with_http_info(id_user, opts)
       data
@@ -3624,7 +4097,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20034, Fixnum, Hash)>] InlineResponse20034 data, response status code and response headers
+    # @return [Array<(InlineResponse20035, Fixnum, Hash)>] InlineResponse20035 data, response status code and response headers
     def users_id_user_alerts_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_alerts_get ...'
@@ -3645,7 +4118,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3659,7 +4132,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20034')
+        :return_type => 'InlineResponse20035')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_alerts_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3670,7 +4143,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20035]
+    # @return [InlineResponse20036]
     def users_id_user_categories_full_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_categories_full_get_with_http_info(id_user, opts)
       data
@@ -3681,7 +4154,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20035, Fixnum, Hash)>] InlineResponse20035 data, response status code and response headers
+    # @return [Array<(InlineResponse20036, Fixnum, Hash)>] InlineResponse20036 data, response status code and response headers
     def users_id_user_categories_full_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_categories_full_get ...'
@@ -3702,7 +4175,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3716,7 +4189,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20035')
+        :return_type => 'InlineResponse20036')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_categories_full_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3765,7 +4238,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3832,7 +4305,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3905,7 +4378,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3966,7 +4439,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4022,7 +4495,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4079,7 +4552,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4142,7 +4615,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4205,7 +4678,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4271,7 +4744,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4339,7 +4812,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4414,7 +4887,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4434,7 +4907,7 @@ module BudgeaClient
       return data, status_code, headers
     end
     # Get accounts logs.
-    # Get logs of account.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+    # Get logs of account. By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param id_account 
@@ -4451,7 +4924,7 @@ module BudgeaClient
     end
 
     # Get accounts logs.
-    # Get logs of account.&lt;br&gt;&lt;br&gt;By default, it selects logs for the last month. You can use \&quot;min_date\&quot; and \&quot;max_date\&quot; to change boundary dates.&lt;br&gt;&lt;br&gt;
+    # Get logs of account. By default, it selects logs for the last month. You can use \&quot;min_date\&quot; and \&quot;max_date\&quot; to change boundary dates.&lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param id_account 
@@ -4494,7 +4967,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4577,7 +5050,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4601,6 +5074,75 @@ module BudgeaClient
         :return_type => 'Account')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_id_account_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get account sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20030]
+    def users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_sources_get_with_http_info(id_user, id_connection, id_account, opts)
+      data
+    end
+
+    # Get account sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_account 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    def users_id_user_connections_id_connection_accounts_id_account_sources_get_with_http_info(id_user, id_connection, id_account, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_id_account_sources_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling BanksApi.users_id_user_connections_id_connection_accounts_id_account_sources_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.users_id_user_connections_id_connection_accounts_id_account_sources_get"
+      end
+      # verify the required parameter 'id_account' is set
+      if @api_client.config.client_side_validation && id_account.nil?
+        fail ArgumentError, "Missing the required parameter 'id_account' when calling BanksApi.users_id_user_connections_id_connection_accounts_id_account_sources_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/accounts/{id_account}/sources'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_account' + '}', id_account.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20030')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_id_account_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4653,7 +5195,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4693,7 +5235,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [InlineResponse20030]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_accounts_id_account_transactions_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transactions_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -4719,7 +5261,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transactions_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_id_account_transactions_get ...'
@@ -4761,7 +5303,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4775,7 +5317,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20030')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_id_account_transactions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4836,7 +5378,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4864,7 +5406,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20032]
+    # @return [InlineResponse20033]
     def users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_connection, id_account, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get_with_http_info(id_user, id_connection, id_account, id_transaction, opts)
       data
@@ -4878,7 +5420,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
+    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get_with_http_info(id_user, id_connection, id_account, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get ...'
@@ -4911,7 +5453,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4925,7 +5467,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20032')
+        :return_type => 'InlineResponse20033')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4992,7 +5534,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5073,7 +5615,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5148,7 +5690,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5233,7 +5775,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5339,7 +5881,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5376,7 +5918,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20033]
+    # @return [InlineResponse20034]
     def users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -5389,7 +5931,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
+    # @return [Array<(InlineResponse20034, Fixnum, Hash)>] InlineResponse20034 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get ...'
@@ -5418,7 +5960,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5432,7 +5974,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20033')
+        :return_type => 'InlineResponse20034')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5493,7 +6035,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5568,7 +6110,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5637,7 +6179,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5662,16 +6204,16 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param name name of account
-    # @param balance balance of account
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :balance balance of account
     # @option opts [String] :number number of account
     # @option opts [String] :iban IBAN of account
     # @option opts [String] :id_currency the currency of the account (default: &#39;EUR&#39;)
     # @option opts [Integer] :id_connection2 the connection to attach to the account
     # @option opts [String] :expand 
     # @return [Account]
-    def users_id_user_connections_id_connection_accounts_post(id_user, id_connection, name, balance, opts = {})
-      data, _status_code, _headers = users_id_user_connections_id_connection_accounts_post_with_http_info(id_user, id_connection, name, balance, opts)
+    def users_id_user_connections_id_connection_accounts_post(id_user, id_connection, name, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_accounts_post_with_http_info(id_user, id_connection, name, opts)
       data
     end
 
@@ -5680,15 +6222,15 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param name name of account
-    # @param balance balance of account
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :balance balance of account
     # @option opts [String] :number number of account
     # @option opts [String] :iban IBAN of account
     # @option opts [String] :id_currency the currency of the account (default: &#39;EUR&#39;)
     # @option opts [Integer] :id_connection2 the connection to attach to the account
     # @option opts [String] :expand 
     # @return [Array<(Account, Fixnum, Hash)>] Account data, response status code and response headers
-    def users_id_user_connections_id_connection_accounts_post_with_http_info(id_user, id_connection, name, balance, opts = {})
+    def users_id_user_connections_id_connection_accounts_post_with_http_info(id_user, id_connection, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_post ...'
       end
@@ -5704,10 +6246,6 @@ module BudgeaClient
       if @api_client.config.client_side_validation && name.nil?
         fail ArgumentError, "Missing the required parameter 'name' when calling BanksApi.users_id_user_connections_id_connection_accounts_post"
       end
-      # verify the required parameter 'balance' is set
-      if @api_client.config.client_side_validation && balance.nil?
-        fail ArgumentError, "Missing the required parameter 'balance' when calling BanksApi.users_id_user_connections_id_connection_accounts_post"
-      end
       # resource path
       local_var_path = '/users/{id_user}/connections/{id_connection}/accounts'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s)
 
@@ -5720,12 +6258,12 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params['name'] = name
-      form_params['balance'] = balance
+      form_params['balance'] = opts[:'balance'] if !opts[:'balance'].nil?
       form_params['number'] = opts[:'number'] if !opts[:'number'].nil?
       form_params['iban'] = opts[:'iban'] if !opts[:'iban'].nil?
       form_params['id_currency'] = opts[:'id_currency'] if !opts[:'id_currency'].nil?
@@ -5789,7 +6327,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5852,7 +6390,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5915,7 +6453,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5978,7 +6516,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6013,8 +6551,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection2 ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [InlineResponse20017]
+    # @return [InlineResponse20015]
     def users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_logs_get_with_http_info(id_user, id_connection, opts)
       data
@@ -6035,8 +6574,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection2 ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
     def users_id_user_connections_id_connection_logs_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_logs_get ...'
@@ -6064,6 +6604,7 @@ module BudgeaClient
       query_params[:'id_connection'] = opts[:'id_connection2'] if !opts[:'id_connection2'].nil?
       query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
       query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -6071,7 +6612,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6085,7 +6626,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20017')
+        :return_type => 'InlineResponse20015')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6144,7 +6685,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6212,7 +6753,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6229,6 +6770,276 @@ module BudgeaClient
         :return_type => 'Connection')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get connection sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20030]
+    def users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_get_with_http_info(id_user, id_connection, opts)
+      data
+    end
+
+    # Get connection sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_get_with_http_info(id_user, id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_sources_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling BanksApi.users_id_user_connections_id_connection_sources_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.users_id_user_connections_id_connection_sources_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20030')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Disable a connection source
+    # This will make it so the specified source will not be synchronized anymore.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_id_source_delete_with_http_info(id_user, id_connection, id_source, opts)
+      data
+    end
+
+    # Disable a connection source
+    # This will make it so the specified source will not be synchronized anymore.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_id_source_delete_with_http_info(id_user, id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_sources_id_source_delete ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_delete"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_delete"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_delete"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_sources_id_source_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_id_source_post_with_http_info(id_user, id_connection, id_source, opts)
+      data
+    end
+
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_id_source_post_with_http_info(id_user, id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_sources_id_source_post ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_post"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_post"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_post"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_sources_id_source_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_id_source_put_with_http_info(id_user, id_connection, id_source, opts)
+      data
+    end
+
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_id_source_put_with_http_info(id_user, id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_sources_id_source_put ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_put"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_put"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling BanksApi.users_id_user_connections_id_connection_sources_id_source_put"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_sources_id_source_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -6275,7 +7086,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6314,7 +7125,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [InlineResponse20030]
+    # @return [InlineResponse20031]
     def users_id_user_connections_id_connection_transactions_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transactions_get_with_http_info(id_user, id_connection, opts)
       data
@@ -6339,7 +7150,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_connections_id_connection_transactions_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_transactions_get ...'
@@ -6377,7 +7188,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6391,7 +7202,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20030')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_transactions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6446,7 +7257,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6473,7 +7284,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20032]
+    # @return [InlineResponse20033]
     def users_id_user_connections_id_connection_transactions_id_transaction_informations_get(id_user, id_connection, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transactions_id_transaction_informations_get_with_http_info(id_user, id_connection, id_transaction, opts)
       data
@@ -6486,7 +7297,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
+    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
     def users_id_user_connections_id_connection_transactions_id_transaction_informations_get_with_http_info(id_user, id_connection, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_transactions_id_transaction_informations_get ...'
@@ -6515,7 +7326,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6529,7 +7340,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20032')
+        :return_type => 'InlineResponse20033')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_transactions_id_transaction_informations_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6590,7 +7401,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6665,7 +7476,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6734,7 +7545,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6813,7 +7624,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6913,7 +7724,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6949,7 +7760,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20033]
+    # @return [InlineResponse20034]
     def users_id_user_connections_id_connection_transactionsclusters_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transactionsclusters_get_with_http_info(id_user, id_connection, opts)
       data
@@ -6961,7 +7772,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
+    # @return [Array<(InlineResponse20034, Fixnum, Hash)>] InlineResponse20034 data, response status code and response headers
     def users_id_user_connections_id_connection_transactionsclusters_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_transactionsclusters_get ...'
@@ -6986,7 +7797,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7000,7 +7811,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20033')
+        :return_type => 'InlineResponse20034')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_transactionsclusters_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7055,7 +7866,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7124,7 +7935,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7187,7 +7998,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7211,6 +8022,7 @@ module BudgeaClient
     # Create a new connection to a given bank or provider. You have to give all needed parameters (use /banks/ID/fields or /providers/ID/fields to get them).<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :source optional comma-separated list of sources to use for the connection synchronization
     # @option opts [Integer] :id_connector ID of the connector
     # @option opts [String] :connector_uuid optional uuid of the connector (replaces id_connector)
     # @option opts [String] :birthday bank additional login parameter
@@ -7223,6 +8035,8 @@ module BudgeaClient
     # @option opts [String] :birthdate bank additional login parameter
     # @option opts [String] :nuser bank additional login parameter
     # @option opts [String] :website bank additional login parameter
+    # @option opts [String] :openapiwebsite bank additional login parameter
+    # @option opts [String] :website2 bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [String] :expand 
@@ -7236,6 +8050,7 @@ module BudgeaClient
     # Create a new connection to a given bank or provider. You have to give all needed parameters (use /banks/ID/fields or /providers/ID/fields to get them).&lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :source optional comma-separated list of sources to use for the connection synchronization
     # @option opts [Integer] :id_connector ID of the connector
     # @option opts [String] :connector_uuid optional uuid of the connector (replaces id_connector)
     # @option opts [String] :birthday bank additional login parameter
@@ -7248,6 +8063,8 @@ module BudgeaClient
     # @option opts [String] :birthdate bank additional login parameter
     # @option opts [String] :nuser bank additional login parameter
     # @option opts [String] :website bank additional login parameter
+    # @option opts [String] :openapiwebsite bank additional login parameter
+    # @option opts [String] :website2 bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [String] :expand 
@@ -7265,6 +8082,7 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'source'] = opts[:'source'] if !opts[:'source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -7272,7 +8090,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7288,6 +8106,8 @@ module BudgeaClient
       form_params['birthdate'] = opts[:'birthdate'] if !opts[:'birthdate'].nil?
       form_params['nuser'] = opts[:'nuser'] if !opts[:'nuser'].nil?
       form_params['website'] = opts[:'website'] if !opts[:'website'].nil?
+      form_params['openapiwebsite'] = opts[:'openapiwebsite'] if !opts[:'openapiwebsite'].nil?
+      form_params['website'] = opts[:'website2'] if !opts[:'website2'].nil?
       form_params['login'] = opts[:'login'] if !opts[:'login'].nil?
       form_params['id_provider'] = opts[:'id_provider'] if !opts[:'id_provider'].nil?
 
@@ -7340,7 +8160,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7373,8 +8193,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [InlineResponse20017]
+    # @return [InlineResponse20015]
     def users_id_user_logs_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_logs_get_with_http_info(id_user, opts)
       data
@@ -7394,8 +8215,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
     def users_id_user_logs_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_logs_get ...'
@@ -7419,6 +8241,7 @@ module BudgeaClient
       query_params[:'id_connection'] = opts[:'id_connection'] if !opts[:'id_connection'].nil?
       query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
       query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -7426,7 +8249,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7440,7 +8263,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20017')
+        :return_type => 'InlineResponse20015')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7483,7 +8306,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7521,7 +8344,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [InlineResponse20030]
+    # @return [InlineResponse20031]
     def users_id_user_transactions_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_transactions_get_with_http_info(id_user, opts)
       data
@@ -7545,7 +8368,7 @@ module BudgeaClient
     # @option opts [String] :search search in labels, dates, values and categories
     # @option opts [String] :value \&quot;XX|-XX\&quot; or \&quot;±XX\&quot;
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
     def users_id_user_transactions_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_transactions_get ...'
@@ -7579,7 +8402,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7593,7 +8416,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20030')
+        :return_type => 'InlineResponse20031')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_transactions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7642,7 +8465,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7668,7 +8491,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20032]
+    # @return [InlineResponse20033]
     def users_id_user_transactions_id_transaction_informations_get(id_user, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_transactions_id_transaction_informations_get_with_http_info(id_user, id_transaction, opts)
       data
@@ -7680,7 +8503,7 @@ module BudgeaClient
     # @param id_transaction 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
+    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
     def users_id_user_transactions_id_transaction_informations_get_with_http_info(id_user, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_transactions_id_transaction_informations_get ...'
@@ -7705,7 +8528,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7719,7 +8542,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20032')
+        :return_type => 'InlineResponse20033')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_transactions_id_transaction_informations_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7774,7 +8597,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7843,7 +8666,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7906,7 +8729,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7979,7 +8802,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8073,7 +8896,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8108,7 +8931,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20033]
+    # @return [InlineResponse20034]
     def users_id_user_transactionsclusters_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_transactionsclusters_get_with_http_info(id_user, opts)
       data
@@ -8119,7 +8942,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20033, Fixnum, Hash)>] InlineResponse20033 data, response status code and response headers
+    # @return [Array<(InlineResponse20034, Fixnum, Hash)>] InlineResponse20034 data, response status code and response headers
     def users_id_user_transactionsclusters_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_transactionsclusters_get ...'
@@ -8140,7 +8963,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8154,7 +8977,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20033')
+        :return_type => 'InlineResponse20034')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_transactionsclusters_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8203,7 +9026,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8266,7 +9089,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8323,7 +9146,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}

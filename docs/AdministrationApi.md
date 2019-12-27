@@ -29,7 +29,12 @@ Method | HTTP request | Description
 [**webhooks_auth_post**](AdministrationApi.md#webhooks_auth_post) | **POST** /webhooks/auth | Adds a new webhook authentication type
 [**webhooks_delete**](AdministrationApi.md#webhooks_delete) | **DELETE** /webhooks | Deletes all webhooks
 [**webhooks_get**](AdministrationApi.md#webhooks_get) | **GET** /webhooks | Get webhooks
+[**webhooks_id_webhook_add_to_data_delete**](AdministrationApi.md#webhooks_id_webhook_add_to_data_delete) | **DELETE** /webhooks/{id_webhook}/add_to_data | delete all entries
 [**webhooks_id_webhook_add_to_data_get**](AdministrationApi.md#webhooks_id_webhook_add_to_data_get) | **GET** /webhooks/{id_webhook}/add_to_data | retrieve the list of the value to add in webhooks when sending the requested webhook
+[**webhooks_id_webhook_add_to_data_key_delete**](AdministrationApi.md#webhooks_id_webhook_add_to_data_key_delete) | **DELETE** /webhooks/{id_webhook}/add_to_data/{key} | delete the requested entry
+[**webhooks_id_webhook_add_to_data_key_get**](AdministrationApi.md#webhooks_id_webhook_add_to_data_key_get) | **GET** /webhooks/{id_webhook}/add_to_data/{key} | retrieve the value to add in the requested webhook for the requested name
+[**webhooks_id_webhook_add_to_data_key_post**](AdministrationApi.md#webhooks_id_webhook_add_to_data_key_post) | **POST** /webhooks/{id_webhook}/add_to_data/{key} | upate the requested field to store in user config when calling the endpoint
+[**webhooks_id_webhook_add_to_data_post**](AdministrationApi.md#webhooks_id_webhook_add_to_data_post) | **POST** /webhooks/{id_webhook}/add_to_data | Setup a field to store in user config when calling the endpoint
 [**webhooks_id_webhook_delete**](AdministrationApi.md#webhooks_id_webhook_delete) | **DELETE** /webhooks/{id_webhook} | Deletes a webhook
 [**webhooks_id_webhook_logs_get**](AdministrationApi.md#webhooks_id_webhook_logs_get) | **GET** /webhooks/{id_webhook}/logs | Get webhooks logs.
 [**webhooks_id_webhook_post**](AdministrationApi.md#webhooks_id_webhook_post) | **POST** /webhooks/{id_webhook} | Updates a webhook
@@ -38,7 +43,7 @@ Method | HTTP request | Description
 
 
 # **clients_get**
-> InlineResponse20012 clients_get(opts)
+> InlineResponse20013 clients_get(opts)
 
 List clients
 
@@ -79,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -87,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -145,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -155,7 +160,7 @@ Name | Type | Description  | Notes
 
 Get information about a client
 
-If you use the manage_token or a configuration token, you will get also the client_secret<br><br>
+If you use the manage_token or a configuration token, you will get also the client secret.<br><br>
 
 ### Example
 ```ruby
@@ -203,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -261,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -319,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -351,7 +356,7 @@ opts = {
   generate_keys: true, # BOOLEAN | set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)
   name: 'name_example', # String | name of client
   secret: true, # BOOLEAN | reset the secret
-  redirect_uri: 'redirect_uri_example', # String | redirect_uri
+  redirect_uris: ['redirect_uris_example'], # Array<String> | list of allowed redirect uris
   primary_color: 'primary_color_example', # String | hexadecimal code of the client primary color (e.g F45B9A)
   secondary_color: 'secondary_color_example', # String | hexadecimal code of the client secondary color (e.g F45B9A)
   description: 'description_example', # String | text to display as a default description
@@ -380,7 +385,7 @@ Name | Type | Description  | Notes
  **generate_keys** | **BOOLEAN**| set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False) | [optional] 
  **name** | **String**| name of client | [optional] 
  **secret** | **BOOLEAN**| reset the secret | [optional] 
- **redirect_uri** | **String**| redirect_uri | [optional] 
+ **redirect_uris** | [**Array&lt;String&gt;**](String.md)| list of allowed redirect uris | [optional] 
  **primary_color** | **String**| hexadecimal code of the client primary color (e.g F45B9A) | [optional] 
  **secondary_color** | **String**| hexadecimal code of the client secondary color (e.g F45B9A) | [optional] 
  **description** | **String**| text to display as a default description | [optional] 
@@ -401,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -430,7 +435,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 opts = { 
   generate_keys: true, # BOOLEAN | if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
   name: 'name_example', # String | name of client
-  redirect_uri: 'redirect_uri_example', # String | redirect_uri
+  redirect_uris: ['redirect_uris_example'], # Array<String> | list of allowed redirect uris
   config: 'config_example', # String | custom config about the client
   expand: 'expand_example' # String | 
 }
@@ -450,7 +455,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **generate_keys** | **BOOLEAN**| if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False) | [optional] 
  **name** | **String**| name of client | [optional] 
- **redirect_uri** | **String**| redirect_uri | [optional] 
+ **redirect_uris** | [**Array&lt;String&gt;**](String.md)| list of allowed redirect uris | [optional] 
  **config** | **String**| custom config about the client | [optional] 
  **expand** | **String**|  | [optional] 
 
@@ -464,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -518,13 +523,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **config_logs_get**
-> InlineResponse20013 config_logs_get(opts)
+> InlineResponse20014 config_logs_get(opts)
 
 Get configuration change history of the API.
 
@@ -573,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -581,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -636,13 +641,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **merchants_get**
-> InlineResponse20012 merchants_get(opts)
+> InlineResponse20013 merchants_get(opts)
 
 List clients
 
@@ -683,7 +688,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -691,7 +696,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -749,7 +754,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -807,13 +812,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **merchants_post**
-> Client merchants_post(name, redirect_uri, iban, opts)
+> Client merchants_post(name, redirect_uris, iban, opts)
 
 Create a merchant. Needs a user identified in bearer to be used
 
@@ -835,7 +840,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 
 name = 'name_example' # String | name of merchant
 
-redirect_uri = 'redirect_uri_example' # String | regexp to check if given redirect_uri are authorized
+redirect_uris = ['redirect_uris_example'] # Array<String> | list of allowed redirect uris
 
 iban = 'iban_example' # String | payments initiated by this merchant will be done to this IBAN
 
@@ -845,7 +850,7 @@ opts = {
 
 begin
   #Create a merchant. Needs a user identified in bearer to be used
-  result = api_instance.merchants_post(name, redirect_uri, iban, opts)
+  result = api_instance.merchants_post(name, redirect_uris, iban, opts)
   p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling AdministrationApi->merchants_post: #{e}"
@@ -857,7 +862,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of merchant | 
- **redirect_uri** | **String**| regexp to check if given redirect_uri are authorized | 
+ **redirect_uris** | [**Array&lt;String&gt;**](String.md)| list of allowed redirect uris | 
  **iban** | **String**| payments initiated by this merchant will be done to this IBAN | 
  **expand** | **String**|  | [optional] 
 
@@ -871,7 +876,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -925,7 +930,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -972,7 +977,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1019,7 +1024,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1074,13 +1079,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **webhooks_auth_get**
-> InlineResponse20039 webhooks_auth_get(opts)
+> InlineResponse20041 webhooks_auth_get(opts)
 
 Get webhooks authentication types
 
@@ -1121,7 +1126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -1129,7 +1134,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1187,7 +1192,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1253,7 +1258,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1319,7 +1324,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1382,7 +1387,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1437,13 +1442,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **webhooks_get**
-> InlineResponse20038 webhooks_get(opts)
+> InlineResponse20040 webhooks_get(opts)
 
 Get webhooks
 
@@ -1484,7 +1489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -1492,13 +1497,71 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_id_webhook_add_to_data_delete**
+> Webhook webhooks_id_webhook_add_to_data_delete(id_webhook, opts)
+
+delete all entries
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_webhook = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #delete all entries
+  result = api_instance.webhooks_id_webhook_add_to_data_delete(id_webhook, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_id_webhook_add_to_data_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_webhook** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **webhooks_id_webhook_add_to_data_get**
-> webhooks_id_webhook_add_to_data_get(id_webhook)
+> InlineResponse20040 webhooks_id_webhook_add_to_data_get(id_webhook, opts)
 
 retrieve the list of the value to add in webhooks when sending the requested webhook
 
@@ -1520,10 +1583,14 @@ api_instance = BudgeaClient::AdministrationApi.new
 
 id_webhook = 56 # Integer | 
 
+opts = { 
+  expand: 'expand_example' # String | 
+}
 
 begin
   #retrieve the list of the value to add in webhooks when sending the requested webhook
-  api_instance.webhooks_id_webhook_add_to_data_get(id_webhook)
+  result = api_instance.webhooks_id_webhook_add_to_data_get(id_webhook, opts)
+  p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling AdministrationApi->webhooks_id_webhook_add_to_data_get: #{e}"
 end
@@ -1534,10 +1601,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_webhook** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
 
 ### Return type
 
-nil (empty response body)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -1545,7 +1613,248 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_id_webhook_add_to_data_key_delete**
+> Webhook webhooks_id_webhook_add_to_data_key_delete(id_webhook, key, opts)
+
+delete the requested entry
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_webhook = 56 # Integer | 
+
+key = 'key_example' # String | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #delete the requested entry
+  result = api_instance.webhooks_id_webhook_add_to_data_key_delete(id_webhook, key, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_id_webhook_add_to_data_key_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_webhook** | **Integer**|  | 
+ **key** | **String**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_id_webhook_add_to_data_key_get**
+> Webhook webhooks_id_webhook_add_to_data_key_get(id_webhook, key, opts)
+
+retrieve the value to add in the requested webhook for the requested name
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_webhook = 56 # Integer | 
+
+key = 'key_example' # String | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #retrieve the value to add in the requested webhook for the requested name
+  result = api_instance.webhooks_id_webhook_add_to_data_key_get(id_webhook, key, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_id_webhook_add_to_data_key_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_webhook** | **Integer**|  | 
+ **key** | **String**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_id_webhook_add_to_data_key_post**
+> Webhook webhooks_id_webhook_add_to_data_key_post(id_webhook, key, opts)
+
+upate the requested field to store in user config when calling the endpoint
+
+For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_webhook = 56 # Integer | 
+
+key = 'key_example' # String | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #upate the requested field to store in user config when calling the endpoint
+  result = api_instance.webhooks_id_webhook_add_to_data_key_post(id_webhook, key, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_id_webhook_add_to_data_key_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_webhook** | **Integer**|  | 
+ **key** | **String**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **webhooks_id_webhook_add_to_data_post**
+> Webhook webhooks_id_webhook_add_to_data_post(id_webhook, opts)
+
+Setup a field to store in user config when calling the endpoint
+
+For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::AdministrationApi.new
+
+id_webhook = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Setup a field to store in user config when calling the endpoint
+  result = api_instance.webhooks_id_webhook_add_to_data_post(id_webhook, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling AdministrationApi->webhooks_id_webhook_add_to_data_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_webhook** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1603,13 +1912,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **webhooks_id_webhook_logs_get**
-> InlineResponse20040 webhooks_id_webhook_logs_get(id_webhook, opts)
+> InlineResponse20042 webhooks_id_webhook_logs_get(id_webhook, opts)
 
 Get webhooks logs.
 
@@ -1632,6 +1941,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 id_webhook = 56 # Integer | 
 
 opts = { 
+  id_user: 56, # Integer | limit number of results to this user
   limit: 56, # Integer | limit number of results
   offset: 56, # Integer | offset of first result
   min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
@@ -1653,6 +1963,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_webhook** | **Integer**|  | 
+ **id_user** | **Integer**| limit number of results to this user | [optional] 
  **limit** | **Integer**| limit number of results | [optional] 
  **offset** | **Integer**| offset of first result | [optional] 
  **min_date** | **Date**| minimal (inclusive) date | [optional] 
@@ -1661,7 +1972,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -1669,7 +1980,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1739,7 +2050,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1809,7 +2120,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1876,7 +2187,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

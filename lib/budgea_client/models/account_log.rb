@@ -14,6 +14,9 @@ require 'date'
 
 module BudgeaClient
   class AccountLog
+    # ID of the log
+    attr_accessor :id
+
     # ID of the related account
     attr_accessor :id_account
 
@@ -41,6 +44,7 @@ module BudgeaClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'id_account' => :'id_account',
         :'id_connector' => :'id_connector',
         :'balance' => :'balance',
@@ -55,6 +59,7 @@ module BudgeaClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'Integer',
         :'id_account' => :'Integer',
         :'id_connector' => :'Integer',
         :'balance' => :'Float',
@@ -73,6 +78,10 @@ module BudgeaClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'id_account')
         self.id_account = attributes[:'id_account']
@@ -113,6 +122,10 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
       if @id_account.nil?
         invalid_properties.push('invalid value for "id_account", id_account cannot be nil.')
       end
@@ -131,6 +144,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @id.nil?
       return false if @id_account.nil?
       return false if @balance.nil?
       return false if @timestamp.nil?
@@ -142,6 +156,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           id_account == o.id_account &&
           id_connector == o.id_connector &&
           balance == o.balance &&
@@ -161,7 +176,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id_account, id_connector, balance, coming, timestamp, error, error_message, id_connection_log].hash
+      [id, id_account, id_connector, balance, coming, timestamp, error, error_message, id_connection_log].hash
     end
 
     # Builds the object from hash

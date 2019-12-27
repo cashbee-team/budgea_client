@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :authproviders
+    attr_accessor :profiles
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'authproviders' => :'authproviders'
+        :'profiles' => :'profiles'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'authproviders' => :'Array<AuthProvider>'
+        :'profiles' => :'Array<Profile>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'authproviders')
-        if (value = attributes[:'authproviders']).is_a?(Array)
-          self.authproviders = value
+      if attributes.has_key?(:'profiles')
+        if (value = attributes[:'profiles']).is_a?(Array)
+          self.profiles = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @authproviders.nil?
-        invalid_properties.push('invalid value for "authproviders", authproviders cannot be nil.')
+      if @profiles.nil?
+        invalid_properties.push('invalid value for "profiles", profiles cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @authproviders.nil?
+      return false if @profiles.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          authproviders == o.authproviders
+          profiles == o.profiles
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, authproviders].hash
+      [total, profiles].hash
     end
 
     # Builds the object from hash

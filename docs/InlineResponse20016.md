@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**securities** | [**Array&lt;Security&gt;**](Security.md) |  | 
+**connectors** | [**Array&lt;Connector&gt;**](Connector.md) |  | 
 **total** | **Float** | total number of results | [optional] 
 
 

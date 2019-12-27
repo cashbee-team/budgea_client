@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**banks_id_connector_logos_get**](ProvidersApi.md#banks_id_connector_logos_get) | **GET** /banks/{id_connector}/logos | Get all links to the files associated with this connector.
 [**banks_id_connector_logos_main_get**](ProvidersApi.md#banks_id_connector_logos_main_get) | **GET** /banks/{id_connector}/logos/main | Get all links to the files associated with this connector.
 [**banks_id_connector_logos_thumbnail_get**](ProvidersApi.md#banks_id_connector_logos_thumbnail_get) | **GET** /banks/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+[**banks_id_connector_sources_get**](ProvidersApi.md#banks_id_connector_sources_get) | **GET** /banks/{id_connector}/sources | Get list of connector sources
 [**connections_get**](ProvidersApi.md#connections_get) | **GET** /connections | Get connections without a user
+[**connections_id_connection_logs_get**](ProvidersApi.md#connections_id_connection_logs_get) | **GET** /connections/{id_connection}/logs | Get connection logs
 [**connectors_get**](ProvidersApi.md#connectors_get) | **GET** /connectors | Get list of connectors
 [**connectors_id_connector_logos_get**](ProvidersApi.md#connectors_id_connector_logos_get) | **GET** /connectors/{id_connector}/logos | Get all links to the files associated with this connector.
 [**connectors_id_connector_logos_id_logo_delete**](ProvidersApi.md#connectors_id_connector_logos_id_logo_delete) | **DELETE** /connectors/{id_connector}/logos/{id_logo} | Delete a single Logo object.
@@ -17,6 +19,8 @@ Method | HTTP request | Description
 [**connectors_id_connector_logos_post**](ProvidersApi.md#connectors_id_connector_logos_post) | **POST** /connectors/{id_connector}/logos | Create a connector Logo
 [**connectors_id_connector_logos_put**](ProvidersApi.md#connectors_id_connector_logos_put) | **PUT** /connectors/{id_connector}/logos | Create or Update a connector Logo
 [**connectors_id_connector_logos_thumbnail_get**](ProvidersApi.md#connectors_id_connector_logos_thumbnail_get) | **GET** /connectors/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+[**connectors_id_connector_sources_get**](ProvidersApi.md#connectors_id_connector_sources_get) | **GET** /connectors/{id_connector}/sources | Get list of connector sources
+[**connectors_id_connector_sources_id_source_put**](ProvidersApi.md#connectors_id_connector_sources_id_source_put) | **PUT** /connectors/{id_connector}/sources/{id_source} | Edit the provided connector source
 [**connectors_post**](ProvidersApi.md#connectors_post) | **POST** /connectors | Request a new connector
 [**documenttypes_get**](ProvidersApi.md#documenttypes_get) | **GET** /documenttypes | Get document types
 [**documenttypes_id_documenttype_put**](ProvidersApi.md#documenttypes_id_documenttype_put) | **PUT** /documenttypes/{id_documenttype} | Edit a document type
@@ -26,6 +30,7 @@ Method | HTTP request | Description
 [**providers_id_connector_logos_get**](ProvidersApi.md#providers_id_connector_logos_get) | **GET** /providers/{id_connector}/logos | Get all links to the files associated with this connector.
 [**providers_id_connector_logos_main_get**](ProvidersApi.md#providers_id_connector_logos_main_get) | **GET** /providers/{id_connector}/logos/main | Get all links to the files associated with this connector.
 [**providers_id_connector_logos_thumbnail_get**](ProvidersApi.md#providers_id_connector_logos_thumbnail_get) | **GET** /providers/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+[**providers_id_connector_sources_get**](ProvidersApi.md#providers_id_connector_sources_get) | **GET** /providers/{id_connector}/sources | Get list of connector sources
 [**users_id_user_accounts_id_account_transactions_id_transaction_documents_delete**](ProvidersApi.md#users_id_user_accounts_id_account_transactions_id_transaction_documents_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/documents | Delete documents
 [**users_id_user_accounts_id_account_transactions_id_transaction_documents_get**](ProvidersApi.md#users_id_user_accounts_id_account_transactions_id_transaction_documents_get) | **GET** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/documents | Get documents
 [**users_id_user_accounts_id_account_transactions_id_transaction_documents_id_document_delete**](ProvidersApi.md#users_id_user_accounts_id_account_transactions_id_transaction_documents_id_document_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/documents/{id_document} | Delete a document
@@ -64,6 +69,10 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_logs_get**](ProvidersApi.md#users_id_user_connections_id_connection_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/logs | Get connection logs
 [**users_id_user_connections_id_connection_post**](ProvidersApi.md#users_id_user_connections_id_connection_post) | **POST** /users/{id_user}/connections/{id_connection} | Update a connection.
 [**users_id_user_connections_id_connection_put**](ProvidersApi.md#users_id_user_connections_id_connection_put) | **PUT** /users/{id_user}/connections/{id_connection} | Force synchronisation of a connection.
+[**users_id_user_connections_id_connection_sources_get**](ProvidersApi.md#users_id_user_connections_id_connection_sources_get) | **GET** /users/{id_user}/connections/{id_connection}/sources | Get connection sources
+[**users_id_user_connections_id_connection_sources_id_source_delete**](ProvidersApi.md#users_id_user_connections_id_connection_sources_id_source_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Disable a connection source
+[**users_id_user_connections_id_connection_sources_id_source_post**](ProvidersApi.md#users_id_user_connections_id_connection_sources_id_source_post) | **POST** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
+[**users_id_user_connections_id_connection_sources_id_source_put**](ProvidersApi.md#users_id_user_connections_id_connection_sources_id_source_put) | **PUT** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
 [**users_id_user_connections_id_connection_subscriptions_id_subscription_delete**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription} | Delete a subscription.
 [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_delete**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Delete documents
 [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get) | **GET** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Get documents
@@ -71,7 +80,9 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_id_document_put**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_id_document_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents/{id_document} | Edit a document
 [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_post**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_post) | **POST** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Add a new document
 [**users_id_user_connections_id_connection_subscriptions_id_subscription_documents_put**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/documents | Attach an existing document to a transaction or a transactions_cluster
+[**users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/logs | Get subscriptions logs.
 [**users_id_user_connections_id_connection_subscriptions_id_subscription_put**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_id_subscription_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription} | Update a subscription
+[**users_id_user_connections_id_connection_subscriptions_put**](ProvidersApi.md#users_id_user_connections_id_connection_subscriptions_put) | **PUT** /users/{id_user}/connections/{id_connection}/subscriptions | Update many subscriptions at once
 [**users_id_user_connections_id_connection_transactions_id_transaction_documents_delete**](ProvidersApi.md#users_id_user_connections_id_connection_transactions_id_transaction_documents_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/documents | Delete documents
 [**users_id_user_connections_id_connection_transactions_id_transaction_documents_get**](ProvidersApi.md#users_id_user_connections_id_connection_transactions_id_transaction_documents_get) | **GET** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/documents | Get documents
 [**users_id_user_connections_id_connection_transactions_id_transaction_documents_id_document_delete**](ProvidersApi.md#users_id_user_connections_id_connection_transactions_id_transaction_documents_id_document_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/documents/{id_document} | Delete a document
@@ -100,7 +111,9 @@ Method | HTTP request | Description
 [**users_id_user_subscriptions_id_subscription_documents_id_document_put**](ProvidersApi.md#users_id_user_subscriptions_id_subscription_documents_id_document_put) | **PUT** /users/{id_user}/subscriptions/{id_subscription}/documents/{id_document} | Edit a document
 [**users_id_user_subscriptions_id_subscription_documents_post**](ProvidersApi.md#users_id_user_subscriptions_id_subscription_documents_post) | **POST** /users/{id_user}/subscriptions/{id_subscription}/documents | Add a new document
 [**users_id_user_subscriptions_id_subscription_documents_put**](ProvidersApi.md#users_id_user_subscriptions_id_subscription_documents_put) | **PUT** /users/{id_user}/subscriptions/{id_subscription}/documents | Attach an existing document to a transaction or a transactions_cluster
+[**users_id_user_subscriptions_id_subscription_logs_get**](ProvidersApi.md#users_id_user_subscriptions_id_subscription_logs_get) | **GET** /users/{id_user}/subscriptions/{id_subscription}/logs | Get subscriptions logs.
 [**users_id_user_subscriptions_id_subscription_put**](ProvidersApi.md#users_id_user_subscriptions_id_subscription_put) | **PUT** /users/{id_user}/subscriptions/{id_subscription} | Update a subscription
+[**users_id_user_subscriptions_put**](ProvidersApi.md#users_id_user_subscriptions_put) | **PUT** /users/{id_user}/subscriptions | Update many subscriptions at once
 [**users_id_user_transactions_id_transaction_documents_delete**](ProvidersApi.md#users_id_user_transactions_id_transaction_documents_delete) | **DELETE** /users/{id_user}/transactions/{id_transaction}/documents | Delete documents
 [**users_id_user_transactions_id_transaction_documents_get**](ProvidersApi.md#users_id_user_transactions_id_transaction_documents_get) | **GET** /users/{id_user}/transactions/{id_transaction}/documents | Get documents
 [**users_id_user_transactions_id_transaction_documents_id_document_delete**](ProvidersApi.md#users_id_user_transactions_id_transaction_documents_id_document_delete) | **DELETE** /users/{id_user}/transactions/{id_transaction}/documents/{id_document} | Delete a document
@@ -165,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -223,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -281,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -339,7 +352,65 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **banks_id_connector_sources_get**
+> InlineResponse20011 banks_id_connector_sources_get(id_connector, opts)
+
+Get list of connector sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_connector = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get list of connector sources
+  result = api_instance.banks_id_connector_sources_get(id_connector, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->banks_id_connector_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -394,13 +465,93 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **connections_id_connection_logs_get**
+> InlineResponse20015 connections_id_connection_logs_get(id_connection, opts)
+
+Get connection logs
+
+Get logs about connections.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  limit: 56, # Integer | limit number of results
+  offset: 56, # Integer | offset of first result
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
+  state: 56, # Integer | state of user
+  period: 'period_example', # String | period to group logs
+  id_user: 56, # Integer | ID of a user
+  id_connection2: 56, # Integer | ID of a connection
+  id_connector: 56, # Integer | ID of a connector
+  charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get connection logs
+  result = api_instance.connections_id_connection_logs_get(id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->connections_id_connection_logs_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connection** | **Integer**|  | 
+ **limit** | **Integer**| limit number of results | [optional] 
+ **offset** | **Integer**| offset of first result | [optional] 
+ **min_date** | **Date**| minimal date | [optional] 
+ **max_date** | **Date**| maximum date | [optional] 
+ **state** | **Integer**| state of user | [optional] 
+ **period** | **String**| period to group logs | [optional] 
+ **id_user** | **Integer**| ID of a user | [optional] 
+ **id_connection2** | **Integer**| ID of a connection | [optional] 
+ **id_connector** | **Integer**| ID of a connector | [optional] 
+ **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20015**](InlineResponse20015.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **connectors_get**
-> InlineResponse20014 connectors_get(opts)
+> InlineResponse20016 connectors_get(opts)
 
 Get list of connectors
 
@@ -441,7 +592,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -449,7 +600,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -507,7 +658,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -568,7 +719,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -629,7 +780,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -687,7 +838,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -745,7 +896,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -803,7 +954,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -861,7 +1012,130 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **connectors_id_connector_sources_get**
+> InlineResponse20011 connectors_id_connector_sources_get(id_connector, opts)
+
+Get list of connector sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_connector = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get list of connector sources
+  result = api_instance.connectors_id_connector_sources_get(id_connector, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->connectors_id_connector_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **connectors_id_connector_sources_id_source_put**
+> ConnectorSource connectors_id_connector_sources_id_source_put(id_connector, id_source, opts)
+
+Edit the provided connector source
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_connector = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  auth_mechanism: 'auth_mechanism_example', # String | the authentication mechanism to use for this connector source
+  disabled: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | to enable or disable connector source
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Edit the provided connector source
+  result = api_instance.connectors_id_connector_sources_id_source_put(id_connector, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->connectors_id_connector_sources_id_source_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **auth_mechanism** | **String**| the authentication mechanism to use for this connector source | [optional] 
+ **disabled** | **DateTime**| to enable or disable connector source | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectorSource**](ConnectorSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -935,13 +1209,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **documenttypes_get**
-> InlineResponse20015 documenttypes_get(opts)
+> InlineResponse20017 documenttypes_get(opts)
 
 Get document types
 
@@ -982,7 +1256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -990,7 +1264,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1054,13 +1328,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **logs_get**
-> InlineResponse20017 logs_get(opts)
+> InlineResponse20015 logs_get(opts)
 
 Get connection logs
 
@@ -1091,6 +1365,7 @@ opts = {
   id_connection: 56, # Integer | ID of a connection
   id_connector: 56, # Integer | ID of a connector
   charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
   expand: 'expand_example' # String | 
 }
 
@@ -1117,11 +1392,12 @@ Name | Type | Description  | Notes
  **id_connection** | **Integer**| ID of a connection | [optional] 
  **id_connector** | **Integer**| ID of a connector | [optional] 
  **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -1129,7 +1405,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1194,7 +1470,7 @@ nil (empty response body)
 
 
 # **providers_get**
-> InlineResponse20018 providers_get(opts)
+> InlineResponse20019 providers_get(opts)
 
 Get list of connectors
 
@@ -1235,7 +1511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -1243,13 +1519,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **providers_id_connector_logos_get**
-> InlineResponse20019 providers_id_connector_logos_get(id_connector, opts)
+> InlineResponse20010 providers_id_connector_logos_get(id_connector, opts)
 
 Get all links to the files associated with this connector.
 
@@ -1293,7 +1569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -1301,7 +1577,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1359,7 +1635,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1417,7 +1693,65 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **providers_id_connector_sources_get**
+> InlineResponse20011 providers_id_connector_sources_get(id_connector, opts)
+
+Get list of connector sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_connector = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get list of connector sources
+  result = api_instance.providers_id_connector_sources_get(id_connector, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->providers_id_connector_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1481,13 +1815,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20031 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
+> InlineResponse20032 users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts)
 
 Get documents
 
@@ -1555,7 +1889,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -1563,7 +1897,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1630,7 +1964,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1876,7 +2210,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1940,13 +2274,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20031 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
+> InlineResponse20032 users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -2014,7 +2348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -2022,7 +2356,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2089,7 +2423,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2335,7 +2669,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2393,7 +2727,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2451,7 +2785,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2518,13 +2852,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get**
-> InlineResponse20031 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts)
 
 Get documents
 
@@ -2595,7 +2929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -2603,7 +2937,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2673,7 +3007,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2928,7 +3262,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2995,13 +3329,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20031 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts)
 
 Get documents
 
@@ -3072,7 +3406,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -3080,7 +3414,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3150,7 +3484,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3405,7 +3739,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3466,7 +3800,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3527,13 +3861,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_documents_get**
-> InlineResponse20031 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts)
 
 Get documents
 
@@ -3598,7 +3932,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -3606,7 +3940,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3670,7 +4004,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3907,7 +4241,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3968,7 +4302,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4029,13 +4363,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_logs_get**
-> InlineResponse20017 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
+> InlineResponse20015 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
 
 Get connection logs
 
@@ -4070,6 +4404,7 @@ opts = {
   id_connection2: 56, # Integer | ID of a connection
   id_connector: 56, # Integer | ID of a connector
   charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
   expand: 'expand_example' # String | 
 }
 
@@ -4098,11 +4433,12 @@ Name | Type | Description  | Notes
  **id_connection2** | **Integer**| ID of a connection | [optional] 
  **id_connector** | **Integer**| ID of a connector | [optional] 
  **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -4110,7 +4446,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4181,7 +4517,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4242,7 +4578,260 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_get**
+> InlineResponse20030 users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
+
+Get connection sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get connection sources
+  result = api_instance.users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_connections_id_connection_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20030**](InlineResponse20030.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_id_source_delete**
+> ConnectionSource users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts)
+
+Disable a connection source
+
+This will make it so the specified source will not be synchronized anymore.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Disable a connection source
+  result = api_instance.users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_connections_id_connection_sources_id_source_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_id_source_post**
+> ConnectionSource users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts)
+
+Enable connection source
+
+This will make it so the specified source will be able to be synchronized.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Enable connection source
+  result = api_instance.users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_connections_id_connection_sources_id_source_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_id_source_put**
+> ConnectionSource users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts)
+
+Enable connection source
+
+This will make it so the specified source will be able to be synchronized.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Enable connection source
+  result = api_instance.users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_connections_id_connection_sources_id_source_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4306,7 +4895,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4370,13 +4959,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get**
-> InlineResponse20031 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts)
 
 Get documents
 
@@ -4444,7 +5033,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -4452,7 +5041,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4519,7 +5108,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4765,7 +5354,79 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get**
+> InlineResponse20037 users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get(id_user, id_connection, id_subscription, opts)
+
+Get subscriptions logs.
+
+Get logs of subscription.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_subscription = 56 # Integer | 
+
+opts = { 
+  limit: 56, # Integer | limit number of results
+  offset: 56, # Integer | offset of first result
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get subscriptions logs.
+  result = api_instance.users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get(id_user, id_connection, id_subscription, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_subscription** | **Integer**|  | 
+ **limit** | **Integer**| limit number of results | [optional] 
+ **offset** | **Integer**| offset of first result | [optional] 
+ **min_date** | **Date**| minimal (inclusive) date | [optional] 
+ **max_date** | **Date**| maximum (inclusive) date | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20037**](InlineResponse20037.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4833,7 +5494,68 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_subscriptions_put**
+> Subscription users_id_user_connections_id_connection_subscriptions_put(id_user, id_connection, opts)
+
+Update many subscriptions at once
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Update many subscriptions at once
+  result = api_instance.users_id_user_connections_id_connection_subscriptions_put(id_user, id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_connections_id_connection_subscriptions_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Subscription**](Subscription.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4897,13 +5619,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_transactions_id_transaction_documents_get**
-> InlineResponse20031 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts)
 
 Get documents
 
@@ -4971,7 +5693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -4979,7 +5701,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5046,7 +5768,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5292,7 +6014,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5356,13 +6078,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20031 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
+> InlineResponse20032 users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts)
 
 Get documents
 
@@ -5430,7 +6152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -5438,7 +6160,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5505,7 +6227,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5751,7 +6473,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5780,6 +6502,7 @@ api_instance = BudgeaClient::ProvidersApi.new
 id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
+  source: 'source_example', # String | optional comma-separated list of sources to use for the connection synchronization
   id_connector: 56, # Integer | ID of the connector
   connector_uuid: 'connector_uuid_example', # String | optional uuid of the connector (replaces id_connector)
   birthday: 'birthday_example', # String | bank additional login parameter
@@ -5792,6 +6515,8 @@ opts = {
   birthdate: 'birthdate_example', # String | bank additional login parameter
   nuser: 'nuser_example', # String | bank additional login parameter
   website: 'website_example', # String | bank additional login parameter
+  openapiwebsite: 'openapiwebsite_example', # String | bank additional login parameter
+  website2: 'website_example', # String | bank additional login parameter
   login: 'login_example', # String | bank additional login parameter
   id_provider: 56, # Integer | ID of the provider
   expand: 'expand_example' # String | 
@@ -5811,6 +6536,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **source** | **String**| optional comma-separated list of sources to use for the connection synchronization | [optional] 
  **id_connector** | **Integer**| ID of the connector | [optional] 
  **connector_uuid** | **String**| optional uuid of the connector (replaces id_connector) | [optional] 
  **birthday** | **String**| bank additional login parameter | [optional] 
@@ -5823,6 +6549,8 @@ Name | Type | Description  | Notes
  **birthdate** | **String**| bank additional login parameter | [optional] 
  **nuser** | **String**| bank additional login parameter | [optional] 
  **website** | **String**| bank additional login parameter | [optional] 
+ **openapiwebsite** | **String**| bank additional login parameter | [optional] 
+ **website2** | **String**| bank additional login parameter | [optional] 
  **login** | **String**| bank additional login parameter | [optional] 
  **id_provider** | **Integer**| ID of the provider | [optional] 
  **expand** | **String**|  | [optional] 
@@ -5837,7 +6565,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5895,13 +6623,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_documents_get**
-> InlineResponse20031 users_id_user_documents_get(id_user, opts)
+> InlineResponse20032 users_id_user_documents_get(id_user, opts)
 
 Get documents
 
@@ -5963,7 +6691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -5971,7 +6699,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6032,7 +6760,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6260,13 +6988,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_logs_get**
-> InlineResponse20017 users_id_user_logs_get(id_user, opts)
+> InlineResponse20015 users_id_user_logs_get(id_user, opts)
 
 Get connection logs
 
@@ -6299,6 +7027,7 @@ opts = {
   id_connection: 56, # Integer | ID of a connection
   id_connector: 56, # Integer | ID of a connector
   charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
   expand: 'expand_example' # String | 
 }
 
@@ -6326,11 +7055,12 @@ Name | Type | Description  | Notes
  **id_connection** | **Integer**| ID of a connection | [optional] 
  **id_connector** | **Integer**| ID of a connector | [optional] 
  **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -6338,7 +7068,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6461,7 +7191,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6522,13 +7252,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_subscriptions_id_subscription_documents_get**
-> InlineResponse20031 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
+> InlineResponse20032 users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts)
 
 Get documents
 
@@ -6593,7 +7323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -6601,7 +7331,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6665,7 +7395,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6902,7 +7632,76 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_subscriptions_id_subscription_logs_get**
+> InlineResponse20037 users_id_user_subscriptions_id_subscription_logs_get(id_user, id_subscription, opts)
+
+Get subscriptions logs.
+
+Get logs of subscription.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_subscription = 56 # Integer | 
+
+opts = { 
+  limit: 56, # Integer | limit number of results
+  offset: 56, # Integer | offset of first result
+  min_date: Date.parse('2013-10-20'), # Date | minimal (inclusive) date
+  max_date: Date.parse('2013-10-20'), # Date | maximum (inclusive) date
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get subscriptions logs.
+  result = api_instance.users_id_user_subscriptions_id_subscription_logs_get(id_user, id_subscription, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_subscriptions_id_subscription_logs_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_subscription** | **Integer**|  | 
+ **limit** | **Integer**| limit number of results | [optional] 
+ **offset** | **Integer**| offset of first result | [optional] 
+ **min_date** | **Date**| minimal (inclusive) date | [optional] 
+ **max_date** | **Date**| maximum (inclusive) date | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20037**](InlineResponse20037.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6967,7 +7766,65 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_subscriptions_put**
+> Subscription users_id_user_subscriptions_put(id_user, opts)
+
+Update many subscriptions at once
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::ProvidersApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Update many subscriptions at once
+  result = api_instance.users_id_user_subscriptions_put(id_user, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling ProvidersApi->users_id_user_subscriptions_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Subscription**](Subscription.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7028,13 +7885,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_transactions_id_transaction_documents_get**
-> InlineResponse20031 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
+> InlineResponse20032 users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts)
 
 Get documents
 
@@ -7099,7 +7956,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -7107,7 +7964,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7171,7 +8028,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7408,7 +8265,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7469,13 +8326,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_transactionsclusters_id_transactions_cluster_documents_get**
-> InlineResponse20031 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
+> InlineResponse20032 users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts)
 
 Get documents
 
@@ -7540,7 +8397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -7548,7 +8405,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7612,7 +8469,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7849,7 +8706,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

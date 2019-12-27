@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id_user** | **Integer** | ID of the related user | [optional] 
 **id_connector** | **Integer** | ID of the related connector | 
 **last_update** | **DateTime** | Last successful update | [optional] 
+**created** | **DateTime** | Creation date | [optional] 
 **error** | **String** | If the last update has failed, the error code | [optional] 
 **error_message** | **String** | If fail, error message received from connector | [optional] 
 **expire** | **DateTime** | Expiration of the connection. Used during add of a two-factor authentication, to purge the connection if the user abort | [optional] 

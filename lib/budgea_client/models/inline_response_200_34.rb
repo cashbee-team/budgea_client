@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :alerts
+    attr_accessor :transactionsclusters
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'alerts' => :'alerts'
+        :'transactionsclusters' => :'transactionsclusters'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'alerts' => :'Array<Alert>'
+        :'transactionsclusters' => :'Array<TransactionsCluster>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'alerts')
-        if (value = attributes[:'alerts']).is_a?(Array)
-          self.alerts = value
+      if attributes.has_key?(:'transactionsclusters')
+        if (value = attributes[:'transactionsclusters']).is_a?(Array)
+          self.transactionsclusters = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @alerts.nil?
-        invalid_properties.push('invalid value for "alerts", alerts cannot be nil.')
+      if @transactionsclusters.nil?
+        invalid_properties.push('invalid value for "transactionsclusters", transactionsclusters cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @alerts.nil?
+      return false if @transactionsclusters.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          alerts == o.alerts
+          transactionsclusters == o.transactionsclusters
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, alerts].hash
+      [total, transactionsclusters].hash
     end
 
     # Builds the object from hash

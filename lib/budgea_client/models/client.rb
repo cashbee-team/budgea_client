@@ -24,7 +24,7 @@ module BudgeaClient
 
     attr_accessor :private_key
 
-    attr_accessor :redirect_uri
+    attr_accessor :redirect_uris
 
     # Should the client display the company manager page.
     attr_accessor :pro
@@ -42,7 +42,7 @@ module BudgeaClient
         :'secret' => :'secret',
         :'public_key' => :'public_key',
         :'private_key' => :'private_key',
-        :'redirect_uri' => :'redirect_uri',
+        :'redirect_uris' => :'redirect_uris',
         :'pro' => :'pro',
         :'id_logo' => :'id_logo',
         :'config' => :'config'
@@ -57,7 +57,7 @@ module BudgeaClient
         :'secret' => :'String',
         :'public_key' => :'String',
         :'private_key' => :'String',
-        :'redirect_uri' => :'String',
+        :'redirect_uris' => :'String',
         :'pro' => :'BOOLEAN',
         :'id_logo' => :'Integer',
         :'config' => :'String'
@@ -94,10 +94,10 @@ module BudgeaClient
         self.private_key = attributes[:'private_key']
       end
 
-      if attributes.has_key?(:'redirect_uri')
-        self.redirect_uri = attributes[:'redirect_uri']
+      if attributes.has_key?(:'redirect_uris')
+        self.redirect_uris = attributes[:'redirect_uris']
       else
-        self.redirect_uri = ''
+        self.redirect_uris = ''
       end
 
       if attributes.has_key?(:'pro')
@@ -131,8 +131,8 @@ module BudgeaClient
         invalid_properties.push('invalid value for "secret", secret cannot be nil.')
       end
 
-      if @redirect_uri.nil?
-        invalid_properties.push('invalid value for "redirect_uri", redirect_uri cannot be nil.')
+      if @redirect_uris.nil?
+        invalid_properties.push('invalid value for "redirect_uris", redirect_uris cannot be nil.')
       end
 
       if @pro.nil?
@@ -148,7 +148,7 @@ module BudgeaClient
       return false if @id.nil?
       return false if @name.nil?
       return false if @secret.nil?
-      return false if @redirect_uri.nil?
+      return false if @redirect_uris.nil?
       return false if @pro.nil?
       true
     end
@@ -163,7 +163,7 @@ module BudgeaClient
           secret == o.secret &&
           public_key == o.public_key &&
           private_key == o.private_key &&
-          redirect_uri == o.redirect_uri &&
+          redirect_uris == o.redirect_uris &&
           pro == o.pro &&
           id_logo == o.id_logo &&
           config == o.config
@@ -178,7 +178,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, secret, public_key, private_key, redirect_uri, pro, id_logo, config].hash
+      [id, name, secret, public_key, private_key, redirect_uris, pro, id_logo, config].hash
     end
 
     # Builds the object from hash

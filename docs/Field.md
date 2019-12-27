@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **value** | **String** | Default value of the field | [optional] 
 **values** | [**Array&lt;FieldValue&gt;**](FieldValue.md) |  | [optional] 
 **required** | **BOOLEAN** | If true, field has to be set to synchronize the connection | [optional] [default to true]
+**auth_mechanisms** | **String** | Authentication mechanisms this field is used for | [optional] 
 
 
