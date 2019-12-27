@@ -172,7 +172,10 @@
             "description": "application in use"
           }
         ],
-        "summary": "Confirm email address"
+        "summary": "Confirm email address",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/confirmNewEmail": {
@@ -195,7 +198,10 @@
             "description": "token received by email"
           }
         ],
-        "summary": "Confirm new email address"
+        "summary": "Confirm new email address",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/cookie": {
@@ -239,7 +245,10 @@
             "description": "scope requested for the token"
           }
         ],
-        "summary": "Login with credentials and set as cookie"
+        "summary": "Login with credentials and set as cookie",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/init": {
@@ -295,7 +304,10 @@
             "description": "secret of the client"
           }
         ],
-        "summary": "Create a new anonymous user"
+        "summary": "Create a new anonymous user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/jwt": {
@@ -453,7 +465,10 @@
             "description": "APNS or GCM token to send notifications to device"
           }
         ],
-        "summary": "Register to API"
+        "summary": "Register to API",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/resendConfirmEmail": {
@@ -549,7 +564,10 @@
             "description": "scope requested for the token"
           }
         ],
-        "summary": "Login to API with credentials"
+        "summary": "Login to API with credentials",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -635,7 +653,10 @@
             "description": "redirect uri used by user"
           }
         ],
-        "summary": "Transform a temporary code to a access_token"
+        "summary": "Transform a temporary code to a access_token",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/auth/token/code": {
@@ -2022,7 +2043,10 @@
             "in": "query"
           }
         ],
-        "summary": "Request a new connector"
+        "summary": "Request a new connector",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "put": {
         "responses": {
@@ -8353,7 +8377,10 @@
             "in": "query"
           }
         ],
-        "summary": "Add a new connection."
+        "summary": "Add a new connection.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -8501,7 +8528,10 @@
             "in": "query"
           }
         ],
-        "summary": "Update a connection."
+        "summary": "Update a connection.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "put": {
         "responses": {
@@ -8713,7 +8743,10 @@
             "in": "query"
           }
         ],
-        "summary": "Create an account"
+        "summary": "Create an account",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "put": {
         "responses": {
@@ -9702,7 +9735,10 @@
             "in": "query"
           }
         ],
-        "summary": "Edit an alert on transactions or investements"
+        "summary": "Edit an alert on transactions or investements",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -12084,7 +12120,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -19517,7 +19556,10 @@
             "in": "query"
           }
         ],
-        "summary": "Update a subscription"
+        "summary": "Update a subscription",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -19853,7 +19895,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -20236,7 +20281,10 @@
             "in": "query"
           }
         ],
-        "summary": "Register user's consent for a specific terms id"
+        "summary": "Register user's consent for a specific terms id",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/users/{id_user}/token": {
@@ -20276,7 +20324,10 @@
             "description": "application name"
           }
         ],
-        "summary": "Create a token"
+        "summary": "Create a token",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/users/{id_user}/transactions": {
@@ -20522,7 +20573,10 @@
             "in": "query"
           }
         ],
-        "summary": "Create transactions"
+        "summary": "Create transactions",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -20627,7 +20681,10 @@
             "in": "query"
           }
         ],
-        "summary": "Edit a transaction meta-data"
+        "summary": "Edit a transaction meta-data",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/users/{id_user}/transactions/{id_transaction}/documents": {
@@ -20926,7 +20983,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -21735,7 +21795,10 @@
             "in": "query"
           }
         ],
-        "summary": "Attach an existing document to a transaction or a transactions_cluster"
+        "summary": "Attach an existing document to a transaction or a transactions_cluster",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       },
       "delete": {
         "responses": {
@@ -22133,7 +22196,10 @@
             "in": "query"
           }
         ],
-        "summary": "Create a transfer object."
+        "summary": "Create a transfer object.",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ]
       }
     },
     "/users/{id_user}/transfers/{id_transfer}": {
