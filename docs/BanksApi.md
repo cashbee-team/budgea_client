@@ -14,11 +14,13 @@ Method | HTTP request | Description
 [**banks_id_connector_logos_get**](BanksApi.md#banks_id_connector_logos_get) | **GET** /banks/{id_connector}/logos | Get all links to the files associated with this connector.
 [**banks_id_connector_logos_main_get**](BanksApi.md#banks_id_connector_logos_main_get) | **GET** /banks/{id_connector}/logos/main | Get all links to the files associated with this connector.
 [**banks_id_connector_logos_thumbnail_get**](BanksApi.md#banks_id_connector_logos_thumbnail_get) | **GET** /banks/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+[**banks_id_connector_sources_get**](BanksApi.md#banks_id_connector_sources_get) | **GET** /banks/{id_connector}/sources | Get list of connector sources
 [**categories_get**](BanksApi.md#categories_get) | **GET** /categories | Get all categories
 [**categories_keywords_id_keyword_delete**](BanksApi.md#categories_keywords_id_keyword_delete) | **DELETE** /categories/keywords/{id_keyword} | Delete a particular key-value pair on a transaction.
 [**categories_keywords_post**](BanksApi.md#categories_keywords_post) | **POST** /categories/keywords | Add a new keyword associated with a category in the database.
 [**categorize_post**](BanksApi.md#categorize_post) | **POST** /categorize | categorize transactions without storing them
 [**connections_get**](BanksApi.md#connections_get) | **GET** /connections | Get connections without a user
+[**connections_id_connection_logs_get**](BanksApi.md#connections_id_connection_logs_get) | **GET** /connections/{id_connection}/logs | Get connection logs
 [**connectors_get**](BanksApi.md#connectors_get) | **GET** /connectors | Get list of connectors
 [**connectors_id_connector_logos_get**](BanksApi.md#connectors_id_connector_logos_get) | **GET** /connectors/{id_connector}/logos | Get all links to the files associated with this connector.
 [**connectors_id_connector_logos_id_logo_delete**](BanksApi.md#connectors_id_connector_logos_id_logo_delete) | **DELETE** /connectors/{id_connector}/logos/{id_logo} | Delete a single Logo object.
@@ -28,14 +30,18 @@ Method | HTTP request | Description
 [**connectors_id_connector_logos_put**](BanksApi.md#connectors_id_connector_logos_put) | **PUT** /connectors/{id_connector}/logos | Create or Update a connector Logo
 [**connectors_id_connector_logos_thumbnail_get**](BanksApi.md#connectors_id_connector_logos_thumbnail_get) | **GET** /connectors/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
 [**connectors_id_connector_put**](BanksApi.md#connectors_id_connector_put) | **PUT** /connectors/{id_connector} | Edit the provided connector
+[**connectors_id_connector_sources_get**](BanksApi.md#connectors_id_connector_sources_get) | **GET** /connectors/{id_connector}/sources | Get list of connector sources
+[**connectors_id_connector_sources_id_source_put**](BanksApi.md#connectors_id_connector_sources_id_source_put) | **PUT** /connectors/{id_connector}/sources/{id_source} | Edit the provided connector source
 [**connectors_post**](BanksApi.md#connectors_post) | **POST** /connectors | Request a new connector
-[**invoicing_get**](BanksApi.md#invoicing_get) | **GET** /invoicing | Get number of accounts, connections and users synced.
+[**connectors_put**](BanksApi.md#connectors_put) | **PUT** /connectors | Enable/disable several connectors
+[**invoicing_get**](BanksApi.md#invoicing_get) | **GET** /invoicing | Get invoicing data for a given period (default is the current month).
 [**logs_get**](BanksApi.md#logs_get) | **GET** /logs | Get connection logs
 [**providers_get**](BanksApi.md#providers_get) | **GET** /providers | Get list of connectors
 [**providers_id_connector_connections_get**](BanksApi.md#providers_id_connector_connections_get) | **GET** /providers/{id_connector}/connections | Get a random subset of provider&#39;s id_connection
 [**providers_id_connector_logos_get**](BanksApi.md#providers_id_connector_logos_get) | **GET** /providers/{id_connector}/logos | Get all links to the files associated with this connector.
 [**providers_id_connector_logos_main_get**](BanksApi.md#providers_id_connector_logos_main_get) | **GET** /providers/{id_connector}/logos/main | Get all links to the files associated with this connector.
 [**providers_id_connector_logos_thumbnail_get**](BanksApi.md#providers_id_connector_logos_thumbnail_get) | **GET** /providers/{id_connector}/logos/thumbnail | Get all links to the files associated with this connector.
+[**providers_id_connector_sources_get**](BanksApi.md#providers_id_connector_sources_get) | **GET** /providers/{id_connector}/sources | Get list of connector sources
 [**users_id_user_account_types_get**](BanksApi.md#users_id_user_account_types_get) | **GET** /users/{id_user}/account_types | Get account types
 [**users_id_user_account_types_id_account_type_get**](BanksApi.md#users_id_user_account_types_id_account_type_get) | **GET** /users/{id_user}/account_types/{id_account_type} | Get an account type
 [**users_id_user_accounts_delete**](BanksApi.md#users_id_user_accounts_delete) | **DELETE** /users/{id_user}/accounts | Delete all accounts
@@ -45,6 +51,7 @@ Method | HTTP request | Description
 [**users_id_user_accounts_id_account_delta_get**](BanksApi.md#users_id_user_accounts_id_account_delta_get) | **GET** /users/{id_user}/accounts/{id_account}/delta | Get deltas of accounts
 [**users_id_user_accounts_id_account_logs_get**](BanksApi.md#users_id_user_accounts_id_account_logs_get) | **GET** /users/{id_user}/accounts/{id_account}/logs | Get accounts logs.
 [**users_id_user_accounts_id_account_put**](BanksApi.md#users_id_user_accounts_id_account_put) | **PUT** /users/{id_user}/accounts/{id_account} | Update an account
+[**users_id_user_accounts_id_account_sources_get**](BanksApi.md#users_id_user_accounts_id_account_sources_get) | **GET** /users/{id_user}/accounts/{id_account}/sources | Get account sources
 [**users_id_user_accounts_id_account_transactions_delete**](BanksApi.md#users_id_user_accounts_id_account_transactions_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions | Delete transactions
 [**users_id_user_accounts_id_account_transactions_get**](BanksApi.md#users_id_user_accounts_id_account_transactions_get) | **GET** /users/{id_user}/accounts/{id_account}/transactions | Get transactions
 [**users_id_user_accounts_id_account_transactions_id_transaction_informations_delete**](BanksApi.md#users_id_user_accounts_id_account_transactions_id_transaction_informations_delete) | **DELETE** /users/{id_user}/accounts/{id_account}/transactions/{id_transaction}/informations | Delete all arbitrary key-value pairs of a transaction
@@ -75,6 +82,7 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_accounts_id_account_delta_get**](BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_delta_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/delta | Get deltas of accounts
 [**users_id_user_connections_id_connection_accounts_id_account_logs_get**](BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/logs | Get accounts logs.
 [**users_id_user_connections_id_connection_accounts_id_account_put**](BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account} | Update an account
+[**users_id_user_connections_id_connection_accounts_id_account_sources_get**](BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_sources_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/sources | Get account sources
 [**users_id_user_connections_id_connection_accounts_id_account_transactions_delete**](BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_transactions_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/transactions | Delete transactions
 [**users_id_user_connections_id_connection_accounts_id_account_transactions_get**](BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_transactions_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/transactions | Get transactions
 [**users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_delete**](BanksApi.md#users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/transactions/{id_transaction}/informations | Delete all arbitrary key-value pairs of a transaction
@@ -96,6 +104,10 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_logs_get**](BanksApi.md#users_id_user_connections_id_connection_logs_get) | **GET** /users/{id_user}/connections/{id_connection}/logs | Get connection logs
 [**users_id_user_connections_id_connection_post**](BanksApi.md#users_id_user_connections_id_connection_post) | **POST** /users/{id_user}/connections/{id_connection} | Update a connection.
 [**users_id_user_connections_id_connection_put**](BanksApi.md#users_id_user_connections_id_connection_put) | **PUT** /users/{id_user}/connections/{id_connection} | Force synchronisation of a connection.
+[**users_id_user_connections_id_connection_sources_get**](BanksApi.md#users_id_user_connections_id_connection_sources_get) | **GET** /users/{id_user}/connections/{id_connection}/sources | Get connection sources
+[**users_id_user_connections_id_connection_sources_id_source_delete**](BanksApi.md#users_id_user_connections_id_connection_sources_id_source_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Disable a connection source
+[**users_id_user_connections_id_connection_sources_id_source_post**](BanksApi.md#users_id_user_connections_id_connection_sources_id_source_post) | **POST** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
+[**users_id_user_connections_id_connection_sources_id_source_put**](BanksApi.md#users_id_user_connections_id_connection_sources_id_source_put) | **PUT** /users/{id_user}/connections/{id_connection}/sources/{id_source} | Enable connection source
 [**users_id_user_connections_id_connection_transactions_delete**](BanksApi.md#users_id_user_connections_id_connection_transactions_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions | Delete transactions
 [**users_id_user_connections_id_connection_transactions_get**](BanksApi.md#users_id_user_connections_id_connection_transactions_get) | **GET** /users/{id_user}/connections/{id_connection}/transactions | Get transactions
 [**users_id_user_connections_id_connection_transactions_id_transaction_informations_delete**](BanksApi.md#users_id_user_connections_id_connection_transactions_id_transaction_informations_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/transactions/{id_transaction}/informations | Delete all arbitrary key-value pairs of a transaction
@@ -177,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -235,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -293,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -354,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -412,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -467,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -531,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -589,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -647,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -705,13 +717,71 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **banks_id_connector_sources_get**
+> InlineResponse20011 banks_id_connector_sources_get(id_connector, opts)
+
+Get list of connector sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connector = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get list of connector sources
+  result = api_instance.banks_id_connector_sources_get(id_connector, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->banks_id_connector_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **categories_get**
-> InlineResponse20011 categories_get(opts)
+> InlineResponse20012 categories_get(opts)
 
 Get all categories
 
@@ -752,7 +822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -760,7 +830,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -818,7 +888,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -873,7 +943,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -933,7 +1003,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -988,13 +1058,93 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **connections_id_connection_logs_get**
+> InlineResponse20015 connections_id_connection_logs_get(id_connection, opts)
+
+Get connection logs
+
+Get logs about connections.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  limit: 56, # Integer | limit number of results
+  offset: 56, # Integer | offset of first result
+  min_date: Date.parse('2013-10-20'), # Date | minimal date
+  max_date: Date.parse('2013-10-20'), # Date | maximum date
+  state: 56, # Integer | state of user
+  period: 'period_example', # String | period to group logs
+  id_user: 56, # Integer | ID of a user
+  id_connection2: 56, # Integer | ID of a connection
+  id_connector: 56, # Integer | ID of a connector
+  charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get connection logs
+  result = api_instance.connections_id_connection_logs_get(id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connections_id_connection_logs_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connection** | **Integer**|  | 
+ **limit** | **Integer**| limit number of results | [optional] 
+ **offset** | **Integer**| offset of first result | [optional] 
+ **min_date** | **Date**| minimal date | [optional] 
+ **max_date** | **Date**| maximum date | [optional] 
+ **state** | **Integer**| state of user | [optional] 
+ **period** | **String**| period to group logs | [optional] 
+ **id_user** | **Integer**| ID of a user | [optional] 
+ **id_connection2** | **Integer**| ID of a connection | [optional] 
+ **id_connector** | **Integer**| ID of a connector | [optional] 
+ **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20015**](InlineResponse20015.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **connectors_get**
-> InlineResponse20014 connectors_get(opts)
+> InlineResponse20016 connectors_get(opts)
 
 Get list of connectors
 
@@ -1035,7 +1185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -1043,7 +1193,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1101,7 +1251,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1162,7 +1312,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1223,7 +1373,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1281,7 +1431,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1339,7 +1489,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1397,7 +1547,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1455,7 +1605,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1487,6 +1637,7 @@ opts = {
   id_categories: 'id_categories_example', # String | one or several comma separated categories to map to the given connector (or null to map no category)
   hidden: true, # BOOLEAN | to enable  or disable connector (bank or provider)
   sync_frequency: 56, # Integer | Allows you to overload global sync_frequency param
+  auth_mechanism: 'auth_mechanism_example', # String | the authentication mechanism to use for this connector
   expand: 'expand_example' # String | 
 }
 
@@ -1507,6 +1658,7 @@ Name | Type | Description  | Notes
  **id_categories** | **String**| one or several comma separated categories to map to the given connector (or null to map no category) | [optional] 
  **hidden** | **BOOLEAN**| to enable  or disable connector (bank or provider) | [optional] 
  **sync_frequency** | **Integer**| Allows you to overload global sync_frequency param | [optional] 
+ **auth_mechanism** | **String**| the authentication mechanism to use for this connector | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -1519,7 +1671,130 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **connectors_id_connector_sources_get**
+> InlineResponse20011 connectors_id_connector_sources_get(id_connector, opts)
+
+Get list of connector sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connector = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get list of connector sources
+  result = api_instance.connectors_id_connector_sources_get(id_connector, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connectors_id_connector_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **connectors_id_connector_sources_id_source_put**
+> ConnectorSource connectors_id_connector_sources_id_source_put(id_connector, id_source, opts)
+
+Edit the provided connector source
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connector = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  auth_mechanism: 'auth_mechanism_example', # String | the authentication mechanism to use for this connector source
+  disabled: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | to enable or disable connector source
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Edit the provided connector source
+  result = api_instance.connectors_id_connector_sources_id_source_put(id_connector, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connectors_id_connector_sources_id_source_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **auth_mechanism** | **String**| the authentication mechanism to use for this connector source | [optional] 
+ **disabled** | **DateTime**| to enable or disable connector source | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectorSource**](ConnectorSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1598,12 +1873,69 @@ Name | Type | Description  | Notes
 
 
 
+# **connectors_put**
+> Connector connectors_put(opts)
+
+Enable/disable several connectors
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+opts = { 
+  hidden: true, # BOOLEAN | to enable  or disable connector (bank or provider)
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Enable/disable several connectors
+  result = api_instance.connectors_put(opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connectors_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hidden** | **BOOLEAN**| to enable  or disable connector (bank or provider) | [optional] 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**Connector**](Connector.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
 # **invoicing_get**
 > invoicing_get(opts)
 
-Get number of accounts, connections and users synced.
+Get invoicing data for a given period (default is the current month).
 
-Get number of accounts, connections and users synced between two dates for the given period.<br><br>
+You can get all the invoicing data or just specific ones by using the available parameters.<br><br>If no parameters are specified, no invoicing data is returned.<br><br>
 
 ### Example
 ```ruby
@@ -1622,12 +1954,20 @@ api_instance = BudgeaClient::BanksApi.new
 opts = { 
   min_date: Date.parse('2013-10-20'), # Date | minimal date
   max_date: Date.parse('2013-10-20'), # Date | maximum date
-  period: 'period_example', # String | period to group logs
-  all: 'all_example' # String | get full ids list instead of numbers
+  users_synced: 'users_synced_example', # String | the number of user synchronized during the period
+  users_bank: 'users_bank_example', # String | the number of user of the Bank API synchronized during the period
+  users_bill: 'users_bill_example', # String |  the number of user of the Bill API synchronized during the period
+  accounts_synced: 'accounts_synced_example', # String | the number of accounts synchronized during the period
+  subscriptions_synced: 'subscriptions_synced_example', # String | the number of subscriptions synchronized during the period
+  connections_synced: 'connections_synced_example', # String | the number of connections synchronized during the period
+  connections_account: 'connections_account_example', # String | the number of Bank API connections synchronized during the period
+  transfers_synced: 'transfers_synced_example', # String | the number of transfers done during the period
+  all: 'all_example', # String | get all the invoicing data at once
+  detail: 'detail_example' # String | get full ids list instead of numbers
 }
 
 begin
-  #Get number of accounts, connections and users synced.
+  #Get invoicing data for a given period (default is the current month).
   api_instance.invoicing_get(opts)
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling BanksApi->invoicing_get: #{e}"
@@ -1640,8 +1980,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **min_date** | **Date**| minimal date | [optional] 
  **max_date** | **Date**| maximum date | [optional] 
- **period** | **String**| period to group logs | [optional] 
- **all** | **String**| get full ids list instead of numbers | [optional] 
+ **users_synced** | **String**| the number of user synchronized during the period | [optional] 
+ **users_bank** | **String**| the number of user of the Bank API synchronized during the period | [optional] 
+ **users_bill** | **String**|  the number of user of the Bill API synchronized during the period | [optional] 
+ **accounts_synced** | **String**| the number of accounts synchronized during the period | [optional] 
+ **subscriptions_synced** | **String**| the number of subscriptions synchronized during the period | [optional] 
+ **connections_synced** | **String**| the number of connections synchronized during the period | [optional] 
+ **connections_account** | **String**| the number of Bank API connections synchronized during the period | [optional] 
+ **transfers_synced** | **String**| the number of transfers done during the period | [optional] 
+ **all** | **String**| get all the invoicing data at once | [optional] 
+ **detail** | **String**| get full ids list instead of numbers | [optional] 
 
 ### Return type
 
@@ -1653,13 +2001,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **logs_get**
-> InlineResponse20017 logs_get(opts)
+> InlineResponse20015 logs_get(opts)
 
 Get connection logs
 
@@ -1690,6 +2038,7 @@ opts = {
   id_connection: 56, # Integer | ID of a connection
   id_connector: 56, # Integer | ID of a connector
   charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
   expand: 'expand_example' # String | 
 }
 
@@ -1716,11 +2065,12 @@ Name | Type | Description  | Notes
  **id_connection** | **Integer**| ID of a connection | [optional] 
  **id_connector** | **Integer**| ID of a connector | [optional] 
  **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -1728,13 +2078,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **providers_get**
-> InlineResponse20018 providers_get(opts)
+> InlineResponse20019 providers_get(opts)
 
 Get list of connectors
 
@@ -1775,7 +2125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -1783,7 +2133,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1843,13 +2193,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **providers_id_connector_logos_get**
-> InlineResponse20019 providers_id_connector_logos_get(id_connector, opts)
+> InlineResponse20010 providers_id_connector_logos_get(id_connector, opts)
 
 Get all links to the files associated with this connector.
 
@@ -1893,7 +2243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -1901,7 +2251,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1959,7 +2309,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2017,7 +2367,65 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **providers_id_connector_sources_get**
+> InlineResponse20011 providers_id_connector_sources_get(id_connector, opts)
+
+Get list of connector sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connector = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get list of connector sources
+  result = api_instance.providers_id_connector_sources_get(id_connector, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->providers_id_connector_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connector** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2075,7 +2483,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2136,7 +2544,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2194,7 +2602,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2252,7 +2660,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2308,7 +2716,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2369,7 +2777,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2433,7 +2841,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2443,7 +2851,7 @@ nil (empty response body)
 
 Get accounts logs.
 
-Get logs of account.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+Get logs of account. By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
 
 ### Example
 ```ruby
@@ -2502,7 +2910,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2577,7 +2985,68 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_accounts_id_account_sources_get**
+> InlineResponse20030 users_id_user_accounts_id_account_sources_get(id_user, id_account, opts)
+
+Get account sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_account = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get account sources
+  result = api_instance.users_id_user_accounts_id_account_sources_get(id_user, id_account, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->users_id_user_accounts_id_account_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_account** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20030**](InlineResponse20030.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2638,13 +3107,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_accounts_id_account_transactions_get**
-> InlineResponse20030 users_id_user_accounts_id_account_transactions_get(id_user, id_account, opts)
+> InlineResponse20031 users_id_user_accounts_id_account_transactions_get(id_user, id_account, opts)
 
 Get transactions
 
@@ -2717,7 +3186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -2725,7 +3194,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2789,13 +3258,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_accounts_id_account_transactions_id_transaction_informations_get**
-> InlineResponse20032 users_id_user_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_account, id_transaction, opts)
+> InlineResponse20033 users_id_user_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_account, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -2845,7 +3314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -2853,7 +3322,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2920,7 +3389,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2987,7 +3456,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3051,7 +3520,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3125,7 +3594,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3209,13 +3678,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_accounts_id_account_transactionsclusters_get**
-> InlineResponse20033 users_id_user_accounts_id_account_transactionsclusters_get(id_user, id_account, opts)
+> InlineResponse20034 users_id_user_accounts_id_account_transactionsclusters_get(id_user, id_account, opts)
 
 Get clustered transactions
 
@@ -3262,7 +3731,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -3270,7 +3739,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3334,7 +3803,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3398,7 +3867,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3459,13 +3928,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_accounts_post**
-> Account users_id_user_accounts_post(id_user, name, balance, opts)
+> Account users_id_user_accounts_post(id_user, name, opts)
 
 Create an account
 
@@ -3489,9 +3958,8 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 name = 'name_example' # String | name of account
 
-balance = 3.4 # Float | balance of account
-
 opts = { 
+  balance: 3.4, # Float | balance of account
   number: 'number_example', # String | number of account
   iban: 'iban_example', # String | IBAN of account
   id_currency: 'id_currency_example', # String | the currency of the account (default: 'EUR')
@@ -3501,7 +3969,7 @@ opts = {
 
 begin
   #Create an account
-  result = api_instance.users_id_user_accounts_post(id_user, name, balance, opts)
+  result = api_instance.users_id_user_accounts_post(id_user, name, opts)
   p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling BanksApi->users_id_user_accounts_post: #{e}"
@@ -3514,7 +3982,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **name** | **String**| name of account | 
- **balance** | **Float**| balance of account | 
+ **balance** | **Float**| balance of account | [optional] 
  **number** | **String**| number of account | [optional] 
  **iban** | **String**| IBAN of account | [optional] 
  **id_currency** | **String**| the currency of the account (default: &#39;EUR&#39;) | [optional] 
@@ -3531,7 +3999,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3589,13 +4057,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_alerts_get**
-> InlineResponse20034 users_id_user_alerts_get(id_user, opts)
+> InlineResponse20035 users_id_user_alerts_get(id_user, opts)
 
 Get alerts
 
@@ -3639,7 +4107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -3647,13 +4115,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_categories_full_get**
-> InlineResponse20035 users_id_user_categories_full_get(id_user, opts)
+> InlineResponse20036 users_id_user_categories_full_get(id_user, opts)
 
 Get the category
 
@@ -3697,7 +4165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -3705,7 +4173,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3766,7 +4234,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3831,7 +4299,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3903,7 +4371,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -3956,7 +4424,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4014,7 +4482,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4072,7 +4540,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4133,7 +4601,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4194,7 +4662,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4253,7 +4721,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4317,7 +4785,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4384,7 +4852,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4394,7 +4862,7 @@ nil (empty response body)
 
 Get accounts logs.
 
-Get logs of account.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+Get logs of account. By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
 
 ### Example
 ```ruby
@@ -4456,7 +4924,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4534,7 +5002,71 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_accounts_id_account_sources_get**
+> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts)
+
+Get account sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_account = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get account sources
+  result = api_instance.users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_accounts_id_account_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_account** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20030**](InlineResponse20030.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4598,13 +5130,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_get**
-> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_transactions_get(id_user, id_connection, id_account, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_accounts_id_account_transactions_get(id_user, id_connection, id_account, opts)
 
 Get transactions
 
@@ -4680,7 +5212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -4688,7 +5220,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4755,13 +5287,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get**
-> InlineResponse20032 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_connection, id_account, id_transaction, opts)
+> InlineResponse20033 users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_informations_get(id_user, id_connection, id_account, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -4814,7 +5346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -4822,7 +5354,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4892,7 +5424,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -4962,7 +5494,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5029,7 +5561,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5106,7 +5638,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5193,13 +5725,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get**
-> InlineResponse20033 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get(id_user, id_connection, id_account, opts)
+> InlineResponse20034 users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_get(id_user, id_connection, id_account, opts)
 
 Get clustered transactions
 
@@ -5249,7 +5781,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -5257,7 +5789,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5324,7 +5856,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5391,7 +5923,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5455,13 +5987,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_accounts_post**
-> Account users_id_user_connections_id_connection_accounts_post(id_user, id_connection, name, balance, opts)
+> Account users_id_user_connections_id_connection_accounts_post(id_user, id_connection, name, opts)
 
 Create an account
 
@@ -5487,9 +6019,8 @@ id_connection = 56 # Integer |
 
 name = 'name_example' # String | name of account
 
-balance = 3.4 # Float | balance of account
-
 opts = { 
+  balance: 3.4, # Float | balance of account
   number: 'number_example', # String | number of account
   iban: 'iban_example', # String | IBAN of account
   id_currency: 'id_currency_example', # String | the currency of the account (default: 'EUR')
@@ -5499,7 +6030,7 @@ opts = {
 
 begin
   #Create an account
-  result = api_instance.users_id_user_connections_id_connection_accounts_post(id_user, id_connection, name, balance, opts)
+  result = api_instance.users_id_user_connections_id_connection_accounts_post(id_user, id_connection, name, opts)
   p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling BanksApi->users_id_user_connections_id_connection_accounts_post: #{e}"
@@ -5513,7 +6044,7 @@ Name | Type | Description  | Notes
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connection** | **Integer**|  | 
  **name** | **String**| name of account | 
- **balance** | **Float**| balance of account | 
+ **balance** | **Float**| balance of account | [optional] 
  **number** | **String**| number of account | [optional] 
  **iban** | **String**| IBAN of account | [optional] 
  **id_currency** | **String**| the currency of the account (default: &#39;EUR&#39;) | [optional] 
@@ -5591,7 +6122,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5652,7 +6183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5713,7 +6244,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5774,13 +6305,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_logs_get**
-> InlineResponse20017 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
+> InlineResponse20015 users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts)
 
 Get connection logs
 
@@ -5815,6 +6346,7 @@ opts = {
   id_connection2: 56, # Integer | ID of a connection
   id_connector: 56, # Integer | ID of a connector
   charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
   expand: 'expand_example' # String | 
 }
 
@@ -5843,11 +6375,12 @@ Name | Type | Description  | Notes
  **id_connection2** | **Integer**| ID of a connection | [optional] 
  **id_connector** | **Integer**| ID of a connector | [optional] 
  **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -5855,7 +6388,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -5987,7 +6520,260 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_get**
+> InlineResponse20030 users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
+
+Get connection sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get connection sources
+  result = api_instance.users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20030**](InlineResponse20030.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_id_source_delete**
+> ConnectionSource users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts)
+
+Disable a connection source
+
+This will make it so the specified source will not be synchronized anymore.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Disable a connection source
+  result = api_instance.users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_id_source_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_id_source_post**
+> ConnectionSource users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts)
+
+Enable connection source
+
+This will make it so the specified source will be able to be synchronized.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Enable connection source
+  result = api_instance.users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_id_source_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
+# **users_id_user_connections_id_connection_sources_id_source_put**
+> ConnectionSource users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts)
+
+Enable connection source
+
+This will make it so the specified source will be able to be synchronized.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Enable connection source
+  result = api_instance.users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_id_source_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6048,13 +6834,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_transactions_get**
-> InlineResponse20030 users_id_user_connections_id_connection_transactions_get(id_user, id_connection, opts)
+> InlineResponse20031 users_id_user_connections_id_connection_transactions_get(id_user, id_connection, opts)
 
 Get transactions
 
@@ -6127,7 +6913,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -6135,7 +6921,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6199,13 +6985,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_transactions_id_transaction_informations_get**
-> InlineResponse20032 users_id_user_connections_id_connection_transactions_id_transaction_informations_get(id_user, id_connection, id_transaction, opts)
+> InlineResponse20033 users_id_user_connections_id_connection_transactions_id_transaction_informations_get(id_user, id_connection, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -6255,7 +7041,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -6263,7 +7049,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6330,7 +7116,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6397,7 +7183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6461,7 +7247,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6535,7 +7321,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6619,13 +7405,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_connections_id_connection_transactionsclusters_get**
-> InlineResponse20033 users_id_user_connections_id_connection_transactionsclusters_get(id_user, id_connection, opts)
+> InlineResponse20034 users_id_user_connections_id_connection_transactionsclusters_get(id_user, id_connection, opts)
 
 Get clustered transactions
 
@@ -6672,7 +7458,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -6680,7 +7466,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6744,7 +7530,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6808,7 +7594,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6869,7 +7655,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -6898,6 +7684,7 @@ api_instance = BudgeaClient::BanksApi.new
 id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
+  source: 'source_example', # String | optional comma-separated list of sources to use for the connection synchronization
   id_connector: 56, # Integer | ID of the connector
   connector_uuid: 'connector_uuid_example', # String | optional uuid of the connector (replaces id_connector)
   birthday: 'birthday_example', # String | bank additional login parameter
@@ -6910,6 +7697,8 @@ opts = {
   birthdate: 'birthdate_example', # String | bank additional login parameter
   nuser: 'nuser_example', # String | bank additional login parameter
   website: 'website_example', # String | bank additional login parameter
+  openapiwebsite: 'openapiwebsite_example', # String | bank additional login parameter
+  website2: 'website_example', # String | bank additional login parameter
   login: 'login_example', # String | bank additional login parameter
   id_provider: 56, # Integer | ID of the provider
   expand: 'expand_example' # String | 
@@ -6929,6 +7718,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **source** | **String**| optional comma-separated list of sources to use for the connection synchronization | [optional] 
  **id_connector** | **Integer**| ID of the connector | [optional] 
  **connector_uuid** | **String**| optional uuid of the connector (replaces id_connector) | [optional] 
  **birthday** | **String**| bank additional login parameter | [optional] 
@@ -6941,6 +7731,8 @@ Name | Type | Description  | Notes
  **birthdate** | **String**| bank additional login parameter | [optional] 
  **nuser** | **String**| bank additional login parameter | [optional] 
  **website** | **String**| bank additional login parameter | [optional] 
+ **openapiwebsite** | **String**| bank additional login parameter | [optional] 
+ **website2** | **String**| bank additional login parameter | [optional] 
  **login** | **String**| bank additional login parameter | [optional] 
  **id_provider** | **Integer**| ID of the provider | [optional] 
  **expand** | **String**|  | [optional] 
@@ -7008,13 +7800,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_logs_get**
-> InlineResponse20017 users_id_user_logs_get(id_user, opts)
+> InlineResponse20015 users_id_user_logs_get(id_user, opts)
 
 Get connection logs
 
@@ -7047,6 +7839,7 @@ opts = {
   id_connection: 56, # Integer | ID of a connection
   id_connector: 56, # Integer | ID of a connector
   charged: true, # BOOLEAN | consider only logs for charged connectors
+  id_source: 56, # Integer | ID of a source
   expand: 'expand_example' # String | 
 }
 
@@ -7074,11 +7867,12 @@ Name | Type | Description  | Notes
  **id_connection** | **Integer**| ID of a connection | [optional] 
  **id_connector** | **Integer**| ID of a connector | [optional] 
  **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
+ **id_source** | **Integer**| ID of a source | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -7086,7 +7880,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7144,13 +7938,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_transactions_get**
-> InlineResponse20030 users_id_user_transactions_get(id_user, opts)
+> InlineResponse20031 users_id_user_transactions_get(id_user, opts)
 
 Get transactions
 
@@ -7220,7 +8014,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -7228,7 +8022,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7289,13 +8083,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_transactions_id_transaction_informations_get**
-> InlineResponse20032 users_id_user_transactions_id_transaction_informations_get(id_user, id_transaction, opts)
+> InlineResponse20033 users_id_user_transactions_id_transaction_informations_get(id_user, id_transaction, opts)
 
 List all arbitrary key-value pairs on a transaction
 
@@ -7342,7 +8136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -7350,7 +8144,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7414,7 +8208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7478,7 +8272,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7539,7 +8333,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7697,7 +8491,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transactionsclusters_get**
-> InlineResponse20033 users_id_user_transactionsclusters_get(id_user, opts)
+> InlineResponse20034 users_id_user_transactionsclusters_get(id_user, opts)
 
 Get clustered transactions
 
@@ -7741,7 +8535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -7749,7 +8543,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7810,7 +8604,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7871,7 +8665,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -7929,7 +8723,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

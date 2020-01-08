@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**users_id_user_delete**](AuthenticationApi.md#users_id_user_delete) | **DELETE** /users/{id_user} | Delete the user
 [**users_id_user_get**](AuthenticationApi.md#users_id_user_get) | **GET** /users/{id_user} | Get a user
 [**users_id_user_token_post**](AuthenticationApi.md#users_id_user_token_post) | **POST** /users/{id_user}/token | Create a token
-[**webauth_get**](AuthenticationApi.md#webauth_get) | **GET** /webauth | Initialize a new OAuth2 proxy session.
+[**webauth_get**](AuthenticationApi.md#webauth_get) | **GET** /webauth | First step to establish an oAuth2 connection.
 
 
 # **admin_jwt_post**
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -304,7 +304,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -351,7 +351,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -456,7 +456,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -572,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -637,9 +637,9 @@ Name | Type | Description  | Notes
 # **webauth_get**
 > webauth_get(opts)
 
-Initialize a new OAuth2 proxy session.
+First step to establish an oAuth2 connection.
 
-
+The route encapsulate 2 functionalities: 1. Create or update a connection through oAuth2 session.<br><br>2. Execute a transfer through OAuth2 session.
 
 ### Example
 ```ruby
@@ -657,6 +657,7 @@ api_instance = BudgeaClient::AuthenticationApi.new
 
 opts = { 
   id_connector: 56, # Integer | ID of the connector
+  id_transfer: 56, # Integer | ID of the transfer
   connector_uuid: 'connector_uuid_example', # String | Optional unique ID of the connector (replaces id_connector)
   client_id: 56, # Integer | Client Application ID
   redirect_uri: 'redirect_uri_example', # String | Redirect URI
@@ -666,7 +667,7 @@ opts = {
 }
 
 begin
-  #Initialize a new OAuth2 proxy session.
+  #First step to establish an oAuth2 connection.
   api_instance.webauth_get(opts)
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling AuthenticationApi->webauth_get: #{e}"
@@ -678,6 +679,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_connector** | **Integer**| ID of the connector | [optional] 
+ **id_transfer** | **Integer**| ID of the transfer | [optional] 
  **connector_uuid** | **String**| Optional unique ID of the connector (replaces id_connector) | [optional] 
  **client_id** | **Integer**| Client Application ID | [optional] 
  **redirect_uri** | **String**| Redirect URI | [optional] 
@@ -695,7 +697,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

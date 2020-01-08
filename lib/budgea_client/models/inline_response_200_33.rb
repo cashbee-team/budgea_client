@@ -14,24 +14,24 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20033
+    attr_accessor :transactioninformations
+
     # total number of results
     attr_accessor :total
-
-    attr_accessor :transactionsclusters
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total' => :'total',
-        :'transactionsclusters' => :'transactionsclusters'
+        :'transactioninformations' => :'transactioninformations',
+        :'total' => :'total'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total' => :'Float',
-        :'transactionsclusters' => :'Array<TransactionsCluster>'
+        :'transactioninformations' => :'Array<TransactionInformation>',
+        :'total' => :'Float'
       }
     end
 
@@ -43,14 +43,14 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.has_key?(:'transactioninformations')
+        if (value = attributes[:'transactioninformations']).is_a?(Array)
+          self.transactioninformations = value
+        end
       end
 
-      if attributes.has_key?(:'transactionsclusters')
-        if (value = attributes[:'transactionsclusters']).is_a?(Array)
-          self.transactionsclusters = value
-        end
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
       end
     end
 
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @transactionsclusters.nil?
-        invalid_properties.push('invalid value for "transactionsclusters", transactionsclusters cannot be nil.')
+      if @transactioninformations.nil?
+        invalid_properties.push('invalid value for "transactioninformations", transactioninformations cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @transactionsclusters.nil?
+      return false if @transactioninformations.nil?
       true
     end
 
@@ -77,8 +77,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total == o.total &&
-          transactionsclusters == o.transactionsclusters
+          transactioninformations == o.transactioninformations &&
+          total == o.total
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, transactionsclusters].hash
+      [transactioninformations, total].hash
     end
 
     # Builds the object from hash

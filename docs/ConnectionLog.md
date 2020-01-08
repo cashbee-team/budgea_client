@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id_user** | **Integer** | ID of the user | [optional] 
 **id_connection** | **Integer** | ID of the connection | 
 **id_connector** | **Integer** | ID of the connector | [optional] 
+**id_source** | **Integer** | ID of the related connection source | [optional] 
 **login** | **String** | bcrypt hash of the login | [optional] 
 **error_uid** | **String** | MD5 hash of the exception backtrace | [optional] 
 **timestamp** | **DateTime** | Timestamp of log, when the synchronization has finished | 

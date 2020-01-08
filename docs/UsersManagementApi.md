@@ -60,7 +60,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -170,7 +170,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -277,7 +277,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -393,13 +393,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_profiles_get**
-> InlineResponse20037 users_id_user_profiles_get(id_user, opts)
+> InlineResponse20039 users_id_user_profiles_get(id_user, opts)
 
 Get profiles
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -628,7 +628,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

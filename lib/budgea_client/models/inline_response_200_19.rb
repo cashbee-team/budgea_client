@@ -14,19 +14,24 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20019
-    attr_accessor :connectorlogos
+    # total number of results
+    attr_accessor :total
+
+    attr_accessor :providers
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'connectorlogos' => :'connectorlogos'
+        :'total' => :'total',
+        :'providers' => :'providers'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'connectorlogos' => :'Array<ConnectorLogo>'
+        :'total' => :'Float',
+        :'providers' => :'Array<Connector>'
       }
     end
 
@@ -38,9 +43,13 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'connectorlogos')
-        if (value = attributes[:'connectorlogos']).is_a?(Array)
-          self.connectorlogos = value
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
+      end
+
+      if attributes.has_key?(:'providers')
+        if (value = attributes[:'providers']).is_a?(Array)
+          self.providers = value
         end
       end
     end
@@ -49,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @connectorlogos.nil?
-        invalid_properties.push('invalid value for "connectorlogos", connectorlogos cannot be nil.')
+      if @providers.nil?
+        invalid_properties.push('invalid value for "providers", providers cannot be nil.')
       end
 
       invalid_properties
@@ -59,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @connectorlogos.nil?
+      return false if @providers.nil?
       true
     end
 
@@ -68,7 +77,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          connectorlogos == o.connectorlogos
+          total == o.total &&
+          providers == o.providers
     end
 
     # @see the `==` method
@@ -80,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [connectorlogos].hash
+      [total, providers].hash
     end
 
     # Builds the object from hash

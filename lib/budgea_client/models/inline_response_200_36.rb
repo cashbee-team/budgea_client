@@ -14,24 +14,24 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20036
+    attr_accessor :categorys
+
     # total number of results
     attr_accessor :total
-
-    attr_accessor :devices
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total' => :'total',
-        :'devices' => :'devices'
+        :'categorys' => :'categorys',
+        :'total' => :'total'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total' => :'Float',
-        :'devices' => :'Array<Device>'
+        :'categorys' => :'Array<Category>',
+        :'total' => :'Float'
       }
     end
 
@@ -43,14 +43,14 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.has_key?(:'categorys')
+        if (value = attributes[:'categorys']).is_a?(Array)
+          self.categorys = value
+        end
       end
 
-      if attributes.has_key?(:'devices')
-        if (value = attributes[:'devices']).is_a?(Array)
-          self.devices = value
-        end
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
       end
     end
 
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @devices.nil?
-        invalid_properties.push('invalid value for "devices", devices cannot be nil.')
+      if @categorys.nil?
+        invalid_properties.push('invalid value for "categorys", categorys cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @devices.nil?
+      return false if @categorys.nil?
       true
     end
 
@@ -77,8 +77,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total == o.total &&
-          devices == o.devices
+          categorys == o.categorys &&
+          total == o.total
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, devices].hash
+      [categorys, total].hash
     end
 
     # Builds the object from hash

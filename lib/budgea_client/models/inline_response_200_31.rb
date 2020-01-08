@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :documents
+    attr_accessor :transactions
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'documents' => :'documents'
+        :'transactions' => :'transactions'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'documents' => :'Array<Document>'
+        :'transactions' => :'Array<Transaction>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'documents')
-        if (value = attributes[:'documents']).is_a?(Array)
-          self.documents = value
+      if attributes.has_key?(:'transactions')
+        if (value = attributes[:'transactions']).is_a?(Array)
+          self.transactions = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @documents.nil?
-        invalid_properties.push('invalid value for "documents", documents cannot be nil.')
+      if @transactions.nil?
+        invalid_properties.push('invalid value for "transactions", transactions cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @documents.nil?
+      return false if @transactions.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          documents == o.documents
+          transactions == o.transactions
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, documents].hash
+      [total, transactions].hash
     end
 
     # Builds the object from hash

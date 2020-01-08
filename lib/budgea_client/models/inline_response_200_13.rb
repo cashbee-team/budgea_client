@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :configlogs
+    attr_accessor :clients
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'configlogs' => :'configlogs'
+        :'clients' => :'clients'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'configlogs' => :'Array<ConfigLog>'
+        :'clients' => :'Array<Client>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'configlogs')
-        if (value = attributes[:'configlogs']).is_a?(Array)
-          self.configlogs = value
+      if attributes.has_key?(:'clients')
+        if (value = attributes[:'clients']).is_a?(Array)
+          self.clients = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @configlogs.nil?
-        invalid_properties.push('invalid value for "configlogs", configlogs cannot be nil.')
+      if @clients.nil?
+        invalid_properties.push('invalid value for "clients", clients cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @configlogs.nil?
+      return false if @clients.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          configlogs == o.configlogs
+          clients == o.clients
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, configlogs].hash
+      [total, clients].hash
     end
 
     # Builds the object from hash

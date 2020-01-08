@@ -23,7 +23,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20012]
+    # @return [InlineResponse20013]
     def clients_get(opts = {})
       data, _status_code, _headers = clients_get_with_http_info(opts)
       data
@@ -33,7 +33,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20012, Fixnum, Hash)>] InlineResponse20012 data, response status code and response headers
+    # @return [Array<(InlineResponse20013, Fixnum, Hash)>] InlineResponse20013 data, response status code and response headers
     def clients_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.clients_get ...'
@@ -50,7 +50,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -64,7 +64,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20012')
+        :return_type => 'InlineResponse20013')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#clients_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -107,7 +107,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -128,7 +128,7 @@ module BudgeaClient
       return data, status_code, headers
     end
     # Get information about a client
-    # If you use the manage_token or a configuration token, you will get also the client_secret<br><br>
+    # If you use the manage_token or a configuration token, you will get also the client secret.<br><br>
     # @param id_client 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
@@ -139,7 +139,7 @@ module BudgeaClient
     end
 
     # Get information about a client
-    # If you use the manage_token or a configuration token, you will get also the client_secret&lt;br&gt;&lt;br&gt;
+    # If you use the manage_token or a configuration token, you will get also the client secret.&lt;br&gt;&lt;br&gt;
     # @param id_client 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
@@ -164,7 +164,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -221,7 +221,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -278,7 +278,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -305,7 +305,7 @@ module BudgeaClient
     # @option opts [BOOLEAN] :generate_keys set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)
     # @option opts [String] :name name of client
     # @option opts [BOOLEAN] :secret reset the secret
-    # @option opts [String] :redirect_uri redirect_uri
+    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
     # @option opts [String] :primary_color hexadecimal code of the client primary color (e.g F45B9A)
     # @option opts [String] :secondary_color hexadecimal code of the client secondary color (e.g F45B9A)
     # @option opts [String] :description text to display as a default description
@@ -328,7 +328,7 @@ module BudgeaClient
     # @option opts [BOOLEAN] :generate_keys set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)
     # @option opts [String] :name name of client
     # @option opts [BOOLEAN] :secret reset the secret
-    # @option opts [String] :redirect_uri redirect_uri
+    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
     # @option opts [String] :primary_color hexadecimal code of the client primary color (e.g F45B9A)
     # @option opts [String] :secondary_color hexadecimal code of the client secondary color (e.g F45B9A)
     # @option opts [String] :description text to display as a default description
@@ -359,14 +359,14 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params['generate_keys'] = opts[:'generate_keys'] if !opts[:'generate_keys'].nil?
       form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
       form_params['secret'] = opts[:'secret'] if !opts[:'secret'].nil?
-      form_params['redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
+      form_params['redirect_uris'] = @api_client.build_collection_param(opts[:'redirect_uris'], :csv) if !opts[:'redirect_uris'].nil?
       form_params['primary_color'] = opts[:'primary_color'] if !opts[:'primary_color'].nil?
       form_params['secondary_color'] = opts[:'secondary_color'] if !opts[:'secondary_color'].nil?
       form_params['description'] = opts[:'description'] if !opts[:'description'].nil?
@@ -396,7 +396,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :generate_keys if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
     # @option opts [String] :name name of client
-    # @option opts [String] :redirect_uri redirect_uri
+    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
     # @option opts [String] :config custom config about the client
     # @option opts [String] :expand 
     # @return [Client]
@@ -410,7 +410,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :generate_keys if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
     # @option opts [String] :name name of client
-    # @option opts [String] :redirect_uri redirect_uri
+    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
     # @option opts [String] :config custom config about the client
     # @option opts [String] :expand 
     # @return [Array<(Client, Fixnum, Hash)>] Client data, response status code and response headers
@@ -430,13 +430,13 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params['generate_keys'] = opts[:'generate_keys'] if !opts[:'generate_keys'].nil?
       form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
-      form_params['redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
+      form_params['redirect_uris'] = @api_client.build_collection_param(opts[:'redirect_uris'], :csv) if !opts[:'redirect_uris'].nil?
       form_params['config'] = opts[:'config'] if !opts[:'config'].nil?
 
       # http body (model)
@@ -485,7 +485,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -512,7 +512,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal date of the change
     # @option opts [Date] :max_date maximum date of the change
     # @option opts [String] :expand 
-    # @return [InlineResponse20013]
+    # @return [InlineResponse20014]
     def config_logs_get(opts = {})
       data, _status_code, _headers = config_logs_get_with_http_info(opts)
       data
@@ -526,7 +526,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal date of the change
     # @option opts [Date] :max_date maximum date of the change
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20013, Fixnum, Hash)>] InlineResponse20013 data, response status code and response headers
+    # @return [Array<(InlineResponse20014, Fixnum, Hash)>] InlineResponse20014 data, response status code and response headers
     def config_logs_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.config_logs_get ...'
@@ -547,7 +547,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -561,7 +561,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20013')
+        :return_type => 'InlineResponse20014')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#config_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -598,7 +598,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -622,7 +622,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20012]
+    # @return [InlineResponse20013]
     def merchants_get(opts = {})
       data, _status_code, _headers = merchants_get_with_http_info(opts)
       data
@@ -632,7 +632,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20012, Fixnum, Hash)>] InlineResponse20012 data, response status code and response headers
+    # @return [Array<(InlineResponse20013, Fixnum, Hash)>] InlineResponse20013 data, response status code and response headers
     def merchants_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.merchants_get ...'
@@ -649,7 +649,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -663,7 +663,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20012')
+        :return_type => 'InlineResponse20013')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#merchants_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -706,7 +706,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -763,7 +763,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -786,25 +786,25 @@ module BudgeaClient
     # Create a merchant. Needs a user identified in bearer to be used
     # 
     # @param name name of merchant
-    # @param redirect_uri regexp to check if given redirect_uri are authorized
+    # @param redirect_uris list of allowed redirect uris
     # @param iban payments initiated by this merchant will be done to this IBAN
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
     # @return [Client]
-    def merchants_post(name, redirect_uri, iban, opts = {})
-      data, _status_code, _headers = merchants_post_with_http_info(name, redirect_uri, iban, opts)
+    def merchants_post(name, redirect_uris, iban, opts = {})
+      data, _status_code, _headers = merchants_post_with_http_info(name, redirect_uris, iban, opts)
       data
     end
 
     # Create a merchant. Needs a user identified in bearer to be used
     # 
     # @param name name of merchant
-    # @param redirect_uri regexp to check if given redirect_uri are authorized
+    # @param redirect_uris list of allowed redirect uris
     # @param iban payments initiated by this merchant will be done to this IBAN
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
     # @return [Array<(Client, Fixnum, Hash)>] Client data, response status code and response headers
-    def merchants_post_with_http_info(name, redirect_uri, iban, opts = {})
+    def merchants_post_with_http_info(name, redirect_uris, iban, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.merchants_post ...'
       end
@@ -812,9 +812,9 @@ module BudgeaClient
       if @api_client.config.client_side_validation && name.nil?
         fail ArgumentError, "Missing the required parameter 'name' when calling AdministrationApi.merchants_post"
       end
-      # verify the required parameter 'redirect_uri' is set
-      if @api_client.config.client_side_validation && redirect_uri.nil?
-        fail ArgumentError, "Missing the required parameter 'redirect_uri' when calling AdministrationApi.merchants_post"
+      # verify the required parameter 'redirect_uris' is set
+      if @api_client.config.client_side_validation && redirect_uris.nil?
+        fail ArgumentError, "Missing the required parameter 'redirect_uris' when calling AdministrationApi.merchants_post"
       end
       # verify the required parameter 'iban' is set
       if @api_client.config.client_side_validation && iban.nil?
@@ -832,12 +832,12 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params['name'] = name
-      form_params['redirect_uri'] = redirect_uri
+      form_params['redirect_uris'] = @api_client.build_collection_param(redirect_uris, :csv)
       form_params['iban'] = iban
 
       # http body (model)
@@ -886,7 +886,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -933,7 +933,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -980,7 +980,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1030,7 +1030,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1054,7 +1054,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20039]
+    # @return [InlineResponse20041]
     def webhooks_auth_get(opts = {})
       data, _status_code, _headers = webhooks_auth_get_with_http_info(opts)
       data
@@ -1064,7 +1064,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20039, Fixnum, Hash)>] InlineResponse20039 data, response status code and response headers
+    # @return [Array<(InlineResponse20041, Fixnum, Hash)>] InlineResponse20041 data, response status code and response headers
     def webhooks_auth_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_auth_get ...'
@@ -1081,7 +1081,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1095,7 +1095,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20039')
+        :return_type => 'InlineResponse20041')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_auth_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1138,7 +1138,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1209,7 +1209,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1283,7 +1283,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1351,7 +1351,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1405,7 +1405,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1429,7 +1429,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20038]
+    # @return [InlineResponse20040]
     def webhooks_get(opts = {})
       data, _status_code, _headers = webhooks_get_with_http_info(opts)
       data
@@ -1439,7 +1439,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20038, Fixnum, Hash)>] InlineResponse20038 data, response status code and response headers
+    # @return [Array<(InlineResponse20040, Fixnum, Hash)>] InlineResponse20040 data, response status code and response headers
     def webhooks_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_get ...'
@@ -1456,7 +1456,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1470,9 +1470,66 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20038')
+        :return_type => 'InlineResponse20040')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # delete all entries
+    # 
+    # @param id_webhook 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Webhook]
+    def webhooks_id_webhook_add_to_data_delete(id_webhook, opts = {})
+      data, _status_code, _headers = webhooks_id_webhook_add_to_data_delete_with_http_info(id_webhook, opts)
+      data
+    end
+
+    # delete all entries
+    # 
+    # @param id_webhook 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Webhook, Fixnum, Hash)>] Webhook data, response status code and response headers
+    def webhooks_id_webhook_add_to_data_delete_with_http_info(id_webhook, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_add_to_data_delete ...'
+      end
+      # verify the required parameter 'id_webhook' is set
+      if @api_client.config.client_side_validation && id_webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'id_webhook' when calling AdministrationApi.webhooks_id_webhook_add_to_data_delete"
+      end
+      # resource path
+      local_var_path = '/webhooks/{id_webhook}/add_to_data'.sub('{' + 'id_webhook' + '}', id_webhook.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Webhook')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_add_to_data_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1480,17 +1537,19 @@ module BudgeaClient
     # 
     # @param id_webhook 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @option opts [String] :expand 
+    # @return [InlineResponse20040]
     def webhooks_id_webhook_add_to_data_get(id_webhook, opts = {})
-      webhooks_id_webhook_add_to_data_get_with_http_info(id_webhook, opts)
-      nil
+      data, _status_code, _headers = webhooks_id_webhook_add_to_data_get_with_http_info(id_webhook, opts)
+      data
     end
 
     # retrieve the list of the value to add in webhooks when sending the requested webhook
     # 
     # @param id_webhook 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20040, Fixnum, Hash)>] InlineResponse20040 data, response status code and response headers
     def webhooks_id_webhook_add_to_data_get_with_http_info(id_webhook, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_add_to_data_get ...'
@@ -1504,13 +1563,14 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1523,9 +1583,256 @@ module BudgeaClient
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20040')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_add_to_data_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # delete the requested entry
+    # 
+    # @param id_webhook 
+    # @param key 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Webhook]
+    def webhooks_id_webhook_add_to_data_key_delete(id_webhook, key, opts = {})
+      data, _status_code, _headers = webhooks_id_webhook_add_to_data_key_delete_with_http_info(id_webhook, key, opts)
+      data
+    end
+
+    # delete the requested entry
+    # 
+    # @param id_webhook 
+    # @param key 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Webhook, Fixnum, Hash)>] Webhook data, response status code and response headers
+    def webhooks_id_webhook_add_to_data_key_delete_with_http_info(id_webhook, key, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_add_to_data_key_delete ...'
+      end
+      # verify the required parameter 'id_webhook' is set
+      if @api_client.config.client_side_validation && id_webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'id_webhook' when calling AdministrationApi.webhooks_id_webhook_add_to_data_key_delete"
+      end
+      # verify the required parameter 'key' is set
+      if @api_client.config.client_side_validation && key.nil?
+        fail ArgumentError, "Missing the required parameter 'key' when calling AdministrationApi.webhooks_id_webhook_add_to_data_key_delete"
+      end
+      # resource path
+      local_var_path = '/webhooks/{id_webhook}/add_to_data/{key}'.sub('{' + 'id_webhook' + '}', id_webhook.to_s).sub('{' + 'key' + '}', key.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Webhook')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_add_to_data_key_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # retrieve the value to add in the requested webhook for the requested name
+    # 
+    # @param id_webhook 
+    # @param key 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Webhook]
+    def webhooks_id_webhook_add_to_data_key_get(id_webhook, key, opts = {})
+      data, _status_code, _headers = webhooks_id_webhook_add_to_data_key_get_with_http_info(id_webhook, key, opts)
+      data
+    end
+
+    # retrieve the value to add in the requested webhook for the requested name
+    # 
+    # @param id_webhook 
+    # @param key 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Webhook, Fixnum, Hash)>] Webhook data, response status code and response headers
+    def webhooks_id_webhook_add_to_data_key_get_with_http_info(id_webhook, key, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_add_to_data_key_get ...'
+      end
+      # verify the required parameter 'id_webhook' is set
+      if @api_client.config.client_side_validation && id_webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'id_webhook' when calling AdministrationApi.webhooks_id_webhook_add_to_data_key_get"
+      end
+      # verify the required parameter 'key' is set
+      if @api_client.config.client_side_validation && key.nil?
+        fail ArgumentError, "Missing the required parameter 'key' when calling AdministrationApi.webhooks_id_webhook_add_to_data_key_get"
+      end
+      # resource path
+      local_var_path = '/webhooks/{id_webhook}/add_to_data/{key}'.sub('{' + 'id_webhook' + '}', id_webhook.to_s).sub('{' + 'key' + '}', key.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Webhook')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_add_to_data_key_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # upate the requested field to store in user config when calling the endpoint
+    # For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.<br><br>
+    # @param id_webhook 
+    # @param key 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Webhook]
+    def webhooks_id_webhook_add_to_data_key_post(id_webhook, key, opts = {})
+      data, _status_code, _headers = webhooks_id_webhook_add_to_data_key_post_with_http_info(id_webhook, key, opts)
+      data
+    end
+
+    # upate the requested field to store in user config when calling the endpoint
+    # For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.&lt;br&gt;&lt;br&gt;
+    # @param id_webhook 
+    # @param key 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Webhook, Fixnum, Hash)>] Webhook data, response status code and response headers
+    def webhooks_id_webhook_add_to_data_key_post_with_http_info(id_webhook, key, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_add_to_data_key_post ...'
+      end
+      # verify the required parameter 'id_webhook' is set
+      if @api_client.config.client_side_validation && id_webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'id_webhook' when calling AdministrationApi.webhooks_id_webhook_add_to_data_key_post"
+      end
+      # verify the required parameter 'key' is set
+      if @api_client.config.client_side_validation && key.nil?
+        fail ArgumentError, "Missing the required parameter 'key' when calling AdministrationApi.webhooks_id_webhook_add_to_data_key_post"
+      end
+      # resource path
+      local_var_path = '/webhooks/{id_webhook}/add_to_data/{key}'.sub('{' + 'id_webhook' + '}', id_webhook.to_s).sub('{' + 'key' + '}', key.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Webhook')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_add_to_data_key_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Setup a field to store in user config when calling the endpoint
+    # For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.<br><br>
+    # @param id_webhook 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Webhook]
+    def webhooks_id_webhook_add_to_data_post(id_webhook, opts = {})
+      data, _status_code, _headers = webhooks_id_webhook_add_to_data_post_with_http_info(id_webhook, opts)
+      data
+    end
+
+    # Setup a field to store in user config when calling the endpoint
+    # For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.&lt;br&gt;&lt;br&gt;
+    # @param id_webhook 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Webhook, Fixnum, Hash)>] Webhook data, response status code and response headers
+    def webhooks_id_webhook_add_to_data_post_with_http_info(id_webhook, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_add_to_data_post ...'
+      end
+      # verify the required parameter 'id_webhook' is set
+      if @api_client.config.client_side_validation && id_webhook.nil?
+        fail ArgumentError, "Missing the required parameter 'id_webhook' when calling AdministrationApi.webhooks_id_webhook_add_to_data_post"
+      end
+      # resource path
+      local_var_path = '/webhooks/{id_webhook}/add_to_data'.sub('{' + 'id_webhook' + '}', id_webhook.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Webhook')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_add_to_data_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1566,7 +1873,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1590,12 +1897,13 @@ module BudgeaClient
     # Get logs of the webhooks.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
     # @param id_webhook 
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :id_user limit number of results to this user
     # @option opts [Integer] :limit limit number of results
     # @option opts [Integer] :offset offset of first result
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [InlineResponse20040]
+    # @return [InlineResponse20042]
     def webhooks_id_webhook_logs_get(id_webhook, opts = {})
       data, _status_code, _headers = webhooks_id_webhook_logs_get_with_http_info(id_webhook, opts)
       data
@@ -1605,12 +1913,13 @@ module BudgeaClient
     # Get logs of the webhooks.&lt;br&gt;&lt;br&gt;By default, it selects logs for the last month. You can use \&quot;min_date\&quot; and \&quot;max_date\&quot; to change boundary dates.&lt;br&gt;&lt;br&gt;
     # @param id_webhook 
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :id_user limit number of results to this user
     # @option opts [Integer] :limit limit number of results
     # @option opts [Integer] :offset offset of first result
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20040, Fixnum, Hash)>] InlineResponse20040 data, response status code and response headers
+    # @return [Array<(InlineResponse20042, Fixnum, Hash)>] InlineResponse20042 data, response status code and response headers
     def webhooks_id_webhook_logs_get_with_http_info(id_webhook, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AdministrationApi.webhooks_id_webhook_logs_get ...'
@@ -1624,6 +1933,7 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'id_user'] = opts[:'id_user'] if !opts[:'id_user'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'min_date'] = opts[:'min_date'] if !opts[:'min_date'].nil?
@@ -1635,7 +1945,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1649,7 +1959,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20040')
+        :return_type => 'InlineResponse20042')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AdministrationApi#webhooks_id_webhook_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1704,7 +2014,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1779,7 +2089,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1848,7 +2158,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}

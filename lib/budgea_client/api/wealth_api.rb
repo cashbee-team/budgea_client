@@ -23,7 +23,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20016]
+    # @return [InlineResponse20018]
     def finance_securities_get(opts = {})
       data, _status_code, _headers = finance_securities_get_with_http_info(opts)
       data
@@ -33,7 +33,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
+    # @return [Array<(InlineResponse20018, Fixnum, Hash)>] InlineResponse20018 data, response status code and response headers
     def finance_securities_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.finance_securities_get ...'
@@ -50,7 +50,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -64,7 +64,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20016')
+        :return_type => 'InlineResponse20018')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#finance_securities_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -119,7 +119,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -181,7 +181,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -250,7 +250,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -319,7 +319,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -400,7 +400,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -462,7 +462,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -531,7 +531,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -606,7 +606,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -681,7 +681,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -768,7 +768,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -836,7 +836,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -899,7 +899,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -968,7 +968,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1037,7 +1037,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1118,7 +1118,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1180,7 +1180,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1237,7 +1237,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1300,7 +1300,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1363,7 +1363,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1438,7 +1438,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1494,7 +1494,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}

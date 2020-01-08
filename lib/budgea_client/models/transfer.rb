@@ -48,7 +48,7 @@ module BudgeaClient
     # WebID of the transfer
     attr_accessor :webid
 
-    # State of the transfer (created, scheduled, validating, pending, coming, done, canceled, transaction_not_found, deleted, error, bug)
+    # State of the transfer (created, scheduled, validating, pending, coming, done, canceled, transactionNotFound, deleted, error, bug)
     attr_accessor :state
 
     # Error message during transfer, if any
@@ -62,6 +62,18 @@ module BudgeaClient
 
     # If found, ID of the related transaction
     attr_accessor :id_transaction
+
+    # Type of beneficiary number, for example: 'recipient' (in bank recipient list), 'iban' or 'phone_number'
+    attr_accessor :beneficiary_type
+
+    # Beneficiary bank identifier value like recipient webid, iban: EX6713281847025300290000062 or phone_number: 06XXXXXX
+    attr_accessor :beneficiary_number
+
+    # Label of the beneficiary (needed for transfer to other beneficiary type than 'recipient')
+    attr_accessor :beneficiary_label
+
+    # Authentication method used to validate transfer (credentials or webauth)
+    attr_accessor :validate_mechanism
 
     # Currency of the object
     attr_accessor :currency
@@ -85,6 +97,10 @@ module BudgeaClient
         :'label' => :'label',
         :'account_balance' => :'account_balance',
         :'id_transaction' => :'id_transaction',
+        :'beneficiary_type' => :'beneficiary_type',
+        :'beneficiary_number' => :'beneficiary_number',
+        :'beneficiary_label' => :'beneficiary_label',
+        :'validate_mechanism' => :'validate_mechanism',
         :'currency' => :'currency'
       }
     end
@@ -108,6 +124,10 @@ module BudgeaClient
         :'label' => :'String',
         :'account_balance' => :'Float',
         :'id_transaction' => :'Integer',
+        :'beneficiary_type' => :'String',
+        :'beneficiary_number' => :'String',
+        :'beneficiary_label' => :'String',
+        :'validate_mechanism' => :'String',
         :'currency' => :'Object'
       }
     end
@@ -184,6 +204,24 @@ module BudgeaClient
         self.id_transaction = attributes[:'id_transaction']
       end
 
+      if attributes.has_key?(:'beneficiary_type')
+        self.beneficiary_type = attributes[:'beneficiary_type']
+      else
+        self.beneficiary_type = 'recipient'
+      end
+
+      if attributes.has_key?(:'beneficiary_number')
+        self.beneficiary_number = attributes[:'beneficiary_number']
+      end
+
+      if attributes.has_key?(:'beneficiary_label')
+        self.beneficiary_label = attributes[:'beneficiary_label']
+      end
+
+      if attributes.has_key?(:'validate_mechanism')
+        self.validate_mechanism = attributes[:'validate_mechanism']
+      end
+
       if attributes.has_key?(:'currency')
         self.currency = attributes[:'currency']
       end
@@ -213,6 +251,10 @@ module BudgeaClient
         invalid_properties.push('invalid value for "state", state cannot be nil.')
       end
 
+      if @beneficiary_type.nil?
+        invalid_properties.push('invalid value for "beneficiary_type", beneficiary_type cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -224,6 +266,7 @@ module BudgeaClient
       return false if @register_date.nil?
       return false if @amount.nil?
       return false if @state.nil?
+      return false if @beneficiary_type.nil?
       true
     end
 
@@ -248,6 +291,10 @@ module BudgeaClient
           label == o.label &&
           account_balance == o.account_balance &&
           id_transaction == o.id_transaction &&
+          beneficiary_type == o.beneficiary_type &&
+          beneficiary_number == o.beneficiary_number &&
+          beneficiary_label == o.beneficiary_label &&
+          validate_mechanism == o.validate_mechanism &&
           currency == o.currency
     end
 
@@ -260,7 +307,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_account, id_user, id_recipient, account_iban, recipient_iban, exec_date, register_date, amount, fees, webid, state, error, label, account_balance, id_transaction, currency].hash
+      [id, id_account, id_user, id_recipient, account_iban, recipient_iban, exec_date, register_date, amount, fees, webid, state, error, label, account_balance, id_transaction, beneficiary_type, beneficiary_number, beneficiary_label, validate_mechanism, currency].hash
     end
 
     # Builds the object from hash

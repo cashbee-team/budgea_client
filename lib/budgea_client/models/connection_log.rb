@@ -26,6 +26,9 @@ module BudgeaClient
     # ID of the connector
     attr_accessor :id_connector
 
+    # ID of the related connection source
+    attr_accessor :id_source
+
     # bcrypt hash of the login
     attr_accessor :login
 
@@ -69,6 +72,7 @@ module BudgeaClient
         :'id_user' => :'id_user',
         :'id_connection' => :'id_connection',
         :'id_connector' => :'id_connector',
+        :'id_source' => :'id_source',
         :'login' => :'login',
         :'error_uid' => :'error_uid',
         :'timestamp' => :'timestamp',
@@ -91,6 +95,7 @@ module BudgeaClient
         :'id_user' => :'Integer',
         :'id_connection' => :'Integer',
         :'id_connector' => :'Integer',
+        :'id_source' => :'Integer',
         :'login' => :'String',
         :'error_uid' => :'String',
         :'timestamp' => :'DateTime',
@@ -128,6 +133,10 @@ module BudgeaClient
 
       if attributes.has_key?(:'id_connector')
         self.id_connector = attributes[:'id_connector']
+      end
+
+      if attributes.has_key?(:'id_source')
+        self.id_source = attributes[:'id_source']
       end
 
       if attributes.has_key?(:'login')
@@ -216,6 +225,7 @@ module BudgeaClient
           id_user == o.id_user &&
           id_connection == o.id_connection &&
           id_connector == o.id_connector &&
+          id_source == o.id_source &&
           login == o.login &&
           error_uid == o.error_uid &&
           timestamp == o.timestamp &&
@@ -239,7 +249,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_user, id_connection, id_connector, login, error_uid, timestamp, next_try, error, error_message, statut, nb_accounts, start, worker, session_folder_id, fields].hash
+      [id, id_user, id_connection, id_connector, id_source, login, error_uid, timestamp, next_try, error, error_message, statut, nb_accounts, start, worker, session_folder_id, fields].hash
     end
 
     # Builds the object from hash

@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | ID of the connector | 
 **name** | **String** | Name of the bank or provider | 
-**id_weboob** | **String** |  | 
 **hidden** | **BOOLEAN** | This connector is hidden from your users | [optional] [default to false]
 **charged** | **BOOLEAN** | Usage of this connector is charged | [default to true]
 **code** | **String** | Bank code | [optional] 
@@ -18,6 +17,7 @@ Name | Type | Description | Notes
 **auth_mechanism** | **String** | Authentication mechanism to use | [optional] 
 **siret** | **String** | SIRET code for Bill modules | [optional] 
 **uuid** | **String** | Unique connector identifier | 
+**restricted** | **BOOLEAN** | If true, new connections cannot be added with this connector | [default to false]
 **fields** | [**Array&lt;Field&gt;**](Field.md) |  | [optional] 
 **capabilities** | **Array&lt;String&gt;** |  | [optional] 
 

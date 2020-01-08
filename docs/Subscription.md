@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **Integer** | ID of subscription | 
 **id_connection** | **Integer** | ID of related connection | [optional] 
 **id_user** | **Integer** | ID of related user | [optional] 
+**id_source** | **Integer** | ID of the related connection source | [optional] 
 **number** | **String** | Subscription&#39;s number | 
 **label** | **String** | Label of the subscription | 
 **subscriber** | **String** | Name of the subscriber | [optional] 

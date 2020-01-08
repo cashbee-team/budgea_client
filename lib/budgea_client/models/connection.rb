@@ -26,6 +26,9 @@ module BudgeaClient
     # Last successful update
     attr_accessor :last_update
 
+    # Creation date
+    attr_accessor :created
+
     # If the last update has failed, the error code
     attr_accessor :error
 
@@ -55,6 +58,7 @@ module BudgeaClient
         :'id_user' => :'id_user',
         :'id_connector' => :'id_connector',
         :'last_update' => :'last_update',
+        :'created' => :'created',
         :'error' => :'error',
         :'error_message' => :'error_message',
         :'expire' => :'expire',
@@ -73,6 +77,7 @@ module BudgeaClient
         :'id_user' => :'Integer',
         :'id_connector' => :'Integer',
         :'last_update' => :'DateTime',
+        :'created' => :'DateTime',
         :'error' => :'String',
         :'error_message' => :'String',
         :'expire' => :'DateTime',
@@ -106,6 +111,10 @@ module BudgeaClient
 
       if attributes.has_key?(:'last_update')
         self.last_update = attributes[:'last_update']
+      end
+
+      if attributes.has_key?(:'created')
+        self.created = attributes[:'created']
       end
 
       if attributes.has_key?(:'error')
@@ -184,6 +193,7 @@ module BudgeaClient
           id_user == o.id_user &&
           id_connector == o.id_connector &&
           last_update == o.last_update &&
+          created == o.created &&
           error == o.error &&
           error_message == o.error_message &&
           expire == o.expire &&
@@ -203,7 +213,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_user, id_connector, last_update, error, error_message, expire, active, last_push, next_try, accounts, subscriptions].hash
+      [id, id_user, id_connector, last_update, created, error, error_message, expire, active, last_push, next_try, accounts, subscriptions].hash
     end
 
     # Builds the object from hash

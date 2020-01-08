@@ -14,24 +14,24 @@ require 'date'
 
 module BudgeaClient
   class InlineResponse20040
+    attr_accessor :webhooks
+
     # total number of results
     attr_accessor :total
-
-    attr_accessor :webhooklogs
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total' => :'total',
-        :'webhooklogs' => :'webhooklogs'
+        :'webhooks' => :'webhooks',
+        :'total' => :'total'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total' => :'Float',
-        :'webhooklogs' => :'Array<WebhookLog>'
+        :'webhooks' => :'Array<Webhook>',
+        :'total' => :'Float'
       }
     end
 
@@ -43,14 +43,14 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.has_key?(:'webhooks')
+        if (value = attributes[:'webhooks']).is_a?(Array)
+          self.webhooks = value
+        end
       end
 
-      if attributes.has_key?(:'webhooklogs')
-        if (value = attributes[:'webhooklogs']).is_a?(Array)
-          self.webhooklogs = value
-        end
+      if attributes.has_key?(:'total')
+        self.total = attributes[:'total']
       end
     end
 
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @webhooklogs.nil?
-        invalid_properties.push('invalid value for "webhooklogs", webhooklogs cannot be nil.')
+      if @webhooks.nil?
+        invalid_properties.push('invalid value for "webhooks", webhooks cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @webhooklogs.nil?
+      return false if @webhooks.nil?
       true
     end
 
@@ -77,8 +77,8 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total == o.total &&
-          webhooklogs == o.webhooklogs
+          webhooks == o.webhooks &&
+          total == o.total
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, webhooklogs].hash
+      [webhooks, total].hash
     end
 
     # Builds the object from hash

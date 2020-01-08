@@ -43,6 +43,9 @@ module BudgeaClient
     # If true, field has to be set to synchronize the connection
     attr_accessor :required
 
+    # Authentication mechanisms this field is used for
+    attr_accessor :auth_mechanisms
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -55,7 +58,8 @@ module BudgeaClient
         :'ephemeral' => :'ephemeral',
         :'value' => :'value',
         :'values' => :'values',
-        :'required' => :'required'
+        :'required' => :'required',
+        :'auth_mechanisms' => :'auth_mechanisms'
       }
     end
 
@@ -71,7 +75,8 @@ module BudgeaClient
         :'ephemeral' => :'BOOLEAN',
         :'value' => :'String',
         :'values' => :'Array<FieldValue>',
-        :'required' => :'BOOLEAN'
+        :'required' => :'BOOLEAN',
+        :'auth_mechanisms' => :'String'
       }
     end
 
@@ -130,6 +135,10 @@ module BudgeaClient
       else
         self.required = true
       end
+
+      if attributes.has_key?(:'auth_mechanisms')
+        self.auth_mechanisms = attributes[:'auth_mechanisms']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -179,7 +188,8 @@ module BudgeaClient
           ephemeral == o.ephemeral &&
           value == o.value &&
           values == o.values &&
-          required == o.required
+          required == o.required &&
+          auth_mechanisms == o.auth_mechanisms
     end
 
     # @see the `==` method
@@ -191,7 +201,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id_connector, id, name, label, regex, type, ephemeral, value, values, required].hash
+      [id_connector, id, name, label, regex, type, ephemeral, value, values, required, auth_mechanisms].hash
     end
 
     # Builds the object from hash

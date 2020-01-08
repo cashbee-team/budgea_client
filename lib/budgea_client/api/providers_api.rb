@@ -50,7 +50,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -107,7 +107,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -164,7 +164,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -221,7 +221,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -238,6 +238,63 @@ module BudgeaClient
         :return_type => 'InlineResponse20010')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#banks_id_connector_logos_thumbnail_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20011]
+    def banks_id_connector_sources_get(id_connector, opts = {})
+      data, _status_code, _headers = banks_id_connector_sources_get_with_http_info(id_connector, opts)
+      data
+    end
+
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20011, Fixnum, Hash)>] InlineResponse20011 data, response status code and response headers
+    def banks_id_connector_sources_get_with_http_info(id_connector, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.banks_id_connector_sources_get ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling ProvidersApi.banks_id_connector_sources_get"
+      end
+      # resource path
+      local_var_path = '/banks/{id_connector}/sources'.sub('{' + 'id_connector' + '}', id_connector.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20011')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#banks_id_connector_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -272,7 +329,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -292,11 +349,101 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get connection logs
+    # Get logs about connections.<br><br>
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal date
+    # @option opts [Date] :max_date maximum date
+    # @option opts [Integer] :state state of user
+    # @option opts [String] :period period to group logs
+    # @option opts [Integer] :id_user ID of a user
+    # @option opts [Integer] :id_connection2 ID of a connection
+    # @option opts [Integer] :id_connector ID of a connector
+    # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
+    # @option opts [String] :expand 
+    # @return [InlineResponse20015]
+    def connections_id_connection_logs_get(id_connection, opts = {})
+      data, _status_code, _headers = connections_id_connection_logs_get_with_http_info(id_connection, opts)
+      data
+    end
+
+    # Get connection logs
+    # Get logs about connections.&lt;br&gt;&lt;br&gt;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal date
+    # @option opts [Date] :max_date maximum date
+    # @option opts [Integer] :state state of user
+    # @option opts [String] :period period to group logs
+    # @option opts [Integer] :id_user ID of a user
+    # @option opts [Integer] :id_connection2 ID of a connection
+    # @option opts [Integer] :id_connector ID of a connector
+    # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
+    def connections_id_connection_logs_get_with_http_info(id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.connections_id_connection_logs_get ...'
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ProvidersApi.connections_id_connection_logs_get"
+      end
+      # resource path
+      local_var_path = '/connections/{id_connection}/logs'.sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'min_date'] = opts[:'min_date'] if !opts[:'min_date'].nil?
+      query_params[:'max_date'] = opts[:'max_date'] if !opts[:'max_date'].nil?
+      query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
+      query_params[:'period'] = opts[:'period'] if !opts[:'period'].nil?
+      query_params[:'id_user'] = opts[:'id_user'] if !opts[:'id_user'].nil?
+      query_params[:'id_connection'] = opts[:'id_connection2'] if !opts[:'id_connection2'].nil?
+      query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
+      query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20015')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#connections_id_connection_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get list of connectors
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20014]
+    # @return [InlineResponse20016]
     def connectors_get(opts = {})
       data, _status_code, _headers = connectors_get_with_http_info(opts)
       data
@@ -306,7 +453,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20014, Fixnum, Hash)>] InlineResponse20014 data, response status code and response headers
+    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
     def connectors_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.connectors_get ...'
@@ -323,7 +470,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -337,7 +484,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20014')
+        :return_type => 'InlineResponse20016')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#connectors_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -380,7 +527,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -443,7 +590,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -506,7 +653,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -563,7 +710,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -620,7 +767,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -677,7 +824,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -734,7 +881,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -751,6 +898,132 @@ module BudgeaClient
         :return_type => 'InlineResponse20010')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#connectors_id_connector_logos_thumbnail_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20011]
+    def connectors_id_connector_sources_get(id_connector, opts = {})
+      data, _status_code, _headers = connectors_id_connector_sources_get_with_http_info(id_connector, opts)
+      data
+    end
+
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20011, Fixnum, Hash)>] InlineResponse20011 data, response status code and response headers
+    def connectors_id_connector_sources_get_with_http_info(id_connector, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.connectors_id_connector_sources_get ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling ProvidersApi.connectors_id_connector_sources_get"
+      end
+      # resource path
+      local_var_path = '/connectors/{id_connector}/sources'.sub('{' + 'id_connector' + '}', id_connector.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20011')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#connectors_id_connector_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Edit the provided connector source
+    # 
+    # @param id_connector 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :auth_mechanism the authentication mechanism to use for this connector source
+    # @option opts [DateTime] :disabled to enable or disable connector source
+    # @option opts [String] :expand 
+    # @return [ConnectorSource]
+    def connectors_id_connector_sources_id_source_put(id_connector, id_source, opts = {})
+      data, _status_code, _headers = connectors_id_connector_sources_id_source_put_with_http_info(id_connector, id_source, opts)
+      data
+    end
+
+    # Edit the provided connector source
+    # 
+    # @param id_connector 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :auth_mechanism the authentication mechanism to use for this connector source
+    # @option opts [DateTime] :disabled to enable or disable connector source
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectorSource, Fixnum, Hash)>] ConnectorSource data, response status code and response headers
+    def connectors_id_connector_sources_id_source_put_with_http_info(id_connector, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.connectors_id_connector_sources_id_source_put ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling ProvidersApi.connectors_id_connector_sources_id_source_put"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling ProvidersApi.connectors_id_connector_sources_id_source_put"
+      end
+      # resource path
+      local_var_path = '/connectors/{id_connector}/sources/{id_source}'.sub('{' + 'id_connector' + '}', id_connector.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['auth_mechanism'] = opts[:'auth_mechanism'] if !opts[:'auth_mechanism'].nil?
+      form_params['disabled'] = opts[:'disabled'] if !opts[:'disabled'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectorSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#connectors_id_connector_sources_id_source_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -845,7 +1118,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20015]
+    # @return [InlineResponse20017]
     def documenttypes_get(opts = {})
       data, _status_code, _headers = documenttypes_get_with_http_info(opts)
       data
@@ -855,7 +1128,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
+    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
     def documenttypes_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.documenttypes_get ...'
@@ -872,7 +1145,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -886,7 +1159,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20015')
+        :return_type => 'InlineResponse20017')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#documenttypes_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -941,7 +1214,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -976,8 +1249,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [InlineResponse20017]
+    # @return [InlineResponse20015]
     def logs_get(opts = {})
       data, _status_code, _headers = logs_get_with_http_info(opts)
       data
@@ -996,8 +1270,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
     def logs_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.logs_get ...'
@@ -1017,6 +1292,7 @@ module BudgeaClient
       query_params[:'id_connection'] = opts[:'id_connection'] if !opts[:'id_connection'].nil?
       query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
       query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -1024,7 +1300,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1038,7 +1314,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20017')
+        :return_type => 'InlineResponse20015')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1108,7 +1384,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20018]
+    # @return [InlineResponse20019]
     def providers_get(opts = {})
       data, _status_code, _headers = providers_get_with_http_info(opts)
       data
@@ -1118,7 +1394,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20018, Fixnum, Hash)>] InlineResponse20018 data, response status code and response headers
+    # @return [Array<(InlineResponse20019, Fixnum, Hash)>] InlineResponse20019 data, response status code and response headers
     def providers_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.providers_get ...'
@@ -1135,7 +1411,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1149,7 +1425,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20018')
+        :return_type => 'InlineResponse20019')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#providers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1160,7 +1436,7 @@ module BudgeaClient
     # @param id_connector 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20019]
+    # @return [InlineResponse20010]
     def providers_id_connector_logos_get(id_connector, opts = {})
       data, _status_code, _headers = providers_id_connector_logos_get_with_http_info(id_connector, opts)
       data
@@ -1171,7 +1447,7 @@ module BudgeaClient
     # @param id_connector 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20019, Fixnum, Hash)>] InlineResponse20019 data, response status code and response headers
+    # @return [Array<(InlineResponse20010, Fixnum, Hash)>] InlineResponse20010 data, response status code and response headers
     def providers_id_connector_logos_get_with_http_info(id_connector, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.providers_id_connector_logos_get ...'
@@ -1192,7 +1468,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1206,7 +1482,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20019')
+        :return_type => 'InlineResponse20010')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#providers_id_connector_logos_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1249,7 +1525,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1306,7 +1582,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1323,6 +1599,63 @@ module BudgeaClient
         :return_type => 'InlineResponse20010')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#providers_id_connector_logos_thumbnail_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20011]
+    def providers_id_connector_sources_get(id_connector, opts = {})
+      data, _status_code, _headers = providers_id_connector_sources_get_with_http_info(id_connector, opts)
+      data
+    end
+
+    # Get list of connector sources
+    # 
+    # @param id_connector 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20011, Fixnum, Hash)>] InlineResponse20011 data, response status code and response headers
+    def providers_id_connector_sources_get_with_http_info(id_connector, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.providers_id_connector_sources_get ...'
+      end
+      # verify the required parameter 'id_connector' is set
+      if @api_client.config.client_side_validation && id_connector.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connector' when calling ProvidersApi.providers_id_connector_sources_get"
+      end
+      # resource path
+      local_var_path = '/providers/{id_connector}/sources'.sub('{' + 'id_connector' + '}', id_connector.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20011')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#providers_id_connector_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1375,7 +1708,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1411,7 +1744,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_account, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_account, id_transaction, opts)
       data
@@ -1433,7 +1766,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_account, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_accounts_id_account_transactions_id_transaction_documents_get ...'
@@ -1471,7 +1804,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1485,7 +1818,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_accounts_id_account_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1546,7 +1879,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1842,7 +2175,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1912,7 +2245,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -1948,7 +2281,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_account, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_account, id_transactions_cluster, opts)
       data
@@ -1970,7 +2303,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_account, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -2008,7 +2341,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2022,7 +2355,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2083,7 +2416,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2379,7 +2712,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2437,7 +2770,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2494,7 +2827,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2569,7 +2902,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2606,7 +2939,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get(id_user, id_connection, id_account, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_account, id_transaction, opts)
       data
@@ -2629,7 +2962,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_account, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get ...'
@@ -2671,7 +3004,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -2685,7 +3018,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_accounts_id_account_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2752,7 +3085,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3066,7 +3399,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3142,7 +3475,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3179,7 +3512,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_account, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_account, id_transactions_cluster, opts)
       data
@@ -3202,7 +3535,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_account, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -3244,7 +3577,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3258,7 +3591,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_accounts_id_account_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3325,7 +3658,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3703,7 +4036,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3766,7 +4099,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3801,7 +4134,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_connections_id_connection_documents_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_documents_get_with_http_info(id_user, id_connection, opts)
       data
@@ -3822,7 +4155,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_connections_id_connection_documents_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_documents_get ...'
@@ -3856,7 +4189,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -3870,7 +4203,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3925,7 +4258,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4203,7 +4536,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4267,7 +4600,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4330,7 +4663,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4365,8 +4698,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection2 ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [InlineResponse20017]
+    # @return [InlineResponse20015]
     def users_id_user_connections_id_connection_logs_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_logs_get_with_http_info(id_user, id_connection, opts)
       data
@@ -4387,8 +4721,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection2 ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
     def users_id_user_connections_id_connection_logs_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_logs_get ...'
@@ -4416,6 +4751,7 @@ module BudgeaClient
       query_params[:'id_connection'] = opts[:'id_connection2'] if !opts[:'id_connection2'].nil?
       query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
       query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -4423,7 +4759,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4437,7 +4773,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20017')
+        :return_type => 'InlineResponse20015')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4564,7 +4900,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4581,6 +4917,276 @@ module BudgeaClient
         :return_type => 'Connection')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get connection sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20030]
+    def users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_get_with_http_info(id_user, id_connection, opts)
+      data
+    end
+
+    # Get connection sources
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_get_with_http_info(id_user, id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_sources_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_connections_id_connection_sources_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ProvidersApi.users_id_user_connections_id_connection_sources_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20030')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Disable a connection source
+    # This will make it so the specified source will not be synchronized anymore.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_id_source_delete_with_http_info(id_user, id_connection, id_source, opts)
+      data
+    end
+
+    # Disable a connection source
+    # This will make it so the specified source will not be synchronized anymore.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_id_source_delete_with_http_info(id_user, id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_sources_id_source_delete ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_delete"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_delete"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_delete"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_sources_id_source_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_id_source_post_with_http_info(id_user, id_connection, id_source, opts)
+      data
+    end
+
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_id_source_post_with_http_info(id_user, id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_sources_id_source_post ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_post"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_post"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_post"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_sources_id_source_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_sources_id_source_put_with_http_info(id_user, id_connection, id_source, opts)
+      data
+    end
+
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def users_id_user_connections_id_connection_sources_id_source_put_with_http_info(id_user, id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_sources_id_source_put ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_put"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_put"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling ProvidersApi.users_id_user_connections_id_connection_sources_id_source_put"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_sources_id_source_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4633,7 +5239,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4702,7 +5308,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4738,7 +5344,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get(id_user, id_connection, id_subscription, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_connection, id_subscription, opts)
       data
@@ -4760,7 +5366,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_connection, id_subscription, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get ...'
@@ -4798,7 +5404,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -4812,7 +5418,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4873,7 +5479,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5169,7 +5775,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5187,6 +5793,87 @@ module BudgeaClient
         :return_type => 'Document')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_subscriptions_id_subscription_documents_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get subscriptions logs.
+    # Get logs of subscription.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_subscription 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal (inclusive) date
+    # @option opts [Date] :max_date maximum (inclusive) date
+    # @option opts [String] :expand 
+    # @return [InlineResponse20037]
+    def users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get(id_user, id_connection, id_subscription, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get_with_http_info(id_user, id_connection, id_subscription, opts)
+      data
+    end
+
+    # Get subscriptions logs.
+    # Get logs of subscription.&lt;br&gt;&lt;br&gt;By default, it selects logs for the last month. You can use \&quot;min_date\&quot; and \&quot;max_date\&quot; to change boundary dates.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param id_subscription 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal (inclusive) date
+    # @option opts [Date] :max_date maximum (inclusive) date
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20037, Fixnum, Hash)>] InlineResponse20037 data, response status code and response headers
+    def users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get_with_http_info(id_user, id_connection, id_subscription, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ProvidersApi.users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get"
+      end
+      # verify the required parameter 'id_subscription' is set
+      if @api_client.config.client_side_validation && id_subscription.nil?
+        fail ArgumentError, "Missing the required parameter 'id_subscription' when calling ProvidersApi.users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/logs'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_subscription' + '}', id_subscription.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'min_date'] = opts[:'min_date'] if !opts[:'min_date'].nil?
+      query_params[:'max_date'] = opts[:'max_date'] if !opts[:'max_date'].nil?
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20037')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_subscriptions_id_subscription_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -5243,7 +5930,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5262,6 +5949,69 @@ module BudgeaClient
         :return_type => 'Subscription')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_subscriptions_id_subscription_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update many subscriptions at once
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Subscription]
+    def users_id_user_connections_id_connection_subscriptions_put(id_user, id_connection, opts = {})
+      data, _status_code, _headers = users_id_user_connections_id_connection_subscriptions_put_with_http_info(id_user, id_connection, opts)
+      data
+    end
+
+    # Update many subscriptions at once
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Subscription, Fixnum, Hash)>] Subscription data, response status code and response headers
+    def users_id_user_connections_id_connection_subscriptions_put_with_http_info(id_user, id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_subscriptions_put ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_connections_id_connection_subscriptions_put"
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling ProvidersApi.users_id_user_connections_id_connection_subscriptions_put"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/connections/{id_connection}/subscriptions'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Subscription')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_subscriptions_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -5314,7 +6064,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5350,7 +6100,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_connections_id_connection_transactions_id_transaction_documents_get(id_user, id_connection, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_transaction, opts)
       data
@@ -5372,7 +6122,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_connections_id_connection_transactions_id_transaction_documents_get_with_http_info(id_user, id_connection, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_transactions_id_transaction_documents_get ...'
@@ -5410,7 +6160,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5424,7 +6174,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5485,7 +6235,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5781,7 +6531,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5851,7 +6601,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5887,7 +6637,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_connection, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_transactions_cluster, opts)
       data
@@ -5909,7 +6659,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_connection, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -5947,7 +6697,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -5961,7 +6711,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_connections_id_connection_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6022,7 +6772,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6318,7 +7068,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6343,6 +7093,7 @@ module BudgeaClient
     # Create a new connection to a given bank or provider. You have to give all needed parameters (use /banks/ID/fields or /providers/ID/fields to get them).<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :source optional comma-separated list of sources to use for the connection synchronization
     # @option opts [Integer] :id_connector ID of the connector
     # @option opts [String] :connector_uuid optional uuid of the connector (replaces id_connector)
     # @option opts [String] :birthday bank additional login parameter
@@ -6355,6 +7106,8 @@ module BudgeaClient
     # @option opts [String] :birthdate bank additional login parameter
     # @option opts [String] :nuser bank additional login parameter
     # @option opts [String] :website bank additional login parameter
+    # @option opts [String] :openapiwebsite bank additional login parameter
+    # @option opts [String] :website2 bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [String] :expand 
@@ -6368,6 +7121,7 @@ module BudgeaClient
     # Create a new connection to a given bank or provider. You have to give all needed parameters (use /banks/ID/fields or /providers/ID/fields to get them).&lt;br&gt;&lt;br&gt;
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :source optional comma-separated list of sources to use for the connection synchronization
     # @option opts [Integer] :id_connector ID of the connector
     # @option opts [String] :connector_uuid optional uuid of the connector (replaces id_connector)
     # @option opts [String] :birthday bank additional login parameter
@@ -6380,6 +7134,8 @@ module BudgeaClient
     # @option opts [String] :birthdate bank additional login parameter
     # @option opts [String] :nuser bank additional login parameter
     # @option opts [String] :website bank additional login parameter
+    # @option opts [String] :openapiwebsite bank additional login parameter
+    # @option opts [String] :website2 bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [String] :expand 
@@ -6397,6 +7153,7 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'source'] = opts[:'source'] if !opts[:'source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -6420,6 +7177,8 @@ module BudgeaClient
       form_params['birthdate'] = opts[:'birthdate'] if !opts[:'birthdate'].nil?
       form_params['nuser'] = opts[:'nuser'] if !opts[:'nuser'].nil?
       form_params['website'] = opts[:'website'] if !opts[:'website'].nil?
+      form_params['openapiwebsite'] = opts[:'openapiwebsite'] if !opts[:'openapiwebsite'].nil?
+      form_params['website'] = opts[:'website2'] if !opts[:'website2'].nil?
       form_params['login'] = opts[:'login'] if !opts[:'login'].nil?
       form_params['id_provider'] = opts[:'id_provider'] if !opts[:'id_provider'].nil?
 
@@ -6475,7 +7234,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6509,7 +7268,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_documents_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_documents_get_with_http_info(id_user, opts)
       data
@@ -6529,7 +7288,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_documents_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_documents_get ...'
@@ -6559,7 +7318,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6573,7 +7332,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6622,7 +7381,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6882,7 +7641,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6917,8 +7676,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [InlineResponse20017]
+    # @return [InlineResponse20015]
     def users_id_user_logs_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_logs_get_with_http_info(id_user, opts)
       data
@@ -6938,8 +7698,9 @@ module BudgeaClient
     # @option opts [Integer] :id_connection ID of a connection
     # @option opts [Integer] :id_connector ID of a connector
     # @option opts [BOOLEAN] :charged consider only logs for charged connectors
+    # @option opts [Integer] :id_source ID of a source
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
+    # @return [Array<(InlineResponse20015, Fixnum, Hash)>] InlineResponse20015 data, response status code and response headers
     def users_id_user_logs_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_logs_get ...'
@@ -6963,6 +7724,7 @@ module BudgeaClient
       query_params[:'id_connection'] = opts[:'id_connection'] if !opts[:'id_connection'].nil?
       query_params[:'id_connector'] = opts[:'id_connector'] if !opts[:'id_connector'].nil?
       query_params[:'charged'] = opts[:'charged'] if !opts[:'charged'].nil?
+      query_params[:'id_source'] = opts[:'id_source'] if !opts[:'id_source'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -6970,7 +7732,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -6984,7 +7746,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20017')
+        :return_type => 'InlineResponse20015')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7099,7 +7861,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7162,7 +7924,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7197,7 +7959,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_subscriptions_id_subscription_documents_get(id_user, id_subscription, opts = {})
       data, _status_code, _headers = users_id_user_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_subscription, opts)
       data
@@ -7218,7 +7980,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_subscriptions_id_subscription_documents_get_with_http_info(id_user, id_subscription, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_subscriptions_id_subscription_documents_get ...'
@@ -7252,7 +8014,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7266,7 +8028,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_subscriptions_id_subscription_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7321,7 +8083,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7620,6 +8382,81 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get subscriptions logs.
+    # Get logs of subscription.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_subscription 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal (inclusive) date
+    # @option opts [Date] :max_date maximum (inclusive) date
+    # @option opts [String] :expand 
+    # @return [InlineResponse20037]
+    def users_id_user_subscriptions_id_subscription_logs_get(id_user, id_subscription, opts = {})
+      data, _status_code, _headers = users_id_user_subscriptions_id_subscription_logs_get_with_http_info(id_user, id_subscription, opts)
+      data
+    end
+
+    # Get subscriptions logs.
+    # Get logs of subscription.&lt;br&gt;&lt;br&gt;By default, it selects logs for the last month. You can use \&quot;min_date\&quot; and \&quot;max_date\&quot; to change boundary dates.&lt;br&gt;&lt;br&gt;
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param id_subscription 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit limit number of results
+    # @option opts [Integer] :offset offset of first result
+    # @option opts [Date] :min_date minimal (inclusive) date
+    # @option opts [Date] :max_date maximum (inclusive) date
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20037, Fixnum, Hash)>] InlineResponse20037 data, response status code and response headers
+    def users_id_user_subscriptions_id_subscription_logs_get_with_http_info(id_user, id_subscription, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_subscriptions_id_subscription_logs_get ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_subscriptions_id_subscription_logs_get"
+      end
+      # verify the required parameter 'id_subscription' is set
+      if @api_client.config.client_side_validation && id_subscription.nil?
+        fail ArgumentError, "Missing the required parameter 'id_subscription' when calling ProvidersApi.users_id_user_subscriptions_id_subscription_logs_get"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/subscriptions/{id_subscription}/logs'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_subscription' + '}', id_subscription.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'min_date'] = opts[:'min_date'] if !opts[:'min_date'].nil?
+      query_params[:'max_date'] = opts[:'max_date'] if !opts[:'max_date'].nil?
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20037')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_subscriptions_id_subscription_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Update a subscription
     # It updates a specific subscription<br><br>
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
@@ -7689,6 +8526,63 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Update many subscriptions at once
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Subscription]
+    def users_id_user_subscriptions_put(id_user, opts = {})
+      data, _status_code, _headers = users_id_user_subscriptions_put_with_http_info(id_user, opts)
+      data
+    end
+
+    # Update many subscriptions at once
+    # 
+    # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(Subscription, Fixnum, Hash)>] Subscription data, response status code and response headers
+    def users_id_user_subscriptions_put_with_http_info(id_user, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_subscriptions_put ...'
+      end
+      # verify the required parameter 'id_user' is set
+      if @api_client.config.client_side_validation && id_user.nil?
+        fail ArgumentError, "Missing the required parameter 'id_user' when calling ProvidersApi.users_id_user_subscriptions_put"
+      end
+      # resource path
+      local_var_path = '/users/{id_user}/subscriptions'.sub('{' + 'id_user' + '}', id_user.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Subscription')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_subscriptions_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Delete documents
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
@@ -7732,7 +8626,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7767,7 +8661,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_transactions_id_transaction_documents_get(id_user, id_transaction, opts = {})
       data, _status_code, _headers = users_id_user_transactions_id_transaction_documents_get_with_http_info(id_user, id_transaction, opts)
       data
@@ -7788,7 +8682,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_transactions_id_transaction_documents_get_with_http_info(id_user, id_transaction, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_transactions_id_transaction_documents_get ...'
@@ -7822,7 +8716,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -7836,7 +8730,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_transactions_id_transaction_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -7891,7 +8785,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8233,7 +9127,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8268,7 +9162,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [InlineResponse20031]
+    # @return [InlineResponse20032]
     def users_id_user_transactionsclusters_id_transactions_cluster_documents_get(id_user, id_transactions_cluster, opts = {})
       data, _status_code, _headers = users_id_user_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_transactions_cluster, opts)
       data
@@ -8289,7 +9183,7 @@ module BudgeaClient
     # @option opts [Float] :max_timestamp maximum (inclusive) timestamp
     # @option opts [Integer] :id_type filter with a document type
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20031, Fixnum, Hash)>] InlineResponse20031 data, response status code and response headers
+    # @return [Array<(InlineResponse20032, Fixnum, Hash)>] InlineResponse20032 data, response status code and response headers
     def users_id_user_transactionsclusters_id_transactions_cluster_documents_get_with_http_info(id_user, id_transactions_cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProvidersApi.users_id_user_transactionsclusters_id_transactions_cluster_documents_get ...'
@@ -8323,7 +9217,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}
@@ -8337,7 +9231,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20031')
+        :return_type => 'InlineResponse20032')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#users_id_user_transactionsclusters_id_transactions_cluster_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -8392,7 +9286,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
 
       # form parameters
       form_params = {}

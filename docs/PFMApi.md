@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**auth_confirm_post**](PFMApi.md#auth_confirm_post) | **POST** /auth/confirm | Confirm email address
 [**auth_cookie_post**](PFMApi.md#auth_cookie_post) | **POST** /auth/cookie | Login with credentials and set as cookie
 [**auth_register_post**](PFMApi.md#auth_register_post) | **POST** /auth/register | Register to API
+[**auth_resend_confirm_email_post**](PFMApi.md#auth_resend_confirm_email_post) | **POST** /auth/resendConfirmEmail | Resend an email to confirm email address.
 [**auth_token_delete**](PFMApi.md#auth_token_delete) | **DELETE** /auth/token | Remove user access
 [**auth_token_post**](PFMApi.md#auth_token_post) | **POST** /auth/token | Login to API with credentials
 [**hash_delete**](PFMApi.md#hash_delete) | **DELETE** /hash | Delete the user&#39;s connections
@@ -22,7 +23,7 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_accounts_id_account_balances_get**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/balances | Get balances of accounts
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Get a list of configurated alerts
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investments
-[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investments
+[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investements
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Create an alert on transactions or investments of a given user
 [**users_id_user_connections_id_connection_balances_get**](PFMApi.md#users_id_user_connections_id_connection_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/balances | Get balances of accounts
 [**users_id_user_devices_get**](PFMApi.md#users_id_user_devices_get) | **GET** /users/{id_user}/devices | Get devices
@@ -284,6 +285,53 @@ Name | Type | Description  | Notes
 
 
 
+# **auth_resend_confirm_email_post**
+> auth_resend_confirm_email_post
+
+Resend an email to confirm email address.
+
+Sent token can be re-generated as it might be expired. Note that requesting email confirmation on already confirmed profile will raise a BadRequest.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::PFMApi.new
+
+begin
+  #Resend an email to confirm email address.
+  api_instance.auth_resend_confirm_email_post
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling PFMApi->auth_resend_confirm_email_post: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+
 # **auth_token_delete**
 > auth_token_delete
 
@@ -326,7 +374,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -437,7 +485,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -501,7 +549,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -562,7 +610,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -626,7 +674,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -700,7 +748,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -771,7 +819,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -825,7 +873,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -891,7 +939,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -952,7 +1000,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1019,7 +1067,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1083,7 +1131,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1150,7 +1198,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1158,7 +1206,7 @@ Name | Type | Description  | Notes
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**
 > UserAlert users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put(id_user, id_connection, id_account, id_operationsalert, opts)
 
-Edit an alert on transactions or investments
+Edit an alert on transactions or investements
 
 
 
@@ -1194,7 +1242,7 @@ opts = {
 }
 
 begin
-  #Edit an alert on transactions or investments
+  #Edit an alert on transactions or investements
   result = api_instance.users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put(id_user, id_connection, id_account, id_operationsalert, opts)
   p result
 rescue BudgeaClient::ApiError => e
@@ -1365,13 +1413,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_devices_get**
-> InlineResponse20036 users_id_user_devices_get(id_user, opts)
+> InlineResponse20038 users_id_user_devices_get(id_user, opts)
 
 Get devices
 
@@ -1415,7 +1463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -1423,7 +1471,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1484,7 +1532,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1545,7 +1593,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1614,7 +1662,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1680,7 +1728,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1733,7 +1781,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1791,7 +1839,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1849,7 +1897,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1910,7 +1958,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -1981,7 +2029,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2049,13 +2097,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
 
 # **users_id_user_profiles_get**
-> InlineResponse20037 users_id_user_profiles_get(id_user, opts)
+> InlineResponse20039 users_id_user_profiles_get(id_user, opts)
 
 Get profiles
 
@@ -2099,7 +2147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -2107,7 +2155,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2168,7 +2216,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2226,7 +2274,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2284,7 +2332,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2356,7 +2404,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2410,7 +2458,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 
@@ -2470,7 +2518,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

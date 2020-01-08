@@ -106,7 +106,7 @@ module BudgeaClient
       return false if @id.nil?
       return false if @signin.nil?
       return false if @platform.nil?
-      platform_validator = EnumAttributeValidator.new('String', ['web', 'iPad', 'iPhone', 'Android', 'CAstore', 'requestAccess', 'sharedAccess', 'transfer'])
+      platform_validator = EnumAttributeValidator.new('String', ['web', 'iPad', 'iPhone', 'Android', 'CAstore', 'requestAccess', 'sharedAccess', 'transfer', 'refresh_token'])
       return false unless platform_validator.valid?(@platform)
       true
     end
@@ -114,7 +114,7 @@ module BudgeaClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] platform Object to be assigned
     def platform=(platform)
-      validator = EnumAttributeValidator.new('String', ['web', 'iPad', 'iPhone', 'Android', 'CAstore', 'requestAccess', 'sharedAccess', 'transfer'])
+      validator = EnumAttributeValidator.new('String', ['web', 'iPad', 'iPhone', 'Android', 'CAstore', 'requestAccess', 'sharedAccess', 'transfer', 'refresh_token'])
       unless validator.valid?(platform)
         fail ArgumentError, 'invalid value for "platform", must be one of #{validator.allowable_values}.'
       end

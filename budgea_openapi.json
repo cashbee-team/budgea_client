@@ -341,7 +341,7 @@
                 "exp": 1538596697,
                 "iat": 1538594897,
                 "scope": "",
-                "type": "shared_access"
+                "type": "sharedAccess"
               }
             }
           }
@@ -469,6 +469,21 @@
         "consumes": [
           "application/x-www-form-urlencoded"
         ]
+      }
+    },
+    "/auth/resendConfirmEmail": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "standard HTTP response"
+          }
+        },
+        "tags": [
+          "PFM"
+        ],
+        "description": "Sent token can be re-generated as it might be expired. Note that requesting email confirmation on already confirmed profile will raise a BadRequest.<br><br>",
+        "parameters": [],
+        "summary": "Resend an email to confirm email address."
       }
     },
     "/auth/token": {
@@ -1042,6 +1057,55 @@
         "summary": "Get all links to the files associated with this connector."
       }
     },
+    "/banks/{id_connector}/sources": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "sources",
+            "schema": {
+              "required": [
+                "sources"
+              ],
+              "type": "object",
+              "properties": {
+                "sources": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectorSource"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get list of connector sources"
+      }
+    },
     "/categories": {
       "get": {
         "responses": {
@@ -1306,9 +1370,9 @@
           {
             "required": false,
             "in": "formData",
-            "type": "string",
-            "name": "redirect_uri",
-            "description": "redirect_uri"
+            "type": "array",
+            "name": "redirect_uris",
+            "description": "list of allowed redirect uris"
           },
           {
             "required": false,
@@ -1340,7 +1404,7 @@
         "tags": [
           "Administration"
         ],
-        "description": "If you use the manage_token or a configuration token, you will get also the client_secret<br><br>",
+        "description": "If you use the manage_token or a configuration token, you will get also the client secret.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -1403,9 +1467,9 @@
           {
             "required": false,
             "in": "formData",
-            "type": "string",
-            "name": "redirect_uri",
-            "description": "redirect_uri"
+            "type": "array",
+            "name": "redirect_uris",
+            "description": "list of allowed redirect uris"
           },
           {
             "required": false,
@@ -1730,6 +1794,134 @@
         "summary": "Get connections without a user"
       }
     },
+    "/connections/{id_connection}/logs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "connectionlogs",
+            "schema": {
+              "required": [
+                "connectionlogs"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "connectionlogs": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectionLog"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "Get logs about connections.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "limit",
+            "description": "limit number of results"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "offset",
+            "description": "offset of first result"
+          },
+          {
+            "name": "min_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "minimal date"
+          },
+          {
+            "name": "max_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "maximum date"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "state",
+            "description": "state of user"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "period",
+            "description": "period to group logs"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_user",
+            "description": "ID of a user"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_connection",
+            "description": "ID of a connection"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_connector",
+            "description": "ID of a connector"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "name": "charged",
+            "description": "consider only logs for charged connectors"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_source",
+            "description": "ID of a source"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get connection logs"
+      }
+    },
     "/connectors": {
       "get": {
         "responses": {
@@ -1855,6 +2047,36 @@
         "consumes": [
           "application/x-www-form-urlencoded"
         ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on Connector resource",
+            "schema": {
+              "$ref": "#/definitions/Connector"
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "hidden",
+            "description": "to enable  or disable connector (bank or provider)"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Enable/disable several connectors"
       }
     },
     "/connectors/{id_connector}": {
@@ -1870,6 +2092,7 @@
               "code": "40618",
               "name": "Boursorama",
               "color": "f10389",
+              "beta": true,
               "capabilities": [
                 "profile",
                 "banktransferaddrecipient",
@@ -1878,7 +2101,7 @@
                 "banktransfer"
               ],
               "id": 4,
-              "beta": true,
+              "auth_mechanism": "credentials",
               "hidden": false,
               "slug": "BOU",
               "categories": [
@@ -1920,6 +2143,13 @@
             "type": "integer",
             "name": "sync_frequency",
             "description": "Allows you to overload global sync_frequency param"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "auth_mechanism",
+            "description": "the authentication mechanism to use for this connector"
           },
           {
             "required": false,
@@ -2215,6 +2445,111 @@
         "summary": "Delete a single Logo object."
       }
     },
+    "/connectors/{id_connector}/sources": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "sources",
+            "schema": {
+              "required": [
+                "sources"
+              ],
+              "type": "object",
+              "properties": {
+                "sources": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectorSource"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get list of connector sources"
+      }
+    },
+    "/connectors/{id_connector}/sources/{id_source}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on ConnectorSource resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectorSource"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_source",
+            "description": ""
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "auth_mechanism",
+            "description": "the authentication mechanism to use for this connector source"
+          },
+          {
+            "name": "disabled",
+            "format": "date-time",
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "description": "to enable or disable connector source"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Edit the provided connector source"
+      }
+    },
     "/documenttypes": {
       "get": {
         "responses": {
@@ -2430,7 +2765,7 @@
         "tags": [
           "Banks"
         ],
-        "description": "Get number of accounts, connections and users synced between two dates for the given period.<br><br>",
+        "description": "You can get all the invoicing data or just specific ones by using the available parameters.<br><br>If no parameters are specified, no invoicing data is returned.<br><br>",
         "parameters": [
           {
             "name": "min_date",
@@ -2452,18 +2787,74 @@
             "required": false,
             "in": "query",
             "type": "string",
-            "name": "period",
-            "description": "period to group logs"
+            "name": "users_synced",
+            "description": "the number of user synchronized during the period"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "users_bank",
+            "description": "the number of user of the Bank API synchronized during the period"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "users_bill",
+            "description": " the number of user of the Bill API synchronized during the period"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "accounts_synced",
+            "description": "the number of accounts synchronized during the period"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "subscriptions_synced",
+            "description": "the number of subscriptions synchronized during the period"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "connections_synced",
+            "description": "the number of connections synchronized during the period"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "connections_account",
+            "description": "the number of Bank API connections synchronized during the period"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "transfers_synced",
+            "description": "the number of transfers done during the period"
           },
           {
             "required": false,
             "in": "query",
             "type": "string",
             "name": "all",
+            "description": "get all the invoicing data at once"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "detail",
             "description": "get full ids list instead of numbers"
           }
         ],
-        "summary": "Get number of accounts, connections and users synced."
+        "summary": "Get invoicing data for a given period (default is the current month)."
       }
     },
     "/logs": {
@@ -2572,6 +2963,13 @@
           },
           {
             "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_source",
+            "description": "ID of a source"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -2643,9 +3041,9 @@
           {
             "required": true,
             "in": "formData",
-            "type": "string",
-            "name": "redirect_uri",
-            "description": "regexp to check if given redirect_uri are authorized"
+            "type": "array",
+            "name": "redirect_uris",
+            "description": "list of allowed redirect uris"
           },
           {
             "required": true,
@@ -3005,6 +3403,10 @@
                     "$ref": "#/definitions/ConnectorLogo"
                   },
                   "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
                 }
               }
             }
@@ -3127,6 +3529,55 @@
           }
         ],
         "summary": "Get all links to the files associated with this connector."
+      }
+    },
+    "/providers/{id_connector}/sources": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "sources",
+            "schema": {
+              "required": [
+                "sources"
+              ],
+              "type": "object",
+              "properties": {
+                "sources": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectorSource"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connector",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get list of connector sources"
       }
     },
     "/terms": {
@@ -3511,7 +3962,7 @@
           {
             "name": "balance",
             "format": "float",
-            "required": true,
+            "required": false,
             "in": "formData",
             "type": "number",
             "description": "balance of account"
@@ -4154,7 +4605,7 @@
         "tags": [
           "Banks"
         ],
-        "description": "Get logs of account.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>",
+        "description": "Get logs of account. By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -5006,6 +5457,60 @@
           }
         ],
         "summary": "Cancel a transfer."
+      }
+    },
+    "/users/{id_user}/accounts/{id_account}/sources": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "sources",
+            "schema": {
+              "required": [
+                "sources"
+              ],
+              "type": "object",
+              "properties": {
+                "sources": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectionSource"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_account",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get account sources"
       }
     },
     "/users/{id_user}/accounts/{id_account}/transactions": {
@@ -7748,6 +8253,13 @@
           },
           {
             "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "source",
+            "description": "optional comma-separated list of sources to use for the connection synchronization"
+          },
+          {
+            "required": false,
             "in": "formData",
             "type": "integer",
             "name": "id_connector",
@@ -7821,6 +8333,20 @@
             "in": "formData",
             "type": "string",
             "name": "nuser",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "website",
+            "description": "bank additional login parameter"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "openapiwebsite",
             "description": "bank additional login parameter"
           },
           {
@@ -8177,7 +8703,7 @@
           {
             "name": "balance",
             "format": "float",
-            "required": true,
+            "required": false,
             "in": "formData",
             "type": "number",
             "description": "balance of account"
@@ -8900,7 +9426,7 @@
         "tags": [
           "Banks"
         ],
-        "description": "Get logs of account.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>",
+        "description": "Get logs of account. By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>",
         "parameters": [
           {
             "required": true,
@@ -9209,7 +9735,7 @@
             "in": "query"
           }
         ],
-        "summary": "Edit an alert on transactions or investments",
+        "summary": "Edit an alert on transactions or investements",
         "consumes": [
           "application/x-www-form-urlencoded"
         ]
@@ -9795,6 +10321,67 @@
           }
         ],
         "summary": "Cancel a transfer."
+      }
+    },
+    "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/sources": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "sources",
+            "schema": {
+              "required": [
+                "sources"
+              ],
+              "type": "object",
+              "properties": {
+                "sources": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectionSource"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Banks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_account",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get account sources"
       }
     },
     "/users/{id_user}/connections/{id_connection}/accounts/{id_account}/transactions": {
@@ -13156,6 +13743,13 @@
           },
           {
             "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_source",
+            "description": "ID of a source"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -13634,6 +14228,241 @@
           }
         ],
         "summary": "Cancel a transfer."
+      }
+    },
+    "/users/{id_user}/connections/{id_connection}/sources": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "sources",
+            "schema": {
+              "required": [
+                "sources"
+              ],
+              "type": "object",
+              "properties": {
+                "sources": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectionSource"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get connection sources"
+      }
+    },
+    "/users/{id_user}/connections/{id_connection}/sources/{id_source}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on ConnectionSource resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectionSource"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "This will make it so the specified source will be able to be synchronized.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_source",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Enable connection source"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on ConnectionSource resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectionSource"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "This will make it so the specified source will be able to be synchronized.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_source",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Enable connection source"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on ConnectionSource resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectionSource"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "This will make it so the specified source will not be synchronized anymore.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_source",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Disable a connection source"
+      }
+    },
+    "/users/{id_user}/connections/{id_connection}/subscriptions": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on Subscription resource",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Update many subscriptions at once"
       }
     },
     "/users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}": {
@@ -14294,6 +15123,97 @@
           }
         ],
         "summary": "Delete a document"
+      }
+    },
+    "/users/{id_user}/connections/{id_connection}/subscriptions/{id_subscription}/logs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "subscriptionlogs",
+            "schema": {
+              "required": [
+                "subscriptionlogs"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "subscriptionlogs": {
+                  "items": {
+                    "$ref": "#/definitions/SubscriptionLog"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "description": "Get logs of subscription.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_subscription",
+            "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "limit",
+            "description": "limit number of results"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "offset",
+            "description": "offset of first result"
+          },
+          {
+            "name": "min_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "minimal (inclusive) date"
+          },
+          {
+            "name": "max_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "maximum (inclusive) date"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get subscriptions logs."
       }
     },
     "/users/{id_user}/connections/{id_connection}/transactions": {
@@ -17509,6 +18429,13 @@
           },
           {
             "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_source",
+            "description": "ID of a source"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -18547,6 +19474,38 @@
         "summary": "Update synthesis configuration"
       }
     },
+    "/users/{id_user}/subscriptions": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on Subscription resource",
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Update many subscriptions at once"
+      }
+    },
     "/users/{id_user}/subscriptions/{id_subscription}": {
       "put": {
         "responses": {
@@ -19155,6 +20114,90 @@
           }
         ],
         "summary": "Delete a document"
+      }
+    },
+    "/users/{id_user}/subscriptions/{id_subscription}/logs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "subscriptionlogs",
+            "schema": {
+              "required": [
+                "subscriptionlogs"
+              ],
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                },
+                "subscriptionlogs": {
+                  "items": {
+                    "$ref": "#/definitions/SubscriptionLog"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "description": "Get logs of subscription.<br><br>By default, it selects logs for the last month. You can use \"min_date\" and \"max_date\" to change boundary dates.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "id_user",
+            "description": "Hint: you can use 'me' or 'all'"
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_subscription",
+            "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "limit",
+            "description": "limit number of results"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "offset",
+            "description": "offset of first result"
+          },
+          {
+            "name": "min_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "minimal (inclusive) date"
+          },
+          {
+            "name": "max_date",
+            "format": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "maximum (inclusive) date"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get subscriptions logs."
       }
     },
     "/users/{id_user}/terms": {
@@ -21257,9 +22300,10 @@
           }
         },
         "tags": [
-          "Authentication"
+          "Authentication",
+          "Transfer"
         ],
-        "description": "",
+        "description": "The route encapsulate 2 functionalities: 1. Create or update a connection through oAuth2 session.<br><br>2. Execute a transfer through OAuth2 session.",
         "parameters": [
           {
             "required": false,
@@ -21267,6 +22311,13 @@
             "type": "integer",
             "name": "id_connector",
             "description": "ID of the connector"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_transfer",
+            "description": "ID of the transfer"
           },
           {
             "required": false,
@@ -21311,7 +22362,7 @@
             "description": "Optional already existing connection to update"
           }
         ],
-        "summary": "Initialize a new OAuth2 proxy session."
+        "summary": "First step to establish an oAuth2 connection."
       }
     },
     "/webhooks": {
@@ -21866,7 +22917,25 @@
       "get": {
         "responses": {
           "200": {
-            "description": "standard HTTP response"
+            "description": "webhooks",
+            "schema": {
+              "required": [
+                "webhooks"
+              ],
+              "type": "object",
+              "properties": {
+                "webhooks": {
+                  "items": {
+                    "$ref": "#/definitions/Webhook"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -21880,6 +22949,12 @@
             "type": "integer",
             "name": "id_webhook",
             "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
           }
         ],
         "summary": "retrieve the list of the value to add in webhooks when sending the requested webhook"
@@ -21887,11 +22962,14 @@
       "post": {
         "responses": {
           "200": {
-            "description": "standard HTTP response"
+            "description": "Successful POST on Webhook resource",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
           }
         },
         "tags": [
-          "HUB"
+          "Administration"
         ],
         "description": "For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.<br><br>",
         "parameters": [
@@ -21901,9 +22979,158 @@
             "type": "integer",
             "name": "id_webhook",
             "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
           }
         ],
         "summary": "Setup a field to store in user config when calling the endpoint"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on Webhook resource",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_webhook",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "delete all entries"
+      }
+    },
+    "/webhooks/{id_webhook}/add_to_data/{key}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful GET on Webhook resource",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_webhook",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "key",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "retrieve the value to add in the requested webhook for the requested name"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on Webhook resource",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "For each parameter, a value will be added in the webhook data. Use the key to set the name of the field. The values that can be added are to be found in the user configuration.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_webhook",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "key",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "upate the requested field to store in user config when calling the endpoint"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on Webhook resource",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
+          }
+        },
+        "tags": [
+          "Administration"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_webhook",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "name": "key",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "delete the requested entry"
       }
     },
     "/webhooks/{id_webhook}/logs": {
@@ -21942,6 +23169,13 @@
             "type": "integer",
             "name": "id_webhook",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "name": "id_user",
+            "description": "limit number of results to this user"
           },
           {
             "required": false,
@@ -21994,10 +23228,10 @@
       "required": [
         "id",
         "name",
-        "id_weboob",
         "charged",
         "beta",
-        "uuid"
+        "uuid",
+        "restricted"
       ],
       "type": "object",
       "properties": {
@@ -22008,9 +23242,6 @@
         "name": {
           "type": "string",
           "description": "Name of the bank or provider"
-        },
-        "id_weboob": {
-          "type": "string"
         },
         "hidden": {
           "default": false,
@@ -22065,6 +23296,11 @@
           "type": "string",
           "description": "Unique connector identifier"
         },
+        "restricted": {
+          "default": false,
+          "type": "boolean",
+          "description": "If true, new connections cannot be added with this connector"
+        },
         "fields": {
           "type": "array",
           "items": {
@@ -22081,7 +23317,6 @@
       "example": {
         "id": 0,
         "name": "",
-        "id_weboob": "",
         "hidden": false,
         "charged": true,
         "code": "",
@@ -22092,7 +23327,61 @@
         "months_to_fetch": 0,
         "auth_mechanism": "",
         "siret": "",
-        "uuid": ""
+        "uuid": "",
+        "restricted": false
+      }
+    },
+    "ConnectorSource": {
+      "required": [
+        "id",
+        "id_connector",
+        "name",
+        "id_weboob"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the connector source"
+        },
+        "id_connector": {
+          "type": "integer",
+          "description": "ID of the connector"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the source"
+        },
+        "id_weboob": {
+          "type": "string"
+        },
+        "auth_mechanism": {
+          "type": "string",
+          "description": "Authentication mechanism to use"
+        },
+        "fallback": {
+          "type": "string",
+          "description": "Name of the source this fallback is for"
+        },
+        "disabled": {
+          "type": "string",
+          "description": "This source is not used to synchronize the connection",
+          "format": "date-time"
+        },
+        "priority": {
+          "type": "integer",
+          "description": "The source priority order for the synchronization"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_connector": 0,
+        "name": "",
+        "id_weboob": "",
+        "auth_mechanism": "",
+        "fallback": "",
+        "disabled": "2019-12-27 16:17:55.183995",
+        "priority": 0
       }
     },
     "Field": {
@@ -22148,6 +23437,10 @@
           "default": true,
           "type": "boolean",
           "description": "If true, field has to be set to synchronize the connection"
+        },
+        "auth_mechanisms": {
+          "type": "string",
+          "description": "Authentication mechanisms this field is used for"
         }
       },
       "example": {
@@ -22159,7 +23452,8 @@
         "type": "text",
         "ephemeral": false,
         "value": "",
-        "required": true
+        "required": true,
+        "auth_mechanisms": ""
       }
     },
     "FieldValue": {
@@ -22233,7 +23527,8 @@
             "CAstore",
             "requestAccess",
             "sharedAccess",
-            "transfer"
+            "transfer",
+            "refresh_token"
           ],
           "type": "string"
         }
@@ -22408,7 +23703,7 @@
         "id",
         "name",
         "secret",
-        "redirect_uri",
+        "redirect_uris",
         "pro"
       ],
       "type": "object",
@@ -22429,7 +23724,7 @@
         "private_key": {
           "type": "string"
         },
-        "redirect_uri": {
+        "redirect_uris": {
           "default": "",
           "type": "string"
         },
@@ -22452,7 +23747,7 @@
         "secret": "",
         "public_key": "",
         "private_key": "",
-        "redirect_uri": "",
+        "redirect_uris": "",
         "pro": false,
         "id_logo": 0
       }
@@ -22780,6 +24075,12 @@
           "description": "Last successful update",
           "format": "date-time"
         },
+        "created": {
+          "default": "<function <lambda> at 0x7f8894ce1aa0>",
+          "type": "string",
+          "description": "Creation date",
+          "format": "date-time"
+        },
         "error": {
           "type": "string",
           "description": "If the last update has failed, the error code"
@@ -22826,46 +24127,12 @@
         "id_user": 0,
         "id_connector": 0,
         "last_update": "2019-08-02 17:21:59.365076",
+        "created": "<function <lambda> at 0x7f8894ce1aa0>",
         "error": "",
         "expire": "2019-08-02 17:21:59.365257",
         "active": true,
         "last_push": "2019-08-02 17:21:59.365378",
         "next_try": "2019-08-02 17:21:59.365554"
-      }
-    },
-    "Certificate": {
-      "required": [
-        "id",
-        "id_public_key_file",
-        "id_private_key_file",
-        "type",
-        "created"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_public_key_file": {
-          "type": "integer"
-        },
-        "id_private_key_file": {
-          "type": "integer"
-        },
-        "type": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_public_key_file": 0,
-        "id_private_key_file": 0,
-        "type": "",
-        "created": "2019-08-02 17:21:59.372311"
       }
     },
     "ConnectionLog": {
@@ -22891,6 +24158,10 @@
         "id_connector": {
           "type": "integer",
           "description": "ID of the connector"
+        },
+        "id_source": {
+          "type": "integer",
+          "description": "ID of the related connection source"
         },
         "login": {
           "type": "string",
@@ -22950,6 +24221,7 @@
         "id_user": 0,
         "id_connection": 0,
         "id_connector": 0,
+        "id_source": 0,
         "login": "",
         "error_uid": "",
         "timestamp": "CURRENT_TIMESTAMP",
@@ -22963,29 +24235,6 @@
         "session_folder_id": ""
       }
     },
-    "ProjectType": {
-      "required": [
-        "id",
-        "name"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "icon_url": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "name": "",
-        "icon_url": ""
-      }
-    },
     "Transfer": {
       "description": "This is a representation of a transfer.",
       "required": [
@@ -22993,7 +24242,8 @@
         "exec_date",
         "register_date",
         "amount",
-        "state"
+        "state",
+        "beneficiary_type"
       ],
       "type": "object",
       "properties": {
@@ -23047,7 +24297,7 @@
         },
         "state": {
           "type": "string",
-          "description": "State of the transfer (created, scheduled, validating, pending, coming, done, canceled, transaction_not_found, deleted, error, bug)"
+          "description": "State of the transfer (created, scheduled, validating, pending, coming, done, canceled, transactionNotFound, deleted, error, bug)"
         },
         "error": {
           "type": "string",
@@ -23065,6 +24315,23 @@
         "id_transaction": {
           "type": "integer",
           "description": "If found, ID of the related transaction"
+        },
+        "beneficiary_type": {
+          "default": "recipient",
+          "type": "string",
+          "description": "Type of beneficiary number, for example: 'recipient' (in bank recipient list), 'iban' or 'phone_number'"
+        },
+        "beneficiary_number": {
+          "type": "string",
+          "description": "Beneficiary bank identifier value like recipient webid, iban: EX6713281847025300290000062 or phone_number: 06XXXXXX"
+        },
+        "beneficiary_label": {
+          "type": "string",
+          "description": "Label of the beneficiary (needed for transfer to other beneficiary type than 'recipient')"
+        },
+        "validate_mechanism": {
+          "type": "string",
+          "description": "Authentication method used to validate transfer (credentials or webauth)"
         },
         "currency": {
           "type": "object",
@@ -23088,7 +24355,117 @@
         "label": "",
         "account_balance": 0,
         "id_transaction": 0,
+        "beneficiary_type": "recipient",
+        "beneficiary_number": "",
+        "beneficiary_label": "",
+        "validate_mechanism": "",
         "currency": ""
+      }
+    },
+    "Order": {
+      "required": [
+        "id",
+        "id_merchant",
+        "id_transfer"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the order"
+        },
+        "id_merchant": {
+          "type": "integer",
+          "description": "id of the merchant who initiated the order"
+        },
+        "id_transfer": {
+          "type": "integer",
+          "description": "id of the transfer used to pay this the order"
+        },
+        "state": {
+          "type": "string",
+          "description": "State of the order (result of the recipient adding and the transfer execution)"
+        },
+        "error_message": {
+          "type": "string",
+          "description": "more information on the state if something went wrong during the order"
+        },
+        "opt_out_cause": {
+          "type": "string",
+          "description": "set by the webview, indicates at which step of the payment the user has left the order"
+        },
+        "refund_value": {
+          "type": "number",
+          "description": "Amount refunded",
+          "format": "float"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_merchant": 0,
+        "id_transfer": 0,
+        "state": "",
+        "error_message": "",
+        "opt_out_cause": "",
+        "refund_value": 0
+      }
+    },
+    "Certificate": {
+      "required": [
+        "id",
+        "id_public_key_file",
+        "id_private_key_file",
+        "type",
+        "created"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_public_key_file": {
+          "type": "integer"
+        },
+        "id_private_key_file": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_public_key_file": 0,
+        "id_private_key_file": 0,
+        "type": "",
+        "created": "2019-12-27 16:17:55.226500"
+      }
+    },
+    "ProjectType": {
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon_url": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "name": "",
+        "icon_url": ""
       }
     },
     "Access": {
@@ -23389,6 +24766,10 @@
           "type": "integer",
           "description": "ID of related user"
         },
+        "id_source": {
+          "type": "integer",
+          "description": "ID of the related connection source"
+        },
         "number": {
           "type": "string",
           "description": "Subscription's number"
@@ -23435,6 +24816,7 @@
         "id": 0,
         "id_connection": 0,
         "id_user": 0,
+        "id_source": 0,
         "number": "",
         "label": "",
         "subscriber": "",
@@ -23577,6 +24959,11 @@
           "description": "Value in the original currency",
           "format": "float"
         },
+        "original_gross_value": {
+          "type": "number",
+          "description": "Gross value in the original currency",
+          "format": "float"
+        },
         "original_currency": {
           "type": "object",
           "description": "Original currency"
@@ -23626,6 +25013,7 @@
         "last_update": "2019-08-02 17:21:59.425674",
         "deleted": "2019-08-02 17:21:59.425732",
         "original_value": 0,
+        "original_gross_value": 0,
         "original_currency": "",
         "commission": 0,
         "commission_currency": "",
@@ -24034,6 +25422,10 @@
           "type": "integer",
           "description": "ID of the related user"
         },
+        "id_source": {
+          "type": "integer",
+          "description": "ID of the related connection source"
+        },
         "id_parent": {
           "type": "integer",
           "description": "Id of the parent account"
@@ -24129,12 +25521,17 @@
         "ownership": {
           "type": "string",
           "description": "Relationship between the credentials owner and the account"
+        },
+        "company_name": {
+          "type": "string",
+          "description": "Name of the company holding the employee savings of the account"
         }
       },
       "example": {
         "id": 0,
         "id_connection": 0,
         "id_user": 0,
+        "id_source": 0,
         "id_parent": 0,
         "number": "",
         "webid": "",
@@ -24152,7 +25549,8 @@
         "name": "",
         "error": "",
         "usage": "",
-        "ownership": ""
+        "ownership": "",
+        "company_name": ""
       }
     },
     "Project": {
@@ -24331,42 +25729,6 @@
         "condition": "inconnu",
         "last_update": "2019-08-02 17:21:59.448433",
         "deleted": "2019-08-02 17:21:59.448498"
-      }
-    },
-    "Invite": {
-      "required": [
-        "id",
-        "id_user_inviting"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_unsubscribe": {
-          "type": "integer"
-        },
-        "id_user_inviting": {
-          "type": "integer"
-        },
-        "id_user_invited": {
-          "type": "integer"
-        },
-        "email_invited": {
-          "type": "string"
-        },
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_unsubscribe": 0,
-        "id_user_inviting": 0,
-        "id_user_invited": 0,
-        "email_invited": "",
-        "timestamp": "2019-03-12 13:08:00.818970"
       }
     },
     "Alert": {
@@ -24649,14 +26011,149 @@
         "timestamp": "CURRENT_TIMESTAMP"
       }
     },
+    "SubscriptionLog": {
+      "required": [
+        "id",
+        "id_subscription",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the log"
+        },
+        "id_subscription": {
+          "type": "integer",
+          "description": "ID of the related subscription"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of log",
+          "format": "date-time"
+        },
+        "nb_docs": {
+          "type": "integer",
+          "description": "Number of docs on the subscription"
+        },
+        "id_connection_log": {
+          "type": "integer",
+          "description": "ID of the related connection log"
+        },
+        "error": {
+          "type": "string",
+          "description": "If fail, contains the error code"
+        },
+        "error_message": {
+          "type": "string",
+          "description": "If fail, error message received from provider"
+        },
+        "id_source": {
+          "type": "integer",
+          "description": "ID of the related connection source"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_subscription": 0,
+        "timestamp": "CURRENT_TIMESTAMP",
+        "nb_docs": 0,
+        "id_connection_log": 0,
+        "error": "",
+        "error_message": "",
+        "id_source": 0
+      }
+    },
+    "ConnectionSource": {
+      "required": [
+        "id",
+        "id_connection",
+        "id_connector_source",
+        "name",
+        "created"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of connection"
+        },
+        "id_connection": {
+          "type": "integer",
+          "description": "ID of the related connection"
+        },
+        "id_connector_source": {
+          "type": "integer",
+          "description": "ID of the related connector source"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the connection source"
+        },
+        "last_update": {
+          "type": "string",
+          "description": "Last successful update",
+          "format": "date-time"
+        },
+        "disabled": {
+          "type": "string",
+          "description": "This source is not used to synchronize the connection",
+          "format": "date-time"
+        },
+        "created": {
+          "default": "<function <lambda> at 0x7f8894cfe7d0>",
+          "type": "string",
+          "description": "Creation date of the connection source",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string",
+          "description": "If the last update has failed, the state code"
+        },
+        "access_expire": {
+          "type": "string",
+          "description": "Expiration date of the access",
+          "format": "date-time"
+        },
+        "expire": {
+          "type": "string",
+          "description": "Expiration of the connection source. Used to purge the connection in case completion was not finished",
+          "format": "date-time"
+        },
+        "next_try": {
+          "type": "string",
+          "description": "Date of next synchronization",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_connection": 0,
+        "id_connector_source": 0,
+        "name": "",
+        "last_update": "2019-12-27 16:17:55.317583",
+        "disabled": "2019-12-27 16:17:55.317658",
+        "created": "<function <lambda> at 0x7f8894cfe7d0>",
+        "state": "",
+        "access_expire": "2019-12-27 16:17:55.317849",
+        "expire": "2019-12-27 16:17:55.317911",
+        "next_try": "2019-12-27 16:17:55.318118"
+      }
+    },
     "AccountLog": {
       "required": [
+        "id",
         "id_account",
         "balance",
         "timestamp"
       ],
       "type": "object",
       "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the log"
+        },
         "id_account": {
           "type": "integer",
           "description": "ID of the related account"
@@ -24696,6 +26193,7 @@
         }
       },
       "example": {
+        "id": 0,
         "id_account": 0,
         "id_connector": 0,
         "balance": 0,
@@ -24870,7 +26368,8 @@
   "basePath": "/2.0/",
   "swagger": "2.0",
   "consumes": [
-    "application/x-www-form-urlencoded"
+    "application/json",
+    "multipart/form-data"
   ],
   "tags": [
     {
@@ -24887,9 +26386,6 @@
     },
     {
       "name": "Documents"
-    },
-    {
-      "name": "HUB"
     },
     {
       "name": "OCR"
@@ -24911,6 +26407,9 @@
     },
     {
       "name": "Terms"
+    },
+    {
+      "name": "Transfer"
     },
     {
       "name": "Transfers"

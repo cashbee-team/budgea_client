@@ -89,6 +89,9 @@ module BudgeaClient
     # Value in the original currency
     attr_accessor :original_value
 
+    # Gross value in the original currency
+    attr_accessor :original_gross_value
+
     # Original currency
     attr_accessor :original_currency
 
@@ -135,6 +138,7 @@ module BudgeaClient
         :'last_update' => :'last_update',
         :'deleted' => :'deleted',
         :'original_value' => :'original_value',
+        :'original_gross_value' => :'original_gross_value',
         :'original_currency' => :'original_currency',
         :'commission' => :'commission',
         :'commission_currency' => :'commission_currency',
@@ -172,6 +176,7 @@ module BudgeaClient
         :'last_update' => :'DateTime',
         :'deleted' => :'DateTime',
         :'original_value' => :'Float',
+        :'original_gross_value' => :'Float',
         :'original_currency' => :'Object',
         :'commission' => :'Float',
         :'commission_currency' => :'Object',
@@ -293,6 +298,10 @@ module BudgeaClient
 
       if attributes.has_key?(:'original_value')
         self.original_value = attributes[:'original_value']
+      end
+
+      if attributes.has_key?(:'original_gross_value')
+        self.original_gross_value = attributes[:'original_gross_value']
       end
 
       if attributes.has_key?(:'original_currency')
@@ -423,6 +432,7 @@ module BudgeaClient
           last_update == o.last_update &&
           deleted == o.deleted &&
           original_value == o.original_value &&
+          original_gross_value == o.original_gross_value &&
           original_currency == o.original_currency &&
           commission == o.commission &&
           commission_currency == o.commission_currency &&
@@ -440,7 +450,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_account, webid, application_date, date, value, gross_value, nature, original_wording, simplified_wording, stemmed_wording, wording, id_category, state, date_scraped, rdate, vdate, bdate, coming, active, id_cluster, comment, last_update, deleted, original_value, original_currency, commission, commission_currency, country, counterparty, card].hash
+      [id, id_account, webid, application_date, date, value, gross_value, nature, original_wording, simplified_wording, stemmed_wording, wording, id_category, state, date_scraped, rdate, vdate, bdate, coming, active, id_cluster, comment, last_update, deleted, original_value, original_gross_value, original_currency, commission, commission_currency, country, counterparty, card].hash
     end
 
     # Builds the object from hash
