@@ -24120,6 +24120,9 @@
           "items": {
             "$ref": "#/definitions/Subscription"
           }
+        },
+        "connection": {
+          "$ref": "#/definitions/Connection"
         }
       },
       "example": {
