@@ -26374,8 +26374,7 @@
   "basePath": "/2.0/",
   "swagger": "2.0",
   "consumes": [
-    "application/json",
-    "multipart/form-data"
+    "application/x-www-form-urlencoded"
   ],
   "tags": [
     {
