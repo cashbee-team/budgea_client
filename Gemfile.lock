@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    budgea_client (4.1.0)
+    budgea_client (5.0.3)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 

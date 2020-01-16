@@ -16,5 +16,7 @@ Name | Type | Description | Notes
 **next_try** | **DateTime** | Date of next synchronization | [optional] 
 **accounts** | [**Array&lt;Account&gt;**](Account.md) |  | [optional] 
 **subscriptions** | [**Array&lt;Subscription&gt;**](Subscription.md) |  | [optional] 
+**connection** | [**Connection**](Connection.md) |  | [optional] 
+**message** | **String** |  | [optional] 
 
 

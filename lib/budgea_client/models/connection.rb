@@ -51,6 +51,10 @@ module BudgeaClient
 
     attr_accessor :subscriptions
 
+    attr_accessor :connection
+
+    attr_accessor :message
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -66,7 +70,9 @@ module BudgeaClient
         :'last_push' => :'last_push',
         :'next_try' => :'next_try',
         :'accounts' => :'accounts',
-        :'subscriptions' => :'subscriptions'
+        :'subscriptions' => :'subscriptions',
+        :'connection' => :'connection',
+        :'message' => :'message'
       }
     end
 
@@ -85,7 +91,9 @@ module BudgeaClient
         :'last_push' => :'DateTime',
         :'next_try' => :'DateTime',
         :'accounts' => :'Array<Account>',
-        :'subscriptions' => :'Array<Subscription>'
+        :'subscriptions' => :'Array<Subscription>',
+        :'connection' => :'Connection',
+        :'message' => :'String'
       }
     end
 
@@ -154,6 +162,14 @@ module BudgeaClient
           self.subscriptions = value
         end
       end
+
+      if attributes.has_key?(:'connection')
+        self.connection = attributes[:'connection']
+      end
+
+      if attributes.has_key?(:'message')
+        self.message = attributes[:'message']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -201,7 +217,9 @@ module BudgeaClient
           last_push == o.last_push &&
           next_try == o.next_try &&
           accounts == o.accounts &&
-          subscriptions == o.subscriptions
+          subscriptions == o.subscriptions &&
+          connection == o.connection &&
+          message == o.message
     end
 
     # @see the `==` method
@@ -213,7 +231,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_user, id_connector, last_update, created, error, error_message, expire, active, last_push, next_try, accounts, subscriptions].hash
+      [id, id_user, id_connector, last_update, created, error, error_message, expire, active, last_push, next_try, accounts, subscriptions, connection, message].hash
     end
 
     # Builds the object from hash
