@@ -8372,6 +8372,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "resume",
+            "description": "Resume a decoupled connection creation"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -26374,8 +26381,7 @@
   "basePath": "/2.0/",
   "swagger": "2.0",
   "consumes": [
-    "application/json",
-    "multipart/form-data"
+    "application/x-www-form-urlencoded"
   ],
   "tags": [
     {

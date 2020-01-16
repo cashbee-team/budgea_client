@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -717,65 +717,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **banks_id_connector_sources_get**
-> InlineResponse20011 banks_id_connector_sources_get(id_connector, opts)
-
-Get list of connector sources
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_connector = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Get list of connector sources
-  result = api_instance.banks_id_connector_sources_get(id_connector, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->banks_id_connector_sources_get: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_connector** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**InlineResponse20011**](InlineResponse20011.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -888,7 +830,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -946,7 +888,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1001,7 +943,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1061,7 +1003,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1116,87 +1058,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **connections_id_connection_logs_get**
-> InlineResponse20015 connections_id_connection_logs_get(id_connection, opts)
-
-Get connection logs
-
-Get logs about connections.<br><br>
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_connection = 56 # Integer | 
-
-opts = { 
-  limit: 56, # Integer | limit number of results
-  offset: 56, # Integer | offset of first result
-  min_date: Date.parse('2013-10-20'), # Date | minimal date
-  max_date: Date.parse('2013-10-20'), # Date | maximum date
-  state: 56, # Integer | state of user
-  period: 'period_example', # String | period to group logs
-  id_user: 56, # Integer | ID of a user
-  id_connection2: 56, # Integer | ID of a connection
-  id_connector: 56, # Integer | ID of a connector
-  charged: true, # BOOLEAN | consider only logs for charged connectors
-  id_source: 56, # Integer | ID of a source
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Get connection logs
-  result = api_instance.connections_id_connection_logs_get(id_connection, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->connections_id_connection_logs_get: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_connection** | **Integer**|  | 
- **limit** | **Integer**| limit number of results | [optional] 
- **offset** | **Integer**| offset of first result | [optional] 
- **min_date** | **Date**| minimal date | [optional] 
- **max_date** | **Date**| maximum date | [optional] 
- **state** | **Integer**| state of user | [optional] 
- **period** | **String**| period to group logs | [optional] 
- **id_user** | **Integer**| ID of a user | [optional] 
- **id_connection2** | **Integer**| ID of a connection | [optional] 
- **id_connector** | **Integer**| ID of a connector | [optional] 
- **charged** | **BOOLEAN**| consider only logs for charged connectors | [optional] 
- **id_source** | **Integer**| ID of a source | [optional] 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**InlineResponse20015**](InlineResponse20015.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1331,7 +1193,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1389,7 +1251,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1450,7 +1312,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1511,7 +1373,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1569,7 +1431,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1627,7 +1489,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1685,7 +1547,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1743,7 +1605,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -1809,130 +1671,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **connectors_id_connector_sources_get**
-> InlineResponse20011 connectors_id_connector_sources_get(id_connector, opts)
-
-Get list of connector sources
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_connector = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Get list of connector sources
-  result = api_instance.connectors_id_connector_sources_get(id_connector, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->connectors_id_connector_sources_get: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_connector** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**InlineResponse20011**](InlineResponse20011.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **connectors_id_connector_sources_id_source_put**
-> ConnectorSource connectors_id_connector_sources_id_source_put(id_connector, id_source, opts)
-
-Edit the provided connector source
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_connector = 56 # Integer | 
-
-id_source = 56 # Integer | 
-
-opts = { 
-  auth_mechanism: 'auth_mechanism_example', # String | the authentication mechanism to use for this connector source
-  disabled: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | to enable or disable connector source
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Edit the provided connector source
-  result = api_instance.connectors_id_connector_sources_id_source_put(id_connector, id_source, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->connectors_id_connector_sources_id_source_put: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_connector** | **Integer**|  | 
- **id_source** | **Integer**|  | 
- **auth_mechanism** | **String**| the authentication mechanism to use for this connector source | [optional] 
- **disabled** | **DateTime**| to enable or disable connector source | [optional] 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**ConnectorSource**](ConnectorSource.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2186,63 +1925,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **connectors_put**
-> Connector connectors_put(opts)
-
-Enable/disable several connectors
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-opts = { 
-  hidden: true, # BOOLEAN | to enable  or disable connector (bank or provider)
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Enable/disable several connectors
-  result = api_instance.connectors_put(opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->connectors_put: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **hidden** | **BOOLEAN**| to enable  or disable connector (bank or provider) | [optional] 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**Connector**](Connector.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
@@ -2319,7 +2001,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2396,7 +2078,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2451,7 +2133,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2511,7 +2193,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2569,7 +2251,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2627,7 +2309,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2685,65 +2367,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **providers_id_connector_sources_get**
-> InlineResponse20011 providers_id_connector_sources_get(id_connector, opts)
-
-Get list of connector sources
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_connector = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Get list of connector sources
-  result = api_instance.providers_id_connector_sources_get(id_connector, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->providers_id_connector_sources_get: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_connector** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**InlineResponse20011**](InlineResponse20011.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2859,7 +2483,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2920,7 +2544,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -2978,7 +2602,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3036,7 +2660,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3092,7 +2716,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3153,7 +2777,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3217,7 +2841,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3286,7 +2910,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3361,68 +2985,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **users_id_user_accounts_id_account_sources_get**
-> InlineResponse20030 users_id_user_accounts_id_account_sources_get(id_user, id_account, opts)
-
-Get account sources
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
-
-id_account = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Get account sources
-  result = api_instance.users_id_user_accounts_id_account_sources_get(id_user, id_account, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->users_id_user_accounts_id_account_sources_get: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_account** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**InlineResponse20030**](InlineResponse20030.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3544,7 +3107,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3631,7 +3194,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3695,7 +3258,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3759,7 +3322,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3826,7 +3389,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3893,7 +3456,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -3957,7 +3520,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4031,7 +3594,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4115,7 +3678,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4176,7 +3739,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4240,7 +3803,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4304,7 +3867,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4365,7 +3928,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4436,7 +3999,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4494,7 +4057,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4552,7 +4115,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4610,7 +4173,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4671,7 +4234,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4736,7 +4299,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4808,7 +4371,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4861,7 +4424,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4919,7 +4482,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -4977,7 +4540,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5038,7 +4601,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5099,7 +4662,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5158,7 +4721,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5222,7 +4785,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5289,7 +4852,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5439,7 +5002,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5503,71 +5066,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **users_id_user_connections_id_connection_accounts_id_account_sources_get**
-> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts)
-
-Get account sources
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
-
-id_connection = 56 # Integer | 
-
-id_account = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Get account sources
-  result = api_instance.users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_accounts_id_account_sources_get: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_connection** | **Integer**|  | 
- **id_account** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**InlineResponse20030**](InlineResponse20030.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5631,7 +5130,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5721,7 +5220,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5788,7 +5287,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5855,7 +5354,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5925,7 +5424,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -5995,7 +5494,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6062,7 +5561,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6139,7 +5638,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6226,7 +5725,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6290,7 +5789,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6357,7 +5856,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6424,7 +5923,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6488,7 +5987,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6623,7 +6122,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6684,7 +6183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6745,7 +6244,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6806,7 +6305,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -6889,7 +6388,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -7021,260 +6520,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **users_id_user_connections_id_connection_sources_get**
-> InlineResponse20030 users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
-
-Get connection sources
-
-
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
-
-id_connection = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Get connection sources
-  result = api_instance.users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_get: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_connection** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**InlineResponse20030**](InlineResponse20030.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **users_id_user_connections_id_connection_sources_id_source_delete**
-> ConnectionSource users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts)
-
-Disable a connection source
-
-This will make it so the specified source will not be synchronized anymore.<br><br>
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
-
-id_connection = 56 # Integer | 
-
-id_source = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Disable a connection source
-  result = api_instance.users_id_user_connections_id_connection_sources_id_source_delete(id_user, id_connection, id_source, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_id_source_delete: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_connection** | **Integer**|  | 
- **id_source** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**ConnectionSource**](ConnectionSource.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **users_id_user_connections_id_connection_sources_id_source_post**
-> ConnectionSource users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts)
-
-Enable connection source
-
-This will make it so the specified source will be able to be synchronized.<br><br>
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
-
-id_connection = 56 # Integer | 
-
-id_source = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Enable connection source
-  result = api_instance.users_id_user_connections_id_connection_sources_id_source_post(id_user, id_connection, id_source, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_id_source_post: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_connection** | **Integer**|  | 
- **id_source** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**ConnectionSource**](ConnectionSource.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
- - **Accept**: application/json
-
-
-
-# **users_id_user_connections_id_connection_sources_id_source_put**
-> ConnectionSource users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts)
-
-Enable connection source
-
-This will make it so the specified source will be able to be synchronized.<br><br>
-
-### Example
-```ruby
-# load the gem
-require 'budgea_client'
-# setup authorization
-BudgeaClient.configure do |config|
-  # Configure API key authorization: api_key
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = BudgeaClient::BanksApi.new
-
-id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
-
-id_connection = 56 # Integer | 
-
-id_source = 56 # Integer | 
-
-opts = { 
-  expand: 'expand_example' # String | 
-}
-
-begin
-  #Enable connection source
-  result = api_instance.users_id_user_connections_id_connection_sources_id_source_put(id_user, id_connection, id_source, opts)
-  p result
-rescue BudgeaClient::ApiError => e
-  puts "Exception when calling BanksApi->users_id_user_connections_id_connection_sources_id_source_put: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **id_connection** | **Integer**|  | 
- **id_source** | **Integer**|  | 
- **expand** | **String**|  | [optional] 
-
-### Return type
-
-[**ConnectionSource**](ConnectionSource.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -7588,7 +6834,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -7675,7 +6921,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -7739,7 +6985,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -7803,7 +7049,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -7870,7 +7116,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -7937,7 +7183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8001,7 +7247,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8075,7 +7321,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8159,7 +7405,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8220,7 +7466,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8284,7 +7530,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8348,7 +7594,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8409,7 +7655,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8455,6 +7701,7 @@ opts = {
   website2: 'website_example', # String | bank additional login parameter
   login: 'login_example', # String | bank additional login parameter
   id_provider: 56, # Integer | ID of the provider
+  resume: true, # BOOLEAN | Resume a decoupled connection creation
   expand: 'expand_example' # String | 
 }
 
@@ -8489,6 +7736,7 @@ Name | Type | Description  | Notes
  **website2** | **String**| bank additional login parameter | [optional] 
  **login** | **String**| bank additional login parameter | [optional] 
  **id_provider** | **Integer**| ID of the provider | [optional] 
+ **resume** | **BOOLEAN**| Resume a decoupled connection creation | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -8554,7 +7802,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8634,7 +7882,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8692,7 +7940,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8776,7 +8024,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8837,7 +8085,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8898,7 +8146,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -8962,7 +8210,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -9026,7 +8274,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -9087,7 +8335,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -9297,7 +8545,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -9358,7 +8606,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -9419,7 +8667,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
@@ -9477,7 +8725,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 
