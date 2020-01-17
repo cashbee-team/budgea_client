@@ -8372,6 +8372,13 @@
           },
           {
             "required": false,
+            "in": "formData",
+            "type": "boolean",
+            "name": "resume",
+            "description": "Resume a decoupled connection creation"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"

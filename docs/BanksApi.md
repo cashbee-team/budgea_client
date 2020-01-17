@@ -7701,6 +7701,7 @@ opts = {
   website2: 'website_example', # String | bank additional login parameter
   login: 'login_example', # String | bank additional login parameter
   id_provider: 56, # Integer | ID of the provider
+  resume: true, # BOOLEAN | Resume a decoupled connection creation
   expand: 'expand_example' # String | 
 }
 
@@ -7735,6 +7736,7 @@ Name | Type | Description  | Notes
  **website2** | **String**| bank additional login parameter | [optional] 
  **login** | **String**| bank additional login parameter | [optional] 
  **id_provider** | **Integer**| ID of the provider | [optional] 
+ **resume** | **BOOLEAN**| Resume a decoupled connection creation | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type

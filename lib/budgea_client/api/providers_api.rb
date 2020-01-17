@@ -7110,6 +7110,7 @@ module BudgeaClient
     # @option opts [String] :website2 bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
+    # @option opts [BOOLEAN] :resume Resume a decoupled connection creation
     # @option opts [String] :expand 
     # @return [Connection]
     def users_id_user_connections_post(id_user, opts = {})
@@ -7138,6 +7139,7 @@ module BudgeaClient
     # @option opts [String] :website2 bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
+    # @option opts [BOOLEAN] :resume Resume a decoupled connection creation
     # @option opts [String] :expand 
     # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
     def users_id_user_connections_post_with_http_info(id_user, opts = {})
@@ -7181,6 +7183,7 @@ module BudgeaClient
       form_params['website'] = opts[:'website2'] if !opts[:'website2'].nil?
       form_params['login'] = opts[:'login'] if !opts[:'login'].nil?
       form_params['id_provider'] = opts[:'id_provider'] if !opts[:'id_provider'].nil?
+      form_params['resume'] = opts[:'resume'] if !opts[:'resume'].nil?
 
       # http body (model)
       post_body = nil
