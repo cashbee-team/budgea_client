@@ -568,7 +568,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20028]
     def users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_operationsalert_get_with_http_info(id_user, id_account, opts)
       data
@@ -580,7 +580,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20028, Fixnum, Hash)>] InlineResponse20028 data, response status code and response headers
     def users_id_user_accounts_id_account_operationsalert_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PFMApi.users_id_user_accounts_id_account_operationsalert_get ...'
@@ -619,7 +619,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20028')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PFMApi#users_id_user_accounts_id_account_operationsalert_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1122,7 +1122,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20028]
     def users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_operationsalert_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -1135,7 +1135,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20028, Fixnum, Hash)>] InlineResponse20028 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_operationsalert_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PFMApi.users_id_user_connections_id_connection_accounts_id_account_operationsalert_get ...'
@@ -1178,7 +1178,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20028')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PFMApi#users_id_user_connections_id_connection_accounts_id_account_operationsalert_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1259,7 +1259,7 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
-    # Edit an alert on transactions or investements
+    # Edit an alert on transactions or investments
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
@@ -1278,7 +1278,7 @@ module BudgeaClient
       data
     end
 
-    # Edit an alert on transactions or investements
+    # Edit an alert on transactions or investments
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
@@ -1953,7 +1953,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20027]
+    # @return [InlineResponse20028]
     def users_id_user_operationsalert_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_operationsalert_get_with_http_info(id_user, opts)
       data
@@ -1964,7 +1964,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
+    # @return [Array<(InlineResponse20028, Fixnum, Hash)>] InlineResponse20028 data, response status code and response headers
     def users_id_user_operationsalert_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PFMApi.users_id_user_operationsalert_get ...'
@@ -1999,7 +1999,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20027')
+        :return_type => 'InlineResponse20028')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PFMApi#users_id_user_operationsalert_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

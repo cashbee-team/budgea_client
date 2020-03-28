@@ -21,6 +21,10 @@ Method | HTTP request | Description
 [**categorize_post**](BanksApi.md#categorize_post) | **POST** /categorize | categorize transactions without storing them
 [**connections_get**](BanksApi.md#connections_get) | **GET** /connections | Get connections without a user
 [**connections_id_connection_logs_get**](BanksApi.md#connections_id_connection_logs_get) | **GET** /connections/{id_connection}/logs | Get connection logs
+[**connections_id_connection_sources_get**](BanksApi.md#connections_id_connection_sources_get) | **GET** /connections/{id_connection}/sources | Get connection sources
+[**connections_id_connection_sources_id_source_delete**](BanksApi.md#connections_id_connection_sources_id_source_delete) | **DELETE** /connections/{id_connection}/sources/{id_source} | Disable a connection source
+[**connections_id_connection_sources_id_source_post**](BanksApi.md#connections_id_connection_sources_id_source_post) | **POST** /connections/{id_connection}/sources/{id_source} | Enable connection source
+[**connections_id_connection_sources_id_source_put**](BanksApi.md#connections_id_connection_sources_id_source_put) | **PUT** /connections/{id_connection}/sources/{id_source} | Enable connection source
 [**connectors_get**](BanksApi.md#connectors_get) | **GET** /connectors | Get list of connectors
 [**connectors_id_connector_logos_get**](BanksApi.md#connectors_id_connector_logos_get) | **GET** /connectors/{id_connector}/logos | Get all links to the files associated with this connector.
 [**connectors_id_connector_logos_id_logo_delete**](BanksApi.md#connectors_id_connector_logos_id_logo_delete) | **DELETE** /connectors/{id_connector}/logos/{id_logo} | Delete a single Logo object.
@@ -1143,8 +1147,249 @@ Name | Type | Description  | Notes
 
 
 
+# **connections_id_connection_sources_get**
+> InlineResponse20016 connections_id_connection_sources_get(id_connection, opts)
+
+Get connection sources
+
+
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connection = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Get connection sources
+  result = api_instance.connections_id_connection_sources_get(id_connection, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connections_id_connection_sources_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connection** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**InlineResponse20016**](InlineResponse20016.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+
+
+# **connections_id_connection_sources_id_source_delete**
+> ConnectionSource connections_id_connection_sources_id_source_delete(id_connection, id_source, opts)
+
+Disable a connection source
+
+This will make it so the specified source will not be synchronized anymore.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Disable a connection source
+  result = api_instance.connections_id_connection_sources_id_source_delete(id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connections_id_connection_sources_id_source_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+
+
+# **connections_id_connection_sources_id_source_post**
+> ConnectionSource connections_id_connection_sources_id_source_post(id_connection, id_source, opts)
+
+Enable connection source
+
+This will make it so the specified source will be able to be synchronized.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Enable connection source
+  result = api_instance.connections_id_connection_sources_id_source_post(id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connections_id_connection_sources_id_source_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+
+
+# **connections_id_connection_sources_id_source_put**
+> ConnectionSource connections_id_connection_sources_id_source_put(id_connection, id_source, opts)
+
+Enable connection source
+
+This will make it so the specified source will be able to be synchronized.<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::BanksApi.new
+
+id_connection = 56 # Integer | 
+
+id_source = 56 # Integer | 
+
+opts = { 
+  expand: 'expand_example' # String | 
+}
+
+begin
+  #Enable connection source
+  result = api_instance.connections_id_connection_sources_id_source_put(id_connection, id_source, opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling BanksApi->connections_id_connection_sources_id_source_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id_connection** | **Integer**|  | 
+ **id_source** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
+
+### Return type
+
+[**ConnectionSource**](ConnectionSource.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+
+
 # **connectors_get**
-> InlineResponse20016 connectors_get(opts)
+> InlineResponse20017 connectors_get(opts)
 
 Get list of connectors
 
@@ -1185,7 +1430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -2084,7 +2329,7 @@ Name | Type | Description  | Notes
 
 
 # **providers_get**
-> InlineResponse20019 providers_get(opts)
+> InlineResponse20020 providers_get(opts)
 
 Get list of connectors
 
@@ -2125,7 +2370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -2608,7 +2853,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_get**
-> InlineResponse20022 users_id_user_accounts_get(id_user, opts)
+> InlineResponse20023 users_id_user_accounts_get(id_user, opts)
 
 Get accounts list.
 
@@ -2652,7 +2897,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -2847,7 +3092,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_logs_get**
-> InlineResponse20026 users_id_user_accounts_id_account_logs_get(id_user, id_account, opts)
+> InlineResponse20027 users_id_user_accounts_id_account_logs_get(id_user, id_account, opts)
 
 Get accounts logs.
 
@@ -2902,7 +3147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -2991,7 +3236,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_sources_get**
-> InlineResponse20030 users_id_user_accounts_id_account_sources_get(id_user, id_account, opts)
+> InlineResponse20016 users_id_user_accounts_id_account_sources_get(id_user, id_account, opts)
 
 Get account sources
 
@@ -3038,7 +3283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -4607,7 +4852,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_get**
-> InlineResponse20022 users_id_user_connections_id_connection_accounts_get(id_user, id_connection, opts)
+> InlineResponse20023 users_id_user_connections_id_connection_accounts_get(id_user, id_connection, opts)
 
 Get accounts list.
 
@@ -4654,7 +4899,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -4858,7 +5103,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_logs_get**
-> InlineResponse20026 users_id_user_connections_id_connection_accounts_id_account_logs_get(id_user, id_connection, id_account, opts)
+> InlineResponse20027 users_id_user_connections_id_connection_accounts_id_account_logs_get(id_user, id_connection, id_account, opts)
 
 Get accounts logs.
 
@@ -4916,7 +5161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -5008,7 +5253,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_sources_get**
-> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts)
+> InlineResponse20016 users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts)
 
 Get account sources
 
@@ -5058,7 +5303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -6526,7 +6771,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_sources_get**
-> InlineResponse20030 users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
+> InlineResponse20016 users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts)
 
 Get connection sources
 
@@ -6573,7 +6818,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 

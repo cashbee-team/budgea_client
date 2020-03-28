@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :recipients
+    attr_accessor :useralerts
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'recipients' => :'recipients'
+        :'useralerts' => :'useralerts'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'recipients' => :'Array<Recipient>'
+        :'useralerts' => :'Array<UserAlert>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'recipients')
-        if (value = attributes[:'recipients']).is_a?(Array)
-          self.recipients = value
+      if attributes.has_key?(:'useralerts')
+        if (value = attributes[:'useralerts']).is_a?(Array)
+          self.useralerts = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @recipients.nil?
-        invalid_properties.push('invalid value for "recipients", recipients cannot be nil.')
+      if @useralerts.nil?
+        invalid_properties.push('invalid value for "useralerts", useralerts cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @recipients.nil?
+      return false if @useralerts.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          recipients == o.recipients
+          useralerts == o.useralerts
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, recipients].hash
+      [total, useralerts].hash
     end
 
     # Builds the object from hash

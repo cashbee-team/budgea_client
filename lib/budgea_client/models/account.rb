@@ -78,6 +78,8 @@ module BudgeaClient
 
     attr_accessor :transactions
 
+    attr_accessor :transfers
+
     # If the last update has failed, the error code
     attr_accessor :error
 
@@ -115,6 +117,7 @@ module BudgeaClient
         :'name' => :'name',
         :'recipients' => :'recipients',
         :'transactions' => :'transactions',
+        :'transfers' => :'transfers',
         :'error' => :'error',
         :'usage' => :'usage',
         :'ownership' => :'ownership',
@@ -147,6 +150,7 @@ module BudgeaClient
         :'name' => :'String',
         :'recipients' => :'Array<Recipient>',
         :'transactions' => :'Array<Transaction>',
+        :'transfers' => :'Array<Transfer>',
         :'error' => :'String',
         :'usage' => :'String',
         :'ownership' => :'String',
@@ -258,6 +262,12 @@ module BudgeaClient
         end
       end
 
+      if attributes.has_key?(:'transfers')
+        if (value = attributes[:'transfers']).is_a?(Array)
+          self.transfers = value
+        end
+      end
+
       if attributes.has_key?(:'error')
         self.error = attributes[:'error']
       end
@@ -340,6 +350,7 @@ module BudgeaClient
           name == o.name &&
           recipients == o.recipients &&
           transactions == o.transactions &&
+          transfers == o.transfers &&
           error == o.error &&
           usage == o.usage &&
           ownership == o.ownership &&
@@ -355,7 +366,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_connection, id_user, id_source, id_parent, number, webid, original_name, balance, coming, display, last_update, deleted, disabled, iban, bic, currency, id_type, bookmarked, name, recipients, transactions, error, usage, ownership, company_name].hash
+      [id, id_connection, id_user, id_source, id_parent, number, webid, original_name, balance, coming, display, last_update, deleted, disabled, iban, bic, currency, id_type, bookmarked, name, recipients, transactions, transfers, error, usage, ownership, company_name].hash
     end
 
     # Builds the object from hash

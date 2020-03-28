@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :accountlogs
+    attr_accessor :pockets
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'accountlogs' => :'accountlogs'
+        :'pockets' => :'pockets'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'accountlogs' => :'Array<AccountLog>'
+        :'pockets' => :'Array<Pocket>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'accountlogs')
-        if (value = attributes[:'accountlogs']).is_a?(Array)
-          self.accountlogs = value
+      if attributes.has_key?(:'pockets')
+        if (value = attributes[:'pockets']).is_a?(Array)
+          self.pockets = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @accountlogs.nil?
-        invalid_properties.push('invalid value for "accountlogs", accountlogs cannot be nil.')
+      if @pockets.nil?
+        invalid_properties.push('invalid value for "pockets", pockets cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @accountlogs.nil?
+      return false if @pockets.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          accountlogs == o.accountlogs
+          pockets == o.pockets
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, accountlogs].hash
+      [total, pockets].hash
     end
 
     # Builds the object from hash

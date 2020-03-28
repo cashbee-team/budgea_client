@@ -305,7 +305,7 @@ module BudgeaClient
     # @option opts [BOOLEAN] :generate_keys set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)
     # @option opts [String] :name name of client
     # @option opts [BOOLEAN] :secret reset the secret
-    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
+    # @option opts [String] :redirect_uris list of allowed redirect uris
     # @option opts [String] :primary_color hexadecimal code of the client primary color (e.g F45B9A)
     # @option opts [String] :secondary_color hexadecimal code of the client secondary color (e.g F45B9A)
     # @option opts [String] :description text to display as a default description
@@ -328,7 +328,7 @@ module BudgeaClient
     # @option opts [BOOLEAN] :generate_keys set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)
     # @option opts [String] :name name of client
     # @option opts [BOOLEAN] :secret reset the secret
-    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
+    # @option opts [String] :redirect_uris list of allowed redirect uris
     # @option opts [String] :primary_color hexadecimal code of the client primary color (e.g F45B9A)
     # @option opts [String] :secondary_color hexadecimal code of the client secondary color (e.g F45B9A)
     # @option opts [String] :description text to display as a default description
@@ -366,7 +366,7 @@ module BudgeaClient
       form_params['generate_keys'] = opts[:'generate_keys'] if !opts[:'generate_keys'].nil?
       form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
       form_params['secret'] = opts[:'secret'] if !opts[:'secret'].nil?
-      form_params['redirect_uris'] = @api_client.build_collection_param(opts[:'redirect_uris'], :csv) if !opts[:'redirect_uris'].nil?
+      form_params['redirect_uris'] = opts[:'redirect_uris'] if !opts[:'redirect_uris'].nil?
       form_params['primary_color'] = opts[:'primary_color'] if !opts[:'primary_color'].nil?
       form_params['secondary_color'] = opts[:'secondary_color'] if !opts[:'secondary_color'].nil?
       form_params['description'] = opts[:'description'] if !opts[:'description'].nil?
@@ -396,7 +396,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :generate_keys if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
     # @option opts [String] :name name of client
-    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
+    # @option opts [String] :redirect_uris list of allowed redirect uris
     # @option opts [String] :config custom config about the client
     # @option opts [String] :expand 
     # @return [Client]
@@ -410,7 +410,7 @@ module BudgeaClient
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :generate_keys if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
     # @option opts [String] :name name of client
-    # @option opts [Array<String>] :redirect_uris list of allowed redirect uris
+    # @option opts [String] :redirect_uris list of allowed redirect uris
     # @option opts [String] :config custom config about the client
     # @option opts [String] :expand 
     # @return [Array<(Client, Fixnum, Hash)>] Client data, response status code and response headers
@@ -436,7 +436,7 @@ module BudgeaClient
       form_params = {}
       form_params['generate_keys'] = opts[:'generate_keys'] if !opts[:'generate_keys'].nil?
       form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
-      form_params['redirect_uris'] = @api_client.build_collection_param(opts[:'redirect_uris'], :csv) if !opts[:'redirect_uris'].nil?
+      form_params['redirect_uris'] = opts[:'redirect_uris'] if !opts[:'redirect_uris'].nil?
       form_params['config'] = opts[:'config'] if !opts[:'config'].nil?
 
       # http body (model)
@@ -837,7 +837,7 @@ module BudgeaClient
       # form parameters
       form_params = {}
       form_params['name'] = name
-      form_params['redirect_uris'] = @api_client.build_collection_param(redirect_uris, :csv)
+      form_params['redirect_uris'] = redirect_uris
       form_params['iban'] = iban
 
       # http body (model)
@@ -1973,7 +1973,7 @@ module BudgeaClient
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
     # @option opts [Integer] :id_auth The webhook authentication process to use
-    # @option opts [Float] :url The webhook callback url
+    # @option opts [String] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
     # @return [Webhook]
@@ -1990,7 +1990,7 @@ module BudgeaClient
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
     # @option opts [Integer] :id_auth The webhook authentication process to use
-    # @option opts [Float] :url The webhook callback url
+    # @option opts [String] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
     # @return [Array<(Webhook, Fixnum, Hash)>] Webhook data, response status code and response headers
@@ -2048,7 +2048,7 @@ module BudgeaClient
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
     # @option opts [Integer] :id_auth The webhook authentication process to use
-    # @option opts [Float] :url The webhook callback url
+    # @option opts [String] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
     # @return [Webhook]
@@ -2065,7 +2065,7 @@ module BudgeaClient
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
     # @option opts [Integer] :id_auth The webhook authentication process to use
-    # @option opts [Float] :url The webhook callback url
+    # @option opts [String] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :expand 
     # @return [Array<(Webhook, Fixnum, Hash)>] Webhook data, response status code and response headers
@@ -2121,7 +2121,7 @@ module BudgeaClient
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
     # @option opts [String] :id_auth The webhook authentication process to use (its ID or its name)
-    # @option opts [Float] :url The webhook callback url
+    # @option opts [String] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :params The webhook parameters as an object with three keys: type, key and value
     # @option opts [String] :expand 
@@ -2137,7 +2137,7 @@ module BudgeaClient
     # @option opts [Integer] :id_user The user ID to associate with the webhook
     # @option opts [Integer] :id_service The service ID to associate with the webhook
     # @option opts [String] :id_auth The webhook authentication process to use (its ID or its name)
-    # @option opts [Float] :url The webhook callback url
+    # @option opts [String] :url The webhook callback url
     # @option opts [String] :event The webhook event
     # @option opts [String] :params The webhook parameters as an object with three keys: type, key and value
     # @option opts [String] :expand 

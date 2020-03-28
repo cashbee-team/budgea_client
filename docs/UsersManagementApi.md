@@ -66,7 +66,7 @@ nil (empty response body)
 
 
 # **users_get**
-> InlineResponse20021 users_get(opts)
+> InlineResponse20022 users_get(opts)
 
 Get users
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 

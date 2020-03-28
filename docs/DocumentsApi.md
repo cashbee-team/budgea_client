@@ -83,7 +83,7 @@ Method | HTTP request | Description
 
 
 # **documenttypes_get**
-> InlineResponse20017 documenttypes_get(opts)
+> InlineResponse20018 documenttypes_get(opts)
 
 Get document types
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 

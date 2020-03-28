@@ -23,7 +23,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20020]
+    # @return [InlineResponse20021]
     def terms_get(opts = {})
       data, _status_code, _headers = terms_get_with_http_info(opts)
       data
@@ -33,7 +33,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20020, Fixnum, Hash)>] InlineResponse20020 data, response status code and response headers
+    # @return [Array<(InlineResponse20021, Fixnum, Hash)>] InlineResponse20021 data, response status code and response headers
     def terms_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TermsApi.terms_get ...'
@@ -64,9 +64,72 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20020')
+        :return_type => 'InlineResponse20021')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TermsApi#terms_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Add terms content for a language. Only for the active terms, there is no use to update obsolete terms
+    # 
+    # @param id_term 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :language two letter code of the language to inserted
+    # @option opts [File] :file_content file containing the terms
+    # @option opts [String] :expand 
+    # @return [TermsOfService]
+    def terms_id_term_post(id_term, opts = {})
+      data, _status_code, _headers = terms_id_term_post_with_http_info(id_term, opts)
+      data
+    end
+
+    # Add terms content for a language. Only for the active terms, there is no use to update obsolete terms
+    # 
+    # @param id_term 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :language two letter code of the language to inserted
+    # @option opts [File] :file_content file containing the terms
+    # @option opts [String] :expand 
+    # @return [Array<(TermsOfService, Fixnum, Hash)>] TermsOfService data, response status code and response headers
+    def terms_id_term_post_with_http_info(id_term, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TermsApi.terms_id_term_post ...'
+      end
+      # verify the required parameter 'id_term' is set
+      if @api_client.config.client_side_validation && id_term.nil?
+        fail ArgumentError, "Missing the required parameter 'id_term' when calling TermsApi.terms_id_term_post"
+      end
+      # resource path
+      local_var_path = '/terms/{id_term}'.sub('{' + 'id_term' + '}', id_term.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['language'] = opts[:'language'] if !opts[:'language'].nil?
+      form_params['file_content'] = opts[:'file_content'] if !opts[:'file_content'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TermsOfService')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TermsApi#terms_id_term_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -74,7 +137,8 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :version Number of version
-    # @option opts [String] :file_content file containing the terms, optional
+    # @option opts [File] :file_content file containing the terms, optional
+    # @option opts [String] :language two letters code of the language of the inserted terms if provided. default: &#39;fr&#39;
     # @option opts [String] :expand 
     # @return [TermsOfService]
     def terms_post(opts = {})
@@ -86,7 +150,8 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :version Number of version
-    # @option opts [String] :file_content file containing the terms, optional
+    # @option opts [File] :file_content file containing the terms, optional
+    # @option opts [String] :language two letters code of the language of the inserted terms if provided. default: &#39;fr&#39;
     # @option opts [String] :expand 
     # @return [Array<(TermsOfService, Fixnum, Hash)>] TermsOfService data, response status code and response headers
     def terms_post_with_http_info(opts = {})
@@ -105,12 +170,13 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
       form_params['version'] = opts[:'version'] if !opts[:'version'].nil?
       form_params['file_content'] = opts[:'file_content'] if !opts[:'file_content'].nil?
+      form_params['language'] = opts[:'language'] if !opts[:'language'].nil?
 
       # http body (model)
       post_body = nil
@@ -132,7 +198,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20020]
+    # @return [InlineResponse20021]
     def users_id_user_terms_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_terms_get_with_http_info(id_user, opts)
       data
@@ -143,7 +209,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20020, Fixnum, Hash)>] InlineResponse20020 data, response status code and response headers
+    # @return [Array<(InlineResponse20021, Fixnum, Hash)>] InlineResponse20021 data, response status code and response headers
     def users_id_user_terms_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TermsApi.users_id_user_terms_get ...'
@@ -178,7 +244,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20020')
+        :return_type => 'InlineResponse20021')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TermsApi#users_id_user_terms_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

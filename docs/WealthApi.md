@@ -4,7 +4,7 @@ All URIs are relative to *https://demo.biapi.pro/2.0/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**finance_securities_get**](WealthApi.md#finance_securities_get) | **GET** /finance/securities | Get securities
+[**finance_securities_get**](WealthApi.md#finance_securities_get) | **GET** /finance/securities | Get finance securities
 [**finance_securities_id_security_history_get**](WealthApi.md#finance_securities_id_security_history_get) | **GET** /finance/securities/{id_security}/history | Get connection logs
 [**users_id_user_accounts_id_account_investments_get**](WealthApi.md#users_id_user_accounts_id_account_investments_get) | **GET** /users/{id_user}/accounts/{id_account}/investments | Get investments
 [**users_id_user_accounts_id_account_investments_id_investment_history_get**](WealthApi.md#users_id_user_accounts_id_account_investments_id_investment_history_get) | **GET** /users/{id_user}/accounts/{id_account}/investments/{id_investment}/history | Get investment values
@@ -29,9 +29,9 @@ Method | HTTP request | Description
 
 
 # **finance_securities_get**
-> InlineResponse20018 finance_securities_get(opts)
+> InlineResponse20019 finance_securities_get(opts)
 
-Get securities
+Get finance securities
 
 
 
@@ -54,7 +54,7 @@ opts = {
 }
 
 begin
-  #Get securities
+  #Get finance securities
   result = api_instance.finance_securities_get(opts)
   p result
 rescue BudgeaClient::ApiError => e
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_investments_get**
-> InlineResponse20023 users_id_user_accounts_id_account_investments_get(id_user, id_account, opts)
+> InlineResponse20024 users_id_user_accounts_id_account_investments_get(id_user, id_account, opts)
 
 Get investments
 
@@ -174,6 +174,8 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 id_account = 56 # Integer | 
 
 opts = { 
+  label: 'label_example', # String | filter investments using keywords in labels
+  code: 'code_example', # String | filter investments by ISIN codes
   expand: 'expand_example' # String | 
 }
 
@@ -192,11 +194,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_account** | **Integer**|  | 
+ **label** | **String**| filter investments using keywords in labels | [optional] 
+ **code** | **String**| filter investments by ISIN codes | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -210,7 +214,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_investments_id_investment_history_get**
-> InlineResponse20024 users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts)
+> InlineResponse20025 users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts)
 
 Get investment values
 
@@ -260,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -274,7 +278,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_investments_id_investment_pockets_get**
-> InlineResponse20025 users_id_user_accounts_id_account_investments_id_investment_pockets_get(id_user, id_account, id_investment, opts)
+> InlineResponse20026 users_id_user_accounts_id_account_investments_id_investment_pockets_get(id_user, id_account, id_investment, opts)
 
 Get pockets
 
@@ -324,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -409,7 +413,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_pockets_get**
-> InlineResponse20025 users_id_user_accounts_id_account_pockets_get(id_user, id_account, opts)
+> InlineResponse20026 users_id_user_accounts_id_account_pockets_get(id_user, id_account, opts)
 
 Get pockets
 
@@ -456,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -470,7 +474,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_investments_get**
-> InlineResponse20023 users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts)
+> InlineResponse20024 users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts)
 
 Get investments
 
@@ -497,6 +501,8 @@ id_connection = 56 # Integer |
 id_account = 56 # Integer | 
 
 opts = { 
+  label: 'label_example', # String | filter investments using keywords in labels
+  code: 'code_example', # String | filter investments by ISIN codes
   expand: 'expand_example' # String | 
 }
 
@@ -516,11 +522,13 @@ Name | Type | Description  | Notes
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connection** | **Integer**|  | 
  **id_account** | **Integer**|  | 
+ **label** | **String**| filter investments using keywords in labels | [optional] 
+ **code** | **String**| filter investments by ISIN codes | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -534,7 +542,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get**
-> InlineResponse20024 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts)
+> InlineResponse20025 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts)
 
 Get investment values
 
@@ -587,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -601,7 +609,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get**
-> InlineResponse20025 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get(id_user, id_connection, id_account, id_investment, opts)
+> InlineResponse20026 users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get(id_user, id_connection, id_account, id_investment, opts)
 
 Get pockets
 
@@ -654,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -742,7 +750,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_pockets_get**
-> InlineResponse20025 users_id_user_connections_id_connection_accounts_id_account_pockets_get(id_user, id_connection, id_account, opts)
+> InlineResponse20026 users_id_user_connections_id_connection_accounts_id_account_pockets_get(id_user, id_connection, id_account, opts)
 
 Get pockets
 
@@ -792,7 +800,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -806,7 +814,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_investments_get**
-> InlineResponse20023 users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts)
+> InlineResponse20024 users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts)
 
 Get investments
 
@@ -831,6 +839,8 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 id_connection = 56 # Integer | 
 
 opts = { 
+  label: 'label_example', # String | filter investments using keywords in labels
+  code: 'code_example', # String | filter investments by ISIN codes
   expand: 'expand_example' # String | 
 }
 
@@ -849,11 +859,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connection** | **Integer**|  | 
+ **label** | **String**| filter investments using keywords in labels | [optional] 
+ **code** | **String**| filter investments by ISIN codes | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -867,7 +879,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_investments_id_investment_history_get**
-> InlineResponse20024 users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts)
+> InlineResponse20025 users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts)
 
 Get investment values
 
@@ -917,7 +929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -931,7 +943,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_investments_id_investment_pockets_get**
-> InlineResponse20025 users_id_user_connections_id_connection_investments_id_investment_pockets_get(id_user, id_connection, id_investment, opts)
+> InlineResponse20026 users_id_user_connections_id_connection_investments_id_investment_pockets_get(id_user, id_connection, id_investment, opts)
 
 Get pockets
 
@@ -981,7 +993,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -1066,7 +1078,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_pockets_get**
-> InlineResponse20025 users_id_user_connections_id_connection_pockets_get(id_user, id_connection, opts)
+> InlineResponse20026 users_id_user_connections_id_connection_pockets_get(id_user, id_connection, opts)
 
 Get pockets
 
@@ -1113,7 +1125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -1127,7 +1139,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_investments_get**
-> InlineResponse20023 users_id_user_investments_get(id_user, opts)
+> InlineResponse20024 users_id_user_investments_get(id_user, opts)
 
 Get investments
 
@@ -1150,6 +1162,8 @@ api_instance = BudgeaClient::WealthApi.new
 id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
+  label: 'label_example', # String | filter investments using keywords in labels
+  code: 'code_example', # String | filter investments by ISIN codes
   expand: 'expand_example' # String | 
 }
 
@@ -1167,11 +1181,13 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
+ **label** | **String**| filter investments using keywords in labels | [optional] 
+ **code** | **String**| filter investments by ISIN codes | [optional] 
  **expand** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -1185,7 +1201,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_investments_id_investment_history_get**
-> InlineResponse20024 users_id_user_investments_id_investment_history_get(id_user, id_investment, opts)
+> InlineResponse20025 users_id_user_investments_id_investment_history_get(id_user, id_investment, opts)
 
 Get investment values
 
@@ -1232,7 +1248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -1246,7 +1262,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_investments_id_investment_pockets_get**
-> InlineResponse20025 users_id_user_investments_id_investment_pockets_get(id_user, id_investment, opts)
+> InlineResponse20026 users_id_user_investments_id_investment_pockets_get(id_user, id_investment, opts)
 
 Get pockets
 
@@ -1293,7 +1309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -1375,7 +1391,7 @@ nil (empty response body)
 
 
 # **users_id_user_pockets_get**
-> InlineResponse20025 users_id_user_pockets_get(id_user, opts)
+> InlineResponse20026 users_id_user_pockets_get(id_user, opts)
 
 Get pockets
 
@@ -1419,7 +1435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 

@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**users_id_user_connections_id_connection_accounts_id_account_balances_get**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/balances | Get balances of accounts
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_get) | **GET** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Get a list of configurated alerts
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_delete) | **DELETE** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Delete an alert on transactions or investments
-[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investements
+[**users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put) | **PUT** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert/{id_operationsalert} | Edit an alert on transactions or investments
 [**users_id_user_connections_id_connection_accounts_id_account_operationsalert_post**](PFMApi.md#users_id_user_connections_id_connection_accounts_id_account_operationsalert_post) | **POST** /users/{id_user}/connections/{id_connection}/accounts/{id_account}/operationsalert | Create an alert on transactions or investments of a given user
 [**users_id_user_connections_id_connection_balances_get**](PFMApi.md#users_id_user_connections_id_connection_balances_get) | **GET** /users/{id_user}/connections/{id_connection}/balances | Get balances of accounts
 [**users_id_user_devices_get**](PFMApi.md#users_id_user_devices_get) | **GET** /users/{id_user}/devices | Get devices
@@ -555,7 +555,7 @@ nil (empty response body)
 
 
 # **users_id_user_accounts_id_account_operationsalert_get**
-> InlineResponse20027 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
+> InlineResponse20028 users_id_user_accounts_id_account_operationsalert_get(id_user, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -1073,7 +1073,7 @@ nil (empty response body)
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_get**
-> InlineResponse20027 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
+> InlineResponse20028 users_id_user_connections_id_connection_accounts_id_account_operationsalert_get(id_user, id_connection, id_account, opts)
 
 Get a list of configurated alerts
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -1206,7 +1206,7 @@ Name | Type | Description  | Notes
 # **users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put**
 > UserAlert users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put(id_user, id_connection, id_account, id_operationsalert, opts)
 
-Edit an alert on transactions or investements
+Edit an alert on transactions or investments
 
 
 
@@ -1242,7 +1242,7 @@ opts = {
 }
 
 begin
-  #Edit an alert on transactions or investements
+  #Edit an alert on transactions or investments
   result = api_instance.users_id_user_connections_id_connection_accounts_id_account_operationsalert_id_operationsalert_put(id_user, id_connection, id_account, id_operationsalert, opts)
   p result
 rescue BudgeaClient::ApiError => e
@@ -1845,7 +1845,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_operationsalert_get**
-> InlineResponse20027 users_id_user_operationsalert_get(id_user, opts)
+> InlineResponse20028 users_id_user_operationsalert_get(id_user, opts)
 
 Get a list of configurated alerts
 
@@ -1889,7 +1889,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 

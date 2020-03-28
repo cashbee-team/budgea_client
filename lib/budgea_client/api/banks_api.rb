@@ -1020,11 +1020,257 @@ module BudgeaClient
       end
       return data, status_code, headers
     end
+    # Get connection sources
+    # 
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [InlineResponse20016]
+    def connections_id_connection_sources_get(id_connection, opts = {})
+      data, _status_code, _headers = connections_id_connection_sources_get_with_http_info(id_connection, opts)
+      data
+    end
+
+    # Get connection sources
+    # 
+    # @param id_connection 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
+    def connections_id_connection_sources_get_with_http_info(id_connection, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connections_id_connection_sources_get ...'
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.connections_id_connection_sources_get"
+      end
+      # resource path
+      local_var_path = '/connections/{id_connection}/sources'.sub('{' + 'id_connection' + '}', id_connection.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse20016')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connections_id_connection_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Disable a connection source
+    # This will make it so the specified source will not be synchronized anymore.<br><br>
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def connections_id_connection_sources_id_source_delete(id_connection, id_source, opts = {})
+      data, _status_code, _headers = connections_id_connection_sources_id_source_delete_with_http_info(id_connection, id_source, opts)
+      data
+    end
+
+    # Disable a connection source
+    # This will make it so the specified source will not be synchronized anymore.&lt;br&gt;&lt;br&gt;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def connections_id_connection_sources_id_source_delete_with_http_info(id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connections_id_connection_sources_id_source_delete ...'
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.connections_id_connection_sources_id_source_delete"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling BanksApi.connections_id_connection_sources_id_source_delete"
+      end
+      # resource path
+      local_var_path = '/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connections_id_connection_sources_id_source_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.<br><br>
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def connections_id_connection_sources_id_source_post(id_connection, id_source, opts = {})
+      data, _status_code, _headers = connections_id_connection_sources_id_source_post_with_http_info(id_connection, id_source, opts)
+      data
+    end
+
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.&lt;br&gt;&lt;br&gt;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def connections_id_connection_sources_id_source_post_with_http_info(id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connections_id_connection_sources_id_source_post ...'
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.connections_id_connection_sources_id_source_post"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling BanksApi.connections_id_connection_sources_id_source_post"
+      end
+      # resource path
+      local_var_path = '/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connections_id_connection_sources_id_source_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.<br><br>
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [ConnectionSource]
+    def connections_id_connection_sources_id_source_put(id_connection, id_source, opts = {})
+      data, _status_code, _headers = connections_id_connection_sources_id_source_put_with_http_info(id_connection, id_source, opts)
+      data
+    end
+
+    # Enable connection source
+    # This will make it so the specified source will be able to be synchronized.&lt;br&gt;&lt;br&gt;
+    # @param id_connection 
+    # @param id_source 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
+    # @return [Array<(ConnectionSource, Fixnum, Hash)>] ConnectionSource data, response status code and response headers
+    def connections_id_connection_sources_id_source_put_with_http_info(id_connection, id_source, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BanksApi.connections_id_connection_sources_id_source_put ...'
+      end
+      # verify the required parameter 'id_connection' is set
+      if @api_client.config.client_side_validation && id_connection.nil?
+        fail ArgumentError, "Missing the required parameter 'id_connection' when calling BanksApi.connections_id_connection_sources_id_source_put"
+      end
+      # verify the required parameter 'id_source' is set
+      if @api_client.config.client_side_validation && id_source.nil?
+        fail ArgumentError, "Missing the required parameter 'id_source' when calling BanksApi.connections_id_connection_sources_id_source_put"
+      end
+      # resource path
+      local_var_path = '/connections/{id_connection}/sources/{id_source}'.sub('{' + 'id_connection' + '}', id_connection.to_s).sub('{' + 'id_source' + '}', id_source.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectionSource')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BanksApi#connections_id_connection_sources_id_source_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get list of connectors
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20016]
+    # @return [InlineResponse20017]
     def connectors_get(opts = {})
       data, _status_code, _headers = connectors_get_with_http_info(opts)
       data
@@ -1034,7 +1280,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
+    # @return [Array<(InlineResponse20017, Fixnum, Hash)>] InlineResponse20017 data, response status code and response headers
     def connectors_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.connectors_get ...'
@@ -1065,7 +1311,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20016')
+        :return_type => 'InlineResponse20017')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#connectors_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1989,7 +2235,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20019]
+    # @return [InlineResponse20020]
     def providers_get(opts = {})
       data, _status_code, _headers = providers_get_with_http_info(opts)
       data
@@ -1999,7 +2245,7 @@ module BudgeaClient
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20019, Fixnum, Hash)>] InlineResponse20019 data, response status code and response headers
+    # @return [Array<(InlineResponse20020, Fixnum, Hash)>] InlineResponse20020 data, response status code and response headers
     def providers_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.providers_get ...'
@@ -2030,7 +2276,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20019')
+        :return_type => 'InlineResponse20020')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#providers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2506,7 +2752,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20022]
+    # @return [InlineResponse20023]
     def users_id_user_accounts_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_accounts_get_with_http_info(id_user, opts)
       data
@@ -2517,7 +2763,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20022, Fixnum, Hash)>] InlineResponse20022 data, response status code and response headers
+    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
     def users_id_user_accounts_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_get ...'
@@ -2552,7 +2798,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20022')
+        :return_type => 'InlineResponse20023')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2758,7 +3004,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [InlineResponse20026]
+    # @return [InlineResponse20027]
     def users_id_user_accounts_id_account_logs_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_logs_get_with_http_info(id_user, id_account, opts)
       data
@@ -2774,7 +3020,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
+    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
     def users_id_user_accounts_id_account_logs_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_id_account_logs_get ...'
@@ -2817,7 +3063,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20026')
+        :return_type => 'InlineResponse20027')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_id_account_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2913,7 +3159,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20030]
+    # @return [InlineResponse20016]
     def users_id_user_accounts_id_account_sources_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_sources_get_with_http_info(id_user, id_account, opts)
       data
@@ -2925,7 +3171,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
     def users_id_user_accounts_id_account_sources_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_accounts_id_account_sources_get ...'
@@ -2964,7 +3210,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20030')
+        :return_type => 'InlineResponse20016')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_accounts_id_account_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4641,7 +4887,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20022]
+    # @return [InlineResponse20023]
     def users_id_user_connections_id_connection_accounts_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_get_with_http_info(id_user, id_connection, opts)
       data
@@ -4653,7 +4899,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20022, Fixnum, Hash)>] InlineResponse20022 data, response status code and response headers
+    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_get ...'
@@ -4692,7 +4938,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20022')
+        :return_type => 'InlineResponse20023')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -4917,7 +5163,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [InlineResponse20026]
+    # @return [InlineResponse20027]
     def users_id_user_connections_id_connection_accounts_id_account_logs_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_logs_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -4934,7 +5180,7 @@ module BudgeaClient
     # @option opts [Date] :min_date minimal (inclusive) date
     # @option opts [Date] :max_date maximum (inclusive) date
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
+    # @return [Array<(InlineResponse20027, Fixnum, Hash)>] InlineResponse20027 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_logs_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_id_account_logs_get ...'
@@ -4981,7 +5227,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20026')
+        :return_type => 'InlineResponse20027')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_id_account_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -5084,7 +5330,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20030]
+    # @return [InlineResponse20016]
     def users_id_user_connections_id_connection_accounts_id_account_sources_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_sources_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -5097,7 +5343,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_sources_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_accounts_id_account_sources_get ...'
@@ -5140,7 +5386,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20030')
+        :return_type => 'InlineResponse20016')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_accounts_id_account_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -6779,7 +7025,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20030]
+    # @return [InlineResponse20016]
     def users_id_user_connections_id_connection_sources_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_sources_get_with_http_info(id_user, id_connection, opts)
       data
@@ -6791,7 +7037,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20030, Fixnum, Hash)>] InlineResponse20030 data, response status code and response headers
+    # @return [Array<(InlineResponse20016, Fixnum, Hash)>] InlineResponse20016 data, response status code and response headers
     def users_id_user_connections_id_connection_sources_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BanksApi.users_id_user_connections_id_connection_sources_get ...'
@@ -6830,7 +7076,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20030')
+        :return_type => 'InlineResponse20016')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BanksApi#users_id_user_connections_id_connection_sources_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

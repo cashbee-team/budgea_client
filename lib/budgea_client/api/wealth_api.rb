@@ -19,21 +19,21 @@ module BudgeaClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get securities
+    # Get finance securities
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20018]
+    # @return [InlineResponse20019]
     def finance_securities_get(opts = {})
       data, _status_code, _headers = finance_securities_get_with_http_info(opts)
       data
     end
 
-    # Get securities
+    # Get finance securities
     # 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20018, Fixnum, Hash)>] InlineResponse20018 data, response status code and response headers
+    # @return [Array<(InlineResponse20019, Fixnum, Hash)>] InlineResponse20019 data, response status code and response headers
     def finance_securities_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.finance_securities_get ...'
@@ -64,7 +64,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20018')
+        :return_type => 'InlineResponse20019')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#finance_securities_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -143,8 +143,10 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_account 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_accounts_id_account_investments_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_investments_get_with_http_info(id_user, id_account, opts)
       data
@@ -155,8 +157,10 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_account 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_accounts_id_account_investments_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_investments_get ...'
@@ -174,6 +178,8 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+      query_params[:'code'] = opts[:'code'] if !opts[:'code'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -195,7 +201,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -208,7 +214,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20024]
+    # @return [InlineResponse20025]
     def users_id_user_accounts_id_account_investments_id_investment_history_get(id_user, id_account, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_account, id_investment, opts)
       data
@@ -221,7 +227,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
     def users_id_user_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_account, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_investments_id_investment_history_get ...'
@@ -264,7 +270,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20024')
+        :return_type => 'InlineResponse20025')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -277,7 +283,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_accounts_id_account_investments_id_investment_pockets_get(id_user, id_account, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_account, id_investment, opts)
       data
@@ -290,7 +296,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_account, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_investments_id_investment_pockets_get ...'
@@ -333,7 +339,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -425,7 +431,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_accounts_id_account_pockets_get(id_user, id_account, opts = {})
       data, _status_code, _headers = users_id_user_accounts_id_account_pockets_get_with_http_info(id_user, id_account, opts)
       data
@@ -437,7 +443,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_accounts_id_account_pockets_get_with_http_info(id_user, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_accounts_id_account_pockets_get ...'
@@ -476,7 +482,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_accounts_id_account_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -488,8 +494,10 @@ module BudgeaClient
     # @param id_connection 
     # @param id_account 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_connections_id_connection_accounts_id_account_investments_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_investments_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -501,8 +509,10 @@ module BudgeaClient
     # @param id_connection 
     # @param id_account 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_investments_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_get ...'
@@ -524,6 +534,8 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+      query_params[:'code'] = opts[:'code'] if !opts[:'code'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -545,7 +557,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -559,7 +571,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20024]
+    # @return [InlineResponse20025]
     def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get(id_user, id_connection, id_account, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_account, id_investment, opts)
       data
@@ -573,7 +585,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_account, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get ...'
@@ -620,7 +632,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20024')
+        :return_type => 'InlineResponse20025')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -634,7 +646,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get(id_user, id_connection, id_account, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_account, id_investment, opts)
       data
@@ -648,7 +660,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_account, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get ...'
@@ -695,7 +707,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -794,7 +806,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_connections_id_connection_accounts_id_account_pockets_get(id_user, id_connection, id_account, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_accounts_id_account_pockets_get_with_http_info(id_user, id_connection, id_account, opts)
       data
@@ -807,7 +819,7 @@ module BudgeaClient
     # @param id_account 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_connections_id_connection_accounts_id_account_pockets_get_with_http_info(id_user, id_connection, id_account, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_accounts_id_account_pockets_get ...'
@@ -850,7 +862,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_accounts_id_account_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -861,8 +873,10 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_connections_id_connection_investments_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_investments_get_with_http_info(id_user, id_connection, opts)
       data
@@ -873,8 +887,10 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_connections_id_connection_investments_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_investments_get ...'
@@ -892,6 +908,8 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+      query_params[:'code'] = opts[:'code'] if !opts[:'code'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -913,7 +931,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -926,7 +944,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20024]
+    # @return [InlineResponse20025]
     def users_id_user_connections_id_connection_investments_id_investment_history_get(id_user, id_connection, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_investment, opts)
       data
@@ -939,7 +957,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
     def users_id_user_connections_id_connection_investments_id_investment_history_get_with_http_info(id_user, id_connection, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_investments_id_investment_history_get ...'
@@ -982,7 +1000,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20024')
+        :return_type => 'InlineResponse20025')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -995,7 +1013,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_connections_id_connection_investments_id_investment_pockets_get(id_user, id_connection, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_investment, opts)
       data
@@ -1008,7 +1026,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_connections_id_connection_investments_id_investment_pockets_get_with_http_info(id_user, id_connection, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_investments_id_investment_pockets_get ...'
@@ -1051,7 +1069,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1143,7 +1161,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_connections_id_connection_pockets_get(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_pockets_get_with_http_info(id_user, id_connection, opts)
       data
@@ -1155,7 +1173,7 @@ module BudgeaClient
     # @param id_connection 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_connections_id_connection_pockets_get_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_connections_id_connection_pockets_get ...'
@@ -1194,7 +1212,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_connections_id_connection_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1204,8 +1222,10 @@ module BudgeaClient
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [InlineResponse20023]
+    # @return [InlineResponse20024]
     def users_id_user_investments_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_investments_get_with_http_info(id_user, opts)
       data
@@ -1215,8 +1235,10 @@ module BudgeaClient
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :label filter investments using keywords in labels
+    # @option opts [String] :code filter investments by ISIN codes
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20023, Fixnum, Hash)>] InlineResponse20023 data, response status code and response headers
+    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
     def users_id_user_investments_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_investments_get ...'
@@ -1230,6 +1252,8 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'label'] = opts[:'label'] if !opts[:'label'].nil?
+      query_params[:'code'] = opts[:'code'] if !opts[:'code'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
@@ -1251,7 +1275,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20023')
+        :return_type => 'InlineResponse20024')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_investments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1263,7 +1287,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20024]
+    # @return [InlineResponse20025]
     def users_id_user_investments_id_investment_history_get(id_user, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_investments_id_investment_history_get_with_http_info(id_user, id_investment, opts)
       data
@@ -1275,7 +1299,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20024, Fixnum, Hash)>] InlineResponse20024 data, response status code and response headers
+    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
     def users_id_user_investments_id_investment_history_get_with_http_info(id_user, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_investments_id_investment_history_get ...'
@@ -1314,7 +1338,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20024')
+        :return_type => 'InlineResponse20025')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_investments_id_investment_history_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1326,7 +1350,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_investments_id_investment_pockets_get(id_user, id_investment, opts = {})
       data, _status_code, _headers = users_id_user_investments_id_investment_pockets_get_with_http_info(id_user, id_investment, opts)
       data
@@ -1338,7 +1362,7 @@ module BudgeaClient
     # @param id_investment 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_investments_id_investment_pockets_get_with_http_info(id_user, id_investment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_investments_id_investment_pockets_get ...'
@@ -1377,7 +1401,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_investments_id_investment_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1462,7 +1486,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [InlineResponse20025]
+    # @return [InlineResponse20026]
     def users_id_user_pockets_get(id_user, opts = {})
       data, _status_code, _headers = users_id_user_pockets_get_with_http_info(id_user, opts)
       data
@@ -1473,7 +1497,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :expand 
-    # @return [Array<(InlineResponse20025, Fixnum, Hash)>] InlineResponse20025 data, response status code and response headers
+    # @return [Array<(InlineResponse20026, Fixnum, Hash)>] InlineResponse20026 data, response status code and response headers
     def users_id_user_pockets_get_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WealthApi.users_id_user_pockets_get ...'
@@ -1508,7 +1532,7 @@ module BudgeaClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse20025')
+        :return_type => 'InlineResponse20026')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WealthApi#users_id_user_pockets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
