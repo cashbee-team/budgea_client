@@ -17,13 +17,13 @@ module BudgeaClient
     # total number of results
     attr_accessor :total
 
-    attr_accessor :accounts
+    attr_accessor :users
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'total' => :'total',
-        :'accounts' => :'accounts'
+        :'users' => :'users'
       }
     end
 
@@ -31,7 +31,7 @@ module BudgeaClient
     def self.swagger_types
       {
         :'total' => :'Float',
-        :'accounts' => :'Array<Account>'
+        :'users' => :'Array<User>'
       }
     end
 
@@ -47,9 +47,9 @@ module BudgeaClient
         self.total = attributes[:'total']
       end
 
-      if attributes.has_key?(:'accounts')
-        if (value = attributes[:'accounts']).is_a?(Array)
-          self.accounts = value
+      if attributes.has_key?(:'users')
+        if (value = attributes[:'users']).is_a?(Array)
+          self.users = value
         end
       end
     end
@@ -58,8 +58,8 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @accounts.nil?
-        invalid_properties.push('invalid value for "accounts", accounts cannot be nil.')
+      if @users.nil?
+        invalid_properties.push('invalid value for "users", users cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +68,7 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @accounts.nil?
+      return false if @users.nil?
       true
     end
 
@@ -78,7 +78,7 @@ module BudgeaClient
       return true if self.equal?(o)
       self.class == o.class &&
           total == o.total &&
-          accounts == o.accounts
+          users == o.users
     end
 
     # @see the `==` method
@@ -90,7 +90,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, accounts].hash
+      [total, users].hash
     end
 
     # Builds the object from hash

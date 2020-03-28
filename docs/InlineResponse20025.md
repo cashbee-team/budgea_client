@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**investmentvalues** | [**Array&lt;InvestmentValue&gt;**](InvestmentValue.md) |  | 
 **total** | **Float** | total number of results | [optional] 
-**pockets** | [**Array&lt;Pocket&gt;**](Pocket.md) |  | 
 
 

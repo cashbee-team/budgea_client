@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the account | [optional] 
 **recipients** | [**Array&lt;Recipient&gt;**](Recipient.md) |  | [optional] 
 **transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | [optional] 
+**transfers** | [**Array&lt;Transfer&gt;**](Transfer.md) |  | [optional] 
 **error** | **String** | If the last update has failed, the error code | [optional] 
 **usage** | **String** | Account usage | [optional] 
 **ownership** | **String** | Relationship between the credentials owner and the account | [optional] 

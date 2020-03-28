@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connectors** | [**Array&lt;Connector&gt;**](Connector.md) |  | 
+**sources** | [**Array&lt;ConnectionSource&gt;**](ConnectionSource.md) |  | 
 **total** | **Float** | total number of results | [optional] 
 
 

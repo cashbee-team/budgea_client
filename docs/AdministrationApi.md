@@ -356,7 +356,7 @@ opts = {
   generate_keys: true, # BOOLEAN | set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False)
   name: 'name_example', # String | name of client
   secret: true, # BOOLEAN | reset the secret
-  redirect_uris: ['redirect_uris_example'], # Array<String> | list of allowed redirect uris
+  redirect_uris: 'redirect_uris_example', # String | list of allowed redirect uris
   primary_color: 'primary_color_example', # String | hexadecimal code of the client primary color (e.g F45B9A)
   secondary_color: 'secondary_color_example', # String | hexadecimal code of the client secondary color (e.g F45B9A)
   description: 'description_example', # String | text to display as a default description
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
  **generate_keys** | **BOOLEAN**| set a rsa key pair for the client, which make it possible to generate a jwt user token using this client. No effect if the client already has a set of keys(default: False) | [optional] 
  **name** | **String**| name of client | [optional] 
  **secret** | **BOOLEAN**| reset the secret | [optional] 
- **redirect_uris** | [**Array&lt;String&gt;**](String.md)| list of allowed redirect uris | [optional] 
+ **redirect_uris** | **String**| list of allowed redirect uris | [optional] 
  **primary_color** | **String**| hexadecimal code of the client primary color (e.g F45B9A) | [optional] 
  **secondary_color** | **String**| hexadecimal code of the client secondary color (e.g F45B9A) | [optional] 
  **description** | **String**| text to display as a default description | [optional] 
@@ -435,7 +435,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 opts = { 
   generate_keys: true, # BOOLEAN | if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False)
   name: 'name_example', # String | name of client
-  redirect_uris: ['redirect_uris_example'], # Array<String> | list of allowed redirect uris
+  redirect_uris: 'redirect_uris_example', # String | list of allowed redirect uris
   config: 'config_example', # String | custom config about the client
   expand: 'expand_example' # String | 
 }
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **generate_keys** | **BOOLEAN**| if True, generate a rsa pair of keys so the client can be used to generate jwt user tokens (default: False) | [optional] 
  **name** | **String**| name of client | [optional] 
- **redirect_uris** | [**Array&lt;String&gt;**](String.md)| list of allowed redirect uris | [optional] 
+ **redirect_uris** | **String**| list of allowed redirect uris | [optional] 
  **config** | **String**| custom config about the client | [optional] 
  **expand** | **String**|  | [optional] 
 
@@ -840,7 +840,7 @@ api_instance = BudgeaClient::AdministrationApi.new
 
 name = 'name_example' # String | name of merchant
 
-redirect_uris = ['redirect_uris_example'] # Array<String> | list of allowed redirect uris
+redirect_uris = 'redirect_uris_example' # String | list of allowed redirect uris
 
 iban = 'iban_example' # String | payments initiated by this merchant will be done to this IBAN
 
@@ -862,7 +862,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of merchant | 
- **redirect_uris** | [**Array&lt;String&gt;**](String.md)| list of allowed redirect uris | 
+ **redirect_uris** | **String**| list of allowed redirect uris | 
  **iban** | **String**| payments initiated by this merchant will be done to this IBAN | 
  **expand** | **String**|  | [optional] 
 
@@ -2013,7 +2013,7 @@ opts = {
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
   id_auth: 56, # Integer | The webhook authentication process to use
-  url: 3.4, # Float | The webhook callback url
+  url: 'url_example', # String | The webhook callback url
   event: 'event_example', # String | The webhook event
   expand: 'expand_example' # String | 
 }
@@ -2036,7 +2036,7 @@ Name | Type | Description  | Notes
  **id_user** | **Integer**| The user ID to associate with the webhook | [optional] 
  **id_service** | **Integer**| The service ID to associate with the webhook | [optional] 
  **id_auth** | **Integer**| The webhook authentication process to use | [optional] 
- **url** | **Float**| The webhook callback url | [optional] 
+ **url** | **String**| The webhook callback url | [optional] 
  **event** | **String**| The webhook event | [optional] 
  **expand** | **String**|  | [optional] 
 
@@ -2083,7 +2083,7 @@ opts = {
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
   id_auth: 56, # Integer | The webhook authentication process to use
-  url: 3.4, # Float | The webhook callback url
+  url: 'url_example', # String | The webhook callback url
   event: 'event_example', # String | The webhook event
   expand: 'expand_example' # String | 
 }
@@ -2106,7 +2106,7 @@ Name | Type | Description  | Notes
  **id_user** | **Integer**| The user ID to associate with the webhook | [optional] 
  **id_service** | **Integer**| The service ID to associate with the webhook | [optional] 
  **id_auth** | **Integer**| The webhook authentication process to use | [optional] 
- **url** | **Float**| The webhook callback url | [optional] 
+ **url** | **String**| The webhook callback url | [optional] 
  **event** | **String**| The webhook event | [optional] 
  **expand** | **String**|  | [optional] 
 
@@ -2150,7 +2150,7 @@ opts = {
   id_user: 56, # Integer | The user ID to associate with the webhook
   id_service: 56, # Integer | The service ID to associate with the webhook
   id_auth: 'id_auth_example', # String | The webhook authentication process to use (its ID or its name)
-  url: 3.4, # Float | The webhook callback url
+  url: 'url_example', # String | The webhook callback url
   event: 'event_example', # String | The webhook event
   params: 'params_example', # String | The webhook parameters as an object with three keys: type, key and value
   expand: 'expand_example' # String | 
@@ -2172,7 +2172,7 @@ Name | Type | Description  | Notes
  **id_user** | **Integer**| The user ID to associate with the webhook | [optional] 
  **id_service** | **Integer**| The service ID to associate with the webhook | [optional] 
  **id_auth** | **String**| The webhook authentication process to use (its ID or its name) | [optional] 
- **url** | **Float**| The webhook callback url | [optional] 
+ **url** | **String**| The webhook callback url | [optional] 
  **event** | **String**| The webhook event | [optional] 
  **params** | **String**| The webhook parameters as an object with three keys: type, key and value | [optional] 
  **expand** | **String**|  | [optional] 

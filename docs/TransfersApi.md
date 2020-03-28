@@ -47,7 +47,7 @@ Method | HTTP request | Description
 
 
 # **users_id_user_accounts_id_account_recipients_get**
-> InlineResponse20028 users_id_user_accounts_id_account_recipients_get(id_user, id_account, opts)
+> InlineResponse20029 users_id_user_accounts_id_account_recipients_get(id_user, id_account, opts)
 
 Returns the list of recipients.
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_recipients_id_recipient_transfers_get**
-> InlineResponse20029 users_id_user_accounts_id_account_recipients_id_recipient_transfers_get(id_user, id_account, id_recipient, opts)
+> InlineResponse20030 users_id_user_accounts_id_account_recipients_id_recipient_transfers_get(id_user, id_account, id_recipient, opts)
 
 Get transfers
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_accounts_id_account_transfers_get**
-> InlineResponse20029 users_id_user_accounts_id_account_transfers_get(id_user, id_account, opts)
+> InlineResponse20030 users_id_user_accounts_id_account_transfers_get(id_user, id_account, opts)
 
 Get transfers
 
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_recipients_get**
-> InlineResponse20028 users_id_user_connections_id_connection_accounts_id_account_recipients_get(id_user, id_connection, id_account, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_accounts_id_account_recipients_get(id_user, id_connection, id_account, opts)
 
 Returns the list of recipients.
 
@@ -780,7 +780,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -863,7 +863,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get**
-> InlineResponse20029 users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get(id_user, id_connection, id_account, id_recipient, opts)
+> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_recipients_id_recipient_transfers_get(id_user, id_connection, id_account, id_recipient, opts)
 
 Get transfers
 
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -1150,7 +1150,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_accounts_id_account_transfers_get**
-> InlineResponse20029 users_id_user_connections_id_connection_accounts_id_account_transfers_get(id_user, id_connection, id_account, opts)
+> InlineResponse20030 users_id_user_connections_id_connection_accounts_id_account_transfers_get(id_user, id_connection, id_account, opts)
 
 Get transfers
 
@@ -1202,7 +1202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -1425,7 +1425,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_recipients_get**
-> InlineResponse20028 users_id_user_connections_id_connection_recipients_get(id_user, id_connection, opts)
+> InlineResponse20029 users_id_user_connections_id_connection_recipients_get(id_user, id_connection, opts)
 
 Returns the list of recipients.
 
@@ -1472,7 +1472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -1552,7 +1552,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_recipients_id_recipient_transfers_get**
-> InlineResponse20029 users_id_user_connections_id_connection_recipients_id_recipient_transfers_get(id_user, id_connection, id_recipient, opts)
+> InlineResponse20030 users_id_user_connections_id_connection_recipients_id_recipient_transfers_get(id_user, id_connection, id_recipient, opts)
 
 Get transfers
 
@@ -1604,7 +1604,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -1827,7 +1827,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_connections_id_connection_transfers_get**
-> InlineResponse20029 users_id_user_connections_id_connection_transfers_get(id_user, id_connection, opts)
+> InlineResponse20030 users_id_user_connections_id_connection_transfers_get(id_user, id_connection, opts)
 
 Get transfers
 
@@ -1876,7 +1876,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -2090,7 +2090,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_recipients_get**
-> InlineResponse20028 users_id_user_recipients_get(id_user, opts)
+> InlineResponse20029 users_id_user_recipients_get(id_user, opts)
 
 Returns the list of recipients.
 
@@ -2134,7 +2134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -2211,7 +2211,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_recipients_id_recipient_transfers_get**
-> InlineResponse20029 users_id_user_recipients_id_recipient_transfers_get(id_user, id_recipient, opts)
+> InlineResponse20030 users_id_user_recipients_id_recipient_transfers_get(id_user, id_recipient, opts)
 
 Get transfers
 
@@ -2260,7 +2260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -2474,7 +2474,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transfers_get**
-> InlineResponse20029 users_id_user_transfers_get(id_user, opts)
+> InlineResponse20030 users_id_user_transfers_get(id_user, opts)
 
 Get transfers
 
@@ -2520,7 +2520,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 

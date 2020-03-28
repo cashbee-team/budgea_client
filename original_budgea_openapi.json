@@ -1349,7 +1349,7 @@
           {
             "required": false,
             "in": "formData",
-            "type": "array",
+            "type": "string",
             "name": "redirect_uris",
             "description": "list of allowed redirect uris"
           },
@@ -1446,7 +1446,7 @@
           {
             "required": false,
             "in": "formData",
-            "type": "array",
+            "type": "string",
             "name": "redirect_uris",
             "description": "list of allowed redirect uris"
           },
@@ -1899,6 +1899,174 @@
           }
         ],
         "summary": "Get connection logs"
+      }
+    },
+    "/connections/{id_connection}/sources": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "sources",
+            "schema": {
+              "required": [
+                "sources"
+              ],
+              "type": "object",
+              "properties": {
+                "sources": {
+                  "items": {
+                    "$ref": "#/definitions/ConnectionSource"
+                  },
+                  "type": "array"
+                },
+                "total": {
+                  "type": "number",
+                  "description": "total number of results"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Get connection sources"
+      }
+    },
+    "/connections/{id_connection}/sources/{id_source}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on ConnectionSource resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectionSource"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "This will make it so the specified source will be able to be synchronized.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_source",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Enable connection source"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful PUT on ConnectionSource resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectionSource"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "This will make it so the specified source will be able to be synchronized.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_source",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Enable connection source"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful DELETE on ConnectionSource resource",
+            "schema": {
+              "$ref": "#/definitions/ConnectionSource"
+            }
+          }
+        },
+        "tags": [
+          "Connections",
+          "Banks",
+          "Providers"
+        ],
+        "description": "This will make it so the specified source will not be synchronized anymore.<br><br>",
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_connection",
+            "description": ""
+          },
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_source",
+            "description": ""
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "summary": "Disable a connection source"
       }
     },
     "/connectors": {
@@ -2651,7 +2819,7 @@
             "in": "query"
           }
         ],
-        "summary": "Get securities"
+        "summary": "Get finance securities"
       }
     },
     "/finance/securities/{id_security}/history": {
@@ -3017,7 +3185,7 @@
           {
             "required": true,
             "in": "formData",
-            "type": "array",
+            "type": "string",
             "name": "redirect_uris",
             "description": "list of allowed redirect uris"
           },
@@ -3604,10 +3772,6 @@
             }
           }
         },
-        "tags": [
-          "Terms"
-        ],
-        "description": "",
         "parameters": [
           {
             "required": false,
@@ -3619,9 +3783,16 @@
           {
             "required": false,
             "in": "formData",
-            "type": "string",
+            "type": "file",
             "name": "file_content",
             "description": "file containing the terms, optional"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "language",
+            "description": "two letters code of the language of the inserted terms if provided. default: 'fr'"
           },
           {
             "required": false,
@@ -3630,7 +3801,63 @@
             "in": "query"
           }
         ],
-        "summary": "Register a version of 'Terms of Service' in database"
+        "tags": [
+          "Terms"
+        ],
+        "summary": "Register a version of 'Terms of Service' in database",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "description": ""
+      }
+    },
+    "/terms/{id_term}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful POST on TermsOfService resource",
+            "schema": {
+              "$ref": "#/definitions/TermsOfService"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "in": "path",
+            "type": "integer",
+            "name": "id_term",
+            "description": ""
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "string",
+            "name": "language",
+            "description": "two letter code of the language to inserted"
+          },
+          {
+            "required": false,
+            "in": "formData",
+            "type": "file",
+            "name": "file_content",
+            "description": "file containing the terms"
+          },
+          {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          }
+        ],
+        "tags": [
+          "Terms"
+        ],
+        "summary": "Add terms content for a language. Only for the active terms, there is no use to update obsolete terms",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "description": ""
       }
     },
     "/test/sync": {
@@ -4349,6 +4576,20 @@
           },
           {
             "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "label",
+            "description": "filter investments using keywords in labels"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "code",
+            "description": "filter investments by ISIN codes"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -5011,60 +5252,6 @@
             "required": false,
             "type": "string",
             "name": "expand",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "category",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "bank_name",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "deleted",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "bic",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "label",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "state",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "iban",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "error",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "id",
             "in": "query"
           }
         ],
@@ -8250,104 +8437,6 @@
           },
           {
             "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "birthday",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "password",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "oauth_token",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "oauth_token_secret",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "auth_type",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "secret",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "type",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "birthdate",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "nuser",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "website",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "openapiwebsite",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "directaccesswebsite",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "login",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "integer",
-            "name": "id_provider",
-            "description": "ID of the provider"
-          },
-          {
-            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -8389,45 +8478,6 @@
       }
     },
     "/users/{id_user}/connections/{id_connection}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "connection",
-            "schema": {
-              "$ref": "#/definitions/Connection"
-            }
-          }
-        },
-        "tags": [
-          "Connections",
-          "Banks",
-          "Providers"
-        ],
-        "description": "Get connection by ID",
-        "parameters": [
-          {
-            "required": true,
-            "in": "path",
-            "type": "string",
-            "name": "id_user",
-            "description": "Hint: you can use 'me' or 'all'"
-          },
-          {
-            "required": true,
-            "in": "path",
-            "type": "integer",
-            "name": "id_connection",
-            "description": ""
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
-          }
-        ],
-        "summary": "Get connection"
-      },
       "post": {
         "responses": {
           "200": {
@@ -9137,6 +9187,20 @@
             "type": "integer",
             "name": "id_account",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "label",
+            "description": "filter investments using keywords in labels"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "code",
+            "description": "filter investments by ISIN codes"
           },
           {
             "required": false,
@@ -13374,6 +13438,20 @@
             "type": "integer",
             "name": "id_connection",
             "description": ""
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "label",
+            "description": "filter investments using keywords in labels"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "code",
+            "description": "filter investments by ISIN codes"
           },
           {
             "required": false,
@@ -18091,6 +18169,20 @@
           },
           {
             "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "label",
+            "description": "filter investments using keywords in labels"
+          },
+          {
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "name": "code",
+            "description": "filter investments by ISIN codes"
+          },
+          {
+            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
@@ -22343,11 +22435,10 @@
             "description": "The webhook authentication process to use (its ID or its name)"
           },
           {
-            "name": "url",
-            "format": "float",
             "required": false,
             "in": "formData",
-            "type": "number",
+            "type": "string",
+            "name": "url",
             "description": "The webhook callback url"
           },
           {
@@ -22689,11 +22780,10 @@
             "description": "The webhook authentication process to use"
           },
           {
-            "name": "url",
-            "format": "float",
             "required": false,
             "in": "formData",
-            "type": "number",
+            "type": "string",
+            "name": "url",
             "description": "The webhook callback url"
           },
           {
@@ -22762,11 +22852,10 @@
             "description": "The webhook authentication process to use"
           },
           {
-            "name": "url",
-            "format": "float",
             "required": false,
             "in": "formData",
-            "type": "number",
+            "type": "string",
+            "name": "url",
             "description": "The webhook callback url"
           },
           {
@@ -23216,6 +23305,37 @@
         "restricted": false
       }
     },
+    "ConnectorLogo": {
+      "required": [
+        "id",
+        "id_connector",
+        "id_file"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_connector": {
+          "type": "integer",
+          "description": "ID of the connector"
+        },
+        "id_file": {
+          "type": "integer",
+          "description": "Id of the Bank/Provider Logo"
+        },
+        "type": {
+          "type": "string",
+          "description": "Logo's type"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_connector": 0,
+        "id_file": 0,
+        "type": ""
+      }
+    },
     "ConnectorSource": {
       "required": [
         "id",
@@ -23265,7 +23385,7 @@
         "id_weboob": "",
         "auth_mechanism": "",
         "fallback": "",
-        "disabled": "2019-12-27 16:17:55.183995",
+        "disabled": "2020-03-26 17:25:37.346715",
         "priority": 0
       }
     },
@@ -23333,37 +23453,6 @@
         "value": "",
         "required": true,
         "auth_mechanisms": ""
-      }
-    },
-    "ConnectorLogo": {
-      "required": [
-        "id",
-        "id_connector",
-        "id_file"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_connector": {
-          "type": "integer",
-          "description": "ID of the connector"
-        },
-        "id_file": {
-          "type": "integer",
-          "description": "Id of the Bank/Provider Logo"
-        },
-        "type": {
-          "type": "string",
-          "description": "Logo's type"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_connector": 0,
-        "id_file": 0,
-        "type": ""
       }
     },
     "User": {
@@ -23463,6 +23552,417 @@
         "type": ""
       }
     },
+    "Connection": {
+      "required": [
+        "id",
+        "id_connector",
+        "active"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of connection"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the related user"
+        },
+        "id_connector": {
+          "type": "integer",
+          "description": "ID of the related connector"
+        },
+        "last_update": {
+          "type": "string",
+          "description": "Last successful update",
+          "format": "date-time"
+        },
+        "created": {
+          "default": "<function now at 0x7f62ec002230>",
+          "type": "string",
+          "description": "Creation date",
+          "format": "date-time"
+        },
+        "active": {
+          "default": true,
+          "type": "boolean",
+          "description": "This connection is active and will be automatically synced"
+        },
+        "last_push": {
+          "type": "string",
+          "description": "Last successful push",
+          "format": "date-time"
+        },
+        "next_try": {
+          "type": "string",
+          "description": "Date of next synchronization",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_user": 0,
+        "id_connector": 0,
+        "last_update": "2020-03-26 17:25:37.351177",
+        "created": "<function now at 0x7f62ec002230>",
+        "active": true,
+        "last_push": "2020-03-26 17:25:37.351279",
+        "next_try": "2020-03-26 17:25:37.351308"
+      }
+    },
+    "ConnectionSource": {
+      "required": [
+        "id",
+        "id_connection",
+        "id_connector_source",
+        "name",
+        "created"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of connection"
+        },
+        "id_connection": {
+          "type": "integer",
+          "description": "ID of the related connection"
+        },
+        "id_connector_source": {
+          "type": "integer",
+          "description": "ID of the related connector source"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the connection source"
+        },
+        "last_update": {
+          "type": "string",
+          "description": "Last successful update",
+          "format": "date-time"
+        },
+        "disabled": {
+          "type": "string",
+          "description": "This source is not used to synchronize the connection",
+          "format": "date-time"
+        },
+        "created": {
+          "default": "<function now at 0x7f62ebfbb320>",
+          "type": "string",
+          "description": "Creation date of the connection source",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string",
+          "description": "If the last update has failed, the state code"
+        },
+        "access_expire": {
+          "type": "string",
+          "description": "Expiration date of the access",
+          "format": "date-time"
+        },
+        "expire": {
+          "type": "string",
+          "description": "Expiration of the connection source. Used to purge the connection in case completion was not finished",
+          "format": "date-time"
+        },
+        "next_try": {
+          "type": "string",
+          "description": "Date of next synchronization",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_connection": 0,
+        "id_connector_source": 0,
+        "name": "",
+        "last_update": "2020-03-26 17:25:37.351741",
+        "disabled": "2020-03-26 17:25:37.351773",
+        "created": "<function now at 0x7f62ebfbb320>",
+        "state": "",
+        "access_expire": "2020-03-26 17:25:37.351856",
+        "expire": "2020-03-26 17:25:37.351883",
+        "next_try": "2020-03-26 17:25:37.351968"
+      }
+    },
+    "ConnectionLog": {
+      "required": [
+        "id",
+        "id_connection",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the log"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the user"
+        },
+        "id_connection": {
+          "type": "integer",
+          "description": "ID of the connection"
+        },
+        "id_connector": {
+          "type": "integer",
+          "description": "ID of the connector"
+        },
+        "id_source": {
+          "type": "integer",
+          "description": "ID of the related connection source"
+        },
+        "login": {
+          "type": "string",
+          "description": "bcrypt hash of the login"
+        },
+        "error_uid": {
+          "type": "string",
+          "description": "MD5 hash of the exception backtrace"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of log, when the synchronization has finished",
+          "format": "date-time"
+        },
+        "next_try": {
+          "type": "string",
+          "description": "If fail, the date represents the next try to connect",
+          "format": "date-time"
+        },
+        "error": {
+          "type": "string",
+          "description": "If fail, contains the error code"
+        },
+        "error_message": {
+          "type": "string",
+          "description": "If fail, error message received from connector"
+        },
+        "statut": {
+          "type": "integer",
+          "description": "Status of user (1 = charged user)"
+        },
+        "nb_accounts": {
+          "type": "integer",
+          "description": "In case of bank connection, number of accounts"
+        },
+        "start": {
+          "type": "string",
+          "description": "Timestamp when the synchronization has started",
+          "format": "date-time"
+        },
+        "worker": {
+          "type": "string",
+          "description": "Worker used to do synchronization"
+        },
+        "session_folder_id": {
+          "type": "string",
+          "description": "Session folder uid"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Fields for connection in additionalInformationNeeded state with background option"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_user": 0,
+        "id_connection": 0,
+        "id_connector": 0,
+        "id_source": 0,
+        "login": "",
+        "error_uid": "",
+        "timestamp": "CURRENT_TIMESTAMP",
+        "next_try": "2020-03-26 17:25:37.352671",
+        "error": "",
+        "error_message": "",
+        "statut": 0,
+        "nb_accounts": 0,
+        "start": "2020-03-26 17:25:37.352794",
+        "worker": "",
+        "session_folder_id": ""
+      }
+    },
+    "Webhook": {
+      "required": [
+        "id",
+        "created",
+        "updated"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the webhook"
+        },
+        "created": {
+          "type": "string",
+          "description": "Date of the webhook creation",
+          "format": "date-time"
+        },
+        "updated": {
+          "type": "string",
+          "description": "Date of the webhook last update",
+          "format": "date-time"
+        },
+        "deleted": {
+          "type": "string",
+          "description": "Date of the webhook deletion",
+          "format": "date-time"
+        },
+        "id_service": {
+          "type": "integer",
+          "description": "ID of the service"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the emitter user"
+        },
+        "id_event": {
+          "type": "integer",
+          "description": "ID of the webhook event"
+        },
+        "id_auth": {
+          "type": "integer",
+          "description": "ID of the authentication process"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the webhook"
+        },
+        "add_to_data": {
+          "type": "string",
+          "description": "json object to describe data to add"
+        }
+      },
+      "example": {
+        "id": 0,
+        "created": "2020-03-26 17:25:37.353793",
+        "updated": "2020-03-26 17:25:37.353841",
+        "deleted": "2020-03-26 17:25:37.353873",
+        "id_service": 0,
+        "id_user": 0,
+        "id_event": 0,
+        "id_auth": 0,
+        "url": ""
+      }
+    },
+    "WebhookData": {
+      "required": [
+        "id",
+        "id_webhook",
+        "id_user",
+        "created"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the webhook data"
+        },
+        "id_webhook": {
+          "type": "integer",
+          "description": "ID of the webhook"
+        },
+        "id_service": {
+          "type": "integer",
+          "description": "ID of the recipient service"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the emitter user"
+        },
+        "id_resource": {
+          "type": "integer",
+          "description": "a changing ID used to filter webhookdata depending on the event triggered"
+        },
+        "data": {
+          "type": "string",
+          "description": "Data emitted"
+        },
+        "mimetype": {
+          "type": "string",
+          "description": "Mimetype of the data"
+        },
+        "created": {
+          "type": "string",
+          "description": "Timestamp when the hook data was generated",
+          "format": "date-time"
+        },
+        "success": {
+          "type": "string",
+          "description": "Timestamp when the hook has been successfully called",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_webhook": 0,
+        "id_service": 0,
+        "id_user": 0,
+        "id_resource": 0,
+        "mimetype": "",
+        "created": "2020-03-26 17:25:37.355000",
+        "success": "2020-03-26 17:25:37.355035"
+      }
+    },
+    "WebhookLog": {
+      "required": [
+        "id",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the log"
+        },
+        "id_webhook_data": {
+          "type": "integer",
+          "description": "ID of the webhook data"
+        },
+        "id_service": {
+          "type": "integer",
+          "description": "ID of the service"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of the user"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp when the hook was sent",
+          "format": "date-time"
+        },
+        "response_date": {
+          "type": "string",
+          "description": "Timestamp of the reply to the hook",
+          "format": "date-time"
+        },
+        "response_code": {
+          "type": "integer",
+          "description": "Return code of the reply to the hook"
+        },
+        "next_try": {
+          "type": "string",
+          "description": "If the log is an error, do not retry to push before this timestamp",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_webhook_data": 0,
+        "id_service": 0,
+        "id_user": 0,
+        "timestamp": "2020-03-26 17:25:37.355367",
+        "response_date": "2020-03-26 17:25:37.355402",
+        "response_code": 0,
+        "next_try": "2020-03-26 17:25:37.355452"
+      }
+    },
     "TermsOfService": {
       "required": [
         "id",
@@ -23477,9 +23977,6 @@
         "version": {
           "type": "string"
         },
-        "id_file": {
-          "type": "integer"
-        },
         "created": {
           "type": "string",
           "format": "date-time"
@@ -23492,9 +23989,8 @@
       "example": {
         "id": 0,
         "version": "",
-        "id_file": 0,
-        "created": "2019-12-27 16:17:55.197166",
-        "deleted": "2019-12-27 16:17:55.197240"
+        "created": "2020-03-26 17:25:37.356606",
+        "deleted": "2020-03-26 17:25:37.356644"
       }
     },
     "Category": {
@@ -23679,397 +24175,7 @@
         "code": "",
         "name": "",
         "id_type": 0,
-        "last_update": "2019-12-27 16:17:55.203476"
-      }
-    },
-    "Webhook": {
-      "required": [
-        "id",
-        "created",
-        "updated"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the webhook"
-        },
-        "created": {
-          "type": "string",
-          "description": "Date of the webhook creation",
-          "format": "date-time"
-        },
-        "updated": {
-          "type": "string",
-          "description": "Date of the webhook last update",
-          "format": "date-time"
-        },
-        "deleted": {
-          "type": "string",
-          "description": "Date of the webhook deletion",
-          "format": "date-time"
-        },
-        "id_service": {
-          "type": "integer",
-          "description": "ID of the service"
-        },
-        "id_user": {
-          "type": "integer",
-          "description": "ID of the emitter user"
-        },
-        "id_event": {
-          "type": "integer",
-          "description": "ID of the webhook event"
-        },
-        "id_auth": {
-          "type": "integer",
-          "description": "ID of the authentication process"
-        },
-        "url": {
-          "type": "string",
-          "description": "URL of the webhook"
-        },
-        "add_to_data": {
-          "type": "string",
-          "description": "json object to describe data to add"
-        }
-      },
-      "example": {
-        "id": 0,
-        "created": "2019-12-27 16:17:55.205052",
-        "updated": "2019-12-27 16:17:55.205127",
-        "deleted": "2019-12-27 16:17:55.205189",
-        "id_service": 0,
-        "id_user": 0,
-        "id_event": 0,
-        "id_auth": 0,
-        "url": ""
-      }
-    },
-    "WebhookData": {
-      "required": [
-        "id",
-        "id_webhook",
-        "id_user",
-        "created"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the webhook data"
-        },
-        "id_webhook": {
-          "type": "integer",
-          "description": "ID of the webhook"
-        },
-        "id_service": {
-          "type": "integer",
-          "description": "ID of the recipient service"
-        },
-        "id_user": {
-          "type": "integer",
-          "description": "ID of the emitter user"
-        },
-        "id_resource": {
-          "type": "integer",
-          "description": "a changing ID used to filter webhookdata depending on the event triggered"
-        },
-        "data": {
-          "type": "string",
-          "description": "Data emitted"
-        },
-        "mimetype": {
-          "type": "string",
-          "description": "Mimetype of the data"
-        },
-        "created": {
-          "type": "string",
-          "description": "Timestamp when the hook data was generated",
-          "format": "date-time"
-        },
-        "success": {
-          "type": "string",
-          "description": "Timestamp when the hook has been successfully called",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_webhook": 0,
-        "id_service": 0,
-        "id_user": 0,
-        "id_resource": 0,
-        "mimetype": "",
-        "created": "2019-12-27 16:17:55.207112",
-        "success": "2019-12-27 16:17:55.207178"
-      }
-    },
-    "WebhookLog": {
-      "required": [
-        "id",
-        "timestamp"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the log"
-        },
-        "id_webhook_data": {
-          "type": "integer",
-          "description": "ID of the webhook data"
-        },
-        "id_service": {
-          "type": "integer",
-          "description": "ID of the service"
-        },
-        "id_user": {
-          "type": "integer",
-          "description": "ID of the user"
-        },
-        "timestamp": {
-          "type": "string",
-          "description": "Timestamp when the hook was sent",
-          "format": "date-time"
-        },
-        "response_date": {
-          "type": "string",
-          "description": "Timestamp of the reply to the hook",
-          "format": "date-time"
-        },
-        "response_code": {
-          "type": "integer",
-          "description": "Return code of the reply to the hook"
-        },
-        "next_try": {
-          "type": "string",
-          "description": "If the log is an error, do not retry to push before this timestamp",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_webhook_data": 0,
-        "id_service": 0,
-        "id_user": 0,
-        "timestamp": "2019-12-27 16:17:55.207847",
-        "response_date": "2019-12-27 16:17:55.207908",
-        "response_code": 0,
-        "next_try": "2019-12-27 16:17:55.208014"
-      }
-    },
-    "DocumentType": {
-      "required": [
-        "id",
-        "name",
-        "attacheable"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "attacheable": {
-          "default": true,
-          "type": "boolean"
-        }
-      },
-      "example": {
-        "id": 0,
-        "name": "",
-        "attacheable": true
-      }
-    },
-    "HashTable": {
-      "required": [
-        "wording",
-        "income",
-        "display",
-        "nature"
-      ],
-      "type": "object",
-      "properties": {
-        "wording": {
-          "type": "string"
-        },
-        "income": {
-          "type": "boolean"
-        },
-        "display": {
-          "default": true,
-          "type": "boolean"
-        },
-        "nature": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "wording": "",
-        "income": false,
-        "display": true,
-        "nature": ""
-      }
-    },
-    "Connection": {
-      "required": [
-        "id",
-        "id_connector",
-        "active"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of connection"
-        },
-        "id_user": {
-          "type": "integer",
-          "description": "ID of the related user"
-        },
-        "id_connector": {
-          "type": "integer",
-          "description": "ID of the related connector"
-        },
-        "last_update": {
-          "type": "string",
-          "description": "Last successful update",
-          "format": "date-time"
-        },
-        "created": {
-          "default": "<function <lambda> at 0x7f8894ce1aa0>",
-          "type": "string",
-          "description": "Creation date",
-          "format": "date-time"
-        },
-        "active": {
-          "default": true,
-          "type": "boolean",
-          "description": "This connection is active and will be automatically synced"
-        },
-        "last_push": {
-          "type": "string",
-          "description": "Last successful push",
-          "format": "date-time"
-        },
-        "next_try": {
-          "type": "string",
-          "description": "Date of next synchronization",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_user": 0,
-        "id_connector": 0,
-        "last_update": "2019-12-27 16:17:55.214719",
-        "created": "<function <lambda> at 0x7f8894ce1aa0>",
-        "active": true,
-        "last_push": "2019-12-27 16:17:55.214905",
-        "next_try": "2019-12-27 16:17:55.214963"
-      }
-    },
-    "ConnectionLog": {
-      "required": [
-        "id",
-        "id_connection",
-        "timestamp"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the log"
-        },
-        "id_user": {
-          "type": "integer",
-          "description": "ID of the user"
-        },
-        "id_connection": {
-          "type": "integer",
-          "description": "ID of the connection"
-        },
-        "id_connector": {
-          "type": "integer",
-          "description": "ID of the connector"
-        },
-        "id_source": {
-          "type": "integer",
-          "description": "ID of the related connection source"
-        },
-        "login": {
-          "type": "string",
-          "description": "bcrypt hash of the login"
-        },
-        "error_uid": {
-          "type": "string",
-          "description": "MD5 hash of the exception backtrace"
-        },
-        "timestamp": {
-          "default": "CURRENT_TIMESTAMP",
-          "type": "string",
-          "description": "Timestamp of log, when the synchronization has finished",
-          "format": "date-time"
-        },
-        "next_try": {
-          "type": "string",
-          "description": "If fail, the date represents the next try to connect",
-          "format": "date-time"
-        },
-        "error": {
-          "type": "string",
-          "description": "If fail, contains the error code"
-        },
-        "error_message": {
-          "type": "string",
-          "description": "If fail, error message received from connector"
-        },
-        "statut": {
-          "type": "integer",
-          "description": "Status of user (1 = charged user)"
-        },
-        "nb_accounts": {
-          "type": "integer",
-          "description": "In case of bank connection, number of accounts"
-        },
-        "start": {
-          "type": "string",
-          "description": "Timestamp when the synchronization has started",
-          "format": "date-time"
-        },
-        "worker": {
-          "type": "string",
-          "description": "Worker used to do synchronization"
-        },
-        "session_folder_id": {
-          "type": "string",
-          "description": "Session folder uid"
-        },
-        "fields": {
-          "type": "string",
-          "description": "Fields for connection in additionalInformationNeeded state with background option"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_user": 0,
-        "id_connection": 0,
-        "id_connector": 0,
-        "id_source": 0,
-        "login": "",
-        "error_uid": "",
-        "timestamp": "CURRENT_TIMESTAMP",
-        "next_try": "2019-12-27 16:17:55.216094",
-        "error": "",
-        "error_message": "",
-        "statut": 0,
-        "nb_accounts": 0,
-        "start": "2019-12-27 16:17:55.216370",
-        "worker": "",
-        "session_folder_id": ""
+        "last_update": "2020-03-26 17:25:37.359686"
       }
     },
     "Transfer": {
@@ -24182,8 +24288,8 @@
         "id_recipient": 0,
         "account_iban": "",
         "recipient_iban": "",
-        "exec_date": "2019-12-27",
-        "register_date": "2019-12-27 16:17:55.220954",
+        "exec_date": "2020-03-26",
+        "register_date": "2020-03-26 17:25:37.360825",
         "amount": 0,
         "fees": 0,
         "webid": "",
@@ -24247,6 +24353,56 @@
         "refund_value": 0
       }
     },
+    "OidcWhitelist": {
+      "required": [
+        "id",
+        "redirect_uri"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "redirect_uri": {
+          "type": "string",
+          "description": "authorized redirect uri"
+        }
+      },
+      "example": {
+        "id": 0,
+        "redirect_uri": ""
+      }
+    },
+    "HashTable": {
+      "required": [
+        "wording",
+        "income",
+        "display",
+        "nature"
+      ],
+      "type": "object",
+      "properties": {
+        "wording": {
+          "type": "string"
+        },
+        "income": {
+          "type": "boolean"
+        },
+        "display": {
+          "default": true,
+          "type": "boolean"
+        },
+        "nature": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "wording": "",
+        "income": false,
+        "display": true,
+        "nature": ""
+      }
+    },
     "Certificate": {
       "required": [
         "id",
@@ -24279,390 +24435,203 @@
         "id_public_key_file": 0,
         "id_private_key_file": 0,
         "type": "",
-        "created": "2019-12-27 16:17:55.226500"
+        "created": "2020-03-26 17:25:37.366489"
       }
     },
-    "ProjectType": {
-      "required": [
-        "id",
-        "name"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "icon_url": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "name": "",
-        "icon_url": ""
-      }
-    },
-    "Access": {
-      "required": [
-        "id",
-        "id_profile"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_user": {
-          "type": "integer"
-        },
-        "id_profile": {
-          "type": "integer"
-        },
-        "id_role": {
-          "type": "integer"
-        },
-        "email": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_user": 0,
-        "id_profile": 0,
-        "id_role": 0,
-        "email": ""
-      }
-    },
-    "Profile": {
+    "Document": {
       "required": [
         "id",
         "id_user",
-        "role",
-        "email",
-        "statut",
-        "admin"
+        "timestamp",
+        "readonly",
+        "has_file_on_website"
       ],
       "type": "object",
       "properties": {
         "id": {
           "type": "integer"
         },
-        "id_user": {
+        "id_type": {
           "type": "integer"
-        },
-        "role": {
-          "default": "admin",
-          "enum": [
-            "admin",
-            "ser"
-          ],
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "statut": {
-          "default": 0,
-          "type": "integer"
-        },
-        "admin": {
-          "default": false,
-          "type": "boolean"
-        },
-        "conf": {
-          "type": "string"
-        },
-        "lang": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_user": 0,
-        "role": "admin",
-        "statut": 0,
-        "admin": false,
-        "conf": "",
-        "lang": ""
-      }
-    },
-    "TransactionsCluster": {
-      "required": [
-        "id",
-        "id_account",
-        "mean_amount",
-        "enabled",
-        "wording"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "id_account": {
-          "type": "integer"
-        },
-        "mean_amount": {
-          "type": "number",
-          "format": "float"
-        },
-        "median_increment": {
-          "type": "integer"
-        },
-        "enabled": {
-          "default": true,
-          "type": "boolean"
-        },
-        "next_date": {
-          "type": "string",
-          "format": "date"
-        },
-        "wording": {
-          "type": "string"
         },
         "id_category": {
           "type": "integer"
         },
-        "created_by": {
-          "type": "string"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_account": 0,
-        "mean_amount": 0,
-        "median_increment": 0,
-        "enabled": true,
-        "next_date": "2019-12-27",
-        "wording": "",
-        "id_category": 0,
-        "created_by": ""
-      }
-    },
-    "UserAlert": {
-      "description": "/!\\ Careful we use default value from database if present\n\n    For more information see AlertsPlugin.init",
-      "required": [
-        "id",
-        "value_type",
-        "type",
-        "resume_frequency"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
+        "id_user": {
           "type": "integer"
         },
-        "income_max": {
-          "default": 500,
-          "type": "number",
-          "format": "float"
-        },
-        "expense_max": {
-          "default": 500,
-          "type": "number",
-          "format": "float"
-        },
-        "balance_min1": {
-          "default": 500,
-          "type": "number",
-          "format": "float"
-        },
-        "balance_min2": {
-          "default": 0,
-          "type": "number",
-          "format": "float"
-        },
-        "balance_max": {
-          "default": 10000,
-          "type": "number",
-          "format": "float"
-        },
-        "resume_enabled": {
-          "default": true,
-          "type": "boolean"
-        },
-        "enabled": {
-          "default": true,
-          "type": "boolean"
-        },
-        "value_type": {
-          "default": "flat",
-          "type": "string"
-        },
-        "type": {
-          "default": "transactions",
-          "type": "string"
-        },
-        "transaction_types": {
-          "type": "string"
-        },
-        "date_range": {
+        "id_subscription": {
           "type": "integer"
         },
-        "apply": {
-          "type": "string"
-        },
-        "resume_frequency": {
-          "default": 7,
+        "id_file": {
           "type": "integer"
-        }
-      },
-      "example": {
-        "id": 0,
-        "income_max": 500,
-        "expense_max": 500,
-        "balance_min1": 500,
-        "balance_min2": 0,
-        "balance_max": 10000,
-        "resume_enabled": true,
-        "enabled": true,
-        "value_type": "flat",
-        "type": "transactions",
-        "transaction_types": "",
-        "date_range": 0,
-        "apply": "",
-        "resume_frequency": 7
-      }
-    },
-    "AccountType": {
-      "required": [
-        "id",
-        "name",
-        "is_invest",
-        "weboob_type_id",
-        "display_name_p",
-        "display_name"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the account type"
+        },
+        "id_thumbnail": {
+          "type": "integer"
         },
         "name": {
+          "type": "string"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
           "type": "string",
-          "description": "Name of the account type"
+          "format": "date-time"
         },
-        "is_invest": {
-          "default": false,
-          "type": "boolean",
-          "description": "Is it an investment account"
-        },
-        "weboob_type_id": {
-          "type": "integer",
-          "description": "Map to the weboob_type_id"
-        },
-        "display_name_p": {
+        "date": {
           "type": "string",
-          "description": "Name to display in plurial"
+          "format": "date-time"
         },
-        "display_name": {
+        "duedate": {
           "type": "string",
-          "description": "Name to display in singular"
+          "format": "date"
         },
-        "color": {
-          "type": "string",
-          "description": "Color of the account type (hexdecimal)"
+        "total_amount": {
+          "type": "number",
+          "format": "float"
         },
-        "id_parent": {
-          "type": "integer",
-          "description": "Id of the parent type"
-        }
-      },
-      "example": {
-        "id": 0,
-        "name": "",
-        "is_invest": false,
-        "weboob_type_id": 0,
-        "display_name_p": "",
-        "display_name": "",
-        "color": "",
-        "id_parent": 0
-      }
-    },
-    "Subscription": {
-      "required": [
-        "id",
-        "number",
-        "label"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of subscription"
+        "untaxed_amount": {
+          "type": "number",
+          "format": "float"
         },
-        "id_connection": {
-          "type": "integer",
-          "description": "ID of related connection"
+        "vat": {
+          "type": "number",
+          "format": "float"
         },
-        "id_user": {
-          "type": "integer",
-          "description": "ID of related user"
+        "income": {
+          "default": true,
+          "type": "boolean"
         },
-        "id_source": {
-          "type": "integer",
-          "description": "ID of the related connection source"
+        "readonly": {
+          "default": true,
+          "type": "boolean"
         },
         "number": {
-          "type": "string",
-          "description": "Subscription's number"
+          "type": "string"
         },
-        "label": {
-          "type": "string",
-          "description": "Label of the subscription"
-        },
-        "subscriber": {
-          "type": "string",
-          "description": "Name of the subscriber"
-        },
-        "validity": {
-          "type": "string",
-          "description": "The subscription is valid until this date, if any",
-          "format": "date"
-        },
-        "renewdate": {
-          "type": "string",
-          "description": "Next renew date, if any",
-          "format": "date"
+        "issuer": {
+          "type": "string"
         },
         "last_update": {
           "type": "string",
-          "description": "Last successful update of the subscription",
+          "description": "Last successful update of the document",
           "format": "date-time"
         },
-        "deleted": {
-          "type": "string",
-          "description": "This subscription is not found on the website anymore",
-          "format": "date-time"
+        "has_file_on_website": {
+          "default": true,
+          "type": "boolean",
+          "description": "Boolean to set if file is available on website"
         },
-        "disabled": {
-          "type": "string",
-          "description": "This subscription has been deleted by user and will not be synchronized anymore",
-          "format": "date-time"
-        },
-        "error": {
-          "type": "string",
-          "description": "If the last update has failed, the error code"
+        "currency": {
+          "type": "object",
+          "description": "Document currency"
         }
       },
       "example": {
         "id": 0,
-        "id_connection": 0,
+        "id_type": 0,
+        "id_category": 0,
         "id_user": 0,
-        "id_source": 0,
+        "id_subscription": 0,
+        "id_file": 0,
+        "id_thumbnail": 0,
+        "name": "",
+        "timestamp": "CURRENT_TIMESTAMP",
+        "date": "2020-03-26 17:25:37.368698",
+        "duedate": "2020-03-26",
+        "total_amount": 0,
+        "untaxed_amount": 0,
+        "vat": 0,
+        "income": true,
+        "readonly": true,
         "number": "",
-        "label": "",
-        "subscriber": "",
-        "validity": "2019-12-27",
-        "renewdate": "2019-12-27",
-        "last_update": "2019-12-27 16:17:55.250146",
-        "deleted": "2019-12-27 16:17:55.250214",
-        "disabled": "2019-12-27 16:17:55.250273",
-        "error": ""
+        "issuer": "",
+        "last_update": "2020-03-26 17:25:37.368983",
+        "has_file_on_website": true,
+        "currency": ""
+      }
+    },
+    "TransferLog": {
+      "required": [
+        "id",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the transfer log entry"
+        },
+        "id_transfer": {
+          "type": "integer",
+          "description": "ID of the related transfer"
+        },
+        "id_file": {
+          "type": "integer",
+          "description": "ID of the related file"
+        },
+        "request_data": {
+          "type": "string",
+          "description": "Data stored related to user who has requested the transfer"
+        },
+        "state": {
+          "type": "string",
+          "description": "State of the transfer (created, scheduled, validating, pending, done, canceled, error, bug)"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message during transfer, if any"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of the log",
+          "format": "date-time"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Fields for transfer in additionalInformationNeeded state with background option"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_transfer": 0,
+        "id_file": 0,
+        "request_data": "",
+        "state": "",
+        "error": "",
+        "timestamp": "CURRENT_TIMESTAMP"
+      }
+    },
+    "TransactionInformation": {
+      "required": [
+        "id",
+        "id_transaction",
+        "key"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of this transaction information"
+        },
+        "id_transaction": {
+          "type": "integer",
+          "description": "ID of the related transaction"
+        },
+        "key": {
+          "type": "string",
+          "description": "Key of the transaction information"
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of the transaction information"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_transaction": 0,
+        "key": "",
+        "value": ""
       }
     },
     "Transaction": {
@@ -24831,24 +24800,24 @@
         "id": 0,
         "id_account": 0,
         "webid": "",
-        "application_date": "2019-12-27",
-        "date": "2019-12-27",
+        "application_date": "2020-03-26",
+        "date": "2020-03-26",
         "value": 0,
         "gross_value": 0,
         "nature": "inconnu",
         "wording": "",
         "id_category": 0,
         "state": "new",
-        "date_scraped": "2019-12-27 16:17:55.252832",
-        "rdate": "2019-12-27",
-        "vdate": "2019-12-27",
-        "bdate": "2019-12-27",
+        "date_scraped": "2020-03-26 17:25:37.384220",
+        "rdate": "2020-03-26",
+        "vdate": "2020-03-26",
+        "bdate": "2020-03-26",
         "coming": false,
         "active": true,
         "id_cluster": 0,
         "comment": "",
-        "last_update": "2019-12-27 16:17:55.253360",
-        "deleted": "2019-12-27 16:17:55.253424",
+        "last_update": "2020-03-26 17:25:37.384460",
+        "deleted": "2020-03-26 17:25:37.384488",
         "original_value": 0,
         "original_gross_value": 0,
         "original_currency": "",
@@ -24857,6 +24826,367 @@
         "country": "",
         "counterparty": "",
         "card": ""
+      }
+    },
+    "InvestmentValue": {
+      "required": [
+        "id",
+        "id_investment",
+        "vdate",
+        "unitvalue"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the value"
+        },
+        "id_investment": {
+          "type": "integer",
+          "description": "ID of the related investment"
+        },
+        "vdate": {
+          "type": "string",
+          "description": "Date of this value",
+          "format": "date"
+        },
+        "unitvalue": {
+          "type": "number",
+          "description": "Value on this date",
+          "format": "float"
+        },
+        "original_currency": {
+          "type": "object",
+          "description": "Original currency"
+        },
+        "original_unitvalue": {
+          "type": "number",
+          "description": "Value on this date, in the original currency",
+          "format": "float"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_investment": 0,
+        "vdate": "2020-03-26",
+        "unitvalue": 0,
+        "original_currency": "",
+        "original_unitvalue": 0
+      }
+    },
+    "Pocket": {
+      "required": [
+        "id",
+        "id_account",
+        "id_investment",
+        "value",
+        "condition"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the pocket"
+        },
+        "id_account": {
+          "type": "integer",
+          "description": "ID of the related account"
+        },
+        "id_investment": {
+          "type": "integer",
+          "description": "ID of the related investment"
+        },
+        "label": {
+          "type": "string",
+          "description": "Label of the pocket"
+        },
+        "value": {
+          "type": "number",
+          "description": "Value of the pocket",
+          "format": "float"
+        },
+        "quantity": {
+          "default": 0,
+          "type": "number",
+          "description": "Quantity of stocks",
+          "format": "float"
+        },
+        "availability_date": {
+          "type": "string",
+          "description": "Availability date of the pocket",
+          "format": "date"
+        },
+        "condition": {
+          "default": "inconnu",
+          "type": "string",
+          "description": "Withdrawal condition of the pocket"
+        },
+        "last_update": {
+          "type": "string",
+          "description": "Last update of the pocket",
+          "format": "date-time"
+        },
+        "deleted": {
+          "type": "string",
+          "description": "If set, this pocket has been removed from the website",
+          "format": "date-time"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_account": 0,
+        "id_investment": 0,
+        "label": "",
+        "value": 0,
+        "quantity": 0,
+        "availability_date": "2020-03-26",
+        "condition": "inconnu",
+        "last_update": "2020-03-26 17:25:37.385690",
+        "deleted": "2020-03-26 17:25:37.385719"
+      }
+    },
+    "RecipientLog": {
+      "required": [
+        "id",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the transfer log entry"
+        },
+        "id_recipient": {
+          "type": "integer",
+          "description": "ID of the related recipient"
+        },
+        "id_file": {
+          "type": "integer",
+          "description": "ID of the related file"
+        },
+        "request_data": {
+          "type": "string",
+          "description": "Data stored related to user who has requested the recipient addition"
+        },
+        "step": {
+          "type": "string",
+          "description": "Step of recipient addition, (add_recipient, asking_field, recipient addition validated, creation, storing_files)"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message during recipient addition, if any"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of the log",
+          "format": "date-time"
+        },
+        "fields": {
+          "type": "string",
+          "description": "Fields for recipient in additionalInformationNeeded state with background option"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_recipient": 0,
+        "id_file": 0,
+        "request_data": "",
+        "step": "",
+        "error": "",
+        "timestamp": "CURRENT_TIMESTAMP"
+      }
+    },
+    "SubscriptionLog": {
+      "required": [
+        "id",
+        "id_subscription",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the log"
+        },
+        "id_subscription": {
+          "type": "integer",
+          "description": "ID of the related subscription"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of log",
+          "format": "date-time"
+        },
+        "nb_docs": {
+          "type": "integer",
+          "description": "Number of docs on the subscription"
+        },
+        "id_connection_log": {
+          "type": "integer",
+          "description": "ID of the related connection log"
+        },
+        "error": {
+          "type": "string",
+          "description": "If fail, contains the error code"
+        },
+        "error_message": {
+          "type": "string",
+          "description": "If fail, error message received from provider"
+        },
+        "id_source": {
+          "type": "integer",
+          "description": "ID of the related connection source"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_subscription": 0,
+        "timestamp": "CURRENT_TIMESTAMP",
+        "nb_docs": 0,
+        "id_connection_log": 0,
+        "error": "",
+        "error_message": "",
+        "id_source": 0
+      }
+    },
+    "TransactionsCluster": {
+      "required": [
+        "id",
+        "id_account",
+        "mean_amount",
+        "enabled",
+        "wording"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_account": {
+          "type": "integer"
+        },
+        "mean_amount": {
+          "type": "number",
+          "format": "float"
+        },
+        "median_increment": {
+          "type": "integer"
+        },
+        "enabled": {
+          "default": true,
+          "type": "boolean"
+        },
+        "next_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "wording": {
+          "type": "string"
+        },
+        "id_category": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_account": 0,
+        "mean_amount": 0,
+        "median_increment": 0,
+        "enabled": true,
+        "next_date": "2020-03-26",
+        "wording": "",
+        "id_category": 0,
+        "created_by": ""
+      }
+    },
+    "UserAlert": {
+      "description": "/!\\ Careful we use default value from database if present\n\n    For more information see AlertsPlugin.init",
+      "required": [
+        "id",
+        "value_type",
+        "type",
+        "resume_frequency"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "income_max": {
+          "default": 500,
+          "type": "number",
+          "format": "float"
+        },
+        "expense_max": {
+          "default": 500,
+          "type": "number",
+          "format": "float"
+        },
+        "balance_min1": {
+          "default": 500,
+          "type": "number",
+          "format": "float"
+        },
+        "balance_min2": {
+          "default": 0,
+          "type": "number",
+          "format": "float"
+        },
+        "balance_max": {
+          "default": 10000,
+          "type": "number",
+          "format": "float"
+        },
+        "resume_enabled": {
+          "default": true,
+          "type": "boolean"
+        },
+        "enabled": {
+          "default": true,
+          "type": "boolean"
+        },
+        "value_type": {
+          "default": "flat",
+          "type": "string"
+        },
+        "type": {
+          "default": "transactions",
+          "type": "string"
+        },
+        "transaction_types": {
+          "type": "string"
+        },
+        "date_range": {
+          "type": "integer"
+        },
+        "apply": {
+          "type": "string"
+        },
+        "resume_frequency": {
+          "default": 7,
+          "type": "integer"
+        }
+      },
+      "example": {
+        "id": 0,
+        "income_max": 500,
+        "expense_max": 500,
+        "balance_min1": 500,
+        "balance_min2": 0,
+        "balance_max": 10000,
+        "resume_enabled": true,
+        "enabled": true,
+        "value_type": "flat",
+        "type": "transactions",
+        "transaction_types": "",
+        "date_range": 0,
+        "apply": "",
+        "resume_frequency": 7
       }
     },
     "Investment": {
@@ -25006,16 +25336,16 @@
         "diff_percent": 0,
         "prev_diff": 0,
         "portfolio_share": 0,
-        "vdate": "2019-12-27",
-        "prev_vdate": "2019-12-27",
+        "vdate": "2020-03-26",
+        "prev_vdate": "2020-03-26",
         "id_security": 0,
         "original_currency": "",
         "original_valuation": 0,
         "original_unitvalue": 0,
         "original_unitprice": 0,
         "original_diff": 0,
-        "last_update": "2019-12-27 16:17:55.257343",
-        "deleted": "2019-12-27 16:17:55.257402"
+        "last_update": "2020-03-26 17:25:37.402602",
+        "deleted": "2020-03-26 17:25:37.402631"
       }
     },
     "Recipient": {
@@ -25114,127 +25444,191 @@
         "iban": "",
         "webid": "",
         "category": "",
-        "last_update": "2019-12-27 16:17:55.258763",
-        "time_scraped": "2019-12-27 16:17:55.258823",
-        "deleted": "2019-12-27 16:17:55.258879",
-        "expire": "2019-12-27 16:17:55.258940",
-        "enabled_at": "2019-12-27 16:17:55.259115",
+        "last_update": "2020-03-26 17:25:37.403218",
+        "time_scraped": "2020-03-26 17:25:37.403249",
+        "deleted": "2020-03-26 17:25:37.403276",
+        "expire": "2020-03-26 17:25:37.403301",
+        "enabled_at": "2020-03-26 17:25:37.403325",
         "add_verified": false,
         "state": "",
         "error": "",
         "currency": ""
       }
     },
-    "Document": {
+    "AccountLog": {
       "required": [
         "id",
-        "id_user",
-        "timestamp",
-        "readonly",
-        "has_file_on_website"
+        "id_account",
+        "balance",
+        "timestamp"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the log"
+        },
+        "id_account": {
+          "type": "integer",
+          "description": "ID of the related account"
+        },
+        "id_connector": {
+          "type": "integer",
+          "description": "provider id"
+        },
+        "balance": {
+          "type": "number",
+          "description": "Balanced recorded",
+          "format": "float"
+        },
+        "coming": {
+          "default": 0,
+          "type": "number",
+          "description": "Coming debit recorded",
+          "format": "float"
+        },
+        "timestamp": {
+          "default": "CURRENT_TIMESTAMP",
+          "type": "string",
+          "description": "Timestamp of log",
+          "format": "date-time"
+        },
+        "error": {
+          "type": "string",
+          "description": "If fail, contains the error code"
+        },
+        "error_message": {
+          "type": "string",
+          "description": "If fail, error message received from bank or provider"
+        },
+        "id_connection_log": {
+          "type": "integer",
+          "description": "ID of the related connection log"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_account": 0,
+        "id_connector": 0,
+        "balance": 0,
+        "coming": 0,
+        "timestamp": "CURRENT_TIMESTAMP",
+        "error": "",
+        "error_message": "",
+        "id_connection_log": 0
+      }
+    },
+    "Access": {
+      "required": [
+        "id",
+        "id_profile"
       ],
       "type": "object",
       "properties": {
         "id": {
           "type": "integer"
         },
-        "id_type": {
-          "type": "integer"
-        },
-        "id_category": {
-          "type": "integer"
-        },
         "id_user": {
           "type": "integer"
         },
-        "id_subscription": {
+        "id_profile": {
           "type": "integer"
         },
-        "id_file": {
+        "id_role": {
           "type": "integer"
         },
-        "id_thumbnail": {
-          "type": "integer"
-        },
-        "name": {
+        "email": {
           "type": "string"
-        },
-        "timestamp": {
-          "default": "CURRENT_TIMESTAMP",
-          "type": "string",
-          "format": "date-time"
-        },
-        "date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "duedate": {
-          "type": "string",
-          "format": "date"
-        },
-        "total_amount": {
-          "type": "number",
-          "format": "float"
-        },
-        "untaxed_amount": {
-          "type": "number",
-          "format": "float"
-        },
-        "vat": {
-          "type": "number",
-          "format": "float"
-        },
-        "income": {
-          "default": true,
-          "type": "boolean"
-        },
-        "readonly": {
-          "default": true,
-          "type": "boolean"
-        },
-        "number": {
-          "type": "string"
-        },
-        "issuer": {
-          "type": "string"
-        },
-        "last_update": {
-          "type": "string",
-          "description": "Last successful update of the document",
-          "format": "date-time"
-        },
-        "has_file_on_website": {
-          "default": true,
-          "type": "boolean",
-          "description": "Boolean to set if file is available on website"
-        },
-        "currency": {
-          "type": "object",
-          "description": "Document currency"
         }
       },
       "example": {
         "id": 0,
-        "id_type": 0,
-        "id_category": 0,
         "id_user": 0,
-        "id_subscription": 0,
-        "id_file": 0,
-        "id_thumbnail": 0,
-        "name": "",
-        "timestamp": "CURRENT_TIMESTAMP",
-        "date": "2019-12-27 16:17:55.260543",
-        "duedate": "2019-12-27",
-        "total_amount": 0,
-        "untaxed_amount": 0,
-        "vat": 0,
-        "income": true,
-        "readonly": true,
+        "id_profile": 0,
+        "id_role": 0,
+        "email": ""
+      }
+    },
+    "Subscription": {
+      "required": [
+        "id",
+        "number",
+        "label"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of subscription"
+        },
+        "id_connection": {
+          "type": "integer",
+          "description": "ID of related connection"
+        },
+        "id_user": {
+          "type": "integer",
+          "description": "ID of related user"
+        },
+        "id_source": {
+          "type": "integer",
+          "description": "ID of the related connection source"
+        },
+        "number": {
+          "type": "string",
+          "description": "Subscription's number"
+        },
+        "label": {
+          "type": "string",
+          "description": "Label of the subscription"
+        },
+        "subscriber": {
+          "type": "string",
+          "description": "Name of the subscriber"
+        },
+        "validity": {
+          "type": "string",
+          "description": "The subscription is valid until this date, if any",
+          "format": "date"
+        },
+        "renewdate": {
+          "type": "string",
+          "description": "Next renew date, if any",
+          "format": "date"
+        },
+        "last_update": {
+          "type": "string",
+          "description": "Last successful update of the subscription",
+          "format": "date-time"
+        },
+        "deleted": {
+          "type": "string",
+          "description": "This subscription is not found on the website anymore",
+          "format": "date-time"
+        },
+        "disabled": {
+          "type": "string",
+          "description": "This subscription has been deleted by user and will not be synchronized anymore",
+          "format": "date-time"
+        },
+        "error": {
+          "type": "string",
+          "description": "If the last update has failed, the error code"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_connection": 0,
+        "id_user": 0,
+        "id_source": 0,
         "number": "",
-        "issuer": "",
-        "last_update": "2019-12-27 16:17:55.261123",
-        "has_file_on_website": true,
-        "currency": ""
+        "label": "",
+        "subscriber": "",
+        "validity": "2020-03-26",
+        "renewdate": "2020-03-26",
+        "last_update": "2020-03-26 17:25:37.414077",
+        "deleted": "2020-03-26 17:25:37.414109",
+        "disabled": "2020-03-26 17:25:37.414136",
+        "error": ""
       }
     },
     "Account": {
@@ -25360,9 +25754,9 @@
         "balance": 0,
         "coming": 0,
         "display": true,
-        "last_update": "2019-12-27 16:17:55.263959",
-        "deleted": "2019-12-27 16:17:55.264019",
-        "disabled": "2019-12-27 16:17:55.264077",
+        "last_update": "2020-03-26 17:25:37.417669",
+        "deleted": "2020-03-26 17:25:37.417704",
+        "disabled": "2020-03-26 17:25:37.417736",
         "iban": "",
         "currency": "",
         "id_type": 0,
@@ -25372,6 +25766,115 @@
         "usage": "",
         "ownership": "",
         "company_name": ""
+      }
+    },
+    "Profile": {
+      "required": [
+        "id",
+        "id_user",
+        "role",
+        "email",
+        "statut",
+        "admin"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "id_user": {
+          "type": "integer"
+        },
+        "role": {
+          "default": "admin",
+          "enum": [
+            "admin",
+            "ser"
+          ],
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "statut": {
+          "default": 0,
+          "type": "integer"
+        },
+        "admin": {
+          "default": false,
+          "type": "boolean"
+        },
+        "conf": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "id_user": 0,
+        "role": "admin",
+        "statut": 0,
+        "admin": false,
+        "conf": "",
+        "lang": ""
+      }
+    },
+    "AccountType": {
+      "required": [
+        "id",
+        "name",
+        "is_invest",
+        "weboob_type_id",
+        "display_name_p",
+        "display_name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID of the account type"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the account type"
+        },
+        "is_invest": {
+          "default": false,
+          "type": "boolean",
+          "description": "Is it an investment account"
+        },
+        "weboob_type_id": {
+          "type": "integer",
+          "description": "Map to the weboob_type_id"
+        },
+        "display_name_p": {
+          "type": "string",
+          "description": "Name to display in plurial"
+        },
+        "display_name": {
+          "type": "string",
+          "description": "Name to display in singular"
+        },
+        "color": {
+          "type": "string",
+          "description": "Color of the account type (hexdecimal)"
+        },
+        "id_parent": {
+          "type": "integer",
+          "description": "Id of the parent type"
+        }
+      },
+      "example": {
+        "id": 0,
+        "name": "",
+        "is_invest": false,
+        "weboob_type_id": 0,
+        "display_name_p": "",
+        "display_name": "",
+        "color": "",
+        "id_parent": 0
       }
     },
     "Project": {
@@ -25481,75 +25984,46 @@
         "debug": false
       }
     },
-    "Pocket": {
+    "Group": {
       "required": [
-        "id",
-        "id_account",
-        "id_investment",
-        "value",
-        "condition"
+        "id"
       ],
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "description": "ID of the pocket"
+          "type": "integer"
         },
-        "id_account": {
-          "type": "integer",
-          "description": "ID of the related account"
+        "id_parent_group": {
+          "type": "integer"
         },
-        "id_investment": {
-          "type": "integer",
-          "description": "ID of the related investment"
+        "id_logo": {
+          "type": "integer"
         },
-        "label": {
-          "type": "string",
-          "description": "Label of the pocket"
+        "name": {
+          "type": "string"
         },
-        "value": {
-          "type": "number",
-          "description": "Value of the pocket",
-          "format": "float"
+        "url": {
+          "type": "string"
         },
-        "quantity": {
-          "default": 0,
-          "type": "number",
-          "description": "Quantity of stocks",
-          "format": "float"
+        "color": {
+          "type": "string"
         },
-        "availability_date": {
-          "type": "string",
-          "description": "Availability date of the pocket",
-          "format": "date"
+        "email": {
+          "type": "string"
         },
-        "condition": {
-          "default": "inconnu",
-          "type": "string",
-          "description": "Withdrawal condition of the pocket"
-        },
-        "last_update": {
-          "type": "string",
-          "description": "Last update of the pocket",
-          "format": "date-time"
-        },
-        "deleted": {
-          "type": "string",
-          "description": "If set, this pocket has been removed from the website",
-          "format": "date-time"
+        "conf": {
+          "type": "string"
         }
       },
       "example": {
         "id": 0,
-        "id_account": 0,
-        "id_investment": 0,
-        "label": "",
-        "value": 0,
-        "quantity": 0,
-        "availability_date": "2019-12-27",
-        "condition": "inconnu",
-        "last_update": "2019-12-27 16:17:55.268919",
-        "deleted": "2019-12-27 16:17:55.268982"
+        "id_parent_group": 0,
+        "id_logo": 0,
+        "name": "",
+        "url": "",
+        "color": "",
+        "email": "",
+        "conf": ""
       }
     },
     "Alert": {
@@ -25608,421 +26082,27 @@
         "id_investment": 0
       }
     },
-    "Group": {
+    "ProjectType": {
       "required": [
-        "id"
+        "id",
+        "name"
       ],
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer"
-        },
-        "id_parent_group": {
-          "type": "integer"
-        },
-        "id_logo": {
           "type": "integer"
         },
         "name": {
           "type": "string"
         },
-        "url": {
-          "type": "string"
-        },
-        "color": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "conf": {
+        "icon_url": {
           "type": "string"
         }
       },
       "example": {
         "id": 0,
-        "id_parent_group": 0,
-        "id_logo": 0,
         "name": "",
-        "url": "",
-        "color": "",
-        "email": "",
-        "conf": ""
-      }
-    },
-    "TransferLog": {
-      "required": [
-        "id",
-        "timestamp"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the transfer log entry"
-        },
-        "id_transfer": {
-          "type": "integer",
-          "description": "ID of the related transfer"
-        },
-        "id_file": {
-          "type": "integer",
-          "description": "ID of the related file"
-        },
-        "request_data": {
-          "type": "string",
-          "description": "Data stored related to user who has requested the transfer"
-        },
-        "state": {
-          "type": "string",
-          "description": "State of the transfer (created, scheduled, validating, pending, done, canceled, error, bug)"
-        },
-        "error": {
-          "type": "string",
-          "description": "Error message during transfer, if any"
-        },
-        "timestamp": {
-          "default": "CURRENT_TIMESTAMP",
-          "type": "string",
-          "description": "Timestamp of the log",
-          "format": "date-time"
-        },
-        "fields": {
-          "type": "string",
-          "description": "Fields for transfer in additionalInformationNeeded state with background option"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_transfer": 0,
-        "id_file": 0,
-        "request_data": "",
-        "state": "",
-        "error": "",
-        "timestamp": "CURRENT_TIMESTAMP"
-      }
-    },
-    "TransactionInformation": {
-      "required": [
-        "id",
-        "id_transaction",
-        "key"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of this transaction information"
-        },
-        "id_transaction": {
-          "type": "integer",
-          "description": "ID of the related transaction"
-        },
-        "key": {
-          "type": "string",
-          "description": "Key of the transaction information"
-        },
-        "value": {
-          "type": "string",
-          "description": "Value of the transaction information"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_transaction": 0,
-        "key": "",
-        "value": ""
-      }
-    },
-    "InvestmentValue": {
-      "required": [
-        "id",
-        "id_investment",
-        "vdate",
-        "unitvalue"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the value"
-        },
-        "id_investment": {
-          "type": "integer",
-          "description": "ID of the related investment"
-        },
-        "vdate": {
-          "type": "string",
-          "description": "Date of this value",
-          "format": "date"
-        },
-        "unitvalue": {
-          "type": "number",
-          "description": "Value on this date",
-          "format": "float"
-        },
-        "original_currency": {
-          "type": "object",
-          "description": "Original currency"
-        },
-        "original_unitvalue": {
-          "type": "number",
-          "description": "Value on this date, in the original currency",
-          "format": "float"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_investment": 0,
-        "vdate": "2019-12-27",
-        "unitvalue": 0,
-        "original_currency": "",
-        "original_unitvalue": 0
-      }
-    },
-    "RecipientLog": {
-      "required": [
-        "id",
-        "timestamp"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the transfer log entry"
-        },
-        "id_recipient": {
-          "type": "integer",
-          "description": "ID of the related recipient"
-        },
-        "id_file": {
-          "type": "integer",
-          "description": "ID of the related file"
-        },
-        "request_data": {
-          "type": "string",
-          "description": "Data stored related to user who has requested the recipient addition"
-        },
-        "step": {
-          "type": "string",
-          "description": "Step of recipient addition, (add_recipient, asking_field, recipient addition validated, creation, storing_files)"
-        },
-        "error": {
-          "type": "string",
-          "description": "Error message during recipient addition, if any"
-        },
-        "timestamp": {
-          "default": "CURRENT_TIMESTAMP",
-          "type": "string",
-          "description": "Timestamp of the log",
-          "format": "date-time"
-        },
-        "fields": {
-          "type": "string",
-          "description": "Fields for recipient in additionalInformationNeeded state with background option"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_recipient": 0,
-        "id_file": 0,
-        "request_data": "",
-        "step": "",
-        "error": "",
-        "timestamp": "CURRENT_TIMESTAMP"
-      }
-    },
-    "SubscriptionLog": {
-      "required": [
-        "id",
-        "id_subscription",
-        "timestamp"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the log"
-        },
-        "id_subscription": {
-          "type": "integer",
-          "description": "ID of the related subscription"
-        },
-        "timestamp": {
-          "default": "CURRENT_TIMESTAMP",
-          "type": "string",
-          "description": "Timestamp of log",
-          "format": "date-time"
-        },
-        "nb_docs": {
-          "type": "integer",
-          "description": "Number of docs on the subscription"
-        },
-        "id_connection_log": {
-          "type": "integer",
-          "description": "ID of the related connection log"
-        },
-        "error": {
-          "type": "string",
-          "description": "If fail, contains the error code"
-        },
-        "error_message": {
-          "type": "string",
-          "description": "If fail, error message received from provider"
-        },
-        "id_source": {
-          "type": "integer",
-          "description": "ID of the related connection source"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_subscription": 0,
-        "timestamp": "CURRENT_TIMESTAMP",
-        "nb_docs": 0,
-        "id_connection_log": 0,
-        "error": "",
-        "error_message": "",
-        "id_source": 0
-      }
-    },
-    "ConnectionSource": {
-      "required": [
-        "id",
-        "id_connection",
-        "id_connector_source",
-        "name",
-        "created"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of connection"
-        },
-        "id_connection": {
-          "type": "integer",
-          "description": "ID of the related connection"
-        },
-        "id_connector_source": {
-          "type": "integer",
-          "description": "ID of the related connector source"
-        },
-        "name": {
-          "type": "string",
-          "description": "Name of the connection source"
-        },
-        "last_update": {
-          "type": "string",
-          "description": "Last successful update",
-          "format": "date-time"
-        },
-        "disabled": {
-          "type": "string",
-          "description": "This source is not used to synchronize the connection",
-          "format": "date-time"
-        },
-        "created": {
-          "default": "<function <lambda> at 0x7f8894cfe7d0>",
-          "type": "string",
-          "description": "Creation date of the connection source",
-          "format": "date-time"
-        },
-        "state": {
-          "type": "string",
-          "description": "If the last update has failed, the state code"
-        },
-        "access_expire": {
-          "type": "string",
-          "description": "Expiration date of the access",
-          "format": "date-time"
-        },
-        "expire": {
-          "type": "string",
-          "description": "Expiration of the connection source. Used to purge the connection in case completion was not finished",
-          "format": "date-time"
-        },
-        "next_try": {
-          "type": "string",
-          "description": "Date of next synchronization",
-          "format": "date-time"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_connection": 0,
-        "id_connector_source": 0,
-        "name": "",
-        "last_update": "2019-12-27 16:17:55.317583",
-        "disabled": "2019-12-27 16:17:55.317658",
-        "created": "<function <lambda> at 0x7f8894cfe7d0>",
-        "state": "",
-        "access_expire": "2019-12-27 16:17:55.317849",
-        "expire": "2019-12-27 16:17:55.317911",
-        "next_try": "2019-12-27 16:17:55.318118"
-      }
-    },
-    "AccountLog": {
-      "required": [
-        "id",
-        "id_account",
-        "balance",
-        "timestamp"
-      ],
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "ID of the log"
-        },
-        "id_account": {
-          "type": "integer",
-          "description": "ID of the related account"
-        },
-        "id_connector": {
-          "type": "integer",
-          "description": "provider id"
-        },
-        "balance": {
-          "type": "number",
-          "description": "Balanced recorded",
-          "format": "float"
-        },
-        "coming": {
-          "default": 0,
-          "type": "number",
-          "description": "Coming debit recorded",
-          "format": "float"
-        },
-        "timestamp": {
-          "default": "CURRENT_TIMESTAMP",
-          "type": "string",
-          "description": "Timestamp of log",
-          "format": "date-time"
-        },
-        "error": {
-          "type": "string",
-          "description": "If fail, contains the error code"
-        },
-        "error_message": {
-          "type": "string",
-          "description": "If fail, error message received from bank or provider"
-        },
-        "id_connection_log": {
-          "type": "integer",
-          "description": "ID of the related connection log"
-        }
-      },
-      "example": {
-        "id": 0,
-        "id_account": 0,
-        "id_connector": 0,
-        "balance": 0,
-        "coming": 0,
-        "timestamp": "CURRENT_TIMESTAMP",
-        "error": "",
-        "error_message": "",
-        "id_connection_log": 0
+        "icon_url": ""
       }
     },
     "Currency": {
@@ -26074,7 +26154,7 @@
         "crypto": false,
         "precision": 2,
         "marketcap": 0,
-        "datetime": "2019-12-27 16:17:55.397255"
+        "datetime": "2020-03-26 17:25:37.501642"
       }
     },
     "ConnectorCategory": {
@@ -26164,24 +26244,29 @@
         "timestamp": "CURRENT_TIMESTAMP"
       }
     },
-    "OidcWhitelist": {
+    "DocumentType": {
       "required": [
         "id",
-        "redirect_uri"
+        "name",
+        "attacheable"
       ],
       "type": "object",
       "properties": {
         "id": {
           "type": "integer"
         },
-        "redirect_uri": {
-          "type": "string",
-          "description": "authorized redirect uri"
+        "name": {
+          "type": "string"
+        },
+        "attacheable": {
+          "default": true,
+          "type": "boolean"
         }
       },
       "example": {
         "id": 0,
-        "redirect_uri": ""
+        "name": "",
+        "attacheable": true
       }
     }
   },
