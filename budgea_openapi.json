@@ -8573,14 +8573,14 @@
             "required": false,
             "in": "formData",
             "type": "string",
-            "name": "nuser",
+            "name": "otp",
             "description": "bank additional login parameter"
           },
           {
             "required": false,
             "in": "formData",
             "type": "string",
-            "name": "website",
+            "name": "nuser",
             "description": "bank additional login parameter"
           },
           {
