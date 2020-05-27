@@ -23940,6 +23940,27 @@
           "description": "Last successful push",
           "format": "date-time"
         },
+        "state": {
+          "type": "string",
+          "enum": [
+            "wrongpass",
+            "additionalInformationNeeded",
+            "websiteUnavailable",
+            "actionNeeded",
+            "SCARequired",
+            "decoupled",
+            "passwordExpired",
+            "webauthRequired",
+            "bug"
+          ],
+          "description": "State of Connection"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Field"
+          }
+        },
         "next_try": {
           "type": "string",
           "description": "Date of next synchronization",

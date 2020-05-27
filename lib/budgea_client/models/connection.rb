@@ -44,6 +44,11 @@ module BudgeaClient
     # Last successful push
     attr_accessor :last_push
 
+    # State of Connection
+    attr_accessor :state
+
+    attr_accessor :fields
+
     # Date of next synchronization
     attr_accessor :next_try
 
@@ -54,6 +59,28 @@ module BudgeaClient
     attr_accessor :connection
 
     attr_accessor :message
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -68,6 +95,8 @@ module BudgeaClient
         :'expire' => :'expire',
         :'active' => :'active',
         :'last_push' => :'last_push',
+        :'state' => :'state',
+        :'fields' => :'fields',
         :'next_try' => :'next_try',
         :'accounts' => :'accounts',
         :'subscriptions' => :'subscriptions',
@@ -89,6 +118,8 @@ module BudgeaClient
         :'expire' => :'DateTime',
         :'active' => :'BOOLEAN',
         :'last_push' => :'DateTime',
+        :'state' => :'String',
+        :'fields' => :'Array<Field>',
         :'next_try' => :'DateTime',
         :'accounts' => :'Array<Account>',
         :'subscriptions' => :'Array<Subscription>',
@@ -147,6 +178,16 @@ module BudgeaClient
         self.last_push = attributes[:'last_push']
       end
 
+      if attributes.has_key?(:'state')
+        self.state = attributes[:'state']
+      end
+
+      if attributes.has_key?(:'fields')
+        if (value = attributes[:'fields']).is_a?(Array)
+          self.fields = value
+        end
+      end
+
       if attributes.has_key?(:'next_try')
         self.next_try = attributes[:'next_try']
       end
@@ -197,7 +238,19 @@ module BudgeaClient
       return false if @id.nil?
       return false if @id_connector.nil?
       return false if @active.nil?
+      state_validator = EnumAttributeValidator.new('String', ['wrongpass', 'additionalInformationNeeded', 'websiteUnavailable', 'actionNeeded', 'SCARequired', 'decoupled', 'passwordExpired', 'webauthRequired', 'bug'])
+      return false unless state_validator.valid?(@state)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] state Object to be assigned
+    def state=(state)
+      validator = EnumAttributeValidator.new('String', ['wrongpass', 'additionalInformationNeeded', 'websiteUnavailable', 'actionNeeded', 'SCARequired', 'decoupled', 'passwordExpired', 'webauthRequired', 'bug'])
+      unless validator.valid?(state)
+        fail ArgumentError, 'invalid value for "state", must be one of #{validator.allowable_values}.'
+      end
+      @state = state
     end
 
     # Checks equality by comparing each attribute.
@@ -215,6 +268,8 @@ module BudgeaClient
           expire == o.expire &&
           active == o.active &&
           last_push == o.last_push &&
+          state == o.state &&
+          fields == o.fields &&
           next_try == o.next_try &&
           accounts == o.accounts &&
           subscriptions == o.subscriptions &&
@@ -231,7 +286,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, id_user, id_connector, last_update, created, error, error_message, expire, active, last_push, next_try, accounts, subscriptions, connection, message].hash
+      [id, id_user, id_connector, last_update, created, error, error_message, expire, active, last_push, state, fields, next_try, accounts, subscriptions, connection, message].hash
     end
 
     # Builds the object from hash
@@ -241,7 +296,7 @@ module BudgeaClient
       return nil unless attributes.is_a?(Hash)
       self.class.swagger_types.each_pair do |key, type|
         if type =~ /\AArray<(.*)>/i
-          # check to ensure the input is an array given that the the attribute
+          # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
             self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
@@ -337,5 +392,6 @@ module BudgeaClient
         value
       end
     end
+
   end
 end

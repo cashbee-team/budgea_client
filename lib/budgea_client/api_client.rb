@@ -112,6 +112,8 @@ module BudgeaClient
         :verbose => @config.debugging
       }
 
+      req_opts.merge!(multipart: true) if header_params['Content-Type'].start_with? "multipart/"
+
       # set custom cert, if provided
       req_opts[:cainfo] = @config.ssl_ca_cert if @config.ssl_ca_cert
 
