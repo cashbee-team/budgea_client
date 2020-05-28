@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.1
 =end
 
 module BudgeaClient
-  VERSION = '5.1.2'
+  VERSION = '5.1.3'
 end

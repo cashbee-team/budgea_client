@@ -1921,10 +1921,10 @@ module BudgeaClient
     # @option opts [String] :secret bank additional login parameter
     # @option opts [String] :type bank additional login parameter
     # @option opts [String] :birthdate bank additional login parameter
+    # @option opts [String] :otp bank additional login parameter
     # @option opts [String] :nuser bank additional login parameter
-    # @option opts [String] :website bank additional login parameter
     # @option opts [String] :openapiwebsite bank additional login parameter
-    # @option opts [String] :website2 bank additional login parameter
+    # @option opts [String] :website bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [BOOLEAN] :resume Resume a decoupled connection creation
@@ -1950,10 +1950,10 @@ module BudgeaClient
     # @option opts [String] :secret bank additional login parameter
     # @option opts [String] :type bank additional login parameter
     # @option opts [String] :birthdate bank additional login parameter
+    # @option opts [String] :otp bank additional login parameter
     # @option opts [String] :nuser bank additional login parameter
-    # @option opts [String] :website bank additional login parameter
     # @option opts [String] :openapiwebsite bank additional login parameter
-    # @option opts [String] :website2 bank additional login parameter
+    # @option opts [String] :website bank additional login parameter
     # @option opts [String] :login bank additional login parameter
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [BOOLEAN] :resume Resume a decoupled connection creation
@@ -1994,10 +1994,10 @@ module BudgeaClient
       form_params['secret'] = opts[:'secret'] if !opts[:'secret'].nil?
       form_params['type'] = opts[:'type'] if !opts[:'type'].nil?
       form_params['birthdate'] = opts[:'birthdate'] if !opts[:'birthdate'].nil?
+      form_params['otp'] = opts[:'otp'] if !opts[:'otp'].nil?
       form_params['nuser'] = opts[:'nuser'] if !opts[:'nuser'].nil?
-      form_params['website'] = opts[:'website'] if !opts[:'website'].nil?
       form_params['openapiwebsite'] = opts[:'openapiwebsite'] if !opts[:'openapiwebsite'].nil?
-      form_params['website'] = opts[:'website2'] if !opts[:'website2'].nil?
+      form_params['website'] = opts[:'website'] if !opts[:'website'].nil?
       form_params['login'] = opts[:'login'] if !opts[:'login'].nil?
       form_params['id_provider'] = opts[:'id_provider'] if !opts[:'id_provider'].nil?
       form_params['resume'] = opts[:'resume'] if !opts[:'resume'].nil?
