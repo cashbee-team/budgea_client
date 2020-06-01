@@ -8501,133 +8501,23 @@
           },
           {
             "required": false,
-            "in": "formData",
-            "type": "integer",
-            "name": "id_connector",
-            "description": "ID of the connector"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "connector_uuid",
-            "description": "optional uuid of the connector (replaces id_connector)"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "birthday",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "password",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "oauth_token",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "oauth_token_secret",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "auth_type",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "secret",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "type",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "birthdate",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "otp",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "nuser",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "openapiwebsite",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "website",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "login",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "integer",
-            "name": "id_provider",
-            "description": "ID of the provider"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "boolean",
-            "name": "resume",
-            "description": "Resume a decoupled connection creation"
-          },
-          {
-            "required": false,
             "type": "string",
             "name": "expand",
             "in": "query"
+          },
+          {
+            "in": "body",
+            "name": "connection",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
           }
         ],
         "summary": "Add a new connection.",
         "consumes": [
-          "application/x-www-form-urlencoded"
+          "application/json"
         ]
       },
       "delete": {

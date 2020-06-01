@@ -1884,24 +1884,8 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 opts = { 
   source: 'source_example', # String | optional comma-separated list of sources to use for the connection synchronization
-  id_connector: 56, # Integer | ID of the connector
-  connector_uuid: 'connector_uuid_example', # String | optional uuid of the connector (replaces id_connector)
-  birthday: 'birthday_example', # String | bank additional login parameter
-  password: 'password_example', # String | bank additional login parameter
-  oauth_token: 'oauth_token_example', # String | bank additional login parameter
-  oauth_token_secret: 'oauth_token_secret_example', # String | bank additional login parameter
-  auth_type: 'auth_type_example', # String | bank additional login parameter
-  secret: 'secret_example', # String | bank additional login parameter
-  type: 'type_example', # String | bank additional login parameter
-  birthdate: 'birthdate_example', # String | bank additional login parameter
-  otp: 'otp_example', # String | bank additional login parameter
-  nuser: 'nuser_example', # String | bank additional login parameter
-  openapiwebsite: 'openapiwebsite_example', # String | bank additional login parameter
-  website: 'website_example', # String | bank additional login parameter
-  login: 'login_example', # String | bank additional login parameter
-  id_provider: 56, # Integer | ID of the provider
-  resume: true, # BOOLEAN | Resume a decoupled connection creation
-  expand: 'expand_example' # String | 
+  expand: 'expand_example', # String | 
+  connection: nil # Object | 
 }
 
 begin
@@ -1919,24 +1903,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **source** | **String**| optional comma-separated list of sources to use for the connection synchronization | [optional] 
- **id_connector** | **Integer**| ID of the connector | [optional] 
- **connector_uuid** | **String**| optional uuid of the connector (replaces id_connector) | [optional] 
- **birthday** | **String**| bank additional login parameter | [optional] 
- **password** | **String**| bank additional login parameter | [optional] 
- **oauth_token** | **String**| bank additional login parameter | [optional] 
- **oauth_token_secret** | **String**| bank additional login parameter | [optional] 
- **auth_type** | **String**| bank additional login parameter | [optional] 
- **secret** | **String**| bank additional login parameter | [optional] 
- **type** | **String**| bank additional login parameter | [optional] 
- **birthdate** | **String**| bank additional login parameter | [optional] 
- **otp** | **String**| bank additional login parameter | [optional] 
- **nuser** | **String**| bank additional login parameter | [optional] 
- **openapiwebsite** | **String**| bank additional login parameter | [optional] 
- **website** | **String**| bank additional login parameter | [optional] 
- **login** | **String**| bank additional login parameter | [optional] 
- **id_provider** | **Integer**| ID of the provider | [optional] 
- **resume** | **BOOLEAN**| Resume a decoupled connection creation | [optional] 
  **expand** | **String**|  | [optional] 
+ **connection** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -1948,7 +1916,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
