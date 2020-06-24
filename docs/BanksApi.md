@@ -6664,12 +6664,7 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 id_connection = 56 # Integer | 
 
 opts = { 
-  active: true, # BOOLEAN | Set if the connection synchronisation is active
-  expire: DateTime.parse('2013-10-20T19:20:30+01:00'), # DateTime | Set expiration of the connection to this date
-  login: 'login_example', # String | Set login to this new login
-  password: 'password_example', # String | Set password to this new password
-  decoupled: true, # BOOLEAN | Try to update a connection with the decoupled error
-  expand: 'expand_example' # String | 
+  connection: nil # Object | 
 }
 
 begin
@@ -6687,12 +6682,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connection** | **Integer**|  | 
- **active** | **BOOLEAN**| Set if the connection synchronisation is active | [optional] 
- **expire** | **DateTime**| Set expiration of the connection to this date | [optional] 
- **login** | **String**| Set login to this new login | [optional] 
- **password** | **String**| Set password to this new password | [optional] 
- **decoupled** | **BOOLEAN**| Try to update a connection with the decoupled error | [optional] 
- **expand** | **String**|  | [optional] 
+ **connection** | **Object**|  | [optional] 
 
 ### Return type
 
@@ -6704,7 +6694,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

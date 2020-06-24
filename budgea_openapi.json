@@ -8624,51 +8624,18 @@
             "description": ""
           },
           {
-            "required": false,
-            "in": "formData",
-            "type": "boolean",
-            "name": "active",
-            "description": "Set if the connection synchronisation is active"
-          },
-          {
-            "name": "expire",
-            "format": "date-time",
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "description": "Set expiration of the connection to this date"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "login",
-            "description": "Set login to this new login"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "password",
-            "description": "Set password to this new password"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "boolean",
-            "name": "decoupled",
-            "description": "Try to update a connection with the decoupled error"
-          },
-          {
-            "required": false,
-            "type": "string",
-            "name": "expand",
-            "in": "query"
+            "in": "body",
+            "name": "connection",
+            "schema": {
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
           }
         ],
         "summary": "Update a connection.",
         "consumes": [
-          "application/x-www-form-urlencoded"
+          "application/json"
         ]
       },
       "put": {
