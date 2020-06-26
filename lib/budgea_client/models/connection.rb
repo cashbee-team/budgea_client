@@ -238,7 +238,7 @@ module BudgeaClient
       return false if @id.nil?
       return false if @id_connector.nil?
       return false if @active.nil?
-      state_validator = EnumAttributeValidator.new('String', ['wrongpass', 'additionalInformationNeeded', 'websiteUnavailable', 'actionNeeded', 'SCARequired', 'decoupled', 'passwordExpired', 'webauthRequired', 'bug'])
+      state_validator = EnumAttributeValidator.new('String', ['wrongpass', 'additionalInformationNeeded', 'websiteUnavailable', 'actionNeeded', 'SCARequired', 'decoupled', 'passwordExpired', 'webauthRequired', 'bug', nil])
       return false unless state_validator.valid?(@state)
       true
     end
@@ -246,7 +246,7 @@ module BudgeaClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] state Object to be assigned
     def state=(state)
-      validator = EnumAttributeValidator.new('String', ['wrongpass', 'additionalInformationNeeded', 'websiteUnavailable', 'actionNeeded', 'SCARequired', 'decoupled', 'passwordExpired', 'webauthRequired', 'bug'])
+      validator = EnumAttributeValidator.new('String', ['wrongpass', 'additionalInformationNeeded', 'websiteUnavailable', 'actionNeeded', 'SCARequired', 'decoupled', 'passwordExpired', 'webauthRequired', 'bug', nil])
       unless validator.valid?(state)
         fail ArgumentError, 'invalid value for "state", must be one of #{validator.allowable_values}.'
       end
