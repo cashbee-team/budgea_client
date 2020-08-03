@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **beneficiary_label** | **String** | Label of the beneficiary (needed for transfer to other beneficiary type than &#39;recipient&#39;) | [optional] 
 **validate_mechanism** | **String** | Authentication method used to validate transfer (credentials or webauth) | [optional] 
 **currency** | **Object** | Currency of the object | [optional] 
+**fields** | [**Array&lt;Field&gt;**](Field.md) |  | [optional] 
 
 
