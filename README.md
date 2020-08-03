@@ -726,6 +726,7 @@ Class | Method | HTTP request | Description
  - [BudgeaClient::Transfer](docs/Transfer.md)
  - [BudgeaClient::TransferData](docs/TransferData.md)
  - [BudgeaClient::TransferLog](docs/TransferLog.md)
+ - [BudgeaClient::TransferValidationData](docs/TransferValidationData.md)
  - [BudgeaClient::User](docs/User.md)
  - [BudgeaClient::UserAlert](docs/UserAlert.md)
  - [BudgeaClient::Webhook](docs/Webhook.md)

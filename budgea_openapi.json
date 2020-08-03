@@ -22389,18 +22389,18 @@
             "description": ""
           },
           {
-            "required": false,
-            "in": "formData",
-            "type": "boolean",
-            "name": "validated",
-            "description": "set it to initialize transfer on the bank website."
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "integer",
-            "name": "id_recipient",
-            "description": "set the recipient of the transfer"
+            "in": "body",
+            "name": "transfer_validation_data",
+            "required": true,
+            "schema": {
+              "properties": {
+                "validated": {
+                  "type": "boolean",
+                  "description": "set it to initialize transfer on the bank website."
+                }
+              },
+              "additionalProperties": {}
+            }
           },
           {
             "required": false,
@@ -22409,7 +22409,10 @@
             "in": "query"
           }
         ],
-        "summary": "Execute or edit a Transfer."
+        "summary": "Execute or edit a Transfer.",
+        "consumes": [
+          "application/json"
+        ]
       },
       "delete": {
         "responses": {
