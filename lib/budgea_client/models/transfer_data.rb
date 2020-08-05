@@ -13,25 +13,41 @@ Swagger Codegen version: 2.4.15
 require 'date'
 
 module BudgeaClient
-  class InlineResponse20042
-    # total number of results
-    attr_accessor :total
+  class TransferData
+    # id of the account
+    attr_accessor :id_account
 
-    attr_accessor :webhooklogs
+    # id of the recipient
+    attr_accessor :id_recipient
+
+    # amount of transfer
+    attr_accessor :amount
+
+    # reason of transfer
+    attr_accessor :label
+
+    # excution date of transfer
+    attr_accessor :exec_date
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total' => :'total',
-        :'webhooklogs' => :'webhooklogs'
+        :'id_account' => :'id_account',
+        :'id_recipient' => :'id_recipient',
+        :'amount' => :'amount',
+        :'label' => :'label',
+        :'exec_date' => :'exec_date'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total' => :'Float',
-        :'webhooklogs' => :'Array<WebhookLog>'
+        :'id_account' => :'Integer',
+        :'id_recipient' => :'Integer',
+        :'amount' => :'Float',
+        :'label' => :'String',
+        :'exec_date' => :'Date'
       }
     end
 
@@ -43,14 +59,24 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.has_key?(:'id_account')
+        self.id_account = attributes[:'id_account']
       end
 
-      if attributes.has_key?(:'webhooklogs')
-        if (value = attributes[:'webhooklogs']).is_a?(Array)
-          self.webhooklogs = value
-        end
+      if attributes.has_key?(:'id_recipient')
+        self.id_recipient = attributes[:'id_recipient']
+      end
+
+      if attributes.has_key?(:'amount')
+        self.amount = attributes[:'amount']
+      end
+
+      if attributes.has_key?(:'label')
+        self.label = attributes[:'label']
+      end
+
+      if attributes.has_key?(:'exec_date')
+        self.exec_date = attributes[:'exec_date']
       end
     end
 
@@ -58,8 +84,16 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @webhooklogs.nil?
-        invalid_properties.push('invalid value for "webhooklogs", webhooklogs cannot be nil.')
+      if @id_account.nil?
+        invalid_properties.push('invalid value for "id_account", id_account cannot be nil.')
+      end
+
+      if @id_recipient.nil?
+        invalid_properties.push('invalid value for "id_recipient", id_recipient cannot be nil.')
+      end
+
+      if @amount.nil?
+        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
       end
 
       invalid_properties
@@ -68,7 +102,9 @@ module BudgeaClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @webhooklogs.nil?
+      return false if @id_account.nil?
+      return false if @id_recipient.nil?
+      return false if @amount.nil?
       true
     end
 
@@ -77,8 +113,11 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total == o.total &&
-          webhooklogs == o.webhooklogs
+          id_account == o.id_account &&
+          id_recipient == o.id_recipient &&
+          amount == o.amount &&
+          label == o.label &&
+          exec_date == o.exec_date
     end
 
     # @see the `==` method
@@ -90,7 +129,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, webhooklogs].hash
+      [id_account, id_recipient, amount, label, exec_date].hash
     end
 
     # Builds the object from hash

@@ -22314,27 +22314,37 @@
             "description": "Hint: you can use 'me' or 'all'"
           },
           {
-            "name": "amount",
-            "format": "float",
+            "in": "body",
+            "name": "transfer_data",
             "required": true,
-            "in": "formData",
-            "type": "number",
-            "description": "amount of transfer"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "label",
-            "description": "reason of transfer"
-          },
-          {
-            "name": "exec_date",
-            "format": "date",
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "description": "excution date of transfer"
+            "schema": {
+              "properties": {
+                "id_account": {
+                  "type": "integer",
+                  "description": "id of the account"
+                },
+                "id_recipient": {
+                  "type": "integer",
+                  "description": "id of the recipient"
+                },
+                "amount": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "amount of transfer"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "reason of transfer"
+                },
+                "exec_date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "excution date of transfer"
+                }
+              },
+              "required": ["id_account", "id_recipient", "amount"],
+              "additionalProperties": {}
+            }
           },
           {
             "required": false,
@@ -22345,7 +22355,7 @@
         ],
         "summary": "Create a transfer object.",
         "consumes": [
-          "application/x-www-form-urlencoded"
+          "application/json"
         ]
       }
     },
@@ -22379,18 +22389,18 @@
             "description": ""
           },
           {
-            "required": false,
-            "in": "formData",
-            "type": "boolean",
-            "name": "validated",
-            "description": "set it to initialize transfer on the bank website."
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "integer",
-            "name": "id_recipient",
-            "description": "set the recipient of the transfer"
+            "in": "body",
+            "name": "transfer_validation_data",
+            "required": true,
+            "schema": {
+              "properties": {
+                "validated": {
+                  "type": "boolean",
+                  "description": "set it to initialize transfer on the bank website."
+                }
+              },
+              "additionalProperties": {}
+            }
           },
           {
             "required": false,
@@ -22399,7 +22409,10 @@
             "in": "query"
           }
         ],
-        "summary": "Execute or edit a Transfer."
+        "summary": "Execute or edit a Transfer.",
+        "consumes": [
+          "application/json"
+        ]
       },
       "delete": {
         "responses": {
@@ -24528,6 +24541,12 @@
         "currency": {
           "type": "object",
           "description": "Currency of the object"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Field"
+          }
         }
       },
       "example": {

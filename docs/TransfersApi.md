@@ -2595,7 +2595,7 @@ Name | Type | Description  | Notes
 
 
 # **users_id_user_transfers_id_transfer_post**
-> Transfer users_id_user_transfers_id_transfer_post(id_user, id_transfer, opts)
+> Transfer users_id_user_transfers_id_transfer_post(id_user, id_transfer, transfer_validation_data, opts)
 
 Execute or edit a Transfer.
 
@@ -2619,15 +2619,15 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
 id_transfer = 56 # Integer | 
 
+transfer_validation_data = BudgeaClient::TransferValidationData.new # TransferValidationData | 
+
 opts = { 
-  validated: true, # BOOLEAN | set it to initialize transfer on the bank website.
-  id_recipient: 56, # Integer | set the recipient of the transfer
   expand: 'expand_example' # String | 
 }
 
 begin
   #Execute or edit a Transfer.
-  result = api_instance.users_id_user_transfers_id_transfer_post(id_user, id_transfer, opts)
+  result = api_instance.users_id_user_transfers_id_transfer_post(id_user, id_transfer, transfer_validation_data, opts)
   p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling TransfersApi->users_id_user_transfers_id_transfer_post: #{e}"
@@ -2640,8 +2640,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_transfer** | **Integer**|  | 
- **validated** | **BOOLEAN**| set it to initialize transfer on the bank website. | [optional] 
- **id_recipient** | **Integer**| set the recipient of the transfer | [optional] 
+ **transfer_validation_data** | [**TransferValidationData**](TransferValidationData.md)|  | 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -2654,13 +2653,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 
 # **users_id_user_transfers_post**
-> Transfer users_id_user_transfers_post(id_user, amount, opts)
+> Transfer users_id_user_transfers_post(id_user, transfer_data, opts)
 
 Create a transfer object.
 
@@ -2682,17 +2681,15 @@ api_instance = BudgeaClient::TransfersApi.new
 
 id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 
-amount = 3.4 # Float | amount of transfer
+transfer_data = BudgeaClient::TransferData.new # TransferData | 
 
 opts = { 
-  label: 'label_example', # String | reason of transfer
-  exec_date: Date.parse('2013-10-20'), # Date | excution date of transfer
   expand: 'expand_example' # String | 
 }
 
 begin
   #Create a transfer object.
-  result = api_instance.users_id_user_transfers_post(id_user, amount, opts)
+  result = api_instance.users_id_user_transfers_post(id_user, transfer_data, opts)
   p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling TransfersApi->users_id_user_transfers_post: #{e}"
@@ -2704,9 +2701,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
- **amount** | **Float**| amount of transfer | 
- **label** | **String**| reason of transfer | [optional] 
- **exec_date** | **Date**| excution date of transfer | [optional] 
+ **transfer_data** | [**TransferData**](TransferData.md)|  | 
  **expand** | **String**|  | [optional] 
 
 ### Return type
@@ -2719,7 +2714,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

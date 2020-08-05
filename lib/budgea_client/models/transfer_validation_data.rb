@@ -13,25 +13,21 @@ Swagger Codegen version: 2.4.15
 require 'date'
 
 module BudgeaClient
-  class InlineResponse20042
-    # total number of results
-    attr_accessor :total
-
-    attr_accessor :webhooklogs
+  class TransferValidationData
+    # set it to initialize transfer on the bank website.
+    attr_accessor :validated
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total' => :'total',
-        :'webhooklogs' => :'webhooklogs'
+        :'validated' => :'validated'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total' => :'Float',
-        :'webhooklogs' => :'Array<WebhookLog>'
+        :'validated' => :'BOOLEAN'
       }
     end
 
@@ -43,14 +39,8 @@ module BudgeaClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'total')
-        self.total = attributes[:'total']
-      end
-
-      if attributes.has_key?(:'webhooklogs')
-        if (value = attributes[:'webhooklogs']).is_a?(Array)
-          self.webhooklogs = value
-        end
+      if attributes.has_key?(:'validated')
+        self.validated = attributes[:'validated']
       end
     end
 
@@ -58,17 +48,12 @@ module BudgeaClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @webhooklogs.nil?
-        invalid_properties.push('invalid value for "webhooklogs", webhooklogs cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @webhooklogs.nil?
       true
     end
 
@@ -77,8 +62,7 @@ module BudgeaClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total == o.total &&
-          webhooklogs == o.webhooklogs
+          validated == o.validated
     end
 
     # @see the `==` method
@@ -90,7 +74,7 @@ module BudgeaClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total, webhooklogs].hash
+      [validated].hash
     end
 
     # Builds the object from hash
