@@ -4722,6 +4722,7 @@ id_user = 'id_user_example' # String | Hint: you can use 'me' or 'all'
 id_connection = 56 # Integer | 
 
 opts = { 
+  expand: 'expand_example', # String | 
   connection: nil # Object | 
 }
 
@@ -4740,6 +4741,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_user** | **String**| Hint: you can use &#39;me&#39; or &#39;all&#39; | 
  **id_connection** | **Integer**|  | 
+ **expand** | **String**|  | [optional] 
  **connection** | **Object**|  | [optional] 
 
 ### Return type
