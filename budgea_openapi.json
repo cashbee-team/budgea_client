@@ -8624,6 +8624,12 @@
             "description": ""
           },
           {
+            "required": false,
+            "type": "string",
+            "name": "expand",
+            "in": "query"
+          },
+          {
             "in": "body",
             "name": "connection",
             "schema": {

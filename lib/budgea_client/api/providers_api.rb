@@ -5030,6 +5030,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
     # @option opts [Object] :connection 
     # @return [Connection]
     def users_id_user_connections_id_connection_post(id_user, id_connection, opts = {})
@@ -5042,6 +5043,7 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :expand 
     # @option opts [Object] :connection 
     # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
     def users_id_user_connections_id_connection_post_with_http_info(id_user, id_connection, opts = {})
@@ -5061,6 +5063,7 @@ module BudgeaClient
 
       # query parameters
       query_params = {}
+      query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
 
       # header parameters
       header_params = {}
