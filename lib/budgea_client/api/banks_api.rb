@@ -6883,12 +6883,8 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :active Set if the connection synchronisation is active
-    # @option opts [DateTime] :expire Set expiration of the connection to this date
-    # @option opts [String] :login Set login to this new login
-    # @option opts [String] :password Set password to this new password
-    # @option opts [BOOLEAN] :decoupled Try to update a connection with the decoupled error
     # @option opts [String] :expand 
+    # @option opts [Object] :connection 
     # @return [Connection]
     def users_id_user_connections_id_connection_post(id_user, id_connection, opts = {})
       data, _status_code, _headers = users_id_user_connections_id_connection_post_with_http_info(id_user, id_connection, opts)
@@ -6900,12 +6896,8 @@ module BudgeaClient
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_connection 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :active Set if the connection synchronisation is active
-    # @option opts [DateTime] :expire Set expiration of the connection to this date
-    # @option opts [String] :login Set login to this new login
-    # @option opts [String] :password Set password to this new password
-    # @option opts [BOOLEAN] :decoupled Try to update a connection with the decoupled error
     # @option opts [String] :expand 
+    # @option opts [Object] :connection 
     # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
     def users_id_user_connections_id_connection_post_with_http_info(id_user, id_connection, opts = {})
       if @api_client.config.debugging
@@ -6931,18 +6923,13 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
-      form_params['active'] = opts[:'active'] if !opts[:'active'].nil?
-      form_params['expire'] = opts[:'expire'] if !opts[:'expire'].nil?
-      form_params['login'] = opts[:'login'] if !opts[:'login'].nil?
-      form_params['password'] = opts[:'password'] if !opts[:'password'].nil?
-      form_params['decoupled'] = opts[:'decoupled'] if !opts[:'decoupled'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(opts[:'connection'])
       auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -8286,6 +8273,7 @@ module BudgeaClient
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [BOOLEAN] :resume Resume a decoupled connection creation
     # @option opts [String] :expand 
+    # @option opts [Object] :connection 
     # @return [Connection]
     def users_id_user_connections_post(id_user, opts = {})
       data, _status_code, _headers = users_id_user_connections_post_with_http_info(id_user, opts)
@@ -8314,6 +8302,7 @@ module BudgeaClient
     # @option opts [Integer] :id_provider ID of the provider
     # @option opts [BOOLEAN] :resume Resume a decoupled connection creation
     # @option opts [String] :expand 
+    # @option opts [Object] :connection 
     # @return [Array<(Connection, Fixnum, Hash)>] Connection data, response status code and response headers
     def users_id_user_connections_post_with_http_info(id_user, opts = {})
       if @api_client.config.debugging
@@ -8336,7 +8325,7 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
@@ -8358,7 +8347,7 @@ module BudgeaClient
       form_params['resume'] = opts[:'resume'] if !opts[:'resume'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(opts[:'connection'])
       auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

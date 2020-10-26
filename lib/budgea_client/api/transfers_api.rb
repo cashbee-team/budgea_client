@@ -2888,13 +2888,12 @@ module BudgeaClient
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_transfer 
+    # @param transfer_validation_data 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :validated set it to initialize transfer on the bank website.
-    # @option opts [Integer] :id_recipient set the recipient of the transfer
     # @option opts [String] :expand 
     # @return [Transfer]
-    def users_id_user_transfers_id_transfer_post(id_user, id_transfer, opts = {})
-      data, _status_code, _headers = users_id_user_transfers_id_transfer_post_with_http_info(id_user, id_transfer, opts)
+    def users_id_user_transfers_id_transfer_post(id_user, id_transfer, transfer_validation_data, opts = {})
+      data, _status_code, _headers = users_id_user_transfers_id_transfer_post_with_http_info(id_user, id_transfer, transfer_validation_data, opts)
       data
     end
 
@@ -2902,12 +2901,11 @@ module BudgeaClient
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
     # @param id_transfer 
+    # @param transfer_validation_data 
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :validated set it to initialize transfer on the bank website.
-    # @option opts [Integer] :id_recipient set the recipient of the transfer
     # @option opts [String] :expand 
     # @return [Array<(Transfer, Fixnum, Hash)>] Transfer data, response status code and response headers
-    def users_id_user_transfers_id_transfer_post_with_http_info(id_user, id_transfer, opts = {})
+    def users_id_user_transfers_id_transfer_post_with_http_info(id_user, id_transfer, transfer_validation_data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_transfers_id_transfer_post ...'
       end
@@ -2918,6 +2916,10 @@ module BudgeaClient
       # verify the required parameter 'id_transfer' is set
       if @api_client.config.client_side_validation && id_transfer.nil?
         fail ArgumentError, "Missing the required parameter 'id_transfer' when calling TransfersApi.users_id_user_transfers_id_transfer_post"
+      end
+      # verify the required parameter 'transfer_validation_data' is set
+      if @api_client.config.client_side_validation && transfer_validation_data.nil?
+        fail ArgumentError, "Missing the required parameter 'transfer_validation_data' when calling TransfersApi.users_id_user_transfers_id_transfer_post"
       end
       # resource path
       local_var_path = '/users/{id_user}/transfers/{id_transfer}'.sub('{' + 'id_user' + '}', id_user.to_s).sub('{' + 'id_transfer' + '}', id_transfer.to_s)
@@ -2931,15 +2933,13 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
-      form_params['validated'] = opts[:'validated'] if !opts[:'validated'].nil?
-      form_params['id_recipient'] = opts[:'id_recipient'] if !opts[:'id_recipient'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(transfer_validation_data)
       auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -2956,27 +2956,23 @@ module BudgeaClient
     # Create a transfer object.
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
-    # @param amount amount of transfer
+    # @param transfer_data 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label reason of transfer
-    # @option opts [Date] :exec_date excution date of transfer
     # @option opts [String] :expand 
     # @return [Transfer]
-    def users_id_user_transfers_post(id_user, amount, opts = {})
-      data, _status_code, _headers = users_id_user_transfers_post_with_http_info(id_user, amount, opts)
+    def users_id_user_transfers_post(id_user, transfer_data, opts = {})
+      data, _status_code, _headers = users_id_user_transfers_post_with_http_info(id_user, transfer_data, opts)
       data
     end
 
     # Create a transfer object.
     # 
     # @param id_user Hint: you can use &#39;me&#39; or &#39;all&#39;
-    # @param amount amount of transfer
+    # @param transfer_data 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label reason of transfer
-    # @option opts [Date] :exec_date excution date of transfer
     # @option opts [String] :expand 
     # @return [Array<(Transfer, Fixnum, Hash)>] Transfer data, response status code and response headers
-    def users_id_user_transfers_post_with_http_info(id_user, amount, opts = {})
+    def users_id_user_transfers_post_with_http_info(id_user, transfer_data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransfersApi.users_id_user_transfers_post ...'
       end
@@ -2984,9 +2980,9 @@ module BudgeaClient
       if @api_client.config.client_side_validation && id_user.nil?
         fail ArgumentError, "Missing the required parameter 'id_user' when calling TransfersApi.users_id_user_transfers_post"
       end
-      # verify the required parameter 'amount' is set
-      if @api_client.config.client_side_validation && amount.nil?
-        fail ArgumentError, "Missing the required parameter 'amount' when calling TransfersApi.users_id_user_transfers_post"
+      # verify the required parameter 'transfer_data' is set
+      if @api_client.config.client_side_validation && transfer_data.nil?
+        fail ArgumentError, "Missing the required parameter 'transfer_data' when calling TransfersApi.users_id_user_transfers_post"
       end
       # resource path
       local_var_path = '/users/{id_user}/transfers'.sub('{' + 'id_user' + '}', id_user.to_s)
@@ -3000,16 +2996,13 @@ module BudgeaClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
-      form_params['amount'] = amount
-      form_params['label'] = opts[:'label'] if !opts[:'label'].nil?
-      form_params['exec_date'] = opts[:'exec_date'] if !opts[:'exec_date'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(transfer_data)
       auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
