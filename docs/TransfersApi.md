@@ -4,6 +4,7 @@ All URIs are relative to *https://demo.biapi.pro/2.0/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**payments_post**](TransfersApi.md#payments_post) | **POST** /payments | Create a Payment
 [**users_id_user_accounts_id_account_recipients_get**](TransfersApi.md#users_id_user_accounts_id_account_recipients_get) | **GET** /users/{id_user}/accounts/{id_account}/recipients | Returns the list of recipients.
 [**users_id_user_accounts_id_account_recipients_id_recipient_post**](TransfersApi.md#users_id_user_accounts_id_account_recipients_id_recipient_post) | **POST** /users/{id_user}/accounts/{id_account}/recipients/{id_recipient} | Continue addition of a recipient.
 [**users_id_user_accounts_id_account_recipients_id_recipient_transfers_get**](TransfersApi.md#users_id_user_accounts_id_account_recipients_id_recipient_transfers_get) | **GET** /users/{id_user}/accounts/{id_account}/recipients/{id_recipient}/transfers | Get transfers
@@ -44,6 +45,63 @@ Method | HTTP request | Description
 [**users_id_user_transfers_id_transfer_delete**](TransfersApi.md#users_id_user_transfers_id_transfer_delete) | **DELETE** /users/{id_user}/transfers/{id_transfer} | Cancel a transfer.
 [**users_id_user_transfers_id_transfer_post**](TransfersApi.md#users_id_user_transfers_id_transfer_post) | **POST** /users/{id_user}/transfers/{id_transfer} | Execute or edit a Transfer.
 [**users_id_user_transfers_post**](TransfersApi.md#users_id_user_transfers_post) | **POST** /users/{id_user}/transfers | Create a transfer object.
+
+
+# **payments_post**
+> Payment payments_post(opts)
+
+Create a Payment
+
+Form params : - id_connector (id) required: the connector to use - client_redirect_uri (string) required: uri to redirect the client to - client_state (string): state to retrieve on the client redirect uri - beneficiary (dict): default beneficiary to use for the payment instructions - instructions (array) required: payment instructions - validated (bool) required: to execute the payment immediatly<br><br>
+
+### Example
+```ruby
+# load the gem
+require 'budgea_client'
+# setup authorization
+BudgeaClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = BudgeaClient::TransfersApi.new
+
+opts = { 
+  expand: 'expand_example', # String | 
+  payment: BudgeaClient::CreatePayment.new # CreatePayment | Payment definition
+}
+
+begin
+  #Create a Payment
+  result = api_instance.payments_post(opts)
+  p result
+rescue BudgeaClient::ApiError => e
+  puts "Exception when calling TransfersApi->payments_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **String**|  | [optional] 
+ **payment** | [**CreatePayment**](CreatePayment.md)| Payment definition | [optional] 
+
+### Return type
+
+[**Payment**](Payment.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **users_id_user_accounts_id_account_recipients_get**

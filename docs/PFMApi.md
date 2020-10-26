@@ -384,7 +384,7 @@ nil (empty response body)
 
 Login to API with credentials
 
-Request a new user token by giving an username and a password.<br><br><br><br>
+Request a new user token by giving an username and a password. Or a manage payment token by giving a client<br><br><br><br>
 
 ### Example
 ```ruby
@@ -407,6 +407,7 @@ password = 'password_example' # String | password
 application = 'application_example' # String | application name
 
 opts = { 
+  grant_type: 'grant_type_example', # String | password when requesting a user token and client_credentials for a payment manage token (default: password)
   scope: 'scope_example' # String | scope requested for the token
 }
 
@@ -426,6 +427,7 @@ Name | Type | Description  | Notes
  **username** | **String**| username | 
  **password** | **String**| password | 
  **application** | **String**| application name | 
+ **grant_type** | **String**| password when requesting a user token and client_credentials for a payment manage token (default: password) | [optional] 
  **scope** | **String**| scope requested for the token | [optional] 
 
 ### Return type

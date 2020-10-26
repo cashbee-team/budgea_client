@@ -6759,9 +6759,8 @@ opts = {
   type: 'type_example', # String | bank additional login parameter
   birthdate: 'birthdate_example', # String | bank additional login parameter
   nuser: 'nuser_example', # String | bank additional login parameter
-  website: 'website_example', # String | bank additional login parameter
   openapiwebsite: 'openapiwebsite_example', # String | bank additional login parameter
-  website2: 'website_example', # String | bank additional login parameter
+  website: 'website_example', # String | bank additional login parameter
   login: 'login_example', # String | bank additional login parameter
   id_provider: 56, # Integer | ID of the provider
   resume: true, # BOOLEAN | Resume a decoupled connection creation
@@ -6794,9 +6793,8 @@ Name | Type | Description  | Notes
  **type** | **String**| bank additional login parameter | [optional] 
  **birthdate** | **String**| bank additional login parameter | [optional] 
  **nuser** | **String**| bank additional login parameter | [optional] 
- **website** | **String**| bank additional login parameter | [optional] 
  **openapiwebsite** | **String**| bank additional login parameter | [optional] 
- **website2** | **String**| bank additional login parameter | [optional] 
+ **website** | **String**| bank additional login parameter | [optional] 
  **login** | **String**| bank additional login parameter | [optional] 
  **id_provider** | **Integer**| ID of the provider | [optional] 
  **resume** | **BOOLEAN**| Resume a decoupled connection creation | [optional] 

@@ -488,100 +488,130 @@
     },
     "/auth/token": {
       "post": {
+        "description": "Request a new user token by giving an username and a password. Or a manage payment token by giving a client<br><br><br><br>",
+        "parameters": [
+          {
+            "name": "grant_type",
+            "type": "string",
+            "description": "password when requesting a user token and client_credentials for a payment manage token (default: password)",
+            "in": "formData",
+            "required": false
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "description": "username",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "description": "password",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "name": "application",
+            "type": "string",
+            "description": "application name",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "description": "scope requested for the token",
+            "in": "formData",
+            "required": false
+          }
+        ],
+        "summary": "Login to API with credentials",
+        "tags": [
+          "PFM"
+        ],
         "responses": {
           "200": {
+            "description": "",
+            "examples": {
+              "token": "A37mwXNCblbWX0LrvpRq60sZ6NBft/t5tsHhADie56/TJscwSi8NSjVmUIf6iLqpDwPe6lyFXM3z7E/zKf9eRHUWzx4QryEgmCtwZ0XgQb9SE+HwaenwqwTuv1gHZD+n",
+              "scope": "",
+              "user": { },
+              "profile": { }
+            },
             "schema": {
               "required": [
                 "token",
-                "scope",
-                "user",
-                "profile"
+                "scope"
               ],
               "type": "object",
               "properties": {
-                "profile": {
-                  "type": "object",
-                  "description": "the user profile data object"
+                "token": {
+                  "type": "string",
+                  "description": "the requested token"
                 },
                 "scope": {
                   "type": "string",
                   "description": "the token scope"
                 },
-                "token": {
-                  "type": "string",
-                  "description": "the requested token"
-                },
                 "expires_in": {
                   "type": "integer",
                   "description": "duration in seconds of the token validity"
-                },
-                "user": {
-                  "type": "object",
-                  "description": "the user data object"
                 }
               }
-            },
-            "description": "",
-            "examples": {
-              "profile": {},
-              "scope": "",
-              "token": "A37mwXNCblbWX0LrvpRq60sZ6NBft/t5tsHhADie56/TJscwSi8NSjVmUIf6iLqpDwPe6lyFXM3z7E/zKf9eRHUWzx4QryEgmCtwZ0XgQb9SE+HwaenwqwTuv1gHZD+n",
-              "user": {}
             }
           }
-        },
-        "tags": [
-          "PFM"
-        ],
-        "description": "Request a new user token by giving an username and a password.<br><br><br><br>",
-        "parameters": [
-          {
-            "required": true,
-            "in": "formData",
-            "type": "string",
-            "name": "username",
-            "description": "username"
-          },
-          {
-            "required": true,
-            "in": "formData",
-            "type": "string",
-            "name": "password",
-            "description": "password"
-          },
-          {
-            "required": true,
-            "in": "formData",
-            "type": "string",
-            "name": "application",
-            "description": "application name"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "scope",
-            "description": "scope requested for the token"
-          }
-        ],
-        "summary": "Login to API with credentials",
-        "consumes": [
-          "application/x-www-form-urlencoded"
-        ]
+        }
       },
       "delete": {
-        "responses": {
-          "200": {
-            "description": "standard HTTP response"
-          }
-        },
+        "description": "This endpoint removes the token in use.<br><br>",
+        "parameters": [ ],
+        "summary": "Remove user access",
         "tags": [
           "Authentication",
           "PFM"
         ],
-        "description": "This endpoint removes the token in use.<br><br>",
-        "parameters": [],
-        "summary": "Remove user access"
+        "responses": {
+          "200": {
+            "description": "standard HTTP response"
+          }
+        }
+      }
+    },
+    "/payments": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Form params : - id_connector (id) required: the connector to use - client_redirect_uri (string) required: uri to redirect the client to - client_state (string): state to retrieve on the client redirect uri - beneficiary (dict): default beneficiary to use for the payment instructions - instructions (array) required: payment instructions - validated (bool) required: to execute the payment immediatly<br><br>",
+        "parameters": [
+          {
+            "name": "expand",
+            "type": "string",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "in": "body",
+            "name": "payment",
+            "description": "Payment definition",
+            "schema": {
+              "$ref": "#/definitions/CreatePayment"
+            }
+          }
+        ],
+        "summary": "Create a Payment",
+        "tags": [
+          "Transfers"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Payment"
+            },
+            "description": "Successful POST on Payment resource"
+          }
+        }
       }
     },
     "/auth/token/access": {
@@ -8574,13 +8604,6 @@
             "in": "formData",
             "type": "string",
             "name": "nuser",
-            "description": "bank additional login parameter"
-          },
-          {
-            "required": false,
-            "in": "formData",
-            "type": "string",
-            "name": "website",
             "description": "bank additional login parameter"
           },
           {
@@ -24568,6 +24591,207 @@
         "name": "",
         "id_type": 0,
         "last_update": "2019-08-02 17:21:59.346961"
+      }
+    },
+    "CreatePayment": {
+      "type": "object",
+      "properties": {
+        "openapiwebsite": {
+          "type": "string"
+        },
+        "client_state": {
+          "type": "string"
+        },
+        "validated": {
+          "type": "boolean"
+        },
+        "register_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of payment registration"
+        },
+        "validate_uri": {
+          "type": "string",
+          "description": "URL to validate payment"
+        },
+        "client_redirect_uri": {
+          "type": "string",
+          "description": "URL to redirecting to client"
+        },
+        "id_connector": {
+          "type": "integer",
+          "description": "ID of the related connector source"
+        },
+        "instructions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CreatePaymentInstruction"
+          }
+        }
+      }
+    },
+    "Payment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "state": {
+          "type": "string",
+          "description": "State of the payment"
+        },
+        "error_code": {
+          "type": "string",
+          "description": "In case of error, the error code"
+        },
+        "error_description": {
+          "type": "string",
+          "description": "Error message"
+        },
+        "register_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of payment registration"
+        },
+        "validate_uri": {
+          "type": "string",
+          "description": "URL to validate payment"
+        },
+        "client_redirect_uri": {
+          "type": "string",
+          "description": "URL to redirecting to client"
+        },
+        "id_connector": {
+          "type": "integer",
+          "description": "ID of the related connector source"
+        },
+        "instructions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PaymentInstruction"
+          }
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "CreatePaymentInstruction": {
+      "type": "object",
+      "properties": {
+        "reference_id": {
+          "type": "string"
+        },
+        "execution_date_type": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "exec_date": {
+          "type": "string",
+          "format": "data-type"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "beneficiary": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "scheme_name": {
+              "type": "string"
+            },
+            "identification": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "PaymentInstruction": {
+      "type": "object",
+      "properties": {
+        "reference_id": {
+          "type": "string"
+        },
+        "execution_date_type": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "exec_date": {
+          "type": "string",
+          "format": "data-type"
+        },
+        "execution_date": {
+          "type": "string",
+          "format": "data-type"
+        },
+        "currency": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "prefix": {
+              "type": "boolean"
+            },
+            "crypto": {
+              "type": "boolean"
+            },
+            "precision": {
+              "type": "integer"
+            },
+            "marketcap": {
+              "type": "string"
+            },
+            "datetime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "beneficiary": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "scheme_name": {
+              "type": "string"
+            },
+            "identification": {
+              "type": "string"
+            },
+            "bic": {
+              "type": "string"
+            },
+            "merchant_scheme_name": {
+              "type": "string"
+            },
+            "merchant_identification": {
+              "type": "string"
+            }
+          }
+        }
       }
     },
     "Transfer": {
