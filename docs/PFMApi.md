@@ -380,7 +380,7 @@ nil (empty response body)
 
 
 # **auth_token_post**
-> InlineResponse2005 auth_token_post(username, password, application, opts)
+> InlineResponse2005 auth_token_post(username, password, opts)
 
 Login to API with credentials
 
@@ -404,16 +404,15 @@ username = 'username_example' # String | username
 
 password = 'password_example' # String | password
 
-application = 'application_example' # String | application name
-
 opts = { 
   grant_type: 'grant_type_example', # String | password when requesting a user token and client_credentials for a payment manage token (default: password)
+  application: 'application_example', # String | application name
   scope: 'scope_example' # String | scope requested for the token
 }
 
 begin
   #Login to API with credentials
-  result = api_instance.auth_token_post(username, password, application, opts)
+  result = api_instance.auth_token_post(username, password, opts)
   p result
 rescue BudgeaClient::ApiError => e
   puts "Exception when calling PFMApi->auth_token_post: #{e}"
@@ -426,8 +425,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| username | 
  **password** | **String**| password | 
- **application** | **String**| application name | 
  **grant_type** | **String**| password when requesting a user token and client_credentials for a payment manage token (default: password) | [optional] 
+ **application** | **String**| application name | [optional] 
  **scope** | **String**| scope requested for the token | [optional] 
 
 ### Return type

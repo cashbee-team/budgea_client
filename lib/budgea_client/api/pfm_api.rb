@@ -379,13 +379,13 @@ module BudgeaClient
     # Request a new user token by giving an username and a password. Or a manage payment token by giving a client<br><br><br><br>
     # @param username username
     # @param password password
-    # @param application application name
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grant_type password when requesting a user token and client_credentials for a payment manage token (default: password)
+    # @option opts [String] :application application name
     # @option opts [String] :scope scope requested for the token
     # @return [InlineResponse2005]
-    def auth_token_post(username, password, application, opts = {})
-      data, _status_code, _headers = auth_token_post_with_http_info(username, password, application, opts)
+    def auth_token_post(username, password, opts = {})
+      data, _status_code, _headers = auth_token_post_with_http_info(username, password, opts)
       data
     end
 
@@ -393,12 +393,12 @@ module BudgeaClient
     # Request a new user token by giving an username and a password. Or a manage payment token by giving a client&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
     # @param username username
     # @param password password
-    # @param application application name
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grant_type password when requesting a user token and client_credentials for a payment manage token (default: password)
+    # @option opts [String] :application application name
     # @option opts [String] :scope scope requested for the token
     # @return [Array<(InlineResponse2005, Fixnum, Hash)>] InlineResponse2005 data, response status code and response headers
-    def auth_token_post_with_http_info(username, password, application, opts = {})
+    def auth_token_post_with_http_info(username, password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PFMApi.auth_token_post ...'
       end
@@ -409,10 +409,6 @@ module BudgeaClient
       # verify the required parameter 'password' is set
       if @api_client.config.client_side_validation && password.nil?
         fail ArgumentError, "Missing the required parameter 'password' when calling PFMApi.auth_token_post"
-      end
-      # verify the required parameter 'application' is set
-      if @api_client.config.client_side_validation && application.nil?
-        fail ArgumentError, "Missing the required parameter 'application' when calling PFMApi.auth_token_post"
       end
       # resource path
       local_var_path = '/auth/token'
@@ -431,8 +427,8 @@ module BudgeaClient
       form_params = {}
       form_params['username'] = username
       form_params['password'] = password
-      form_params['application'] = application
       form_params['grant_type'] = opts[:'grant_type'] if !opts[:'grant_type'].nil?
+      form_params['application'] = opts[:'application'] if !opts[:'application'].nil?
       form_params['scope'] = opts[:'scope'] if !opts[:'scope'].nil?
 
       # http body (model)

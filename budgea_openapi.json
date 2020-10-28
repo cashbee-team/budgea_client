@@ -516,7 +516,7 @@
             "type": "string",
             "description": "application name",
             "in": "formData",
-            "required": true
+            "required": false
           },
           {
             "name": "scope",
