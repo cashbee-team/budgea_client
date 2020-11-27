@@ -23827,6 +23827,7 @@
             "decoupled",
             "passwordExpired",
             "webauthRequired",
+            "rateLimiting",
             "bug"
           ],
           "description": "State of Connection"
